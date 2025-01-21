@@ -1,25 +1,39 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
-import type { ConversionType, ConversionUnit } from '@/lib/conversion/types'
+import type { ConversionType, ConversionUnit, ConversionCategory } from '@/lib/conversion/types'
 import { convert, getUnits } from '@/lib/conversion/converter'
 import length from '@/lib/conversion/length'
 import weight from '@/lib/conversion/weight'
 import temperature from '@/lib/conversion/temperature'
 import area from '@/lib/conversion/area'
 import volume from '@/lib/conversion/volume'
+import time from '@/lib/conversion/time'
+import speed from '@/lib/conversion/speed'
+import angle from '@/lib/conversion/angle'
+import pressure from '@/lib/conversion/pressure'
+import power from '@/lib/conversion/power'
+import energy from '@/lib/conversion/energy'
+import force from '@/lib/conversion/force'
 
 interface UnitConverterProps {
   type: ConversionType
 }
 
-const categories = {
+const categories: Record<ConversionType, ConversionCategory> = {
   length,
   weight,
   temperature,
   area,
   volume,
-}
+  time,
+  speed,
+  angle,
+  pressure,
+  power,
+  energy,
+  force,
+} as const
 
 const MAX_INPUT_LENGTH = 20 // 最大输入长度（包括小数点）
 const MAX_DECIMAL_PLACES = 10 // 最大小数位数

@@ -4,6 +4,21 @@ import weight from './weight'
 import temperature from './temperature'
 import area from './area'
 import volume from './volume'
+import time from './time'
+import speed from './speed'
+import angle from './angle'
+import pressure from './pressure'
+import power from './power'
+import energy from './energy'
+import force from './force'
+import density from './density'
+import flow from './flow'
+import frequency from './frequency'
+import data from './data'
+import data_rate from './data_rate'
+import currency from './currency'
+import cooking from './cooking'
+import numeral from './numeral'
 
 const categories: Record<ConversionType, ConversionCategory> = {
   length,
@@ -11,7 +26,22 @@ const categories: Record<ConversionType, ConversionCategory> = {
   temperature,
   area,
   volume,
-}
+  time,
+  speed,
+  angle,
+  pressure,
+  power,
+  energy,
+  force,
+  density,
+  flow,
+  frequency,
+  data,
+  data_rate,
+  currency,
+  cooking,
+  numeral,
+} as const
 
 export function convert(
   type: ConversionType,

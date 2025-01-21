@@ -4,13 +4,21 @@ import UnitConverter from '@/components/conversion/UnitConverter'
 import type { ConversionType } from '@/lib/conversion/types'
 
 const typeLabels: Record<string, string> = {
+  // 基础单位
   length: '长度',
+  weight: '重量',
+  temperature: '温度',
+  
+  // 面积体积
   area: '面积',
   volume: '体积',
-  weight: '质量',
+  
+  // 时间相关
   time: '时间',
-  temperature: '温度',
   speed: '速度',
+  frequency: '频率',
+  
+  // 物理单位
   angle: '角度',
   pressure: '压力',
   power: '功率',
@@ -18,20 +26,45 @@ const typeLabels: Record<string, string> = {
   force: '力',
   density: '密度',
   flow: '流量',
-  frequency: '扭矩',
+  
+  // 数据单位
   data: '数据存储',
-  datarate: '数据传输',
+  data_rate: '数据传输速率',
+  
+  // 其他单位
   currency: '货币',
-  cooking: '烹饪',
-  numeral: '进制',
 }
 
 const typeDescriptions: Record<string, string> = {
+  // 基础单位
   length: '在线长度单位换算工具，支持米、厘米、英寸等单位间的转换。',
-  area: '在线面积单位换算工具，支持平方米、公顷、英亩等单位间的转换。',
-  volume: '在线体积和容量单位换算工具，支持立方米、升、加仑等单位间的转换。可用于液体和固体体积的计算。',
   weight: '在线重量单位换算工具，支持千克、磅、盎司等单位间的转换。',
   temperature: '在线温度单位换算工具，支持摄氏度、华氏度、开尔文等单位间的转换。',
+  
+  // 面积体积
+  area: '在线面积单位换算工具，支持平方米、公顷、英亩等单位间的转换。',
+  volume: '在线体积和容量单位换算工具，支持立方米、升、加仑等单位间的转换。可用于液体和固体体积的计算。',
+  
+  // 时间相关
+  time: '在线时间单位换算工具，支持从微秒到世纪的时间单位转换。',
+  speed: '在线速度单位换算工具，支持米/秒、千米/时、英里/时、节等单位间的转换。',
+  frequency: '在线频率单位换算工具，支持赫兹、千赫兹、兆赫兹等单位间的转换。',
+  
+  // 物理单位
+  angle: '在线角度单位换算工具，支持弧度、度、百分度等单位间的转换。',
+  pressure: '在线压力单位换算工具，支持帕斯卡、巴、大气压、托、毫米汞柱等单位间的转换。',
+  power: '在线功率单位换算工具，支持瓦特、千瓦、马力等单位间的转换。',
+  energy: '在线能量单位换算工具，支持焦耳、卡路里、千瓦时等单位间的转换。',
+  force: '在线力单位换算工具，支持牛顿、千克力、磅力、达因等单位间的转换。',
+  density: '在线密度单位换算工具，支持千克/立方米、克/立方厘米等单位间的转换。',
+  flow: '在线流量单位换算工具，支持立方米/秒、升/分钟等单位间的转换。',
+  
+  // 数据单位
+  data: '在线数据存储单位换算工具，支持比特、字节及其倍数单位（KB、MB、GB等）间的转换。',
+  data_rate: '在线数据传输速率单位换算工具，支持 bit/s、B/s 及其倍数单位（Kbps、Mbps等）间的转换。',
+  
+  // 其他单位
+  currency: '在线货币单位换算工具，支持美元、人民币、欧元等主要货币间的转换。',
 }
 
 export default async function ConversionPage({

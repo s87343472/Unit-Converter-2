@@ -4,13 +4,21 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const types = [
+  // 基础单位
   { id: 'length', icon: '📏', label: '长度' },
+  { id: 'weight', icon: '⚖️', label: '重量' },
+  { id: 'temperature', icon: '🌡️', label: '温度' },
+  
+  // 面积体积
   { id: 'area', icon: '⬜', label: '面积' },
   { id: 'volume', icon: '📦', label: '体积' },
-  { id: 'weight', icon: '⚖️', label: '质量' },
+  
+  // 时间相关
   { id: 'time', icon: '⏰', label: '时间' },
-  { id: 'temperature', icon: '🌡️', label: '温度' },
   { id: 'speed', icon: '🚀', label: '速度' },
+  { id: 'frequency', icon: '📊', label: '频率' },
+  
+  // 物理单位
   { id: 'angle', icon: '📐', label: '角度' },
   { id: 'pressure', icon: '🎈', label: '压力' },
   { id: 'power', icon: '⚡', label: '功率' },
@@ -18,7 +26,13 @@ const types = [
   { id: 'force', icon: '💪', label: '力' },
   { id: 'density', icon: '💧', label: '密度' },
   { id: 'flow', icon: '🌊', label: '流量' },
-  { id: 'torque', icon: '📻', label: '扭矩' }
+  
+  // 数据单位
+  { id: 'data', icon: '💾', label: '数据存储' },
+  { id: 'data_rate', icon: '📶', label: '数据传输速率' },
+  
+  // 其他单位
+  { id: 'currency', icon: '💰', label: '货币' }
 ]
 
 export default function TypeNav() {
