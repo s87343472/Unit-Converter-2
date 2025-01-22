@@ -257,25 +257,201 @@ function appReducer(state: AppState, action: AppAction): AppState {
 *   实现数据预取和缓存
 *   处理服务器端渲染
 
-## 9. 性能优化
+## 9. 单位转换组件架构
 
-### 9.1 静态生成
+### 9.1 组件层次结构
 
-*   使用 `generateStaticParams` 预生成路由
-*   实现增量静态再生成 (ISR)
-*   优化元数据生成
+```typescript
+// 页面级组件
+UnitConverterPage
+├── UnitConverterLayout      // 布局容器
+│   ├── Header              // 顶部导航
+│   │   ├── Breadcrumb     // 面包屑导航
+│   │   └── Title          // 页面标题
+│   ├── InputSection       // 左侧输入区域
+│   │   ├── NumberInput   // 数值输入框
+│   │   └── UnitSelector  // 单位选择器
+│   ├── ResultSection     // 右侧结果区域
+│   │   ├── ResultList    // 结果列表
+│   │   └── CopyButton   // 复制按钮
+│   └── Footer           // 底部区域
+```
 
-### 9.2 动态导入
+### 9.2 核心组件规范
 
-*   组件懒加载
-*   路由分组
-*   选择性预渲染
+#### 9.2.1 UnitConverterLayout
 
-### 9.3 缓存策略
+```typescript
+interface UnitConverterLayoutProps {
+  type: UnitType;               // 转换类型
+  defaultFromUnit?: string;     // 默认输入单位
+  defaultToUnit?: string;       // 默认输出单位
+  defaultValue?: number;        // 默认输入值
+}
 
-*   使用 SWR 进行数据缓存
-*   实现 HTTP 缓存
-*   优化静态资源缓存
+// 组件职责：
+// 1. 管理整体布局和响应式设计
+// 2. 协调子组件间的状态同步
+// 3. 处理全局事件和错误
+```
+
+#### 9.2.2 NumberInput
+
+```typescript
+interface NumberInputProps {
+  value: string;
+  onChange: (value: string) => void;
+  onValidate?: (value: string) => boolean;
+  maxLength?: number;
+  precision?: number;
+  allowScientific?: boolean;
+}
+
+// 组件职责：
+// 1. 处理数值输入和验证
+// 2. 支持科学计数法
+// 3. 处理粘贴事件
+// 4. 提供输入提示
+```
+
+#### 9.2.3 UnitSelector
+
+```typescript
+interface UnitSelectorProps {
+  units: Unit[];
+  selectedUnit: string;
+  onSelect: (unit: string) => void;
+  layout?: 'horizontal' | 'vertical';
+}
+
+// 组件职责：
+// 1. 展示可选单位列表
+// 2. 处理单位选择事件
+// 3. 支持键盘导航
+// 4. 提供单位搜索功能
+```
+
+#### 9.2.4 ResultList
+
+```typescript
+interface ResultListProps {
+  results: ConversionResult[];
+  onCopy?: (result: ConversionResult) => void;
+  formatOptions?: NumberFormatOptions;
+}
+
+// 组件职责：
+// 1. 展示转换结果
+// 2. 处理结果复制
+// 3. 格式化数值显示
+// 4. 提供交互反馈
+```
+
+### 9.3 状态管理
+
+#### 9.3.1 组件状态
+
+```typescript
+interface ConverterState {
+  inputValue: string;          // 输入值
+  fromUnit: string;           // 输入单位
+  toUnit: string;            // 输出单位
+  results: ConversionResult[]; // 转换结果
+  error?: string;            // 错误信息
+  isLoading: boolean;        // 加载状态
+}
+
+// 状态更新流程：
+// 1. 用户输入 -> 验证输入 -> 更新状态 -> 触发转换
+// 2. 单位选择 -> 更新状态 -> 触发转换
+// 3. 转换完成 -> 更新结果 -> 渲染显示
+```
+
+### 9.4 性能优化
+
+#### 9.4.1 渲染优化
+
+```typescript
+// 1. 使用 React.memo 优化纯展示组件
+const ResultItem = React.memo<ResultItemProps>(({
+  value,
+  unit,
+  onCopy
+}) => {
+  // 组件实现
+});
+
+// 2. 使用虚拟列表优化长列表渲染
+const VirtualResultList: React.FC<VirtualResultListProps> = ({
+  results,
+  itemHeight,
+  containerHeight
+}) => {
+  // 虚拟列表实现
+};
+```
+
+#### 9.4.2 计算优化
+
+```typescript
+// 1. 使用缓存优化频繁计算
+const memoizedConvert = useMemo(() => {
+  return convert(value, fromUnit, toUnit);
+}, [value, fromUnit, toUnit]);
+
+// 2. 使用防抖优化实时转换
+const debouncedConvert = useCallback(
+  debounce((value: string) => {
+    // 转换逻辑
+  }, 300),
+  []
+);
+```
+
+### 9.5 错误处理
+
+```typescript
+// 1. 输入验证
+const validateInput = (value: string): ValidationResult => {
+  // 验证规则实现
+};
+
+// 2. 异常处理
+const handleConversionError = (error: Error): void => {
+  // 错误处理逻辑
+};
+
+// 3. 边界情况
+const handleEdgeCases = (value: number): void => {
+  // 边界情况处理
+};
+```
+
+### 9.6 响应式设计
+
+```typescript
+// 1. 布局适配
+const getLayoutConfig = (screenWidth: number) => {
+  switch (true) {
+    case screenWidth >= 1024:
+      return desktopLayout;
+    case screenWidth >= 768:
+      return tabletLayout;
+    default:
+      return mobileLayout;
+  }
+};
+
+// 2. 组件适配
+const ResponsiveConverter: React.FC = () => {
+  const layout = useResponsiveLayout();
+  return (
+    <UnitConverterLayout layout={layout}>
+      {/* 子组件 */}
+    </UnitConverterLayout>
+  );
+};
+```
 
 ## 10. 安全措施
 
