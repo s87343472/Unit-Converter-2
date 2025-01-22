@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { locales, localeNames, type ValidLocale, defaultLocale } from '@/lib/i18n/config'
 import { useLanguage } from './LanguageProvider'
-import translations from '@/lib/i18n/translations'
+import { translations } from '@/lib/i18n/translations'
 
 const LANGUAGE_KEY = 'preferred_language'
 

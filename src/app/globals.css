@@ -27,12 +27,28 @@
 
 /* 隐藏滚动条但保持可滚动 */
 .hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* 滚动按钮渐变效果 */
+.scroll-fade-left {
+  background: linear-gradient(to right, white 30%, transparent 100%);
+}
+
+.scroll-fade-right {
+  background: linear-gradient(to left, white 30%, transparent 100%);
+}
+
+/* 导航栏滚动容器 */
+.nav-scroll-container {
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
 }
 
 :root {

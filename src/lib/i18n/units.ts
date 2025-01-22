@@ -43,6 +43,10 @@ export interface UnitInfo {
     title: string
     description: string
   }
+  knowledge?: {
+    title: string
+    items: string[]
+  }
 }
 
 export interface UnitTranslation {

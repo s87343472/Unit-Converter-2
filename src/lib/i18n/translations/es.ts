@@ -74,7 +74,8 @@ const translation: Translation = {
     selectUnit: 'Seleccionar unidad',
     inputValue: 'Ingresar valor',
     convertResult: 'Resultado de la conversión',
-    searchUnit: 'Buscar unidad'
+    searchUnit: 'Buscar unidad',
+    length: 'Longitud'
   },
   units: {
     length: {
@@ -325,12 +326,51 @@ const translation: Translation = {
     copy: 'Copiar'
   },
   messages: {
-    copied: 'Copiado',
+    copied: 'Copiado al portapapeles',
     error: 'Error',
     invalidNumber: 'Número inválido',
-    selectUnit: 'Seleccionar unidad',
-    conversionError: 'Error de conversión',
+    selectUnit: 'Seleccione una unidad',
+    conversionError: 'Error en la conversión',
     invalidTemperature: 'Temperatura inválida'
+  },
+  footer: {
+    about: 'Acerca de',
+    description: 'Herramientas gratuitas de conversión de unidades en línea',
+    contact: 'Contacto',
+    email: 'contacto@unitconverter.com',
+    legal: 'Legal'
+  },
+  converter: {
+    title: 'Conversor de Unidades',
+    description: 'Herramienta en línea para convertir entre diferentes unidades de medida con precisión',
+    from: 'De',
+    to: 'A',
+    instructions: {
+      title: 'Instrucciones de uso',
+      steps: [
+        'Ingrese el valor que desea convertir en el campo "De"',
+        'Seleccione la unidad de origen de la lista',
+        'Los resultados se mostrarán automáticamente en todas las unidades disponibles',
+        'Use el botón de copiar para guardar el resultado en el portapapeles'
+      ]
+    },
+    limitations: {
+      title: 'Limitaciones',
+      items: [
+        'Precisión garantizada hasta 10 dígitos significativos',
+        'Los valores extremadamente grandes o pequeños pueden mostrar notación científica',
+        'Las conversiones se realizan utilizando el Sistema Internacional de Unidades (SI) como referencia'
+      ]
+    },
+    knowledge: {
+      title: '¿Sabías que...?',
+      items: [
+        'El año luz no es una medida de tiempo, sino de distancia. Es la distancia que recorre la luz en un año.',
+        'La unidad astronómica (AU) se basa en la distancia media entre la Tierra y el Sol.',
+        'El metro se definió originalmente como una diezmillonésima parte de la distancia entre el polo norte y el ecuador.',
+        'Actualmente, el metro se define en función de la velocidad de la luz en el vacío.'
+      ]
+    }
   }
 }
 

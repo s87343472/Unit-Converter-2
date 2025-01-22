@@ -76,6 +76,7 @@ export interface CommonTranslation {
   inputValue: string
   convertResult: string
   searchUnit: string
+  length: string
 }
 
 export interface UnitTranslation {
@@ -98,6 +99,31 @@ export interface Translation {
     selectUnit: string
     conversionError: string
     invalidTemperature: string
+  }
+  footer?: {
+    about: string
+    description: string
+    contact: string
+    email: string
+    legal: string
+  }
+  converter?: {
+    title: string
+    description: string
+    from: string
+    to: string
+    instructions: {
+      title: string
+      steps: string[]
+    }
+    limitations: {
+      title: string
+      items: string[]
+    }
+    knowledge: {
+      title: string
+      items: string[]
+    }
   }
 }
 
