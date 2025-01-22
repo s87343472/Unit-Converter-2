@@ -826,5 +826,192 @@ jobs:
 - 记录性能测试指标
 - 生成可访问性报告
 
+## 7. 单位转换组件测试规范
+
+### 7.1 组件测试
+
+#### 7.1.1 UnitConverterLayout 测试
+```typescript
+describe('UnitConverterLayout', () => {
+  it('should render with correct layout structure', () => {
+    render(<UnitConverterLayout type="length" />);
+    
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByRole('main')).toBeInTheDocument();
+    expect(screen.getByTestId('input-section')).toBeInTheDocument();
+    expect(screen.getByTestId('result-section')).toBeInTheDocument();
+  });
+
+  it('should handle unit conversion correctly', async () => {
+    render(<UnitConverterLayout type="length" defaultValue={1} defaultFromUnit="m" defaultToUnit="cm" />);
+    
+    const input = screen.getByRole('textbox');
+    await userEvent.type(input, '2');
+    
+    expect(screen.getByText('200')).toBeInTheDocument();
+    expect(screen.getByText('cm')).toBeInTheDocument();
+  });
+});
+```
+
+#### 7.1.2 NumberInput 测试
+```typescript
+describe('NumberInput', () => {
+  it('should validate scientific notation', async () => {
+    const onChange = jest.fn();
+    render(<NumberInput value="" onChange={onChange} allowScientific />);
+    
+    const input = screen.getByRole('textbox');
+    await userEvent.type(input, '1.23e-4');
+    
+    expect(onChange).toHaveBeenCalledWith('1.23e-4');
+  });
+
+  it('should limit decimal places', async () => {
+    const onChange = jest.fn();
+    render(<NumberInput value="" onChange={onChange} precision={2} />);
+    
+    const input = screen.getByRole('textbox');
+    await userEvent.type(input, '1.234');
+    
+    expect(onChange).toHaveBeenCalledWith('1.23');
+  });
+});
+```
+
+#### 7.1.3 UnitSelector 测试
+```typescript
+describe('UnitSelector', () => {
+  const units = [
+    { value: 'm', label: 'meters' },
+    { value: 'cm', label: 'centimeters' }
+  ];
+
+  it('should handle keyboard navigation', async () => {
+    render(<UnitSelector units={units} selectedUnit="m" onSelect={() => {}} />);
+    
+    const list = screen.getByRole('listbox');
+    await userEvent.tab();
+    await userEvent.keyboard('{arrowdown}');
+    
+    expect(screen.getByText('centimeters')).toHaveFocus();
+  });
+
+  it('should filter units by search', async () => {
+    render(<UnitSelector units={units} selectedUnit="m" onSelect={() => {}} />);
+    
+    const search = screen.getByPlaceholderText('Search units');
+    await userEvent.type(search, 'cent');
+    
+    expect(screen.getByText('centimeters')).toBeInTheDocument();
+    expect(screen.queryByText('meters')).not.toBeInTheDocument();
+  });
+});
+```
+
+### 7.2 性能测试
+
+#### 7.2.1 渲染性能
+```typescript
+describe('UnitConverter Performance', () => {
+  it('should render large lists efficiently', async () => {
+    const start = performance.now();
+    render(<UnitConverterLayout type="length" />);
+    const end = performance.now();
+    
+    expect(end - start).toBeLessThan(100); // 渲染时间应小于 100ms
+  });
+
+  it('should handle frequent updates efficiently', async () => {
+    const { rerender } = render(<UnitConverterLayout type="length" value="1" />);
+    
+    const start = performance.now();
+    for (let i = 0; i < 100; i++) {
+      rerender(<UnitConverterLayout type="length" value={String(i)} />);
+    }
+    const end = performance.now();
+    
+    expect(end - start).toBeLessThan(500); // 100次更新应小于 500ms
+  });
+});
+```
+
+#### 7.2.2 内存性能
+```typescript
+describe('Memory Usage', () => {
+  it('should not leak memory during unit changes', async () => {
+    const { unmount } = render(<UnitConverterLayout type="length" />);
+    const initialMemory = performance.memory.usedJSHeapSize;
+    
+    // 模拟多次单位切换
+    for (let i = 0; i < 100; i++) {
+      const select = screen.getByRole('combobox');
+      await userEvent.selectOptions(select, ['m', 'cm'][i % 2]);
+    }
+    
+    unmount();
+    const finalMemory = performance.memory.usedJSHeapSize;
+    
+    expect(finalMemory - initialMemory).toBeLessThan(1000000); // 内存增长应小于 1MB
+  });
+});
+```
+
+### 7.3 可访问性测试
+
+```typescript
+describe('Accessibility', () => {
+  it('should be keyboard navigable', async () => {
+    render(<UnitConverterLayout type="length" />);
+    
+    await userEvent.tab(); // 第一个输入框
+    expect(screen.getByRole('textbox')).toHaveFocus();
+    
+    await userEvent.tab(); // 第一个单位选择器
+    expect(screen.getByRole('combobox')).toHaveFocus();
+    
+    await userEvent.tab(); // 第二个单位选择器
+    expect(screen.getAllByRole('combobox')[1]).toHaveFocus();
+  });
+
+  it('should have proper ARIA labels', () => {
+    render(<UnitConverterLayout type="length" />);
+    
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-label');
+    expect(screen.getAllByRole('combobox')[0]).toHaveAttribute('aria-label');
+    expect(screen.getAllByRole('combobox')[1]).toHaveAttribute('aria-label');
+  });
+});
+```
+
+### 7.4 国际化测试
+
+```typescript
+describe('Internationalization', () => {
+  it('should display correct translations', async () => {
+    render(
+      <LanguageProvider initialLanguage="zh">
+        <UnitConverterLayout type="length" />
+      </LanguageProvider>
+    );
+    
+    expect(screen.getByText('长度转换')).toBeInTheDocument();
+    expect(screen.getByText('米')).toBeInTheDocument();
+    expect(screen.getByText('厘米')).toBeInTheDocument();
+  });
+
+  it('should handle RTL languages', async () => {
+    render(
+      <LanguageProvider initialLanguage="ar">
+        <UnitConverterLayout type="length" />
+      </LanguageProvider>
+    );
+    
+    const container = screen.getByTestId('converter-layout');
+    expect(container).toHaveStyle({ direction: 'rtl' });
+  });
+});
+```
+
 ---
 
