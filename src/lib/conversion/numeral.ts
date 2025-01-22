@@ -1,36 +1,38 @@
-import { ConversionCategory } from './types'
+import type { ConversionCategory } from './types'
 
 // 基准单位为十进制
 const numeral: ConversionCategory = {
   id: 'numeral',
   baseUnit: 'decimal',
   units: {
-    binary: {
-      id: 'binary',
-      label: '二进制',
-      symbol: '0b',
-      toBase: (value: number) => parseInt(value.toString(), 2),
-      fromBase: (value: number) => parseInt(value.toString(10), 10).toString(2),
-    },
-    octal: {
-      id: 'octal',
-      label: '八进制',
-      symbol: '0o',
-      toBase: (value: number) => parseInt(value.toString(), 8),
-      fromBase: (value: number) => parseInt(value.toString(10), 10).toString(8),
-    },
     decimal: {
       id: 'decimal',
       label: '十进制',
-      symbol: '',
+      symbol: 'dec',
       ratio: 1,
+      toBase: (value: number) => value,
+      fromBase: (value: number) => value,
+    },
+    binary: {
+      id: 'binary',
+      label: '二进制',
+      symbol: 'bin',
+      toBase: (value: number) => parseInt(value.toString(), 2),
+      fromBase: (value: number) => value.toString(2),
     },
     hexadecimal: {
       id: 'hexadecimal',
       label: '十六进制',
-      symbol: '0x',
+      symbol: 'hex',
       toBase: (value: number) => parseInt(value.toString(), 16),
-      fromBase: (value: number) => parseInt(value.toString(10), 10).toString(16).toUpperCase(),
+      fromBase: (value: number) => value.toString(16).toUpperCase(),
+    },
+    octal: {
+      id: 'octal',
+      label: '八进制',
+      symbol: 'oct',
+      toBase: (value: number) => parseInt(value.toString(), 8),
+      fromBase: (value: number) => value.toString(8),
     },
     base3: {
       id: 'base3',

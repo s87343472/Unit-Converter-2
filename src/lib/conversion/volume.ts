@@ -63,13 +63,13 @@ const volume: ConversionCategory = {
       id: 'gallon_us',
       label: '美制加仑',
       symbol: 'gal',
-      ratio: 0.003785, // 1 gal ≈ 0.003785 m³
+      ratio: 0.003785411784, // 1 US gal = 3.785411784 L
     },
     gallon_uk: {
       id: 'gallon_uk',
       label: '英制加仑',
       symbol: 'gal (UK)',
-      ratio: 0.004546, // 1 gal (UK) ≈ 0.004546 m³
+      ratio: 0.00454609, // 1 UK gal = 4.54609 L
     },
     quart_us: {
       id: 'quart_us',
@@ -82,6 +82,12 @@ const volume: ConversionCategory = {
       label: '美制品脱',
       symbol: 'pt',
       ratio: 0.000473176, // 1 pt ≈ 0.000473176 m³
+    },
+    pint_uk: {
+      id: 'pint_uk',
+      label: '英制品脱',
+      symbol: 'pt (UK)',
+      ratio: 0.000568261, // 1 pt (UK) ≈ 0.000568261 m³
     },
     fluid_ounce_us: {
       id: 'fluid_ounce_us',

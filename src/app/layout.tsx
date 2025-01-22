@@ -1,35 +1,37 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/navigation/Header'
+import LanguageProvider from '@/components/shared/LanguageProvider'
+import { defaultLocale } from '@/lib/i18n/config'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Unit Converter',
-  description: '在线单位转换工具',
+  title: {
+    template: '%s | Unit Converter',
+    default: 'Unit Converter',
+  },
+  description: 'A powerful online unit conversion tool that supports various unit conversions.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode
-  params: { lang: string }
 }) {
   return (
-    <html lang={params.lang}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header lang={params.lang} />
-        <main className="min-h-screen bg-white">{children}</main>
+    <html suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <LanguageProvider defaultLanguage={defaultLocale}>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

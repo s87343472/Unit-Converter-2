@@ -41,11 +41,17 @@ const force: ConversionCategory = {
       symbol: 'lbf',
       ratio: 4.44822, // 1 lbf ≈ 4.44822 N
     },
+    ounce_force: {
+      id: 'ounce_force',
+      label: '盎司力',
+      symbol: 'ozf',
+      ratio: 0.278014, // 1 ozf = 1/16 lbf ≈ 0.278014 N
+    },
     ton_force: {
       id: 'ton_force',
       label: '吨力',
       symbol: 'tf',
-      ratio: 9806.65, // 1 tf = 1000 kgf = 9806.65 N
+      ratio: 8896.44, // 1 tf = 2000 lbf ≈ 8896.44 N
     },
     gram_force: {
       id: 'gram_force',

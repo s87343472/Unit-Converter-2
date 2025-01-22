@@ -57,7 +57,7 @@ const pressure: ConversionCategory = {
       id: 'psi',
       label: '磅力/平方英寸',
       symbol: 'psi',
-      ratio: 6894.76, // 1 psi ≈ 6,894.76 Pa
+      ratio: 6894.557823129252, // 1 psi = 101325 Pa / 14.7 psi = 6894.557823129252 Pa
     },
     ksi: {
       id: 'ksi',

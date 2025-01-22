@@ -1,4 +1,5 @@
 import { convert, getUnits, getBaseUnit, isValidUnit } from '../converter'
+import type { ConversionType } from '../types'
 
 describe('Unit Converter', () => {
   describe('Length Conversion', () => {
@@ -15,8 +16,9 @@ describe('Unit Converter', () => {
     })
 
     it('should handle invalid units', () => {
-      const result = convert('length', 1, 'invalid', 'meter')
-      expect(result.error).toBeDefined()
+      expect(() => {
+        convert('length', 1, 'invalid', 'meter')
+      }).toThrow('Invalid unit: invalid')
     })
   })
 
@@ -64,6 +66,42 @@ describe('Unit Converter', () => {
     it('should validate units', () => {
       expect(isValidUnit('length', 'meter')).toBe(true)
       expect(isValidUnit('length', 'invalid')).toBe(false)
+    })
+  })
+
+  // 测试基础功能
+  describe('Basic Functions', () => {
+    test('getUnits should return array of units', () => {
+      const lengthUnits = getUnits('length')
+      expect(Array.isArray(lengthUnits)).toBe(true)
+      expect(lengthUnits.length).toBeGreaterThan(0)
+    })
+
+    test('getBaseUnit should return base unit', () => {
+      expect(getBaseUnit('length')).toBe('meter')
+      expect(getBaseUnit('weight')).toBe('kilogram')
+      expect(getBaseUnit('temperature')).toBe('celsius')
+    })
+
+    test('isValidUnit should validate units', () => {
+      expect(isValidUnit('length', 'meter')).toBe(true)
+      expect(isValidUnit('length', 'invalid_unit')).toBe(false)
+    })
+  })
+
+  // 测试错误处理
+  describe('Error Handling', () => {
+    test('should handle invalid conversion type', () => {
+      expect(() => {
+        // @ts-ignore
+        convert('invalid_type', 1, 'meter', 'centimeter')
+      }).toThrow()
+    })
+
+    test('should handle invalid units', () => {
+      expect(() => {
+        convert('length', 1, 'invalid_from', 'invalid_to')
+      }).toThrow('Invalid unit: invalid_from')
     })
   })
 }) 

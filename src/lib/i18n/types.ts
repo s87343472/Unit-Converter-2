@@ -1,43 +1,90 @@
-export interface Translation {
-  common: {
+import type { UnitType, UnitInfo } from '@/lib/i18n/units'
+
+export type ValidLocale = 'en' | 'zh' | 'de' | 'fr' | 'ja' | 'ru' | 'es' | 'la'
+
+export interface CommonTranslation {
+  title: string
+  description: string
+  loading: string
+  error: string
+  copy: string
+  copied: string
+  settings: string
+  language: string
+  theme: string
+  about: string
+  contact: string
+  home: string
+  selectType: string
+  selectLanguage: string
+  pageNotFound: string
+  pageNotFoundDesc: string
+  backToHome: string
+  copyright: string
+  categories: {
+    basic: string
+    area_volume: string
+    time_related: string
+    physics: string
+    data: string
+    others: string
+  }
+  instructions: {
     title: string
-    description: string
-    selectType: string
-  }
-  units: {
-    length: {
-      title: string
-      units: {
-        meter: string
-        kilometer: string
-        centimeter: string
-        millimeter: string
-        inch: string
-        foot: string
-        yard: string
-        mile: string
-      }
+    steps: {
+      input: string
+      select: string
+      auto: string
+      copy: string
     }
-    weight: {
+    features: {
       title: string
-      units: {
-        kilogram: string
-        gram: string
-        milligram: string
-        pound: string
-        ounce: string
-        ton: string
+      range: {
+        title: string
+        description: string
       }
-    }
-    temperature: {
-      title: string
-      units: {
-        celsius: string
-        fahrenheit: string
-        kelvin: string
+      copy: {
+        title: string
+        description: string
+      }
+      paste: {
+        title: string
+        description: string
       }
     }
   }
+  customOrder: string
+  byName: string
+  byCreatedTime: string
+  byLastUsed: string
+  clearAll: string
+  noFavorites: string
+  remove: string
+  clearConfirmTitle: string
+  clearConfirmMessage: string
+  cancel: string
+  confirm: string
+  addFavorite: string
+  removeFavorite: string
+  enterFavoriteName: string
+  favoriteNamePlaceholder: string
+  showFavorites: string
+  hideFavorites: string
+  from: string
+  to: string
+  selectUnit: string
+  inputValue: string
+  convertResult: string
+  searchUnit: string
+}
+
+export interface UnitTranslation {
+  [key: string]: UnitInfo
+}
+
+export interface Translation {
+  common: CommonTranslation
+  units: Record<UnitType, UnitInfo>
   buttons: {
     convert: string
     clear: string
@@ -48,5 +95,12 @@ export interface Translation {
     copied: string
     error: string
     invalidNumber: string
+    selectUnit: string
+    conversionError: string
+    invalidTemperature: string
   }
+}
+
+export interface TranslationMap {
+  [locale: string]: Translation
 } 

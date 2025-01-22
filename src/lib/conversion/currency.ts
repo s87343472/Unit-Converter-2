@@ -15,37 +15,37 @@ const currency: ConversionCategory = {
     cny: {
       id: 'cny',
       label: '人民币',
-      ratio: 0.14, // 1 CNY = 0.14 USD (示例汇率)
+      ratio: 0.140845070422535, // 1 USD = 7.10 CNY
       symbol: '¥',
     },
     eur: {
       id: 'eur',
       label: '欧元',
-      ratio: 1.09, // 1 EUR = 1.09 USD (示例汇率)
+      ratio: 1.0869565217391304, // 1 EUR = 1.09 USD
       symbol: '€',
     },
     gbp: {
       id: 'gbp',
       label: '英镑',
-      ratio: 1.27, // 1 GBP = 1.27 USD (示例汇率)
+      ratio: 1.27, // 1 GBP = 1.27 USD
       symbol: '£',
     },
     jpy: {
       id: 'jpy',
       label: '日元',
-      ratio: 0.0068, // 1 JPY = 0.0068 USD (示例汇率)
+      ratio: 0.006756756756757, // 1 USD = 148 JPY
       symbol: '¥',
     },
     krw: {
       id: 'krw',
       label: '韩元',
-      ratio: 0.00076, // 1 KRW = 0.00076 USD (示例汇率)
+      ratio: 0.000769230769231, // 1 USD = 1300 KRW
       symbol: '₩',
     },
     hkd: {
       id: 'hkd',
       label: '港元',
-      ratio: 0.13, // 1 HKD = 0.13 USD (示例汇率)
+      ratio: 0.127877237851662, // 1 USD = 7.82 HKD
       symbol: 'HK$',
     },
     aud: {

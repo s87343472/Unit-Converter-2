@@ -1,5 +1,5 @@
 export const defaultLocale = 'en'
-export const locales = ['en', 'zh', 'de', 'fr', 'ja', 'ru', 'es'] as const
+export const locales = ['en', 'zh', 'de', 'fr', 'ja', 'ru', 'es', 'la'] as const
 export type ValidLocale = typeof locales[number]
 
 export const localeNames: Record<ValidLocale, string> = {
@@ -9,7 +9,8 @@ export const localeNames: Record<ValidLocale, string> = {
   fr: 'Français',
   ja: '日本語',
   ru: 'Русский',
-  es: 'Español'
+  es: 'Español',
+  la: 'Latina'
 }
 
 export function isValidLocale(locale: string): locale is ValidLocale {
@@ -24,5 +25,6 @@ export const localeDirections: Record<ValidLocale, 'ltr' | 'rtl'> = {
   fr: 'ltr',
   ja: 'ltr',
   ru: 'ltr',
-  es: 'ltr'
+  es: 'ltr',
+  la: 'ltr'
 } 

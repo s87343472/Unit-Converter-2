@@ -51,25 +51,25 @@ const time: ConversionCategory = {
       id: 'month',
       label: '月',
       symbol: 'mo',
-      ratio: 2592000, // 1 月 ≈ 30 天 = 2592000 秒（平均值）
+      ratio: 2628000, // 修正为 30.4166667 天
     },
     year: {
       id: 'year',
       label: '年',
       symbol: 'yr',
-      ratio: 31536000, // 1 年 = 365 天 = 31536000 秒（非闰年）
+      ratio: 31536000, // 修正为 365 天
     },
     decade: {
       id: 'decade',
       label: '十年',
       symbol: 'dec',
-      ratio: 315360000, // 1 十年 = 10 年
+      ratio: 315360000, // 修正为 10 年
     },
     century: {
       id: 'century',
       label: '世纪',
       symbol: 'c',
-      ratio: 3153600000, // 1 世纪 = 100 年
+      ratio: 3153600000, // 修正为 100 年
     },
   },
 }

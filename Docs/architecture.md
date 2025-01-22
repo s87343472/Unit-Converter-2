@@ -1,5 +1,3 @@
-2. architecture.md
-
 # 系统架构文档
 
 ## 1. 目录结构
@@ -7,62 +5,82 @@
 ```
 Unit-Converter/
 ├── app/                    # Next.js 应用主目录
-│   ├── [lang]/            # 多语言支持 (例如：/en, /zh)
+│   ├── [lang]/            # 多语言支持 (en, zh)
 │   │   ├── page.tsx       # 首页
-│   │   ├── layout.tsx     # 根布局
-│   │   └── [category]/    # 转换类别
-│   │       ├── page.tsx   # 类别主页
-│   │       └── [conversion]/ # 具体转换
-│   │           └── page.tsx  # 转换页面
-│   └── api/               # API 路由
-│       └── convert        # 单位转换 API
-│           └── route.ts   # 具体处理逻辑
+│   │   └── layout.tsx     # 根布局
 ├── components/            # 组件目录
 │   ├── layout/           # 布局组件
-│   ├── navigation/       # 导航组件
 │   ├── conversion/       # 转换组件
-│   ├── display/         # 展示组件
-│   ├── feedback/        # 反馈组件
 │   └── shared/          # 共享组件
-│       └── LanguageProvider.tsx # 语言切换组件
-├── public/              # 静态资源
-│   └── locales/           # 语言文件
-│       ├── en/            # 英文
-│       │   ├── common.json
-│       │   ├── home.json
-│       │   └── ...
-│       └── zh/            # 中文
-│           ├── common.json
-│           ├── home.json
-│           └── ...
-├── styles/             # 样式文件
 ├── lib/                # 工具函数
 │   └── conversion/       # 单位转换逻辑
-│       ├── length.ts     # 长度单位转换
-│       ├── weight.ts     # 重量单位转换
-│       ├── temperature.ts # 温度单位转换
-│       ├── area.ts       # 面积单位转换
-│       ├── volume.ts     # 体积单位转换
-│       ├── speed.ts      # 速度单位转换
-│       ├── pressure.ts   # 压力单位转换
-│       └── energy.ts     # 能量单位转换
 ├── types/              # TypeScript 类型
 └── docs/               # 文档目录
-    ├── product/        # 产品文档
-    ├── technical/      # 技术文档
-    ├── development/    # 开发文档
-    └── reports/        # 报告文档
 ```
 
-## 2. 路由结构
+## 2. 核心功能
 
-### 2.1 多语言路由
+### 2.1 单位转换
+- 使用基准单位作为中间转换
+- 保持高精度计算
+- 处理边界情况
+
+### 2.2 多语言支持
+- 使用简单的语言切换机制
+- 支持中英文
+- 基于 URL 的语言路由
+
+### 2.3 用户界面
+- 响应式设计
+- 清晰的转换流程
+- 直观的结果展示
+
+## 3. 技术选型
+
+### 3.1 框架
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### 3.2 开发工具
+- ESLint
+- Prettier
+- Jest
+
+## 4. 性能考虑
+
+### 4.1 基本优化
+- 组件代码分割
+- 图片优化
+- 缓存策略
+
+### 4.2 加载性能
+- 首屏加载优化
+- 资源懒加载
+- 预加载关键资源
+
+## 5. 部署策略
+
+### 5.1 构建过程
+- 静态页面生成
+- 资源压缩
+- 环境配置
+
+### 5.2 监控
+- 错误监控
+- 性能监控
+- 用户行为分析
+
+## 6. 路由结构
+
+### 6.1 多语言路由
 
 *   `/[lang]` - 语言选择（如：/en, /zh）
 *   `/[lang]/[category]` - 转换类别（如：/zh/length, /en/length）
 *   `/[lang]/[category]/[conversion]` - 具体转换页面（如：/zh/length/m-to-cm）
 
-### 2.2 API 路由
+### 6.2 API 路由
 
 *   `/api/convert` - 转换计算 API
     *   功能：执行单位转换计算
@@ -106,9 +124,9 @@ Unit-Converter/
             ```
         *   500 Internal Server Error: 服务器内部错误
 
-## 3. 布局系统
+## 7. 布局系统
 
-### 3.1 根布局 (RootLayout)
+### 7.1 根布局 (RootLayout)
 
 ```tsx
 // app/[lang]/layout.tsx
@@ -135,7 +153,7 @@ export default function RootLayout({
 }
 ```
 
-### 3.2 类别布局 (CategoryLayout)
+### 7.2 类别布局 (CategoryLayout)
 
 ```tsx
 // app/[lang]/[category]/layout.tsx
@@ -155,7 +173,7 @@ export default function CategoryLayout({
 }
 ```
 
-### 3.3 转换页面布局
+### 7.3 转换页面布局
 
 ```tsx
 // app/[lang]/[category]/[conversion]/layout.tsx
@@ -176,9 +194,9 @@ export default function ConversionLayout({
 }
 ```
 
-## 4. 状态管理
+## 8. 状态管理
 
-### 4.1 客户端状态
+### 8.1 客户端状态
 
 *   使用 React 状态钩子管理局部状态
 *   使用 Context API 管理全局状态, 使用 localStorage 持久化用户偏好
@@ -233,41 +251,41 @@ function appReducer(state: AppState, action: AppAction): AppState {
 }
 ```
 
-### 4.2 服务器状态
+### 8.2 服务器状态
 
 *   使用 Next.js 服务器组件
 *   实现数据预取和缓存
 *   处理服务器端渲染
 
-## 5. 性能优化
+## 9. 性能优化
 
-### 5.1 静态生成
+### 9.1 静态生成
 
 *   使用 `generateStaticParams` 预生成路由
 *   实现增量静态再生成 (ISR)
 *   优化元数据生成
 
-### 5.2 动态导入
+### 9.2 动态导入
 
 *   组件懒加载
 *   路由分组
 *   选择性预渲染
 
-### 5.3 缓存策略
+### 9.3 缓存策略
 
 *   使用 SWR 进行数据缓存
 *   实现 HTTP 缓存
 *   优化静态资源缓存
 
-## 6. 安全措施
+## 10. 安全措施
 
-### 6.1 输入验证
+### 10.1 输入验证
 
 *   客户端输入验证: 使用正则表达式验证输入格式，例如数字、单位等。
 *   服务器端数据验证: 在 API 路由中，对传入的参数进行类型和格式校验。
 *   XSS 防护: 对用户输入进行转义，防止 XSS 攻击。
 
-### 6.2 API 安全
+### 10.2 API 安全
 
 *   请求限流: 使用 `apiRequestLimiter` 中间件限制 API 请求频率。
 *   CORS 配置: 允许特定的域名 (例如 `*.vercel.app`) 访问 API。
@@ -292,36 +310,36 @@ function appReducer(state: AppState, action: AppAction): AppState {
     ```
 *   错误处理: 捕获异常并返回友好的错误信息，避免暴露敏感信息。
 
-## 7. 监控和日志
+## 11. 监控和日志
 
-### 7.1 性能监控
+### 11.1 性能监控
 
 *   页面加载性能
 *   API 响应时间
 *   资源使用情况
 
-### 7.2 错误跟踪
+### 11.2 错误跟踪
 
 *   客户端错误捕获: 使用 `ErrorBoundary` 组件捕获渲染错误。
 *   服务器端日志: 记录 API 请求日志和错误日志。
 *   用户行为分析: 使用 Google Analytics 等工具分析用户行为。
 
-## 8. 部署流程
+## 12. 部署流程
 
-### 8.1 构建过程
+### 12.1 构建过程
 
 *   代码检查: 使用 ESLint 检查代码风格。
 *   类型检查: 使用 TypeScript 检查类型错误。
 *   单元测试: 使用 Jest 进行单元测试。
 *   构建优化: 使用 Next.js 优化构建产物。
 
-### 8.2 部署环境
+### 12.2 部署环境
 
 *   开发环境: 本地开发环境。
 *   测试环境: Vercel 预览部署 (Preview Deployments)。
 *   生产环境: Vercel 生产部署 (Production Deployments)。
 
-### 8.3 CI/CD
+### 12.3 CI/CD
 
 *   自动化测试: 每次提交代码到 GitHub 仓库时，自动运行单元测试。
 *   自动化部署:
@@ -329,16 +347,16 @@ function appReducer(state: AppState, action: AppAction): AppState {
     *   生产环境: 每次将代码合并到 `main` 分支并打上 `tag` 时，自动部署到 Vercel 生产环境。
 *   版本控制: 使用 Git 进行版本控制，`dev` 分支用于开发，`main` 分支用于发布，使用 `tag` 标记版本。
 
-## 9. 多语言支持
+## 13. 多语言支持
 
-### 9.1 架构设计
+### 13.1 架构设计
 
 *   使用 Next.js 的国际化 (i18n) 路由功能实现多语言支持。
 *   采用 **subpath routing** 策略，即在 URL 路径中添加语言代码来区分不同语言版本的页面 (例如：`example.com/en/about`, `example.com/zh/about`)。
 *   支持的语言：英语 (en)、中文 (zh)。
 *   默认语言：英语 (en)。
 
-### 9.2 目录结构
+### 13.2 目录结构
 
 ```
 app/
@@ -365,7 +383,7 @@ public/
             ...
 ```
 
-### 9.3 `LanguageProvider` 组件
+### 13.3 `LanguageProvider` 组件
 
 ```typescript
 // components/shared/LanguageProvider.tsx
@@ -424,14 +442,14 @@ export default function LanguageProvider({ children, initialLanguage }: Language
 }
 ```
 
-### 9.4 `useTranslation` Hook
+### 13.4 `useTranslation` Hook
 
 ```typescript
 // components/shared/useTranslation.ts
 // (已在 LanguageProvider.tsx 中实现)
 ```
 
-### 9.5 使用示例
+### 13.5 使用示例
 
 ```tsx
 // components/navigation/LanguageSwitcher.tsx
@@ -501,24 +519,6 @@ export default function RootLayout({
 }
 ```
 
-### 9.6 多语言 SEO
+### 13.6 多语言 SEO
 
-*   在 `generateMetadata` 方法中，使用 `alternates` 属性配置 `hreflang` 标签，例如：
-
-```typescript
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { lang, category, conversion } = params;
-    // ...
-    return {
-        alternates: {
-            canonical: `https://www.metricconverter.com/${lang}/${category ? category + '/' : ''}${conversion || ''}`,
-            languages: {
-                'en': `/en/${category ? category + '/' : ''}${conversion || ''}`,
-                'zh': `/zh/${category ? category + '/' : ''}${conversion || ''}`,
-            },
-        },
-    }
-}
-```
-
----
+*   在 `generateMetadata`

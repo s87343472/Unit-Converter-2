@@ -36,7 +36,17 @@ export interface ConversionCategory {
 }
 
 export interface ConversionResult {
-  value: number | string
+  value: number
   unit: string
   error?: string
+}
+
+export interface NumeralConversionResult {
+  value: string
+  unit: string
+  error?: string
+}
+
+export function isNumber(value: any): value is number {
+  return typeof value === 'number' && !isNaN(value) && isFinite(value)
 } 

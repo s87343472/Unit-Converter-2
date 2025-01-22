@@ -1,14 +1,20 @@
-import type { Translation } from '../types'
-import type { ValidLocale } from '../config'
+import { Translation } from '../types'
 import en from './en'
 import zh from './zh'
+import de from './de'
+import fr from './fr'
+import ja from './ja'
+import ru from './ru'
+import es from './es'
+import la from './la'
 
-const translations: Partial<Record<ValidLocale, Translation>> = {
+export const translations: Record<string, Translation> = {
   en,
   zh,
-  // TODO: 添加其他语言的翻译
-}
-
-export function getTranslation(locale: ValidLocale): Translation {
-  return translations[locale] || translations.en as Translation
+  de,
+  fr,
+  ja,
+  ru,
+  es,
+  la
 } 

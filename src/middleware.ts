@@ -1,41 +1,50 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { defaultLocale, locales } from './lib/i18n/config'
+import { match as matchLocale } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+import { locales, defaultLocale } from '@/lib/i18n/config'
+
+function getLocale(request: NextRequest): string {
+  const negotiatorHeaders: Record<string, string> = {}
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
+
+  // @ts-ignore locales are readonly
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+  const localeList = [...locales]
+
+  try {
+    return matchLocale(languages, localeList, defaultLocale)
+  } catch (e) {
+    return defaultLocale
+  }
+}
 
 export function middleware(request: NextRequest) {
-  // 获取请求的路径名
   const pathname = request.nextUrl.pathname
+  
+  // 检查路径是否已经包含有效的语言代码
+  const hasValidLocale = locales.some(
+    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
 
-  // 如果路径已经包含语言代码，则不需要重定向
-  if (locales.some(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)) {
+  // 如果已经有有效的语言代码，不进行重定向
+  if (hasValidLocale) {
     return NextResponse.next()
   }
 
-  // 从 Accept-Language 头部获取用户首选语言
-  const acceptLanguage = request.headers.get('accept-language')
-  let locale = defaultLocale
-
-  if (acceptLanguage) {
-    // 简单的语言匹配逻辑
-    const preferredLocale = acceptLanguage
-      .split(',')[0]
-      .split('-')[0]
-      .toLowerCase()
-
-    if (locales.includes(preferredLocale as any)) {
-      locale = preferredLocale as typeof defaultLocale
-    }
+  // 如果是根路径或没有语言代码，进行重定向
+  const locale = getLocale(request)
+  
+  // 如果是根路径，重定向到默认语言
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL(`/${locale}`, request.url))
   }
 
-  // 构建重定向 URL
-  const url = new URL(pathname, request.url)
-  url.pathname = `/${locale}${pathname}`
-
-  // 返回重定向响应
-  return NextResponse.redirect(url)
+  // 将当前路径添加到语言前缀后面
+  return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url))
 }
 
 export const config = {
   // 匹配所有路径，除了 api 路由、静态文件等
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 } 

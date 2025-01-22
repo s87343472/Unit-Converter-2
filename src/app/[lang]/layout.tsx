@@ -1,15 +1,16 @@
-import { use } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import LanguageProvider from '@/components/shared/LanguageProvider'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import '../globals.css'
-import Header from '@/components/navigation/Header'
 import { isValidLocale } from '@/lib/i18n/config'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '单位转换器',
-  description: '一个功能强大的在线单位转换工具',
+  title: 'Unit Converter - A powerful online unit conversion tool',
+  description: 'A powerful online unit conversion tool that supports various unit conversions.',
 }
 
 export default function RootLayout({
@@ -19,20 +20,26 @@ export default function RootLayout({
   children: React.ReactNode
   params: { lang: string }
 }) {
-  const lang = use(Promise.resolve(params.lang))
-  
-  if (!isValidLocale(lang)) {
-    // 如果语言无效，可以在这里处理重定向
+  if (!isValidLocale(params.lang)) {
     return null
   }
 
   return (
-    <html lang={lang} className={inter.className}>
-      <body>
-        <Header lang={lang} />
-        <main className="min-h-screen bg-white">
-          {children}
-        </main>
+    <html lang={params.lang} className={inter.className}>
+      <body style={{
+        minHeight: '100vh',
+        color: 'rgb(var(--foreground-rgb))',
+        background: 'rgb(var(--background-rgb))'
+      }}>
+        <LanguageProvider defaultLanguage={params.lang}>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow container mx-auto px-4 py-8">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   )

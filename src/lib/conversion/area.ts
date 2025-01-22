@@ -71,6 +71,12 @@ const area: ConversionCategory = {
       symbol: '亩',
       ratio: 666.67, // 1 亩 ≈ 666.67 m²
     },
+    qing: {
+      id: 'qing',
+      label: '顷',
+      symbol: '顷',
+      ratio: 66670, // 1 顷 = 100 亩 ≈ 66,670 m²
+    },
   },
 }
 
