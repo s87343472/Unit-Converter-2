@@ -53,6 +53,42 @@ const length: ConversionCategory = {
       symbol: 'mi',
       ratio: 1609.344,
     },
+    light_year: {
+      id: 'light_year',
+      label: '光年',
+      symbol: 'ly',
+      ratio: 9.461e15,
+    },
+    astronomical_unit: {
+      id: 'astronomical_unit',
+      label: '天文单位',
+      symbol: 'AU',
+      ratio: 1.496e11,
+    },
+    decimeter: {
+      id: 'decimeter',
+      label: '分米',
+      symbol: 'dm',
+      ratio: 0.1,
+    },
+    micrometer: {
+      id: 'micrometer',
+      label: '微米',
+      symbol: 'μm',
+      ratio: 1e-6,
+    },
+    nanometer: {
+      id: 'nanometer',
+      label: '纳米',
+      symbol: 'nm',
+      ratio: 1e-9,
+    },
+    picometer: {
+      id: 'picometer',
+      label: '皮米',
+      symbol: 'pm',
+      ratio: 1e-12,
+    },
   },
 }
 
