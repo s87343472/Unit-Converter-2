@@ -1,9 +1,9 @@
-import { Translation } from '../types'
+import type { Translation } from '../types'
 
-const translation: Translation = {
+const es: Translation = {
   common: {
-    title: 'Conversor de Unidades',
-    description: 'Herramienta para convertir unidades de medida',
+    title: 'Conversor de unidades',
+    description: 'Una potente herramienta en línea para convertir diferentes unidades.',
     loading: 'Cargando...',
     error: 'Error',
     copy: 'Copiar',
@@ -14,41 +14,45 @@ const translation: Translation = {
     about: 'Acerca de',
     contact: 'Contacto',
     home: 'Inicio',
-    selectType: 'Seleccionar tipo',
+    conversionHistory: 'Historial de conversiones',
+    clearHistory: 'Limpiar historial',
+    confirmClear: '¿Está seguro de que desea borrar todo el historial?',
+    delete: 'Eliminar',
+    selectType: 'Seleccionar tipo de conversión',
     selectLanguage: 'Seleccionar idioma',
     pageNotFound: 'Página no encontrada',
-    pageNotFoundDesc: 'La página que buscas no existe',
+    pageNotFoundDesc: 'Lo sentimos, la página que busca no existe.',
     backToHome: 'Volver al inicio',
-    copyright: 'Derechos reservados',
+    copyright: 'Todos los derechos reservados.',
     categories: {
-      basic: 'Básico',
-      area_volume: 'Área y Volumen',
+      basic: 'Unidades básicas',
+      area_volume: 'Área y volumen',
       time_related: 'Tiempo',
-      physics: 'Física',
-      data: 'Datos',
-      others: 'Otros'
+      physics: 'Unidades físicas',
+      data: 'Unidades de datos',
+      others: 'Otras unidades'
     },
     instructions: {
       title: 'Instrucciones',
       steps: {
-        input: 'Ingresar valor',
-        select: 'Seleccionar unidad',
-        auto: 'Conversión automática',
-        copy: 'Copiar resultado'
+        input: 'Ingrese el valor que desea convertir',
+        select: 'Seleccione la unidad del valor de entrada',
+        auto: 'El sistema calculará y mostrará automáticamente los valores correspondientes en otras unidades',
+        copy: 'Haga clic en cualquier resultado para copiar rápidamente el valor con su unidad'
       },
       features: {
         title: 'Características',
         range: {
-          title: 'Rango',
-          description: 'Convertir valores en un rango'
+          title: 'Rango de valores admitido',
+          description: 'Admite hasta 20 dígitos (incluyendo punto decimal) con hasta 10 decimales. Para números muy grandes o pequeños, se utiliza automáticamente la notación científica.'
         },
         copy: {
-          title: 'Copiar',
-          description: 'Copiar resultado al portapapeles'
+          title: 'Función de copia',
+          description: 'Haga clic en cualquier resultado de conversión para copiar el valor y la unidad para un fácil pegado.'
         },
         paste: {
-          title: 'Pegar',
-          description: 'Pegar valores desde el portapapeles'
+          title: 'Función de pegado',
+          description: 'Admite pegar valores con unidades, el sistema extraerá automáticamente la parte numérica.'
         }
       }
     },
@@ -59,28 +63,28 @@ const translation: Translation = {
     clearAll: 'Limpiar todo',
     noFavorites: 'Sin favoritos',
     remove: 'Eliminar',
-    clearConfirmTitle: 'Confirmar eliminación',
-    clearConfirmMessage: '¿Deseas eliminar todo?',
+    clearConfirmTitle: 'Eliminar todos los favoritos',
+    clearConfirmMessage: '¿Está seguro de que desea eliminar todos los favoritos? Esta acción no se puede deshacer.',
     cancel: 'Cancelar',
     confirm: 'Confirmar',
     addFavorite: 'Agregar a favoritos',
     removeFavorite: 'Quitar de favoritos',
-    enterFavoriteName: 'Ingresar nombre del favorito',
-    favoriteNamePlaceholder: 'Nombre del favorito',
+    enterFavoriteName: 'Ingrese un nombre para este favorito',
+    favoriteNamePlaceholder: 'ej: Metros a Pies',
     showFavorites: 'Mostrar favoritos',
     hideFavorites: 'Ocultar favoritos',
     from: 'De',
     to: 'A',
     selectUnit: 'Seleccionar unidad',
-    inputValue: 'Ingresar valor',
-    convertResult: 'Resultado de la conversión',
-    searchUnit: 'Buscar unidad',
+    inputValue: 'Valor de entrada',
+    convertResult: 'Resultado',
+    searchUnit: 'Buscar unidades...',
     length: 'Longitud'
   },
   units: {
     length: {
       title: 'Longitud',
-      description: 'Convertir entre unidades de longitud',
+      description: 'Conversión entre diferentes unidades de longitud (ISO 31-1)',
       units: {
         meter: 'Metro',
         kilometer: 'Kilómetro',
@@ -89,7 +93,22 @@ const translation: Translation = {
         inch: 'Pulgada',
         foot: 'Pie',
         yard: 'Yarda',
-        mile: 'Milla'
+        mile: 'Milla',
+        light_year: 'Año luz',
+        astronomical_unit: 'Unidad astronómica',
+        decimeter: 'Decímetro',
+        micrometer: 'Micrómetro',
+        nanometer: 'Nanómetro',
+        picometer: 'Picómetro'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El año luz no es una unidad de tiempo, sino la distancia que recorre la luz en un año.',
+          'La Unidad Astronómica (UA) se basa en la distancia promedio entre la Tierra y el Sol.',
+          'El metro se definió originalmente como una diezmillonésima parte de la distancia entre el Polo Norte y el Ecuador.',
+          'Hoy en día, el metro se define por la velocidad de la luz en el vacío.'
+        ]
       }
     },
     weight: {
@@ -217,11 +236,25 @@ const translation: Translation = {
     },
     density: {
       title: 'Densidad',
-      description: 'Convertir entre unidades de densidad',
+      description: 'Conversión entre diferentes unidades de densidad (ISO 31-3)',
       units: {
-        kilogramPerCubicMeter: 'Kilogramo por metro cúbico',
-        gramPerCubicCentimeter: 'Gramo por centímetro cúbico',
-        poundPerCubicFoot: 'Libra por pie cúbico'
+        kilogram_per_cubic_meter: 'Kilogramo por metro cúbico',
+        gram_per_cubic_centimeter: 'Gramo por centímetro cúbico',
+        pound_per_cubic_foot: 'Libra por pie cúbico',
+        pound_per_cubic_inch: 'Libra por pulgada cúbica',
+        kilogram_per_liter: 'Kilogramo por litro',
+        gram_per_milliliter: 'Gramo por mililitro',
+        pound_per_gallon: 'Libra por galón',
+        ounce_per_cubic_inch: 'Onza por pulgada cúbica'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El agua tiene una densidad de aproximadamente 1 gramo por centímetro cúbico a temperatura ambiente.',
+          'El mercurio es el líquido más denso a temperatura ambiente, con una densidad de 13,5 g/cm³.',
+          'La densidad del aire al nivel del mar es aproximadamente 1,225 kg/m³.',
+          'La densidad cambia con la temperatura y la presión.'
+        ]
       }
     },
     flow: {
@@ -309,13 +342,24 @@ const translation: Translation = {
     },
     frequency: {
       title: 'Frecuencia',
-      description: 'Convertir entre unidades de frecuencia',
+      description: 'Conversión entre diferentes unidades de frecuencia',
       units: {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
         megahertz: 'Megahertz',
         gigahertz: 'Gigahertz',
-        rpm: 'Revoluciones por minuto'
+        cycles_per_second: 'Ciclos por segundo',
+        rpm: 'Revoluciones por minuto',
+        bpm: 'Latidos por minuto'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'La unidad Hertz fue nombrada en honor al físico alemán Heinrich Hertz.',
+          'El oído humano puede percibir frecuencias entre 20 Hz y 20 kHz.',
+          'Los procesadores modernos funcionan en el rango de gigahertz.',
+          'El corazón humano late normalmente entre 60 y 100 BPM.'
+        ]
       }
     }
   },
@@ -327,11 +371,11 @@ const translation: Translation = {
   },
   messages: {
     copied: 'Copiado al portapapeles',
-    error: 'Error',
-    invalidNumber: 'Número inválido',
-    selectUnit: 'Seleccione una unidad',
-    conversionError: 'Error en la conversión',
-    invalidTemperature: 'Temperatura inválida'
+    error: 'Se produjo un error',
+    invalidNumber: 'Por favor, ingrese un número válido',
+    selectUnit: 'Por favor, seleccione ambas unidades',
+    conversionError: 'Error al convertir valores',
+    invalidTemperature: 'La temperatura no puede ser inferior al cero absoluto'
   },
   footer: {
     about: 'Acerca de',
@@ -374,4 +418,4 @@ const translation: Translation = {
   }
 }
 
-export default translation 
+export default es 

@@ -3,7 +3,21 @@ import type { Translation } from '../types'
 const ja: Translation = {
   common: {
     title: '単位変換ツール',
-    description: '様々な単位を変換できる便利なオンラインツール。',
+    description: '様々な単位の変換に対応したパワフルなオンラインツール',
+    loading: '読み込み中...',
+    error: 'エラー',
+    copy: 'コピー',
+    copied: 'コピーしました',
+    settings: '設定',
+    language: '言語',
+    theme: 'テーマ',
+    about: '概要',
+    contact: 'お問い合わせ',
+    home: 'ホーム',
+    conversionHistory: '変換履歴',
+    clearHistory: '履歴をクリア',
+    confirmClear: '履歴をすべて削除してもよろしいですか？',
+    delete: '削除',
     selectType: '変換タイプを選択',
     selectLanguage: '言語を選択',
     pageNotFound: 'ページが見つかりません',
@@ -16,14 +30,14 @@ const ja: Translation = {
       time_related: '時間関連',
       physics: '物理単位',
       data: 'データ単位',
-      others: 'その他の単位'
+      others: 'その他'
     },
     instructions: {
       title: '使用方法',
       steps: {
         input: '変換したい値を入力してください',
         select: '入力値の単位を選択してください',
-        auto: 'システムが自動的に他の単位の対応する値を計算して表示します',
+        auto: 'システムが自動的に他の単位の値を計算して表示します',
         copy: '結果をクリックすると、単位付きの値をすぐにコピーできます'
       },
       features: {
@@ -59,14 +73,43 @@ const ja: Translation = {
     favoriteNamePlaceholder: '例：メートルからフィート',
     showFavorites: 'お気に入りを表示',
     hideFavorites: 'お気に入りを非表示',
-    from: 'から',
-    to: 'へ',
-    selectUnit: '単位を選択'
+    from: '変換元',
+    to: '変換先',
+    selectUnit: '単位を選択',
+    inputValue: '入力値',
+    convertResult: '変換結果',
+    searchUnit: '単位を検索...',
+    length: '長さ'
   },
   units: {
     length: {
       title: '長さ',
-      description: '線形測定単位の変換 (ISO 31-1)'
+      description: '長さの単位変換（ISO 31-1）',
+      units: {
+        meter: 'メートル',
+        kilometer: 'キロメートル',
+        centimeter: 'センチメートル',
+        millimeter: 'ミリメートル',
+        inch: 'インチ',
+        foot: 'フィート',
+        yard: 'ヤード',
+        mile: 'マイル',
+        light_year: '光年',
+        astronomical_unit: '天文単位',
+        decimeter: 'デシメートル',
+        micrometer: 'マイクロメートル',
+        nanometer: 'ナノメートル',
+        picometer: 'ピコメートル'
+      },
+      knowledge: {
+        title: '豆知識',
+        items: [
+          '光年は時間の単位ではなく、光が1年間に進む距離を表す長さの単位です。',
+          '天文単位（AU）は地球と太陽の平均距離に基づいています。',
+          'メートルは当初、北極から赤道までの距離の1000万分の1として定義されていました。',
+          '現在のメートルは真空中の光速に基づいて定義されています。'
+        ]
+      }
     },
     area: {
       title: '面積',
@@ -114,7 +157,26 @@ const ja: Translation = {
     },
     density: {
       title: '密度',
-      description: '密度単位の変換 (ISO 31-3)'
+      description: '密度単位の変換（ISO 31-3）',
+      units: {
+        kilogram_per_cubic_meter: 'キログラム毎立方メートル',
+        gram_per_cubic_centimeter: 'グラム毎立方センチメートル',
+        pound_per_cubic_foot: 'ポンド毎立方フィート',
+        pound_per_cubic_inch: 'ポンド毎立方インチ',
+        kilogram_per_liter: 'キログラム毎リットル',
+        gram_per_milliliter: 'グラム毎ミリリットル',
+        pound_per_gallon: 'ポンド毎ガロン',
+        ounce_per_cubic_inch: 'オンス毎立方インチ'
+      },
+      knowledge: {
+        title: '豆知識',
+        items: [
+          '水は室温で約1グラム毎立方センチメートルの密度を持ちます。',
+          '水銀は室温で最も密度が高い液体で、密度は13.5 g/cm³です。',
+          '海面での空気の密度は約1.225 kg/m³です。',
+          '密度は温度と圧力によって変化します。'
+        ]
+      }
     },
     flow: {
       title: '流量',
@@ -143,6 +205,28 @@ const ja: Translation = {
     numeral: {
       title: '進数',
       description: '異なる進数系間の変換'
+    },
+    frequency: {
+      title: '周波数',
+      description: '周波数単位の変換',
+      units: {
+        hertz: 'ヘルツ',
+        kilohertz: 'キロヘルツ',
+        megahertz: 'メガヘルツ',
+        gigahertz: 'ギガヘルツ',
+        cycles_per_second: 'サイクル毎秒',
+        rpm: '回転毎分',
+        bpm: '拍毎分'
+      },
+      knowledge: {
+        title: '豆知識',
+        items: [
+          'ヘルツはドイツの物理学者ハインリヒ・ヘルツにちなんで名付けられました。',
+          '人間の可聴域は20 Hzから20 kHzの間です。',
+          '現代のCPUはギガヘルツ帯で動作します。',
+          '人間の心拍数は通常60-100 BPMの範囲です。'
+        ]
+      }
     }
   },
   buttons: {
@@ -155,7 +239,9 @@ const ja: Translation = {
     copied: 'クリップボードにコピーしました',
     error: 'エラーが発生しました',
     invalidNumber: '有効な数値を入力してください',
-    selectUnit: '両方の単位を選択してください'
+    selectUnit: '両方の単位を選択してください',
+    conversionError: '変換エラーが発生しました',
+    invalidTemperature: '温度は絶対零度より低くすることはできません'
   }
 }
 

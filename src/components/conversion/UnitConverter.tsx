@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/lib/hooks/useLanguage'
-import { convert, formatNumber } from '@/lib/converters/length'
-import type { UnitType } from '@/lib/i18n/units'
+import { convert } from '@/lib/conversion/converter'
+import type { ConversionType } from '@/lib/conversion/types'
+import type { ConversionResult, NumeralConversionResult } from '@/lib/conversion/types'
 
 interface UnitConverterProps {
-  type: UnitType
+  type: ConversionType
   fromUnit: string
   toUnit: string
   onFromUnitChange: (unit: string) => void
@@ -26,11 +27,13 @@ export default function UnitConverter({
   const [error, setError] = useState('')
 
   // 获取当前单位类型的所有单位选项
-  const unitOptions = Object.entries<string>(t.units[type].units).map(([key, label]) => (
-    <option key={key} value={key}>
-      {label}
-    </option>
-  ))
+  const unitOptions = t.units[type]?.units 
+    ? Object.entries(t.units[type].units).map(([key, label]) => (
+        <option key={key} value={key}>
+          {label}
+        </option>
+      ))
+    : []
 
   // 处理转换
   const handleConvert = () => {
@@ -46,17 +49,22 @@ export default function UnitConverter({
 
     // 验证单位选择
     if (!fromUnit || !toUnit) {
-      setError(t.messages.selectUnit)
+      setError(t.common.selectUnit)
       setResult('')
       return
     }
 
     try {
       // 执行转换
-      const convertedValue = convert(numValue, fromUnit, toUnit)
-      setResult(formatNumber(convertedValue))
+      if (type === 'numeral') {
+        const result = convert('numeral', numValue, fromUnit, toUnit) as NumeralConversionResult
+        setResult(result.value)
+      } else {
+        const result = convert(type as Exclude<ConversionType, 'numeral'>, numValue, fromUnit, toUnit) as ConversionResult
+        setResult(result.value.toString().replace(/\.?0+$/, ''))
+      }
     } catch (err) {
-      setError(t.messages.error)
+      setError(t.common.error)
       setResult('')
     }
   }

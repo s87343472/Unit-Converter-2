@@ -77,6 +77,10 @@ export interface CommonTranslation {
   convertResult: string
   searchUnit: string
   length: string
+  conversionHistory: string
+  clearHistory: string
+  confirmClear: string
+  delete: string
 }
 
 export interface UnitTranslation {

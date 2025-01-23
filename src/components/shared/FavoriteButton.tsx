@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useFavorite } from '@/lib/hooks/useFavorite'
 import { useLanguage } from '@/lib/hooks/useLanguage'
 import type { CreateFavoriteParams } from '@/lib/types/favorite'
+import type { UnitType } from '@/lib/i18n/units'
 
 interface FavoriteButtonProps {
-  type: string
+  type: UnitType
   fromUnit: string
   toUnit: string
   className?: string

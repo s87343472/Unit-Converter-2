@@ -3,7 +3,21 @@ import type { Translation } from '../types'
 const fr: Translation = {
   common: {
     title: 'Convertisseur d\'unités',
-    description: 'Un outil de conversion d\'unités en ligne puissant qui prend en charge diverses conversions d\'unités.',
+    description: 'Un outil en ligne puissant pour convertir différentes unités.',
+    loading: 'Chargement...',
+    error: 'Erreur',
+    copy: 'Copier',
+    copied: 'Copié',
+    settings: 'Paramètres',
+    language: 'Langue',
+    theme: 'Thème',
+    about: 'À propos',
+    contact: 'Contact',
+    home: 'Accueil',
+    conversionHistory: 'Historique des conversions',
+    clearHistory: 'Effacer l\'historique',
+    confirmClear: 'Êtes-vous sûr de vouloir effacer tout l\'historique ?',
+    delete: 'Supprimer',
     selectType: 'Sélectionner le type de conversion',
     selectLanguage: 'Sélectionner la langue',
     pageNotFound: 'Page non trouvée',
@@ -13,7 +27,7 @@ const fr: Translation = {
     categories: {
       basic: 'Unités de base',
       area_volume: 'Surface & Volume',
-      time_related: 'Lié au temps',
+      time_related: 'Temps',
       physics: 'Unités physiques',
       data: 'Unités de données',
       others: 'Autres unités'
@@ -60,13 +74,17 @@ const fr: Translation = {
     showFavorites: 'Afficher les favoris',
     hideFavorites: 'Masquer les favoris',
     from: 'De',
-    to: 'À',
-    selectUnit: 'Sélectionner l\'unité'
+    to: 'Vers',
+    selectUnit: 'Sélectionner une unité',
+    inputValue: 'Valeur d\'entrée',
+    convertResult: 'Résultat',
+    searchUnit: 'Rechercher des unités...',
+    length: 'Longueur'
   },
   units: {
     length: {
       title: 'Longueur',
-      description: 'Conversion des unités de mesure linéaire (ISO 31-1)',
+      description: 'Conversion entre différentes unités de longueur (ISO 31-1)',
       units: {
         meter: 'Mètre',
         kilometer: 'Kilomètre',
@@ -75,7 +93,22 @@ const fr: Translation = {
         inch: 'Pouce',
         foot: 'Pied',
         yard: 'Yard',
-        mile: 'Mile'
+        mile: 'Mile',
+        light_year: 'Année-lumière',
+        astronomical_unit: 'Unité astronomique',
+        decimeter: 'Décimètre',
+        micrometer: 'Micromètre',
+        nanometer: 'Nanomètre',
+        picometer: 'Picomètre'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'L\'année-lumière n\'est pas une unité de temps, mais une unité de distance que la lumière parcourt en un an.',
+          'L\'Unité Astronomique (UA) est basée sur la distance moyenne entre la Terre et le Soleil.',
+          'Le mètre était initialement défini comme un dix-millionième de la distance entre le pôle Nord et l\'équateur.',
+          'Aujourd\'hui, le mètre est défini par la vitesse de la lumière dans le vide.'
+        ]
       }
     },
     area: {
@@ -136,7 +169,26 @@ const fr: Translation = {
     },
     density: {
       title: 'Densité',
-      description: 'Conversion des unités de densité (ISO 31-3)'
+      description: 'Conversion entre différentes unités de densité (ISO 31-3)',
+      units: {
+        kilogram_per_cubic_meter: 'Kilogramme par mètre cube',
+        gram_per_cubic_centimeter: 'Gramme par centimètre cube',
+        pound_per_cubic_foot: 'Livre par pied cube',
+        pound_per_cubic_inch: 'Livre par pouce cube',
+        kilogram_per_liter: 'Kilogramme par litre',
+        gram_per_milliliter: 'Gramme par millilitre',
+        pound_per_gallon: 'Livre par gallon',
+        ounce_per_cubic_inch: 'Once par pouce cube'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'L\'eau a une densité d\'environ 1 gramme par centimètre cube à température ambiante.',
+          'Le mercure est le liquide le plus dense à température ambiante, avec une densité de 13,5 g/cm³.',
+          'La densité de l\'air au niveau de la mer est d\'environ 1,225 kg/m³.',
+          'La densité change avec la température et la pression.'
+        ]
+      }
     },
     flow: {
       title: 'Débit',
@@ -165,6 +217,28 @@ const fr: Translation = {
     numeral: {
       title: 'Systèmes numériques',
       description: 'Conversion entre différents systèmes numériques'
+    },
+    frequency: {
+      title: 'Fréquence',
+      description: 'Conversion entre différentes unités de fréquence',
+      units: {
+        hertz: 'Hertz',
+        kilohertz: 'Kilohertz',
+        megahertz: 'Mégahertz',
+        gigahertz: 'Gigahertz',
+        cycles_per_second: 'Cycles par seconde',
+        rpm: 'Tours par minute',
+        bpm: 'Battements par minute'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'L\'unité Hertz est nommée d\'après le physicien allemand Heinrich Hertz.',
+          'L\'audition humaine se situe entre 20 Hz et 20 kHz.',
+          'Les processeurs modernes fonctionnent dans la gamme des gigahertz.',
+          'Le cœur humain bat normalement entre 60 et 100 BPM.'
+        ]
+      }
     }
   },
   buttons: {
@@ -177,7 +251,9 @@ const fr: Translation = {
     copied: 'Copié dans le presse-papiers',
     error: 'Une erreur s\'est produite',
     invalidNumber: 'Veuillez entrer un nombre valide',
-    selectUnit: 'Veuillez sélectionner les deux unités'
+    selectUnit: 'Veuillez sélectionner les deux unités',
+    conversionError: 'Erreur lors de la conversion',
+    invalidTemperature: 'La température ne peut pas être inférieure au zéro absolu'
   }
 }
 

@@ -75,7 +75,7 @@ export default function LanguageProvider({
   }, [])
 
   if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>
+    return <span className="sr-only">Loading translations...</span>
   }
 
   if (error) {

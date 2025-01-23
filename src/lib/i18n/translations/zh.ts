@@ -75,7 +75,11 @@ const zh: Translation = {
     inputValue: '输入数值',
     convertResult: '转换结果',
     searchUnit: '搜索单位...',
-    length: '长度'
+    length: '长度',
+    conversionHistory: '转换历史',
+    clearHistory: '清空历史',
+    confirmClear: '确定要清空所有历史记录吗？',
+    delete: '删除'
   },
   units: {
     length: {

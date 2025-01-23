@@ -4,6 +4,16 @@ const en: Translation = {
   common: {
     title: 'Unit Converter',
     description: 'A powerful online unit conversion tool that supports various unit conversions.',
+    loading: 'Loading...',
+    error: 'Error',
+    copy: 'Copy',
+    copied: 'Copied',
+    settings: 'Settings',
+    language: 'Language',
+    theme: 'Theme',
+    about: 'About',
+    contact: 'Contact',
+    home: 'Home',
     selectType: 'Select conversion type',
     selectLanguage: 'Select language',
     pageNotFound: 'Page Not Found',
@@ -64,7 +74,12 @@ const en: Translation = {
     selectUnit: 'Select Unit',
     inputValue: 'Input Value',
     convertResult: 'Result',
-    searchUnit: 'Search units...'
+    searchUnit: 'Search units...',
+    length: 'Length',
+    conversionHistory: 'Conversion History',
+    clearHistory: 'Clear History',
+    confirmClear: 'Are you sure you want to clear all history?',
+    delete: 'Delete'
   },
   units: {
     length: {
@@ -85,6 +100,15 @@ const en: Translation = {
         micrometer: 'Micrometer',
         nanometer: 'Nanometer',
         picometer: 'Picometer'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'A light year is not a unit of time, but a unit of distance that light travels in one year.',
+          'The Astronomical Unit (AU) is based on the average distance from Earth to the Sun.',
+          'The meter was originally defined as one ten-millionth of the distance from the North Pole to the Equator.',
+          'Today, the meter is defined by the speed of light in a vacuum.'
+        ]
       }
     },
     area: {
@@ -237,11 +261,25 @@ const en: Translation = {
     },
     density: {
       title: 'Density',
-      description: 'Convert between different units of density',
+      description: 'Convert between different units of density (ISO 31-3)',
       units: {
         kilogram_per_cubic_meter: 'Kilogram per Cubic Meter',
         gram_per_cubic_centimeter: 'Gram per Cubic Centimeter',
-        pound_per_cubic_foot: 'Pound per Cubic Foot'
+        pound_per_cubic_foot: 'Pound per Cubic Foot',
+        pound_per_cubic_inch: 'Pound per Cubic Inch',
+        kilogram_per_liter: 'Kilogram per Liter',
+        gram_per_milliliter: 'Gram per Milliliter',
+        pound_per_gallon: 'Pound per Gallon',
+        ounce_per_cubic_inch: 'Ounce per Cubic Inch'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'Water has a density of approximately 1 gram per cubic centimeter at room temperature.',
+          'Mercury is the densest liquid at room temperature, with a density of 13.5 g/cm³.',
+          'The density of air at sea level is approximately 1.225 kg/m³.',
+          'Density changes with temperature and pressure.'
+        ]
       }
     },
     flow: {
@@ -382,7 +420,7 @@ const en: Translation = {
     copied: 'Copied to clipboard',
     error: 'An error occurred',
     invalidNumber: 'Please enter a valid number',
-    selectUnit: 'Please select a unit',
+    selectUnit: 'Please select both units',
     conversionError: 'Error converting values',
     invalidTemperature: 'Temperature cannot be below absolute zero'
   }

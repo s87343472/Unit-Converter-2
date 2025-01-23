@@ -1,3 +1,5 @@
+import type { UnitType } from '@/lib/i18n/units'
+
 /**
  * 收藏项的类型定义
  */
@@ -6,7 +8,7 @@ export interface Favorite {
   id: string;
 
   /** 转换类型（例如：length, weight 等） */
-  type: string;
+  type: UnitType;
 
   /** 源单位 */
   fromUnit: string;

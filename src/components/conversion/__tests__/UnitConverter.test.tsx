@@ -1,10 +1,32 @@
 import { render, fireEvent, screen } from '@testing-library/react'
-import { UnitConverter } from '../UnitConverter'
+import { vi } from 'vitest'
+import UnitConverter from '../UnitConverter'
+import LanguageProvider from '@/components/shared/LanguageProvider'
+
+const TestWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <LanguageProvider>
+      {children}
+    </LanguageProvider>
+  )
+}
 
 describe('UnitConverter Component', () => {
+  const defaultProps = {
+    type: 'length' as const,
+    fromUnit: 'meter',
+    toUnit: 'centimeter',
+    onFromUnitChange: vi.fn(),
+    onToUnitChange: vi.fn()
+  }
+
+  const renderWithProvider = (ui: React.ReactElement) => {
+    return render(ui, { wrapper: TestWrapper })
+  }
+
   describe('Input Handling', () => {
     test('should update value on valid input', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       
       fireEvent.change(input, { target: { value: '100' } })
@@ -12,7 +34,7 @@ describe('UnitConverter Component', () => {
     })
 
     test('should prevent invalid characters', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       
       fireEvent.change(input, { target: { value: 'abc' } })
@@ -20,7 +42,7 @@ describe('UnitConverter Component', () => {
     })
 
     test('should handle paste events', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       
       fireEvent.paste(input, {
@@ -34,15 +56,15 @@ describe('UnitConverter Component', () => {
 
   describe('Unit Selection', () => {
     test('should change selected unit', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const select = screen.getByRole('combobox')
       
       fireEvent.change(select, { target: { value: 'centimeter' } })
-      expect(select).toHaveValue('centimeter')
+      expect(defaultProps.onFromUnitChange).toHaveBeenCalledWith('centimeter')
     })
 
     test('should update conversion results on unit change', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       const select = screen.getByRole('combobox')
       
@@ -56,7 +78,7 @@ describe('UnitConverter Component', () => {
 
   describe('Copy Functionality', () => {
     test('should copy result value', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const copyButton = screen.getByRole('button', { name: /copy/i })
       
       fireEvent.click(copyButton)
@@ -73,13 +95,13 @@ describe('UnitConverter Component', () => {
     })
 
     test('should render mobile layout', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const container = screen.getByTestId('converter-container')
       expect(container).toHaveClass('mobile')
     })
 
     test('should handle touch events', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       
       fireEvent.touchStart(input)
@@ -90,7 +112,7 @@ describe('UnitConverter Component', () => {
 
   describe('Accessibility', () => {
     test('should handle keyboard navigation', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       const select = screen.getByRole('combobox')
       
@@ -99,7 +121,7 @@ describe('UnitConverter Component', () => {
     })
 
     test('should have proper ARIA labels', () => {
-      render(<UnitConverter type="length" />)
+      renderWithProvider(<UnitConverter {...defaultProps} />)
       const input = screen.getByRole('textbox')
       const select = screen.getByRole('combobox')
       
