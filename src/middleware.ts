@@ -75,6 +75,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // 匹配所有路径，除了 api 路由、静态文件等
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+  // 匹配所有路径，除了 api 路由、静态文件、robots.txt 和 sitemap.xml
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)'
+  ]
 } 

@@ -2,15 +2,17 @@ import { MetadataRoute } from 'next'
 import { locales } from '@/lib/i18n/config'
 import { conversionTypes } from '@/lib/conversion-types'
 
+const baseUrl = 'https://www.metric-converter.com'
+const lastMod = '2024-01-24'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
   const entries: MetadataRoute.Sitemap = []
 
   // 添加主页
   entries.push({
     url: baseUrl,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
+    lastModified: lastMod,
+    changeFrequency: 'daily',
     priority: 1,
   })
 
@@ -19,8 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 语言主页
     entries.push({
       url: `${baseUrl}/${locale}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      lastModified: lastMod,
+      changeFrequency: 'daily',
       priority: 0.9,
     })
 
@@ -28,10 +30,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     conversionTypes.forEach(({ id }) => {
       entries.push({
         url: `${baseUrl}/${locale}/${id}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
+        lastModified: lastMod,
+        changeFrequency: 'weekly',
         priority: 0.8,
       })
+    })
+  })
+
+  // 添加其他重要页面
+  const staticPages = [
+    { path: '/about', priority: 0.7 },
+    { path: '/privacy-policy', priority: 0.6 },
+    { path: '/terms-of-service', priority: 0.6 },
+  ]
+
+  staticPages.forEach(({ path, priority }) => {
+    entries.push({
+      url: `${baseUrl}${path}`,
+      lastModified: lastMod,
+      changeFrequency: 'monthly',
+      priority,
     })
   })
 
