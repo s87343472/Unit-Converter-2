@@ -31,21 +31,34 @@ export interface ConversionUnit {
 }
 
 export interface ConversionCategory {
-  id: ConversionType
-  baseUnit: string // 基准单位
-  units: Record<string, ConversionUnit>
+  id: string
+  baseUnit: string
+  units: {
+    [key: string]: ConversionUnit
+  }
 }
 
 export interface ConversionResult {
   value: number
   unit: string
-  error?: string
+}
+
+export interface NumeralConversionCategory {
+  id: string
+  baseUnit: string
+  units: {
+    [key: string]: {
+      id: string
+      label: string
+      symbol: string
+      base: number
+    }
+  }
 }
 
 export interface NumeralConversionResult {
   value: string
   unit: string
-  error?: string
 }
 
 export function isNumber(value: any): value is number {

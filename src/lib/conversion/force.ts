@@ -3,69 +3,106 @@ import type { ConversionCategory } from './types'
 // 使用牛顿作为基准单位
 const force: ConversionCategory = {
   id: 'force',
-  baseUnit: 'newton',
+  baseUnit: 'metric_newton',
   units: {
-    newton: {
-      id: 'newton',
-      label: '牛顿(SI)',
+    // 公制单位 (SI)
+    metric_newton: {
+      id: 'metric_newton',
+      label: '牛顿 (SI)',
       symbol: 'N',
       ratio: 1,
     },
-    kilonewton: {
-      id: 'kilonewton',
-      label: '千牛顿(SI)',
+    metric_kilonewton: {
+      id: 'metric_kilonewton',
+      label: '千牛顿 (SI)',
       symbol: 'kN',
-      ratio: 1000, // 1 kN = 1000 N
+      ratio: 1e3, // 1 kN = 1,000 N
     },
-    meganewton: {
-      id: 'meganewton',
-      label: '兆牛顿(SI)',
+    metric_meganewton: {
+      id: 'metric_meganewton',
+      label: '兆牛顿 (SI)',
       symbol: 'MN',
-      ratio: 1000000, // 1 MN = 1,000,000 N
+      ratio: 1e6, // 1 MN = 1,000,000 N
     },
-    dyne: {
-      id: 'dyne',
-      label: '达因(CGS)',
-      symbol: 'dyn',
-      ratio: 0.00001, // 1 dyn = 10^-5 N
+    metric_micronewton: {
+      id: 'metric_micronewton',
+      label: '微牛顿 (SI)',
+      symbol: 'μN',
+      ratio: 1e-6, // 1 μN = 0.000001 N
     },
-    kilogram_force: {
-      id: 'kilogram_force',
-      label: '千克力(公制)',
+    metric_millinewton: {
+      id: 'metric_millinewton',
+      label: '毫牛顿 (SI)',
+      symbol: 'mN',
+      ratio: 1e-3, // 1 mN = 0.001 N
+    },
+
+    // 重力单位
+    gravity_kilogram_force: {
+      id: 'gravity_kilogram_force',
+      label: '千克力 (重力)',
       symbol: 'kgf',
-      ratio: 9.80665, // 1 kgf = 9.80665 N
+      ratio: 9.80665, // 1 kgf = 9.80665 N (标准重力加速度)
     },
-    pound_force: {
-      id: 'pound_force',
-      label: '磅力(英/美制)',
-      symbol: 'lbf',
-      ratio: 4.44822, // 1 lbf ≈ 4.44822 N
-    },
-    ounce_force: {
-      id: 'ounce_force',
-      label: '盎司力(英/美制)',
-      symbol: 'ozf',
-      ratio: 0.278014, // 1 ozf = 1/16 lbf ≈ 0.278014 N
-    },
-    ton_force: {
-      id: 'ton_force',
-      label: '吨力(美制)',
-      symbol: 'tf',
-      ratio: 8896.44, // 1 tf = 2000 lbf ≈ 8896.44 N
-    },
-    gram_force: {
-      id: 'gram_force',
-      label: '克力(公制)',
+    gravity_gram_force: {
+      id: 'gravity_gram_force',
+      label: '克力 (重力)',
       symbol: 'gf',
-      ratio: 0.00980665, // 1 gf = 0.00980665 N
+      ratio: 9.80665e-3, // 1 gf = 0.00980665 N
     },
-    poundal: {
-      id: 'poundal',
-      label: '磅达(英制)',
+    gravity_ton_force_metric: {
+      id: 'gravity_ton_force_metric',
+      label: '公吨力 (重力)',
+      symbol: 'tf',
+      ratio: 9.80665e3, // 1 tf = 9,806.65 N
+    },
+
+    // 英制单位
+    imperial_pound_force: {
+      id: 'imperial_pound_force',
+      label: '磅力 (英制)',
+      symbol: 'lbf',
+      ratio: 4.448222, // 1 lbf ≈ 4.448222 N
+    },
+    imperial_ounce_force: {
+      id: 'imperial_ounce_force',
+      label: '盎司力 (英制)',
+      symbol: 'ozf',
+      ratio: 0.2780139, // 1 ozf = 1/16 lbf ≈ 0.2780139 N
+    },
+    imperial_ton_force: {
+      id: 'imperial_ton_force',
+      label: '英吨力 (英制)',
+      symbol: 'tonf',
+      ratio: 9.964017e3, // 1 tonf ≈ 9,964.017 N
+    },
+    imperial_kip: {
+      id: 'imperial_kip',
+      label: '千磅力 (英制)',
+      symbol: 'kip',
+      ratio: 4.448222e3, // 1 kip = 1000 lbf ≈ 4,448.222 N
+    },
+
+    // 科学单位
+    scientific_dyne: {
+      id: 'scientific_dyne',
+      label: '达因 (CGS)',
+      symbol: 'dyn',
+      ratio: 1e-5, // 1 dyn = 10⁻⁵ N
+    },
+    scientific_sthene: {
+      id: 'scientific_sthene',
+      label: '丝尼 (MTS)',
+      symbol: 'sn',
+      ratio: 1e3, // 1 sn = 1000 N
+    },
+    scientific_poundal: {
+      id: 'scientific_poundal',
+      label: '磅达 (英制科学)',
       symbol: 'pdl',
       ratio: 0.138255, // 1 pdl ≈ 0.138255 N
     },
   },
-}
+} as const
 
 export default force 

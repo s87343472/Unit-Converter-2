@@ -29,6 +29,52 @@ const density: ConversionCategory = {
       symbol: 'kg/L',
       ratio: 1000,
     },
+    // 工业常用单位
+    slug_per_cubic_foot: {
+      id: 'slug_per_cubic_foot',
+      label: '斯拉格每立方英尺 (工业)',
+      symbol: 'slug/ft³',
+      ratio: 515.379,
+    },
+    kilogram_per_cubic_decimeter: {
+      id: 'kilogram_per_cubic_decimeter',
+      label: '千克每立方分米 (工业)',
+      symbol: 'kg/dm³',
+      ratio: 1000,
+    },
+    // 科学单位
+    gram_per_cubic_meter: {
+      id: 'gram_per_cubic_meter',
+      label: '克每立方米 (科学)',
+      symbol: 'g/m³',
+      ratio: 0.001,
+    },
+    milligram_per_cubic_centimeter: {
+      id: 'milligram_per_cubic_centimeter',
+      label: '毫克每立方厘米 (科学)',
+      symbol: 'mg/cm³',
+      ratio: 1,
+    },
+    milligram_per_milliliter: {
+      id: 'milligram_per_milliliter',
+      label: '毫克每毫升 (科学)',
+      symbol: 'mg/mL',
+      ratio: 1,
+    },
+    // 特殊应用单位
+    kilogram_per_cubic_centimeter: {
+      id: 'kilogram_per_cubic_centimeter',
+      label: '千克每立方厘米 (特殊)',
+      symbol: 'kg/cm³',
+      ratio: 1000000,
+    },
+    metric_ton_per_cubic_meter: {
+      id: 'metric_ton_per_cubic_meter',
+      label: '吨每立方米 (特殊)',
+      symbol: 't/m³',
+      ratio: 1000,
+    },
+    // 英制单位
     pound_per_cubic_foot: {
       id: 'pound_per_cubic_foot',
       label: '磅每立方英尺 (英制)',
