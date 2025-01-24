@@ -1,5 +1,11 @@
-export const defaultLocale = 'en'
-export const locales = ['en', 'zh', 'de', 'fr', 'ja', 'ru', 'es', 'la'] as const
+export const i18n = {
+  defaultLocale: 'en',
+  locales: ['en', 'zh', 'de', 'fr', 'ja', 'ru', 'es', 'la'] as const,
+} as const
+
+export const defaultLocale = i18n.defaultLocale
+export const locales = i18n.locales
+
 export type ValidLocale = typeof locales[number]
 
 export const localeNames: Record<ValidLocale, string> = {

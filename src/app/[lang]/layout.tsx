@@ -1,44 +1,59 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import LanguageProvider from '@/components/shared/LanguageProvider'
+import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
-import { isValidLocale, locales } from '@/lib/i18n/config'
+import { isValidLocale, locales, i18n } from '@/lib/i18n/config'
 import { headers } from 'next/headers'
+import { seoConfig } from '@/lib/i18n/seo'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export function generateMetadata({ params }: { params: { lang: string } }): Metadata {
-  const { lang } = params
-  const languages: { [key: string]: string } = {}
-  
-  // 获取当前路径（不包括语言部分）
+type Props = {
+  params: {
+    lang: string
+  }
+}
+
+export async function generateMetadata({ params: { lang } }: Props): Promise<Metadata> {
+  const languages = i18n.locales.reduce((acc, locale) => {
+    acc[locale] = `https://metric-converter.com/${locale}`
+    return acc
+  }, {} as Record<string, string>)
+
+  const seo = seoConfig[lang as keyof typeof seoConfig]
   const headersList = headers()
   const pathname = headersList.get('x-pathname') || ''
   const path = pathname.replace(`/${lang}`, '') || '/'
-  const host = 'www.metric-converter.com'
-  const protocol = 'https'
-  
-  // 为每个支持的语言添加hreflang
-  locales.forEach(locale => {
-    languages[locale] = `${protocol}://${host}/${locale}${path}`
-  })
-  
-  // 添加x-default
-  languages['x-default'] = path === '/' 
-    ? `${protocol}://${host}/` 
-    : `${protocol}://${host}/en${path}`
-  
+
   return {
-    title: 'Metric Converter - Online Unit Conversion Tool',
-    description: 'A powerful online unit conversion tool that supports various unit conversions.',
+    metadataBase: new URL('https://metric-converter.com'),
+    title: {
+      template: `%s | ${seo.title}`,
+      default: seo.title,
+    },
+    description: seo.description,
+    keywords: seo.keywords,
     alternates: {
-      languages
+      canonical: `https://metric-converter.com/${lang}`,
+      languages,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     openGraph: {
-      title: 'Metric Converter',
-      description: 'A powerful online unit conversion tool',
-      url: `${protocol}://${host}/${lang}${path}`,
+      title: seo.title,
+      description: seo.description,
+      url: `https://metric-converter.com/${lang}${path}`,
       siteName: 'Metric Converter',
       locale: lang,
       type: 'website',

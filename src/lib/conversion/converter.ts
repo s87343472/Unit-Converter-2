@@ -20,8 +20,9 @@ import data_rate from './data_rate'
 import currency from './currency'
 import cooking from './cooking'
 import numeral from './numeral'
+import torque from './torque'
 
-const categories: Record<ConversionType, ConversionCategory> = {
+const categories = {
   length,
   weight,
   temperature,
@@ -36,13 +37,14 @@ const categories: Record<ConversionType, ConversionCategory> = {
   force,
   density,
   flow,
+  torque,
   frequency,
   data,
   data_rate,
   currency,
   cooking,
   numeral,
-} as const
+} as Record<ConversionType, ConversionCategory>
 
 export function convert(
   type: 'numeral',
