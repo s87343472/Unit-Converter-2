@@ -1,75 +1,189 @@
 import { convert } from '../converter'
 
 describe('Volume Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Conversions', () => {
-    test('cubic meter to liter', () => {
-      const result = convert('volume', 1, 'cubic_meter', 'liter')
-      expect(result.value).toBeCloseTo(1000, 2)
-      expect(result.unit).toBe('liter')
+  // 测试公制体积单位转换
+  describe('Metric Volume Units', () => {
+    test('cubic meter to cubic decimeter', () => {
+      const result = convert('volume', 1, 'metric_cubic_meter', 'metric_cubic_decimeter')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_cubic_decimeter')
     })
 
+    test('cubic decimeter to cubic centimeter', () => {
+      const result = convert('volume', 1, 'metric_cubic_decimeter', 'metric_cubic_centimeter')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_cubic_centimeter')
+    })
+
+    test('cubic centimeter to cubic millimeter', () => {
+      const result = convert('volume', 1, 'metric_cubic_centimeter', 'metric_cubic_millimeter')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_cubic_millimeter')
+    })
+  })
+
+  // 测试公制容量单位转换
+  describe('Metric Capacity Units', () => {
     test('liter to milliliter', () => {
-      const result = convert('volume', 1, 'liter', 'milliliter')
-      expect(result.value).toBeCloseTo(1000, 2)
-      expect(result.unit).toBe('milliliter')
+      const result = convert('volume', 1, 'metric_liter', 'metric_milliliter')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_milliliter')
     })
 
-    test('cubic meter to cubic centimeter', () => {
-      const result = convert('volume', 1, 'cubic_meter', 'cubic_centimeter')
-      expect(result.value).toBeCloseTo(1000000, 4)
-      expect(result.unit).toBe('cubic_centimeter')
-    })
-  })
-
-  // 测试美制单位转换
-  describe('US Customary Conversions', () => {
-    test('us gallon to liter', () => {
-      const result = convert('volume', 1, 'gallon_us', 'liter')
-      expect(result.value).toBeCloseTo(3.78541, 4)
-      expect(result.unit).toBe('liter')
+    test('deciliter to centiliter', () => {
+      const result = convert('volume', 1, 'metric_deciliter', 'metric_centiliter')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('metric_centiliter')
     })
 
-    test('us quart to liter', () => {
-      const result = convert('volume', 1, 'quart_us', 'liter')
-      expect(result.value).toBeCloseTo(0.946353, 4)
-      expect(result.unit).toBe('liter')
-    })
-
-    test('us fluid ounce to milliliter', () => {
-      const result = convert('volume', 1, 'fluid_ounce_us', 'milliliter')
-      expect(result.value).toBeCloseTo(29.5735, 4)
-      expect(result.unit).toBe('milliliter')
+    test('liter to cubic decimeter', () => {
+      const result = convert('volume', 1, 'metric_liter', 'metric_cubic_decimeter')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('metric_cubic_decimeter')
     })
   })
 
-  // 测试英制单位转换
-  describe('Imperial Conversions', () => {
-    test('imperial gallon to liter', () => {
-      const result = convert('volume', 1, 'gallon_uk', 'liter')
-      expect(result.value).toBeCloseTo(4.54609, 4)
-      expect(result.unit).toBe('liter')
+  // 测试英制体积单位转换
+  describe('Imperial Volume Units', () => {
+    test('cubic yard to cubic foot', () => {
+      const result = convert('volume', 1, 'imperial_cubic_yard', 'imperial_cubic_foot')
+      expect(result.value).toBe(27)
+      expect(result.unit).toBe('imperial_cubic_foot')
     })
 
-    test('imperial pint to milliliter', () => {
-      const result = convert('volume', 1, 'pint_uk', 'milliliter')
-      expect(result.value).toBeCloseTo(568.261, 3)
-      expect(result.unit).toBe('milliliter')
+    test('cubic foot to cubic inch', () => {
+      const result = convert('volume', 1, 'imperial_cubic_foot', 'imperial_cubic_inch')
+      expect(result.value).toBe(1728)
+      expect(result.unit).toBe('imperial_cubic_inch')
+    })
+  })
+
+  // 测试英制容量单位转换
+  describe('Imperial Capacity Units', () => {
+    test('gallon to quart', () => {
+      const result = convert('volume', 1, 'imperial_gallon', 'imperial_quart')
+      expect(result.value).toBe(4)
+      expect(result.unit).toBe('imperial_quart')
+    })
+
+    test('quart to pint', () => {
+      const result = convert('volume', 1, 'imperial_quart', 'imperial_pint')
+      expect(result.value).toBe(2)
+      expect(result.unit).toBe('imperial_pint')
+    })
+
+    test('pint to fluid ounce', () => {
+      const result = convert('volume', 1, 'imperial_pint', 'imperial_fluid_ounce')
+      expect(result.value).toBe(20)
+      expect(result.unit).toBe('imperial_fluid_ounce')
+    })
+  })
+
+  // 测试美制容量单位转换
+  describe('US Capacity Units', () => {
+    test('gallon to quart', () => {
+      const result = convert('volume', 1, 'us_gallon', 'us_quart')
+      expect(result.value).toBe(4)
+      expect(result.unit).toBe('us_quart')
+    })
+
+    test('quart to pint', () => {
+      const result = convert('volume', 1, 'us_quart', 'us_pint')
+      expect(result.value).toBe(2)
+      expect(result.unit).toBe('us_pint')
+    })
+
+    test('pint to fluid ounce', () => {
+      const result = convert('volume', 1, 'us_pint', 'us_fluid_ounce')
+      expect(result.value).toBe(16)
+      expect(result.unit).toBe('us_fluid_ounce')
+    })
+  })
+
+  // 测试中国传统容量单位转换
+  describe('Chinese Traditional Units', () => {
+    test('dan to dou', () => {
+      const result = convert('volume', 1, 'chinese_dan', 'chinese_dou')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('chinese_dou')
+    })
+
+    test('dou to sheng', () => {
+      const result = convert('volume', 1, 'chinese_dou', 'chinese_sheng')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('chinese_sheng')
+    })
+  })
+
+  // 测试日本传统容量单位转换
+  describe('Japanese Traditional Units', () => {
+    test('gou to shaku', () => {
+      const result = convert('volume', 1, 'japanese_gou', 'japanese_shaku')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('japanese_shaku')
+    })
+
+    test('shaku to sai', () => {
+      const result = convert('volume', 1, 'japanese_shaku', 'japanese_sai')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('japanese_sai')
+    })
+  })
+
+  // 测试工业容量单位转换
+  describe('Industry Units', () => {
+    test('oil barrel to beer barrel', () => {
+      const result = convert('volume', 1, 'industry_oil_barrel', 'industry_beer_barrel')
+      expect(result.value).toBeCloseTo(1.3548, 4)
+      expect(result.unit).toBe('industry_beer_barrel')
+    })
+
+    test('oil barrel to us gallon', () => {
+      const result = convert('volume', 1, 'industry_oil_barrel', 'us_gallon')
+      expect(result.value).toBeCloseTo(42, 4)
+      expect(result.unit).toBe('us_gallon')
+    })
+  })
+
+  // 测试跨系统转换
+  describe('Cross-System Conversions', () => {
+    test('cubic meter to cubic yard', () => {
+      const result = convert('volume', 1, 'metric_cubic_meter', 'imperial_cubic_yard')
+      expect(result.value).toBeCloseTo(1.30795, 5)
+      expect(result.unit).toBe('imperial_cubic_yard')
+    })
+
+    test('liter to us gallon', () => {
+      const result = convert('volume', 1, 'metric_liter', 'us_gallon')
+      expect(result.value).toBeCloseTo(0.264172, 6)
+      expect(result.unit).toBe('us_gallon')
+    })
+
+    test('imperial gallon to us gallon', () => {
+      const result = convert('volume', 1, 'imperial_gallon', 'us_gallon')
+      expect(result.value).toBeCloseTo(1.20095, 5)
+      expect(result.unit).toBe('us_gallon')
     })
   })
 
   // 测试精度
   describe('Precision', () => {
     test('should handle very small volumes', () => {
-      const result = convert('volume', 0.000001, 'cubic_meter', 'cubic_centimeter')
-      expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('cubic_centimeter')
+      const result = convert('volume', 1, 'metric_cubic_millimeter', 'metric_cubic_meter')
+      expect(result.value).toBe(1e-9)
+      expect(result.unit).toBe('metric_cubic_meter')
     })
 
     test('should handle very large volumes', () => {
-      const result = convert('volume', 1000000, 'milliliter', 'cubic_meter')
-      expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('cubic_meter')
+      const result = convert('volume', 1000, 'metric_cubic_meter', 'metric_cubic_millimeter')
+      expect(result.value).toBe(1e12)
+      expect(result.unit).toBe('metric_cubic_millimeter')
+    })
+
+    test('should handle fractional volumes', () => {
+      const result = convert('volume', 0.5, 'metric_liter', 'metric_milliliter')
+      expect(result.value).toBe(500)
+      expect(result.unit).toBe('metric_milliliter')
     })
   })
 }) 

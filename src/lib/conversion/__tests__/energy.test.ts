@@ -1,90 +1,150 @@
 import { convert } from '../converter'
 
 describe('Energy Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Conversions', () => {
-    test('joule to kilojoule', () => {
-      const result = convert('energy', 1000, 'joule', 'kilojoule')
-      expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('kilojoule')
+  // 公制单位测试
+  describe('Metric Unit Conversions', () => {
+    test('metric_joule to metric_kilojoule', () => {
+      const result = convert('energy', 1000, 'metric_joule', 'metric_kilojoule')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('metric_kilojoule')
     })
 
-    test('kilojoule to megajoule', () => {
-      const result = convert('energy', 1000, 'kilojoule', 'megajoule')
-      expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('megajoule')
-    })
-  })
-
-  // 测试热量单位
-  describe('Heat Units', () => {
-    test('calorie to joule', () => {
-      const result = convert('energy', 1, 'calorie', 'joule')
-      expect(result.value).toBeCloseTo(4.184, 4)
-      expect(result.unit).toBe('joule')
+    test('metric_kilojoule to metric_megajoule', () => {
+      const result = convert('energy', 1000, 'metric_kilojoule', 'metric_megajoule')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('metric_megajoule')
     })
 
-    test('kilocalorie to kilojoule', () => {
-      const result = convert('energy', 1, 'kilocalorie', 'kilojoule')
-      expect(result.value).toBeCloseTo(4.184, 4)
-      expect(result.unit).toBe('kilojoule')
-    })
-
-    test('british thermal unit to joule', () => {
-      const result = convert('energy', 1, 'british_thermal_unit', 'joule')
-      expect(result.value).toBeCloseTo(1055.06, 4)
-      expect(result.unit).toBe('joule')
+    test('metric_megajoule to metric_joule', () => {
+      const result = convert('energy', 1, 'metric_megajoule', 'metric_joule')
+      expect(result.value).toBe(1e6)
+      expect(result.unit).toBe('metric_joule')
     })
   })
 
-  // 测试电能单位
-  describe('Electrical Units', () => {
-    test('watt hour to joule', () => {
-      const result = convert('energy', 1, 'watt_hour', 'joule')
-      expect(result.value).toBeCloseTo(3600, 4)
-      expect(result.unit).toBe('joule')
+  // 热量单位测试
+  describe('Thermal Unit Conversions', () => {
+    test('thermal_calorie to metric_joule', () => {
+      const result = convert('energy', 1, 'thermal_calorie', 'metric_joule')
+      expect(result.value).toBeCloseTo(4.184, 3)
+      expect(result.unit).toBe('metric_joule')
     })
 
-    test('kilowatt hour to megajoule', () => {
-      const result = convert('energy', 1, 'kilowatt_hour', 'megajoule')
-      expect(result.value).toBeCloseTo(3.6, 4)
-      expect(result.unit).toBe('megajoule')
+    test('thermal_kilocalorie to metric_kilojoule', () => {
+      const result = convert('energy', 1, 'thermal_kilocalorie', 'metric_kilojoule')
+      expect(result.value).toBeCloseTo(4.184, 3)
+      expect(result.unit).toBe('metric_kilojoule')
+    })
+
+    test('thermal_british_thermal_unit to metric_kilojoule', () => {
+      const result = convert('energy', 1, 'thermal_british_thermal_unit', 'metric_kilojoule')
+      expect(result.value).toBeCloseTo(1.05506, 5)
+      expect(result.unit).toBe('metric_kilojoule')
+    })
+
+    test('thermal_therm to metric_megajoule', () => {
+      const result = convert('energy', 1, 'thermal_therm', 'metric_megajoule')
+      expect(result.value).toBeCloseTo(105.506, 3)
+      expect(result.unit).toBe('metric_megajoule')
     })
   })
 
-  // 测试其他单位
-  describe('Other Units', () => {
-    test('electron volt to joule', () => {
-      const result = convert('energy', 1, 'electron_volt', 'joule')
+  // 电能单位测试
+  describe('Electric Unit Conversions', () => {
+    test('electric_watt_hour to metric_joule', () => {
+      const result = convert('energy', 1, 'electric_watt_hour', 'metric_joule')
+      expect(result.value).toBe(3600)
+      expect(result.unit).toBe('metric_joule')
+    })
+
+    test('electric_kilowatt_hour to metric_megajoule', () => {
+      const result = convert('energy', 1, 'electric_kilowatt_hour', 'metric_megajoule')
+      expect(result.value).toBe(3.6)
+      expect(result.unit).toBe('metric_megajoule')
+    })
+
+    test('electric_megawatt_hour to metric_megajoule', () => {
+      const result = convert('energy', 1, 'electric_megawatt_hour', 'metric_megajoule')
+      expect(result.value).toBe(3600)
+      expect(result.unit).toBe('metric_megajoule')
+    })
+  })
+
+  // 科学单位测试
+  describe('Scientific Unit Conversions', () => {
+    test('scientific_electron_volt to metric_joule', () => {
+      const result = convert('energy', 1, 'scientific_electron_volt', 'metric_joule')
       expect(result.value).toBeCloseTo(1.602176634e-19, 28)
-      expect(result.unit).toBe('joule')
+      expect(result.unit).toBe('metric_joule')
     })
 
-    test('therm to megajoule', () => {
-      const result = convert('energy', 1, 'therm', 'megajoule')
-      expect(result.value).toBeCloseTo(105.506, 4)
-      expect(result.unit).toBe('megajoule')
+    test('scientific_kilo_electron_volt to metric_joule', () => {
+      const result = convert('energy', 1, 'scientific_kilo_electron_volt', 'metric_joule')
+      expect(result.value).toBeCloseTo(1.602176634e-16, 25)
+      expect(result.unit).toBe('metric_joule')
     })
 
-    test('foot pound to joule', () => {
-      const result = convert('energy', 1, 'foot_pound', 'joule')
-      expect(result.value).toBeCloseTo(1.355818, 4)
-      expect(result.unit).toBe('joule')
+    test('scientific_mega_electron_volt to metric_joule', () => {
+      const result = convert('energy', 1, 'scientific_mega_electron_volt', 'metric_joule')
+      expect(result.value).toBeCloseTo(1.602176634e-13, 22)
+      expect(result.unit).toBe('metric_joule')
     })
   })
 
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very small energy', () => {
-      const result = convert('energy', 1, 'electron_volt', 'joule')
-      expect(result.value).toBeCloseTo(1.602176634e-19, 28)
-      expect(result.unit).toBe('joule')
+  // 机械能单位测试
+  describe('Mechanical Unit Conversions', () => {
+    test('mechanical_foot_pound to metric_joule', () => {
+      const result = convert('energy', 1, 'mechanical_foot_pound', 'metric_joule')
+      expect(result.value).toBeCloseTo(1.355818, 6)
+      expect(result.unit).toBe('metric_joule')
     })
 
-    test('should handle very large energy', () => {
-      const result = convert('energy', 1000, 'megajoule', 'joule')
-      expect(result.value).toBeCloseTo(1e9, 4)
-      expect(result.unit).toBe('joule')
+    test('mechanical_kilogram_force_meter to metric_joule', () => {
+      const result = convert('energy', 1, 'mechanical_kilogram_force_meter', 'metric_joule')
+      expect(result.value).toBeCloseTo(9.80665, 5)
+      expect(result.unit).toBe('metric_joule')
+    })
+
+    test('mechanical_erg to metric_joule', () => {
+      const result = convert('energy', 1, 'mechanical_erg', 'metric_joule')
+      expect(result.value).toBe(1e-7)
+      expect(result.unit).toBe('metric_joule')
+    })
+  })
+
+  // 跨类型转换测试
+  describe('Cross-Category Conversions', () => {
+    test('thermal_kilocalorie to electric_watt_hour', () => {
+      const result = convert('energy', 1, 'thermal_kilocalorie', 'electric_watt_hour')
+      expect(result.value).toBeCloseTo(1.162222, 6)
+      expect(result.unit).toBe('electric_watt_hour')
+    })
+
+    test('electric_kilowatt_hour to thermal_british_thermal_unit', () => {
+      const result = convert('energy', 1, 'electric_kilowatt_hour', 'thermal_british_thermal_unit')
+      expect(result.value).toBeCloseTo(3412.14, 2)
+      expect(result.unit).toBe('thermal_british_thermal_unit')
+    })
+  })
+
+  // 边界值测试
+  describe('Edge Cases', () => {
+    test('zero value conversion', () => {
+      const result = convert('energy', 0, 'metric_joule', 'metric_kilojoule')
+      expect(result.value).toBe(0)
+      expect(result.unit).toBe('metric_kilojoule')
+    })
+
+    test('very small value conversion', () => {
+      const result = convert('energy', 1e-25, 'metric_joule', 'scientific_electron_volt')
+      expect(result.value).toBeCloseTo(0.0624151, 7)
+      expect(result.unit).toBe('scientific_electron_volt')
+    })
+
+    test('very large value conversion', () => {
+      const result = convert('energy', 1e12, 'metric_joule', 'electric_megawatt_hour')
+      expect(result.value).toBeCloseTo(277.778, 3)
+      expect(result.unit).toBe('electric_megawatt_hour')
     })
   })
 }) 

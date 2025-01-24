@@ -1,84 +1,135 @@
 import { convert } from '../converter'
 
 describe('Force Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Conversions', () => {
-    test('newton to kilonewton', () => {
-      const result = convert('force', 1000, 'newton', 'kilonewton')
+  // 公制单位测试
+  describe('Metric Unit Conversions', () => {
+    test('metric_newton to metric_kilonewton', () => {
+      const result = convert('force', 1000, 'metric_newton', 'metric_kilonewton')
       expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('kilonewton')
+      expect(result.unit).toBe('metric_kilonewton')
     })
 
-    test('kilonewton to meganewton', () => {
-      const result = convert('force', 1000, 'kilonewton', 'meganewton')
+    test('metric_kilonewton to metric_meganewton', () => {
+      const result = convert('force', 1000, 'metric_kilonewton', 'metric_meganewton')
       expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('meganewton')
+      expect(result.unit).toBe('metric_meganewton')
+    })
+
+    test('metric_newton to metric_micronewton', () => {
+      const result = convert('force', 1e-6, 'metric_newton', 'metric_micronewton')
+      expect(result.value).toBeCloseTo(1, 4)
+      expect(result.unit).toBe('metric_micronewton')
+    })
+
+    test('metric_newton to metric_millinewton', () => {
+      const result = convert('force', 1e-3, 'metric_newton', 'metric_millinewton')
+      expect(result.value).toBeCloseTo(1, 4)
+      expect(result.unit).toBe('metric_millinewton')
     })
   })
 
-  // 测试重力单位
-  describe('Gravity Units', () => {
-    test('kilogram force to newton', () => {
-      const result = convert('force', 1, 'kilogram_force', 'newton')
+  // 重力单位测试
+  describe('Gravity Unit Conversions', () => {
+    test('gravity_kilogram_force to metric_newton', () => {
+      const result = convert('force', 1, 'gravity_kilogram_force', 'metric_newton')
       expect(result.value).toBeCloseTo(9.80665, 4)
-      expect(result.unit).toBe('newton')
+      expect(result.unit).toBe('metric_newton')
     })
 
-    test('gram force to newton', () => {
-      const result = convert('force', 1000, 'gram_force', 'newton')
+    test('gravity_gram_force to metric_newton', () => {
+      const result = convert('force', 1000, 'gravity_gram_force', 'metric_newton')
       expect(result.value).toBeCloseTo(9.80665, 4)
-      expect(result.unit).toBe('newton')
+      expect(result.unit).toBe('metric_newton')
+    })
+
+    test('gravity_ton_force_metric to metric_kilonewton', () => {
+      const result = convert('force', 1, 'gravity_ton_force_metric', 'metric_kilonewton')
+      expect(result.value).toBeCloseTo(9.80665, 4)
+      expect(result.unit).toBe('metric_kilonewton')
     })
   })
 
-  // 测试英制单位
-  describe('Imperial Units', () => {
-    test('pound force to newton', () => {
-      const result = convert('force', 1, 'pound_force', 'newton')
-      expect(result.value).toBeCloseTo(4.44822, 4)
-      expect(result.unit).toBe('newton')
+  // 英制单位测试
+  describe('Imperial Unit Conversions', () => {
+    test('imperial_pound_force to metric_newton', () => {
+      const result = convert('force', 1, 'imperial_pound_force', 'metric_newton')
+      expect(result.value).toBeCloseTo(4.448222, 4)
+      expect(result.unit).toBe('metric_newton')
     })
 
-    test('ounce force to newton', () => {
-      const result = convert('force', 16, 'ounce_force', 'newton')
-      expect(result.value).toBeCloseTo(4.44822, 4)
-      expect(result.unit).toBe('newton')
+    test('imperial_ounce_force to metric_newton', () => {
+      const result = convert('force', 16, 'imperial_ounce_force', 'metric_newton')
+      expect(result.value).toBeCloseTo(4.448222, 4)
+      expect(result.unit).toBe('metric_newton')
     })
 
-    test('ton force to kilonewton', () => {
-      const result = convert('force', 1, 'ton_force', 'kilonewton')
-      expect(result.value).toBeCloseTo(8.89644, 4)
-      expect(result.unit).toBe('kilonewton')
+    test('imperial_ton_force to metric_kilonewton', () => {
+      const result = convert('force', 1, 'imperial_ton_force', 'metric_kilonewton')
+      expect(result.value).toBeCloseTo(9.964017, 4)
+      expect(result.unit).toBe('metric_kilonewton')
+    })
+
+    test('imperial_kip to metric_kilonewton', () => {
+      const result = convert('force', 1, 'imperial_kip', 'metric_kilonewton')
+      expect(result.value).toBeCloseTo(4.448222, 4)
+      expect(result.unit).toBe('metric_kilonewton')
     })
   })
 
-  // 测试科学单位
-  describe('Scientific Units', () => {
-    test('dyne to newton', () => {
-      const result = convert('force', 100000, 'dyne', 'newton')
+  // 科学单位测试
+  describe('Scientific Unit Conversions', () => {
+    test('scientific_dyne to metric_newton', () => {
+      const result = convert('force', 1e5, 'scientific_dyne', 'metric_newton')
       expect(result.value).toBeCloseTo(1, 4)
-      expect(result.unit).toBe('newton')
+      expect(result.unit).toBe('metric_newton')
     })
 
-    test('newton to dyne', () => {
-      const result = convert('force', 1, 'newton', 'dyne')
-      expect(result.value).toBeCloseTo(100000, 4)
-      expect(result.unit).toBe('dyne')
+    test('scientific_sthene to metric_kilonewton', () => {
+      const result = convert('force', 1, 'scientific_sthene', 'metric_kilonewton')
+      expect(result.value).toBeCloseTo(1, 4)
+      expect(result.unit).toBe('metric_kilonewton')
+    })
+
+    test('scientific_poundal to metric_newton', () => {
+      const result = convert('force', 1, 'scientific_poundal', 'metric_newton')
+      expect(result.value).toBeCloseTo(0.138255, 4)
+      expect(result.unit).toBe('metric_newton')
     })
   })
 
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very small forces', () => {
-      const result = convert('force', 1, 'dyne', 'newton')
-      expect(result.value).toBeCloseTo(0.00001, 6)
-      expect(result.unit).toBe('newton')
+  // 跨类型转换测试
+  describe('Cross-Category Conversions', () => {
+    test('gravity_kilogram_force to imperial_pound_force', () => {
+      const result = convert('force', 1, 'gravity_kilogram_force', 'imperial_pound_force')
+      expect(result.value).toBeCloseTo(2.204623, 4)
+      expect(result.unit).toBe('imperial_pound_force')
     })
 
-    test('should handle very large forces', () => {
-      const result = convert('force', 1000, 'meganewton', 'newton')
-      expect(result.value).toBeCloseTo(1e9, 4)
-      expect(result.unit).toBe('newton')
+    test('imperial_kip to gravity_ton_force_metric', () => {
+      const result = convert('force', 1, 'imperial_kip', 'gravity_ton_force_metric')
+      expect(result.value).toBeCloseTo(0.453592, 4)
+      expect(result.unit).toBe('gravity_ton_force_metric')
+    })
+  })
+
+  // 边界值测试
+  describe('Edge Cases', () => {
+    test('zero value conversion', () => {
+      const result = convert('force', 0, 'metric_newton', 'metric_kilonewton')
+      expect(result.value).toBe(0)
+      expect(result.unit).toBe('metric_kilonewton')
+    })
+
+    test('very small force conversion', () => {
+      const result = convert('force', 1e-12, 'metric_newton', 'metric_micronewton')
+      expect(result.value).toBeCloseTo(1e-6, 10)
+      expect(result.unit).toBe('metric_micronewton')
+    })
+
+    test('very large force conversion', () => {
+      const result = convert('force', 1e9, 'metric_newton', 'metric_meganewton')
+      expect(result.value).toBeCloseTo(1e3, 4)
+      expect(result.unit).toBe('metric_meganewton')
     })
   })
 }) 
