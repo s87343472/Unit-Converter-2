@@ -72,7 +72,7 @@ export default function Header() {
         <div className="flex justify-between items-center mb-4">
           <Link 
             href={`/${language}`} 
-            className="text-xl font-semibold text-gray-900 hover:text-green-600 transition-colors"
+            className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
             {t.common.title}
           </Link>

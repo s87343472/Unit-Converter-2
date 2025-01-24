@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useLanguage } from '@/components/shared/LanguageProvider'
 import type { ConversionType, ConversionResult, NumeralConversionResult } from '@/lib/conversion/types'
 import { convert } from '@/lib/conversion/converter'
-import Link from 'next/link'
 
 interface UnitConverterLayoutProps {
   type: ConversionType
@@ -24,6 +23,23 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
     octal: t?.units?.numeral?.octal?.title || '八进制',
     hexadecimal: t?.units?.numeral?.hexadecimal?.title || '十六进制'
   } : (t?.units?.[type]?.units || {})
+
+  // 格式化数值显示
+  const formatNumber = (num: number): string => {
+    if (Math.abs(num) === 0) return '0'
+    
+    // 使用统一的格式化规则
+    if (Math.abs(num) < 0.001 || Math.abs(num) >= 10000) {
+      // 科学计数法，保持6位有效数字
+      return num.toExponential(6)
+        .replace(/\.?0+e/, 'e')  // 移除小数点后的多余0
+        .replace(/e\+?/, 'e')    // 统一e的格式
+    }
+    
+    // 普通数字，最多保留6位小数
+    const fixed = num.toFixed(6)
+    return fixed.replace(/\.?0+$/, '')  // 移除末尾的0和不必要的小数点
+  }
 
   // 处理转换
   const handleConvert = (toUnitId: string) => {
@@ -61,10 +77,25 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
       } else {
         const numValue = parseFloat(value)
         if (isNaN(numValue)) return '0'
-        const result = convert(type, numValue, fromUnit, toUnitId) as ConversionResult
-        return result.value.toPrecision(10).replace(/\.?0+$/, '')
+        
+        // 添加错误处理
+        try {
+          const result = convert(type, numValue, fromUnit, toUnitId) as ConversionResult
+          if (result.error) {
+            console.error('Conversion error:', result.error)
+            return '0'
+          }
+          return formatNumber(result.value)
+        } catch (error) {
+          if (error instanceof Error && error.message.includes('Invalid unit')) {
+            console.error('Invalid unit error:', error.message)
+            return '0'
+          }
+          throw error // 重新抛出其他错误
+        }
       }
-    } catch {
+    } catch (error) {
+      console.error('Conversion error:', error)
       return '0'
     }
   }
@@ -101,23 +132,6 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
 
   return (
     <div className="flex-1 bg-gray-50">
-      {/* 面包屑导航 */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center py-3 text-sm" aria-label="Breadcrumb">
-            <Link href={`/${t?.common?.language}`} className="text-gray-500 hover:text-gray-700">
-              {t?.common?.home}
-            </Link>
-            <svg className="mx-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-            </svg>
-            <span className="text-gray-900" aria-current="page">
-              {t?.units?.[type]?.title || t?.converter?.title}
-            </span>
-          </nav>
-        </div>
-      </div>
-
       {/* 标题和描述 */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,24 +147,25 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* 左侧 - From */}
           <div>
-            <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.converter?.from}:</h2>
+            <h2 className="text-sm font-medium text-gray-700 mb-4">{t.common.from}:</h2>
             <input
               type="text"
               value={value}
               onChange={handleInput}
-              className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder={type === 'numeral' ? `输入${units[fromUnit] || ''}数值` : t?.common?.inputValue}
             />
-            <div className="mt-4 divide-y divide-gray-100 rounded-md border border-gray-200 overflow-y-auto max-h-[calc(100vh-360px)] custom-scrollbar">
+            <div className="mt-4 rounded-md border border-gray-200 overflow-hidden">
               {Object.entries(units).map(([unitId, unit]) => (
                 <button
                   key={unitId}
-                  className={`w-full flex items-center justify-between h-9 px-4 text-sm text-left transition-colors
-                    ${fromUnit === unitId ? 'bg-gray-50' : 'hover:bg-gray-50'}`}
+                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+                    ${fromUnit === unitId 
+                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                   onClick={() => setFromUnit(unitId)}
                 >
-                  <span>{unit}</span>
-                  <span className="text-gray-500">({unitId})</span>
+                  <span className="flex-1">{unit}</span>
                 </button>
               ))}
             </div>
@@ -158,39 +173,24 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
 
           {/* 右侧 - To */}
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-medium text-gray-700">{t?.converter?.to}:</h2>
-              <button
-                onClick={() => handleCopy(`${value} ${fromUnit && units[fromUnit]}`)}
-                className="p-1.5 text-gray-500 hover:text-gray-700 rounded transition-colors"
-                title={t?.common?.copy}
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+            <h2 className="text-sm font-medium text-gray-700 mb-4">{t.common.to}:</h2>
+            <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
+              {value && fromUnit ? handleConvert(toUnit || Object.keys(units)[0]) : '0'}
             </div>
-            <div className="relative mb-4">
-              <div className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50">
-                <span>
-                  {value && fromUnit ? handleConvert(toUnit || Object.keys(units)[0]) : '0'}
-                  {toUnit && ` ${units[toUnit]}`}
-                </span>
-              </div>
-            </div>
-            <div className="divide-y divide-gray-100 rounded-md border border-gray-200 overflow-y-auto max-h-[calc(100vh-360px)] custom-scrollbar">
+            <div className="rounded-md border border-gray-200 overflow-hidden">
               {Object.entries(units).map(([unitId, unit]) => (
                 <button
                   key={unitId}
-                  className={`w-full flex items-center justify-between h-9 px-4 text-sm text-left transition-colors
-                    ${toUnit === unitId ? 'bg-gray-50' : 'hover:bg-gray-50'}`}
+                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+                    ${toUnit === unitId 
+                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                   onClick={() => setToUnit(unitId)}
                 >
-                  <span>{unit}</span>
-                  <div className="flex items-center">
-                    <span>{fromUnit && value ? handleConvert(unitId) : '0'}</span>
-                    <span className="text-gray-500 ml-1">({unitId})</span>
-                  </div>
+                  <span className="flex-1">{unit}</span>
+                  <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
+                    ({fromUnit && value ? handleConvert(unitId) : '0'})
+                  </span>
                 </button>
               ))}
             </div>

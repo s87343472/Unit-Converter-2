@@ -1,84 +1,83 @@
-import { ConversionCategory } from './types'
+import type { ConversionCategory } from './types'
 
-// 基准单位为美元(USD)
+// 使用美元作为基准单位
 const currency: ConversionCategory = {
   id: 'currency',
   baseUnit: 'usd',
   units: {
-    // 主要货币
     usd: {
       id: 'usd',
-      label: '美元',
-      ratio: 1,
+      label: '美元 (USD)',
       symbol: '$',
-    },
-    cny: {
-      id: 'cny',
-      label: '人民币',
-      ratio: 0.140845070422535, // 1 USD = 7.10 CNY
-      symbol: '¥',
+      ratio: 1,
     },
     eur: {
       id: 'eur',
-      label: '欧元',
-      ratio: 1.0869565217391304, // 1 EUR = 1.09 USD
+      label: '欧元 (EUR)',
       symbol: '€',
-    },
-    gbp: {
-      id: 'gbp',
-      label: '英镑',
-      ratio: 1.27, // 1 GBP = 1.27 USD
-      symbol: '£',
+      ratio: 1.09,
     },
     jpy: {
       id: 'jpy',
-      label: '日元',
-      ratio: 0.006756756756757, // 1 USD = 148 JPY
+      label: '日元 (JPY)',
       symbol: '¥',
+      ratio: 0.0067,
+    },
+    gbp: {
+      id: 'gbp',
+      label: '英镑 (GBP)',
+      symbol: '£',
+      ratio: 1.27,
+    },
+    cny: {
+      id: 'cny',
+      label: '人民币 (CNY)',
+      symbol: '¥',
+      ratio: 0.14,
     },
     krw: {
       id: 'krw',
-      label: '韩元',
-      ratio: 0.000769230769231, // 1 USD = 1300 KRW
+      label: '韩元 (KRW)',
       symbol: '₩',
-    },
-    hkd: {
-      id: 'hkd',
-      label: '港元',
-      ratio: 0.127877237851662, // 1 USD = 7.82 HKD
-      symbol: 'HK$',
-    },
-    aud: {
-      id: 'aud',
-      label: '澳元',
-      ratio: 0.66, // 1 AUD = 0.66 USD (示例汇率)
-      symbol: 'A$',
-    },
-    cad: {
-      id: 'cad',
-      label: '加元',
-      ratio: 0.74, // 1 CAD = 0.74 USD (示例汇率)
-      symbol: 'C$',
+      ratio: 0.00076,
     },
     chf: {
       id: 'chf',
-      label: '瑞士法郎',
-      ratio: 1.16, // 1 CHF = 1.16 USD (示例汇率)
+      label: '瑞士法郎 (CHF)',
       symbol: 'Fr',
+      ratio: 1.17,
+    },
+    aud: {
+      id: 'aud',
+      label: '澳元 (AUD)',
+      symbol: 'A$',
+      ratio: 0.66,
+    },
+    cad: {
+      id: 'cad',
+      label: '加元 (CAD)',
+      symbol: 'C$',
+      ratio: 0.74,
+    },
+    hkd: {
+      id: 'hkd',
+      label: '港元 (HKD)',
+      symbol: 'HK$',
+      ratio: 0.13,
     },
     sgd: {
       id: 'sgd',
-      label: '新加坡元',
-      ratio: 0.75, // 1 SGD = 0.75 USD (示例汇率)
+      label: '新加坡元 (SGD)',
       symbol: 'S$',
+      ratio: 0.75,
     },
-    nzd: {
-      id: 'nzd',
-      label: '新西兰元',
-      ratio: 0.62, // 1 NZD = 0.62 USD (示例汇率)
-      symbol: 'NZ$',
+    inr: {
+      id: 'inr',
+      label: '印度卢比 (INR)',
+      symbol: '₹',
+      ratio: 0.012,
     },
   },
-} as const
+}
 
 export default currency 

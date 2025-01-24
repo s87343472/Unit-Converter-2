@@ -86,52 +86,70 @@ const zh: Translation = {
       title: '长度',
       description: '长度单位转换',
       units: {
-        meter: '米',
-        kilometer: '千米',
-        centimeter: '厘米',
-        millimeter: '毫米',
-        inch: '英寸',
-        foot: '英尺',
-        yard: '码',
-        mile: '英里',
-        light_year: '光年',
-        astronomical_unit: '天文单位',
-        decimeter: '分米',
-        micrometer: '微米',
-        nanometer: '纳米',
-        picometer: '皮米'
+        meter: '米 (公制)',
+        kilometer: '千米 (公制)',
+        decimeter: '分米 (公制)',
+        centimeter: '厘米 (公制)',
+        millimeter: '毫米 (公制)',
+        micrometer: '微米 (公制)',
+        nanometer: '纳米 (公制)',
+        picometer: '皮米 (公制)',
+        mile: '英里 (英制)',
+        yard: '码 (英制)',
+        foot: '英尺 (英制)',
+        inch: '英寸 (英制)',
+        light_year: '光年 (天文)',
+        astronomical_unit: '天文单位 (天文)',
+        parsec: '秒差距 (天文)',
+        light_second: '光秒 (天文)',
+        nautical_mile: '海里 (航海)',
+        fathom: '英寻 (航海)'
       },
       knowledge: {
         title: '你知道吗？',
         items: [
-          '光年不是时间单位，而是距离单位，表示光在一年内传播的距离。',
-          '天文单位（AU）是基于地球到太阳的平均距离。',
-          '米的最初定义是地球子午线四分之一长度的千万分之一。',
-          '现在，米是根据真空中光速来定义的。'
+          '光年是光在真空中一年时间内传播的距离，约为9.461万亿千米。',
+          '天文单位（AU）是地球到太阳的平均距离，约为1.496亿千米。',
+          '秒差距是天文学中最常用的距离单位，1秒差距约等于3.26光年。',
+          '海里最初定义为地球子午线一分角对应的弧长，现定为1852米。',
+          '英寻是航海测深的传统单位，1英寻等于6英尺（约1.8288米）。',
+          '米的定义经历了多次变更，现在是基于光速和秒的定义。'
         ]
       }
     },
     area: {
       title: '面积',
-      description: '面积单位转换',
+      description: '面积单位转换 (ISO 31-1)',
       units: {
-        square_meter: '平方米',
-        square_kilometer: '平方千米',
-        square_centimeter: '平方厘米',
-        square_millimeter: '平方毫米',
-        square_inch: '平方英寸',
-        square_foot: '平方英尺',
-        square_yard: '平方码',
-        square_mile: '平方英里',
-        hectare: '公顷',
-        acre: '英亩'
+        // 公制单位
+        square_meter: '平方米 (公制)',
+        square_kilometer: '平方千米 (公制)',
+        hectare: '公顷 (公制)',
+        are: '公亩 (公制)',
+        square_decimeter: '平方分米 (公制)',
+        square_centimeter: '平方厘米 (公制)',
+        square_millimeter: '平方毫米 (公制)',
+        
+        // 英制单位
+        square_mile: '平方英里 (英制)',
+        acre: '英亩 (英制)',
+        square_yard: '平方码 (英制)',
+        square_foot: '平方英尺 (英制)',
+        square_inch: '平方英寸 (英制)',
+        
+        // 中国传统单位
+        mu: '亩 (中国)',
+        qing: '顷 (中国)'
       },
       knowledge: {
         title: '你知道吗？',
         items: [
-          '一公顷等于10000平方米，相当于一个100米×100米的正方形面积。',
-          '英亩最初是指一个农夫用一对牛一天能耕种的土地面积。',
-          '平方英里是最大的英制面积单位之一，等于640英亩。'
+          '公顷（hectare）最初是为了简化土地面积测量而创建的，1公顷等于10000平方米。',
+          '英亩（acre）源自中世纪，最初定义为一对牛一天能耕种的土地面积。',
+          '中国的亩制最早可追溯到商周时期，1亩约等于666.67平方米。',
+          '平方英里是最大的英制面积单位，1平方英里等于640英亩。',
+          '公亩（are）是公制面积单位，等于100平方米，但使用较少。',
+          '顷是中国古代最大的面积单位，1顷等于100亩。'
         ]
       }
     },
@@ -143,18 +161,25 @@ const zh: Translation = {
         cubic_kilometer: '立方千米',
         cubic_centimeter: '立方厘米',
         cubic_millimeter: '立方毫米',
-        cubic_inch: '立方英寸',
         cubic_foot: '立方英尺',
         cubic_yard: '立方码',
+        cubic_inch: '立方英寸',
         liter: '升',
         milliliter: '毫升',
-        gallon: '加仑'
+        gallon_us: '加仑(美制)',
+        quart_us: '夸脱(美制)',
+        pint_us: '品脱(美制)',
+        fluid_ounce_us: '液量盎司(美制)',
+        gallon_uk: '加仑(英制)',
+        quart_uk: '夸脱(英制)',
+        pint_uk: '品脱(英制)',
+        fluid_ounce_uk: '液量盎司(英制)'
       },
       knowledge: {
         title: '你知道吗？',
         items: [
           '一升等于一个边长为10厘米的立方体的体积。',
-          '加仑有多种定义，美制加仑和英制加仑的容量是不同的。',
+          '美制加仑和英制加仑的容量不同：1美制加仑≈3.785升，1英制加仑≈4.546升。',
           '立方米是国际单位制中的基本体积单位。'
         ]
       }
@@ -169,8 +194,11 @@ const zh: Translation = {
         metric_ton: '公吨',
         pound: '磅',
         ounce: '盎司',
-        carat: '克拉',
-        atomic_mass_unit: '原子质量单位'
+        stone: '英石',
+        long_ton: '长吨',
+        short_ton: '短吨',
+        grain: '格令',
+        carat: '克拉'
       },
       knowledge: {
         title: '你知道吗？',
@@ -234,7 +262,9 @@ const zh: Translation = {
         kilometer_per_hour: '千米/时',
         mile_per_hour: '英里/时',
         knot: '节',
-        foot_per_second: '英尺/秒'
+        foot_per_second: '英尺/秒',
+        mach: '马赫',
+        light_speed: '光速'
       },
       knowledge: {
         title: '你知道吗？',
@@ -273,8 +303,8 @@ const zh: Translation = {
         megapascal: '兆帕',
         bar: '巴',
         atmosphere: '标准大气压',
-        torr: '托',
-        pound_per_square_inch: '磅/平方英寸'
+        mmhg: '毫米汞柱',
+        psi: '磅/平方英寸'
       },
       knowledge: {
         title: '你知道吗？',
@@ -292,8 +322,13 @@ const zh: Translation = {
         watt: '瓦特',
         kilowatt: '千瓦',
         megawatt: '兆瓦',
-        horsepower: '马力',
-        btu_per_hour: '英热单位/小时'
+        gigawatt: '吉瓦',
+        horsepower_mechanical: '机械马力',
+        horsepower_metric: '公制马力',
+        horsepower_electric: '电马力',
+        horsepower_boiler: '锅炉马力',
+        btu_per_hour: '英热单位/小时',
+        ton_refrigeration: '制冷吨'
       },
       knowledge: {
         title: '你知道吗？',
@@ -350,9 +385,17 @@ const zh: Translation = {
       title: '密度',
       description: '密度单位转换',
       units: {
-        kilogram_per_cubic_meter: '千克/立方米',
-        gram_per_cubic_centimeter: '克/立方厘米',
-        pound_per_cubic_foot: '磅/立方英尺'
+        kilogram_per_cubic_meter: '千克每立方米',
+        gram_per_cubic_centimeter: '克每立方厘米',
+        gram_per_milliliter: '克每毫升',
+        kilogram_per_liter: '千克每升',
+        pound_per_cubic_foot: '磅每立方英尺',
+        pound_per_cubic_inch: '磅每立方英寸',
+        pound_per_gallon_us: '磅每加仑(美制)',
+        pound_per_gallon_uk: '磅每加仑(英制)',
+        ounce_per_cubic_foot: '盎司每立方英尺',
+        ounce_per_gallon_us: '盎司每加仑(美制)',
+        ounce_per_gallon_uk: '盎司每加仑(英制)'
       },
       knowledge: {
         title: '你知道吗？',
@@ -403,10 +446,16 @@ const zh: Translation = {
       units: {
         bit: '比特',
         byte: '字节',
-        kilobyte: '千字节',
-        megabyte: '兆字节',
-        gigabyte: '吉字节',
-        terabyte: '太字节'
+        kibibyte: '千字节(二进制)',
+        mebibyte: '兆字节(二进制)',
+        gibibyte: '吉字节(二进制)',
+        tebibyte: '太字节(二进制)',
+        pebibyte: '拍字节(二进制)',
+        kilobyte: '千字节(十进制)',
+        megabyte: '兆字节(十进制)',
+        gigabyte: '吉字节(十进制)',
+        terabyte: '太字节(十进制)',
+        petabyte: '拍字节(十进制)'
       },
       knowledge: {
         title: '你知道吗？',
@@ -421,10 +470,28 @@ const zh: Translation = {
       title: '数据速率',
       description: '数据速率单位转换',
       units: {
-        bit_per_second: '比特/秒',
-        byte_per_second: '字节/秒',
-        kilobit_per_second: '千比特/秒',
-        megabit_per_second: '兆比特/秒'
+        bit_per_second: '比特每秒',
+        byte_per_second: '字节每秒',
+        kibibit_per_second: '千比特每秒(二进制)',
+        mebibit_per_second: '兆比特每秒(二进制)',
+        gibibit_per_second: '吉比特每秒(二进制)',
+        tebibit_per_second: '太比特每秒(二进制)',
+        pebibit_per_second: '拍比特每秒(二进制)',
+        kibibyte_per_second: '千字节每秒(二进制)',
+        mebibyte_per_second: '兆字节每秒(二进制)',
+        gibibyte_per_second: '吉字节每秒(二进制)',
+        tebibyte_per_second: '太字节每秒(二进制)',
+        pebibyte_per_second: '拍字节每秒(二进制)',
+        kilobit_per_second: '千比特每秒(十进制)',
+        megabit_per_second: '兆比特每秒(十进制)',
+        gigabit_per_second: '吉比特每秒(十进制)',
+        terabit_per_second: '太比特每秒(十进制)',
+        petabit_per_second: '拍比特每秒(十进制)',
+        kilobyte_per_second: '千字节每秒(十进制)',
+        megabyte_per_second: '兆字节每秒(十进制)',
+        gigabyte_per_second: '吉字节每秒(十进制)',
+        terabyte_per_second: '太字节每秒(十进制)',
+        petabyte_per_second: '拍字节每秒(十进制)'
       },
       knowledge: {
         title: '你知道吗？',

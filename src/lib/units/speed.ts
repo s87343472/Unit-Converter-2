@@ -14,6 +14,16 @@ export const speedUnits: Unit[] = [
 
 // 转换函数
 export function convertSpeed(value: number, fromUnit: Unit, toUnit: Unit): number {
-  // 先转换为基准单位（米/秒），再转换为目标单位
-  return (value * fromUnit.ratio) / toUnit.ratio
+  // 使用高精度计算，先转换为基准单位（米/秒）
+  const baseValue = Number((value * fromUnit.ratio).toPrecision(15))
+  
+  // 转换为目标单位
+  const result = Number((baseValue / toUnit.ratio).toPrecision(15))
+  
+  // 只有当结果非常接近0时才返回0
+  if (Math.abs(result) < 1e-20) {
+    return 0
+  }
+  
+  return result
 } 

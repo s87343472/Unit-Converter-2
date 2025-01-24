@@ -1,99 +1,89 @@
-import { ConversionCategory } from './types'
+import type { ConversionCategory } from './types'
 
-// 基准单位为毫升(ml)
+// 使用毫升作为基准单位
 const cooking: ConversionCategory = {
   id: 'cooking',
   baseUnit: 'milliliter',
   units: {
-    // 公制体积单位
     milliliter: {
       id: 'milliliter',
-      label: '毫升',
+      label: '毫升 (公制)',
+      symbol: 'mL',
       ratio: 1,
-      symbol: 'ml',
     },
-    liter: {
-      id: 'liter',
-      label: '升',
-      ratio: 1000,
-      symbol: 'L',
-    },
-    // 美制体积单位
-    us_cup: {
-      id: 'us_cup',
-      label: '美制杯',
-      ratio: 236.588, // 1 US cup = 236.588 ml
+    cup_us: {
+      id: 'cup_us',
+      label: '杯 (美制)',
       symbol: 'cup',
+      ratio: 236.588,
     },
-    us_tablespoon: {
-      id: 'us_tablespoon',
-      label: '美制汤匙',
-      ratio: 14.7868, // 1 US tbsp = 14.7868 ml
-      symbol: 'tbsp',
+    cup_metric: {
+      id: 'cup_metric',
+      label: '杯 (公制)',
+      symbol: 'cup',
+      ratio: 250,
     },
-    us_teaspoon: {
-      id: 'us_teaspoon',
-      label: '美制茶匙',
-      ratio: 4.92892, // 1 US tsp = 4.92892 ml
-      symbol: 'tsp',
-    },
-    us_fluid_ounce: {
-      id: 'us_fluid_ounce',
-      label: '美制液体盎司',
-      ratio: 29.5735, // 1 US fl oz = 29.5735 ml
-      symbol: 'fl oz',
-    },
-    // 英制体积单位
-    imperial_cup: {
-      id: 'imperial_cup',
-      label: '英制杯',
-      ratio: 284.131, // 1 Imperial cup = 284.131 ml
-      symbol: 'cup (UK)',
-    },
-    imperial_tablespoon: {
-      id: 'imperial_tablespoon',
-      label: '英制汤匙',
-      ratio: 17.7582, // 1 Imperial tbsp = 17.7582 ml
-      symbol: 'tbsp (UK)',
-    },
-    imperial_teaspoon: {
-      id: 'imperial_teaspoon',
-      label: '英制茶匙',
-      ratio: 5.91939, // 1 Imperial tsp = 5.91939 ml
-      symbol: 'tsp (UK)',
-    },
-    imperial_fluid_ounce: {
-      id: 'imperial_fluid_ounce',
-      label: '英制液体盎司',
-      ratio: 28.4131, // 1 Imperial fl oz = 28.4131 ml
-      symbol: 'fl oz (UK)',
-    },
-    // 中国传统单位
-    sheng: {
-      id: 'sheng',
-      label: '升',
-      ratio: 1000, // 1 升 = 1000 ml
-      symbol: '升',
-    },
-    ge: {
-      id: 'ge',
-      label: '合',
-      ratio: 100, // 1 合 = 100 ml
+    cup_jp: {
+      id: 'cup_jp',
+      label: '杯 (日本)',
       symbol: '合',
+      ratio: 200,
     },
-    shao: {
-      id: 'shao',
-      label: '勺',
-      ratio: 10, // 1 勺 = 10 ml
+    tablespoon_us: {
+      id: 'tablespoon_us',
+      label: '汤匙 (美制)',
+      symbol: 'tbsp',
+      ratio: 14.7868,
+    },
+    tablespoon_metric: {
+      id: 'tablespoon_metric',
+      label: '汤匙 (公制)',
+      symbol: 'tbsp',
+      ratio: 15,
+    },
+    tablespoon_jp: {
+      id: 'tablespoon_jp',
+      label: '汤匙 (日本)',
+      symbol: '大さじ',
+      ratio: 15,
+    },
+    teaspoon_us: {
+      id: 'teaspoon_us',
+      label: '茶匙 (美制)',
+      symbol: 'tsp',
+      ratio: 4.92892,
+    },
+    teaspoon_metric: {
+      id: 'teaspoon_metric',
+      label: '茶匙 (公制)',
+      symbol: 'tsp',
+      ratio: 5,
+    },
+    teaspoon_jp: {
+      id: 'teaspoon_jp',
+      label: '茶匙 (日本)',
+      symbol: '小さじ',
+      ratio: 5,
+    },
+    fluid_ounce: {
+      id: 'fluid_ounce',
+      label: '液量盎司 (美制)',
+      symbol: 'fl oz',
+      ratio: 29.5735,
+    },
+    gou: {
+      id: 'gou',
+      label: '合 (日本)',
+      symbol: '合',
+      ratio: 180.39,
+    },
+    shaku: {
+      id: 'shaku',
+      label: '勺 (日本)',
       symbol: '勺',
-    },
-    cuo: {
-      id: 'cuo',
-      label: '撮',
-      ratio: 1, // 1 撮 ≈ 1 ml
-      symbol: '撮',
+      ratio: 18.039,
     },
   },
-} as const
+}
 
 export default cooking 

@@ -1,6 +1,6 @@
-import { ConversionCategory } from './types'
+import type { ConversionCategory } from './types'
 
-// 基准单位为字节(byte)
+// 使用字节作为基准单位
 const data: ConversionCategory = {
   id: 'data',
   baseUnit: 'byte',
@@ -8,75 +8,75 @@ const data: ConversionCategory = {
     // 基本单位
     bit: {
       id: 'bit',
-      label: '比特',
-      ratio: 0.125, // 1 byte = 8 bits
-      symbol: 'bit',
+      label: '比特 (基本)',
+      symbol: 'b',
+      ratio: 0.125,
     },
     byte: {
       id: 'byte',
-      label: '字节',
-      ratio: 1,
+      label: '字节 (基本)',
       symbol: 'B',
+      ratio: 1,
     },
     // 二进制单位 (1024进制)
     kibibyte: {
       id: 'kibibyte',
-      label: '二进制千字节',
-      ratio: 1024,
+      label: '千字节 (二进制)',
       symbol: 'KiB',
+      ratio: 1024,
     },
     mebibyte: {
       id: 'mebibyte',
-      label: '二进制兆字节',
-      ratio: 1048576, // 1024^2
+      label: '兆字节 (二进制)',
       symbol: 'MiB',
+      ratio: 1048576,
     },
     gibibyte: {
       id: 'gibibyte',
-      label: '二进制吉字节',
-      ratio: 1073741824, // 1024^3
+      label: '吉字节 (二进制)',
       symbol: 'GiB',
+      ratio: 1073741824,
     },
     tebibyte: {
       id: 'tebibyte',
-      label: '二进制太字节',
-      ratio: 1099511627776, // 1024^4
+      label: '太字节 (二进制)',
       symbol: 'TiB',
+      ratio: 1099511627776,
     },
     pebibyte: {
       id: 'pebibyte',
-      label: '二进制拍字节',
+      label: '二进制拍字节(IEC)',
       ratio: 1125899906842624, // 1024^5
       symbol: 'PiB',
     },
     // 十进制单位 (1000进制)
     kilobyte: {
       id: 'kilobyte',
-      label: '十进制千字节',
+      label: '千字节 (十进制)',
+      symbol: 'kB',
       ratio: 1000,
-      symbol: 'KB',
     },
     megabyte: {
       id: 'megabyte',
-      label: '十进制兆字节',
-      ratio: 1000000, // 1000^2
+      label: '兆字节 (十进制)',
       symbol: 'MB',
+      ratio: 1000000,
     },
     gigabyte: {
       id: 'gigabyte',
-      label: '十进制吉字节',
-      ratio: 1000000000, // 1000^3
+      label: '吉字节 (十进制)',
       symbol: 'GB',
+      ratio: 1000000000,
     },
     terabyte: {
       id: 'terabyte',
-      label: '十进制太字节',
-      ratio: 1000000000000, // 1000^4
+      label: '太字节 (十进制)',
       symbol: 'TB',
+      ratio: 1000000000000,
     },
     petabyte: {
       id: 'petabyte',
-      label: '十进制拍字节',
+      label: '十进制拍字节(SI)',
       ratio: 1000000000000000, // 1000^5
       symbol: 'PB',
     },

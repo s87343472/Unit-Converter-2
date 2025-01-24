@@ -13,6 +13,7 @@ export type ConversionType =
   | 'force'
   | 'density'
   | 'flow'
+  | 'torque'
   | 'frequency'
   | 'data'
   | 'data_rate'

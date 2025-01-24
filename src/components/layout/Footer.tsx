@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <h3 className="font-semibold mb-4">{t?.footer?.legal}</h3>
             <p className="text-sm text-gray-600">
-              © {currentYear} {t?.common?.title}. {t?.common?.copyright}
+              © {currentYear} Metric Converter. All rights reserved.
             </p>
           </div>
         </div>

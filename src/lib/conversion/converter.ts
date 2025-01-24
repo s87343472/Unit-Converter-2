@@ -87,22 +87,8 @@ export function convert(
         throw new Error('Invalid conversion result: toBase must return a finite number')
       }
     } else if (from.ratio) {
-      // 预测结果是否会太小
-      if (type !== 'temperature') {
-        const minThreshold = 1e-323
-        if (value !== 0) {
-          // 如果转换比率小于1，结果会更小
-          if (from.ratio < 1 && Math.abs(value) <= minThreshold) {
-            throw new Error('Result too small: below minimum representable value')
-          }
-          // 如果转换比率大于1，检查乘积是否会太小
-          if (from.ratio > 1 && Math.abs(value) < minThreshold / from.ratio) {
-            throw new Error('Result too small: below minimum representable value')
-          }
-        }
-      }
-
-      baseValue = value * from.ratio
+      // 使用高精度计算
+      baseValue = Number((value * from.ratio).toPrecision(15))
       if (!isNumber(baseValue)) {
         throw new Error('Invalid conversion result: overflow in multiplication')
       }
@@ -115,28 +101,14 @@ export function convert(
     if (to.fromBase) {
       result = to.fromBase(baseValue)
     } else if (to.ratio) {
-      // 预测结果是否会太小
-      if (type !== 'temperature') {
-        const minThreshold = 1e-323
-        if (baseValue !== 0) {
-          // 如果转换比率大于1，结果会更小
-          if (to.ratio > 1 && Math.abs(baseValue) <= minThreshold) {
-            throw new Error('Result too small: below minimum representable value')
-          }
-          // 如果转换比率小于1，检查除法结果是否会太小
-          if (to.ratio < 1 && Math.abs(baseValue) < minThreshold * to.ratio) {
-            throw new Error('Result too small: below minimum representable value')
-          }
-        }
+      // 使用高精度计算
+      result = Number((baseValue / to.ratio).toPrecision(15))
+      
+      // 只有当结果非常接近0时才返回0
+      if (Math.abs(result) < 1e-20) {
+        result = 0
       }
-
-      // 预先检查结果是否会超出范围
-      const potentialResult = baseValue / to.ratio
-      if (Math.abs(baseValue) > 1e+308 || Math.abs(potentialResult) > 1e+308) {
-        throw new Error('Result too large: exceeds safe integer range')
-      }
-
-      result = potentialResult
+      
       if (!isNumber(result)) {
         throw new Error('Invalid conversion result: overflow in division')
       }

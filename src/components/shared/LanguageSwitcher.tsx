@@ -60,6 +60,9 @@ export default function LanguageSwitcher() {
         setLanguage(newLocale)
         localStorage.setItem(LANGUAGE_KEY, newLocale)
         
+        // 设置 cookie
+        document.cookie = `preferred_language=${newLocale};path=/;max-age=${365 * 24 * 60 * 60};samesite=lax`
+        
         // 构建新的路径
         const pathWithoutLang = getPathWithoutLang(pathname)
         const newPath = `/${newLocale}${pathWithoutLang ? `/${pathWithoutLang}` : ''}`

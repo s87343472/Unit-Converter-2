@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import LanguageProvider from '@/components/shared/LanguageProvider'
-import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
 import { isValidLocale, locales } from '@/lib/i18n/config'
@@ -17,8 +16,8 @@ export function generateMetadata({ params }: { params: { lang: string } }): Meta
   const headersList = headers()
   const pathname = headersList.get('x-pathname') || ''
   const path = pathname.replace(`/${lang}`, '') || '/'
-  const host = headersList.get('host') || 'localhost:3000'
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
+  const host = 'www.metric-converter.com'
+  const protocol = 'https'
   
   // 为每个支持的语言添加hreflang
   locales.forEach(locale => {
@@ -31,11 +30,19 @@ export function generateMetadata({ params }: { params: { lang: string } }): Meta
     : `${protocol}://${host}/en${path}`
   
   return {
-    title: 'Unit Converter - A powerful online unit conversion tool',
+    title: 'Metric Converter - Online Unit Conversion Tool',
     description: 'A powerful online unit conversion tool that supports various unit conversions.',
     alternates: {
       languages
-    }
+    },
+    openGraph: {
+      title: 'Metric Converter',
+      description: 'A powerful online unit conversion tool',
+      url: `${protocol}://${host}/${lang}${path}`,
+      siteName: 'Metric Converter',
+      locale: lang,
+      type: 'website',
+    },
   }
 }
 
@@ -53,7 +60,6 @@ export default function RootLayout({
   return (
     <LanguageProvider defaultLanguage={params.lang}>
       <div className="flex flex-col min-h-screen">
-        <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
           {children}
         </main>

@@ -7,69 +7,69 @@ const frequency: ConversionCategory = {
   units: {
     hertz: {
       id: 'hertz',
-      label: '赫兹',
+      label: '赫兹 (基本)',
       symbol: 'Hz',
       ratio: 1,
     },
     kilohertz: {
       id: 'kilohertz',
-      label: '千赫兹',
+      label: '千赫兹 (基本)',
       symbol: 'kHz',
-      ratio: 1000, // 1 kHz = 1000 Hz
+      ratio: 1000,
     },
     megahertz: {
       id: 'megahertz',
-      label: '兆赫兹',
+      label: '兆赫兹 (基本)',
       symbol: 'MHz',
-      ratio: 1000000, // 1 MHz = 1,000,000 Hz
+      ratio: 1000000,
     },
     gigahertz: {
       id: 'gigahertz',
-      label: '吉赫兹',
+      label: '吉赫兹 (基本)',
       symbol: 'GHz',
-      ratio: 1000000000, // 1 GHz = 1,000,000,000 Hz
+      ratio: 1000000000,
     },
     terahertz: {
       id: 'terahertz',
-      label: '太赫兹',
+      label: '太赫兹 (基本)',
       symbol: 'THz',
-      ratio: 1000000000000, // 1 THz = 1,000,000,000,000 Hz
+      ratio: 1000000000000,
     },
     cycle_per_second: {
       id: 'cycle_per_second',
-      label: '周/秒',
+      label: '周每秒 (工程)',
       symbol: 'cps',
-      ratio: 1, // 1 cps = 1 Hz
+      ratio: 1,
     },
     cycle_per_minute: {
       id: 'cycle_per_minute',
-      label: '周/分钟',
+      label: '周/分钟(工程)',
       symbol: 'cpm',
       ratio: 1/60, // 1 cpm = 1/60 Hz
     },
     revolution_per_minute: {
       id: 'revolution_per_minute',
-      label: '转/分钟',
+      label: '转每分钟 (工程)',
       symbol: 'rpm',
-      ratio: 1/60, // 1 rpm = 1/60 Hz
+      ratio: 0.0166667,
     },
     revolution_per_second: {
       id: 'revolution_per_second',
-      label: '转/秒',
+      label: '转每秒 (工程)',
       symbol: 'rps',
-      ratio: 1, // 1 rps = 1 Hz
+      ratio: 1,
     },
     beat_per_minute: {
       id: 'beat_per_minute',
-      label: '拍/分钟',
+      label: '拍每分钟 (音乐)',
       symbol: 'bpm',
-      ratio: 1/60, // 1 bpm = 1/60 Hz
+      ratio: 0.0166667,
     },
     frame_per_second: {
       id: 'frame_per_second',
-      label: '帧/秒',
+      label: '帧每秒 (视频)',
       symbol: 'fps',
-      ratio: 1, // 1 fps = 1 Hz
+      ratio: 1,
     },
   },
 }

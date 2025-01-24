@@ -7,69 +7,69 @@ const weight: ConversionCategory = {
   units: {
     kilogram: {
       id: 'kilogram',
-      label: '千克',
+      label: '千克 (公制)',
       symbol: 'kg',
       ratio: 1,
     },
     gram: {
       id: 'gram',
-      label: '克',
+      label: '克 (公制)',
       symbol: 'g',
-      ratio: 0.001,
+      ratio: 0.001, // 1 g = 0.001 kg
     },
     milligram: {
       id: 'milligram',
-      label: '毫克',
+      label: '毫克 (公制)',
       symbol: 'mg',
-      ratio: 0.000001,
+      ratio: 0.000001, // 1 mg = 0.000001 kg = 0.001 g
     },
     metric_ton: {
       id: 'metric_ton',
-      label: '公吨',
+      label: '公吨 (公制)',
       symbol: 't',
-      ratio: 1000,
-    },
-    long_ton: {
-      id: 'long_ton',
-      label: '英吨',
-      symbol: 'long tn',
-      ratio: 1016.047, // 1 英吨 = 1016.047 kg
-    },
-    short_ton: {
-      id: 'short_ton',
-      label: '美吨',
-      symbol: 'sh tn',
-      ratio: 907.1847, // 1 美吨 = 907.1847 kg
+      ratio: 1000, // 1 t = 1000 kg
     },
     pound: {
       id: 'pound',
-      label: '磅',
+      label: '磅 (英制)',
       symbol: 'lb',
-      ratio: 0.45359237,
+      ratio: 0.453592,
     },
     ounce: {
       id: 'ounce',
-      label: '盎司',
+      label: '盎司 (英制)',
       symbol: 'oz',
-      ratio: 0.028349523125,
+      ratio: 0.0283495,
     },
     stone: {
       id: 'stone',
-      label: '英石',
+      label: '英石 (英制)',
       symbol: 'st',
-      ratio: 6.35029318, // 1 英石 = 14 磅 ≈ 6.35029318 kg
+      ratio: 6.35029,
     },
-    carat: {
-      id: 'carat',
-      label: '克拉',
-      symbol: 'ct',
-      ratio: 0.0002, // 1 克拉 = 0.2 克 = 0.0002 kg
+    long_ton: {
+      id: 'long_ton',
+      label: '长吨 (英制)',
+      symbol: 'long tn',
+      ratio: 1016.05,
+    },
+    short_ton: {
+      id: 'short_ton',
+      label: '短吨 (美制)',
+      symbol: 'short tn',
+      ratio: 907.185,
     },
     grain: {
       id: 'grain',
-      label: '格令',
+      label: '格令 (英制)',
       symbol: 'gr',
-      ratio: 0.00006479891, // 1 格令 ≈ 0.06479891 g
+      ratio: 0.0000647989,
+    },
+    carat: {
+      id: 'carat',
+      label: '克拉 (珠宝)',
+      symbol: 'ct',
+      ratio: 0.0002,
     },
   },
 }

@@ -33,14 +33,36 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const language = getLanguage(request)
   
-  // 如果路径中没有有效的语言代码，重定向到默认语言
+  // 如果路径中没有有效的语言代码，使用用户之前选择的语言或浏览器语言
   if (!language) {
-    const url = new URL(`/en${pathname}`, request.url)
-    return NextResponse.redirect(url)
+    // 从 cookie 获取用户之前选择的语言
+    const preferredLanguage = request.cookies.get('preferred_language')?.value
+    // 如果没有之前选择的语言，则使用浏览器语言
+    const detectedLanguage = getLocale(request)
+    const targetLanguage = preferredLanguage || detectedLanguage
+    
+    const url = new URL(`/${targetLanguage}${pathname}`, request.url)
+    const response = NextResponse.redirect(url)
+    
+    // 设置语言偏好 cookie
+    response.cookies.set('preferred_language', targetLanguage, {
+      path: '/',
+      maxAge: 365 * 24 * 60 * 60, // 1年
+      sameSite: 'lax'
+    })
+    
+    return response
   }
   
   // 创建响应
   const response = NextResponse.next()
+  
+  // 更新语言偏好 cookie
+  response.cookies.set('preferred_language', language, {
+    path: '/',
+    maxAge: 365 * 24 * 60 * 60, // 1年
+    sameSite: 'lax'
+  })
   
   // 添加语言相关的标头
   response.headers.set('Content-Language', language)
