@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import ClientLayout from '@/components/layouts/ClientLayout'
+import Analytics from '@/components/shared/Analytics'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,6 +72,7 @@ export default function RootLayout({
         color: 'rgb(var(--foreground-rgb))',
         background: 'rgb(var(--background-rgb))'
       }} className="font-sans antialiased">
+        <Analytics />
         <ClientLayout>
           {children}
         </ClientLayout>
