@@ -1,147 +1,159 @@
 import { convert } from '../converter'
 
 describe('Pressure Conversion', () => {
-  // 公制单位测试
-  describe('Metric Unit Conversions', () => {
-    test('metric_pascal to metric_kilopascal', () => {
+  // 测试公制压力单位转换
+  describe('Metric Pressure Units', () => {
+    test('pascal to kilopascal', () => {
       const result = convert('pressure', 1000, 'metric_pascal', 'metric_kilopascal')
-      expect(result.value).toBe(1)
+      expect(result.value).toBeCloseTo(1, 6)
       expect(result.unit).toBe('metric_kilopascal')
     })
 
-    test('metric_pascal to metric_megapascal', () => {
-      const result = convert('pressure', 2e6, 'metric_pascal', 'metric_megapascal')
-      expect(result.value).toBe(2)
+    test('kilopascal to megapascal', () => {
+      const result = convert('pressure', 1000, 'metric_kilopascal', 'metric_megapascal')
+      expect(result.value).toBeCloseTo(1, 6)
       expect(result.unit).toBe('metric_megapascal')
     })
 
-    test('metric_hectopascal to metric_kilopascal', () => {
-      const result = convert('pressure', 10, 'metric_hectopascal', 'metric_kilopascal')
-      expect(result.value).toBe(1)
+    test('hectopascal to pascal', () => {
+      const result = convert('pressure', 1, 'metric_hectopascal', 'metric_pascal')
+      expect(result.value).toBeCloseTo(100, 6)
+      expect(result.unit).toBe('metric_pascal')
+    })
+  })
+
+  // 测试大气压相关单位转换
+  describe('Atmospheric Pressure Units', () => {
+    test('standard atmosphere to pascal', () => {
+      const result = convert('pressure', 1, 'standard_atmosphere', 'metric_pascal')
+      expect(result.value).toBeCloseTo(101325, 6)
+      expect(result.unit).toBe('metric_pascal')
+    })
+
+    test('bar to kilopascal', () => {
+      const result = convert('pressure', 1, 'metric_bar', 'metric_kilopascal')
+      expect(result.value).toBeCloseTo(100, 6)
       expect(result.unit).toBe('metric_kilopascal')
     })
-  })
 
-  // 工业单位测试
-  describe('Industrial Unit Conversions', () => {
-    test('industrial_bar to metric_pascal', () => {
-      const result = convert('pressure', 1, 'industrial_bar', 'metric_pascal')
-      expect(result.value).toBe(1e5)
-      expect(result.unit).toBe('metric_pascal')
-    })
-
-    test('industrial_millibar to industrial_bar', () => {
-      const result = convert('pressure', 1000, 'industrial_millibar', 'industrial_bar')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('industrial_bar')
+    test('millibar to hectopascal', () => {
+      const result = convert('pressure', 1, 'metric_millibar', 'metric_hectopascal')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('metric_hectopascal')
     })
   })
 
-  // 科学单位测试
-  describe('Scientific Unit Conversions', () => {
-    test('scientific_atmosphere to metric_pascal', () => {
-      const result = convert('pressure', 1, 'scientific_atmosphere', 'metric_pascal')
-      expect(result.value).toBe(101325)
+  // 测试医疗压力单位转换
+  describe('Medical Pressure Units', () => {
+    test('millimeter mercury to pascal', () => {
+      const result = convert('pressure', 1, 'medical_millimeter_mercury', 'metric_pascal')
+      expect(result.value).toBeCloseTo(133.322387415, 6)
       expect(result.unit).toBe('metric_pascal')
     })
 
-    test('scientific_torr to metric_pascal', () => {
-      const result = convert('pressure', 1, 'scientific_torr', 'metric_pascal')
-      expect(result.value).toBeCloseTo(133.322)
+    test('centimeter water to pascal', () => {
+      const result = convert('pressure', 1, 'medical_centimeter_water', 'metric_pascal')
+      expect(result.value).toBeCloseTo(98.0665, 6)
       expect(result.unit).toBe('metric_pascal')
+    })
+
+    test('millimeter mercury to centimeter water', () => {
+      const result = convert('pressure', 1, 'medical_millimeter_mercury', 'medical_centimeter_water')
+      expect(result.value).toBeCloseTo(1.359808, 6)
+      expect(result.unit).toBe('medical_centimeter_water')
     })
   })
 
-  // 医学单位测试
-  describe('Medical Unit Conversions', () => {
-    test('medical_millimeter_of_mercury to metric_pascal', () => {
-      const result = convert('pressure', 1, 'medical_millimeter_of_mercury', 'metric_pascal')
-      expect(result.value).toBeCloseTo(133.322)
+  // 测试工程压力单位转换
+  describe('Engineering Pressure Units', () => {
+    test('psi to pascal', () => {
+      const result = convert('pressure', 1, 'engineering_psi', 'metric_pascal')
+      expect(result.value).toBeCloseTo(6894.757293168, 6)
       expect(result.unit).toBe('metric_pascal')
     })
 
-    test('medical_millimeter_of_mercury to scientific_torr', () => {
-      const result = convert('pressure', 1, 'medical_millimeter_of_mercury', 'scientific_torr')
-      expect(result.value).toBeCloseTo(1)
-      expect(result.unit).toBe('scientific_torr')
-    })
-  })
-
-  // 英制单位测试
-  describe('Imperial Unit Conversions', () => {
-    test('imperial_pound_per_square_inch to metric_pascal', () => {
-      const result = convert('pressure', 1, 'imperial_pound_per_square_inch', 'metric_pascal')
-      expect(result.value).toBeCloseTo(6894.76)
-      expect(result.unit).toBe('metric_pascal')
-    })
-
-    test('imperial_pound_per_square_foot to metric_pascal', () => {
-      const result = convert('pressure', 1, 'imperial_pound_per_square_foot', 'metric_pascal')
-      expect(result.value).toBeCloseTo(47.8803)
-      expect(result.unit).toBe('metric_pascal')
-    })
-
-    test('imperial_inch_of_mercury to metric_pascal', () => {
-      const result = convert('pressure', 1, 'imperial_inch_of_mercury', 'metric_pascal')
-      expect(result.value).toBeCloseTo(3386.39)
-      expect(result.unit).toBe('metric_pascal')
-    })
-
-    test('imperial_inch_of_water to metric_pascal', () => {
-      const result = convert('pressure', 1, 'imperial_inch_of_water', 'metric_pascal')
-      expect(result.value).toBeCloseTo(249.089)
-      expect(result.unit).toBe('metric_pascal')
-    })
-  })
-
-  // 工程单位测试
-  describe('Engineering Unit Conversions', () => {
-    test('engineering_kilopound_per_square_inch to imperial_pound_per_square_inch', () => {
-      const result = convert('pressure', 1, 'engineering_kilopound_per_square_inch', 'imperial_pound_per_square_inch')
-      expect(result.value).toBe(1000)
-      expect(result.unit).toBe('imperial_pound_per_square_inch')
-    })
-
-    test('engineering_centimeter_of_water to metric_pascal', () => {
-      const result = convert('pressure', 1, 'engineering_centimeter_of_water', 'metric_pascal')
-      expect(result.value).toBeCloseTo(98.0665)
-      expect(result.unit).toBe('metric_pascal')
-    })
-  })
-
-  // 跨类型转换测试
-  describe('Cross-Category Conversions', () => {
-    test('industrial_bar to scientific_atmosphere', () => {
-      const result = convert('pressure', 1.01325, 'industrial_bar', 'scientific_atmosphere')
-      expect(result.value).toBeCloseTo(1)
-      expect(result.unit).toBe('scientific_atmosphere')
-    })
-
-    test('medical_millimeter_of_mercury to imperial_pound_per_square_inch', () => {
-      const result = convert('pressure', 51.7149, 'medical_millimeter_of_mercury', 'imperial_pound_per_square_inch')
-      expect(result.value).toBeCloseTo(1)
-      expect(result.unit).toBe('imperial_pound_per_square_inch')
-    })
-  })
-
-  // 边界值测试
-  describe('Edge Cases', () => {
-    test('zero value conversion', () => {
-      const result = convert('pressure', 0, 'metric_pascal', 'imperial_pound_per_square_inch')
-      expect(result.value).toBe(0)
-      expect(result.unit).toBe('imperial_pound_per_square_inch')
-    })
-
-    test('very small value conversion', () => {
-      const result = convert('pressure', 1e-10, 'metric_pascal', 'metric_megapascal')
-      expect(result.value).toBe(1e-16)
+    test('ksi to megapascal', () => {
+      const result = convert('pressure', 1, 'engineering_ksi', 'metric_megapascal')
+      expect(result.value).toBeCloseTo(6.894757293168, 6)
       expect(result.unit).toBe('metric_megapascal')
     })
 
-    test('very large value conversion', () => {
-      const result = convert('pressure', 1e10, 'metric_pascal', 'engineering_kilopound_per_square_inch')
-      expect(result.value).toBeCloseTo(1450.377)
-      expect(result.unit).toBe('engineering_kilopound_per_square_inch')
+    test('psi to bar', () => {
+      const result = convert('pressure', 1, 'engineering_psi', 'metric_bar')
+      expect(result.value).toBeCloseTo(0.068947573, 6)
+      expect(result.unit).toBe('metric_bar')
+    })
+  })
+
+  // 测试气象压力单位转换
+  describe('Meteorological Pressure Units', () => {
+    test('inch mercury to pascal', () => {
+      const result = convert('pressure', 1, 'meteorology_inch_mercury', 'metric_pascal')
+      expect(result.value).toBeCloseTo(3386.389, 6)
+      expect(result.unit).toBe('metric_pascal')
+    })
+
+    test('millimeter mercury to hectopascal', () => {
+      const result = convert('pressure', 760, 'meteorology_millimeter_mercury', 'metric_hectopascal')
+      expect(result.value).toBeCloseTo(1013.25, 2)
+      expect(result.unit).toBe('metric_hectopascal')
+    })
+  })
+
+  // 测试真空压力单位转换
+  describe('Vacuum Pressure Units', () => {
+    test('torr to pascal', () => {
+      const result = convert('pressure', 1, 'vacuum_torr', 'metric_pascal')
+      expect(result.value).toBeCloseTo(133.322368421, 6)
+      expect(result.unit).toBe('metric_pascal')
+    })
+
+    test('micron mercury to pascal', () => {
+      const result = convert('pressure', 1000, 'vacuum_micron_mercury', 'metric_pascal')
+      expect(result.value).toBeCloseTo(133.322387415, 6)
+      expect(result.unit).toBe('metric_pascal')
+    })
+  })
+
+  // 测试跨系统转换
+  describe('Cross-System Conversions', () => {
+    test('atmosphere to bar', () => {
+      const result = convert('pressure', 1, 'standard_atmosphere', 'metric_bar')
+      expect(result.value).toBeCloseTo(1.01325, 6)
+      expect(result.unit).toBe('metric_bar')
+    })
+
+    test('psi to millimeter mercury', () => {
+      const result = convert('pressure', 1, 'engineering_psi', 'medical_millimeter_mercury')
+      expect(result.value).toBeCloseTo(51.7149, 4)
+      expect(result.unit).toBe('medical_millimeter_mercury')
+    })
+
+    test('bar to psi', () => {
+      const result = convert('pressure', 1, 'metric_bar', 'engineering_psi')
+      expect(result.value).toBeCloseTo(14.503774, 6)
+      expect(result.unit).toBe('engineering_psi')
+    })
+  })
+
+  // 测试精度
+  describe('Precision', () => {
+    test('should handle very small pressures', () => {
+      const result = convert('pressure', 0.000001, 'metric_pascal', 'metric_kilopascal')
+      expect(result.value).toBeCloseTo(0.000000001, 12)
+      expect(result.unit).toBe('metric_kilopascal')
+    })
+
+    test('should handle very large pressures', () => {
+      const result = convert('pressure', 1000000, 'metric_megapascal', 'metric_pascal')
+      expect(result.value).toBeCloseTo(1e12, 4)
+      expect(result.unit).toBe('metric_pascal')
+    })
+
+    test('should handle fractional pressures', () => {
+      const result = convert('pressure', 0.5, 'standard_atmosphere', 'metric_kilopascal')
+      expect(result.value).toBeCloseTo(50.6625, 6)
+      expect(result.unit).toBe('metric_kilopascal')
     })
   })
 }) 
