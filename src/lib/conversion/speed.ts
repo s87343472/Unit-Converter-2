@@ -3,62 +3,64 @@ import type { ConversionCategory } from './types'
 // 使用米/秒作为基准单位
 const speed: ConversionCategory = {
   id: 'speed',
-  baseUnit: 'metric_meter_per_second',
+  baseUnit: 'meter_per_second',
   units: {
-    // 公制速度单位
-    metric_meter_per_second: {
-      id: 'metric_meter_per_second',
+    // 基本单位
+    meter_per_second: {
+      id: 'meter_per_second',
       label: '米/秒',
       symbol: 'm/s',
-      ratio: 1,
+      ratio: 1, // 基准单位（SI导出单位）
     },
-    metric_kilometer_per_hour: {
-      id: 'metric_kilometer_per_hour',
-      label: '千米/时',
+
+    // 公制速度单位
+    kilometer_per_hour: {
+      id: 'kilometer_per_hour',
+      label: '千米/小时',
       symbol: 'km/h',
-      ratio: 1/3.6, // (1000m/3600s = 1/3.6 m/s)
+      ratio: 0.277777778, // 1 km/h = 0.277777778 m/s（1 km/h = 1000 m/3600 s）
     },
-    metric_kilometer_per_second: {
-      id: 'metric_kilometer_per_second',
+    kilometer_per_second: {
+      id: 'kilometer_per_second',
       label: '千米/秒',
       symbol: 'km/s',
-      ratio: 1000,
+      ratio: 1000, // 1 km/s = 1000 m/s（基本换算关系）
     },
     
     // 航空速度单位
-    aviation_mach: {
-      id: 'aviation_mach',
+    mach: {
+      id: 'mach',
       label: '马赫',
       symbol: 'M',
-      ratio: 340.3, // 在海平面标准大气压下，1马赫 ≈ 340.3 m/s
+      ratio: 340.3, // 1 M = 340.3 m/s（基于海平面标准大气中的声速）
     },
     
     // 英制速度单位
-    imperial_mile_per_hour: {
-      id: 'imperial_mile_per_hour',
-      label: '英里/时',
+    mile_per_hour: {
+      id: 'mile_per_hour',
+      label: '英里/小时',
       symbol: 'mph',
-      ratio: 0.44704, // 1 mph = 0.44704 m/s
+      ratio: 0.44704, // 1 mph = 0.44704 m/s（基于国际英里）
     },
-    imperial_foot_per_second: {
-      id: 'imperial_foot_per_second',
+    foot_per_second: {
+      id: 'foot_per_second',
       label: '英尺/秒',
       symbol: 'ft/s',
-      ratio: 0.3048, // 1 ft/s = 0.3048 m/s
+      ratio: 0.3048, // 1 ft/s = 0.3048 m/s（基于国际英尺）
     },
-    imperial_knot: {
-      id: 'imperial_knot',
+    knot: {
+      id: 'knot',
       label: '节',
       symbol: 'kn',
-      ratio: 0.514444, // 1 knot = 0.514444 m/s
+      ratio: 0.514444444, // 1 kn = 0.514444444 m/s（1海里/小时）
     },
     
     // 天文速度单位
-    astronomy_light_speed: {
-      id: 'astronomy_light_speed',
+    light_speed: {
+      id: 'light_speed',
       label: '光速',
       symbol: 'c',
-      ratio: 299792458, // 光速 = 299,792,458 m/s
+      ratio: 299792458, // 1 c = 299792458 m/s（真空中的光速）
     },
     astronomy_astronomical_unit_per_year: {
       id: 'astronomy_astronomical_unit_per_year',

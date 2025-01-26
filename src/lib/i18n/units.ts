@@ -47,6 +47,10 @@ export interface UnitInfo {
     title: string
     items: string[]
   }
+  conversion_tips?: {
+    title: string
+    items: string[]
+  }
 }
 
 export interface UnitTranslation {

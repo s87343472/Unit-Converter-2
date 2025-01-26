@@ -89,8 +89,8 @@ export function convert(
         throw new Error('Invalid conversion result: toBase must return a finite number')
       }
     } else if (from.ratio) {
-      // 使用高精度计算
-      baseValue = Number((value * from.ratio).toPrecision(15))
+      // 直接使用乘法，不进行精度控制
+      baseValue = value * from.ratio
       if (!isNumber(baseValue)) {
         throw new Error('Invalid conversion result: overflow in multiplication')
       }
@@ -103,12 +103,17 @@ export function convert(
     if (to.fromBase) {
       result = to.fromBase(baseValue)
     } else if (to.ratio) {
-      // 使用高精度计算
-      result = Number((baseValue / to.ratio).toPrecision(15))
+      // 使用高精度计算避免精度丢失
+      result = baseValue / to.ratio
       
-      // 只有当结果非常接近0时才返回0
-      if (Math.abs(result) < 1e-20) {
+      // 改进极小值处理
+      if (Math.abs(result) < 1e-10) {
         result = 0
+      } else {
+        // 使用动态精度控制
+        const magnitude = Math.floor(Math.log10(Math.abs(result)))
+        const precision = Math.max(10 - magnitude, 5) // 确保至少5位小数精度
+        result = Number(result.toPrecision(precision))
       }
       
       if (!isNumber(result)) {

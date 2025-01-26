@@ -29,13 +29,13 @@ describe('Time Conversion', () => {
 
     test('week to month', () => {
       const result = convert('time', 4.348214285714286, 'week', 'month')
-      expect(result.value).toBeCloseTo(1, 2)
+      expect(result.value).toBeCloseTo(1, 9)
       expect(result.unit).toBe('month')
     })
 
     test('month to year', () => {
       const result = convert('time', 12, 'month', 'year')
-      expect(result.value).toBeCloseTo(1, 2)
+      expect(result.value).toBeCloseTo(1, 9)
       expect(result.unit).toBe('year')
     })
   })
@@ -92,7 +92,7 @@ describe('Time Conversion', () => {
   describe('Astronomical Time Units', () => {
     test('sidereal day to second', () => {
       const result = convert('time', 1, 'sidereal_day', 'second')
-      expect(result.value).toBeCloseTo(86164.0905, 4)
+      expect(result.value).toBeCloseTo(86164.0905, 6)
       expect(result.unit).toBe('second')
     })
 
@@ -128,13 +128,13 @@ describe('Time Conversion', () => {
   describe('Cross-Type Conversions', () => {
     test('year to sidereal year', () => {
       const result = convert('time', 1, 'year', 'sidereal_year')
-      expect(result.value).toBeCloseTo(0.99997862, 6)
+      expect(result.value).toBeCloseTo(0.99997862, 9)
       expect(result.unit).toBe('sidereal_year')
     })
 
     test('day to sidereal day', () => {
       const result = convert('time', 1, 'day', 'sidereal_day')
-      expect(result.value).toBeCloseTo(0.99726968, 6)
+      expect(result.value).toBeCloseTo(0.99726968, 9)
       expect(result.unit).toBe('sidereal_day')
     })
   })

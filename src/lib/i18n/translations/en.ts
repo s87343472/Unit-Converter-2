@@ -153,19 +153,48 @@ const en: Translation = {
     },
     weight: {
       title: 'Weight',
-      description: 'Convert between different units of weight',
+      description: 'Convert between different units of weight (including metric, avoirdupois, traditional, jewelry, and pharmacy units)',
       units: {
-        metric_ton: 'Metric Ton',
-        kilogram: 'Kilogram',
-        gram: 'Gram',
-        milligram: 'Milligram',
-        microgram: 'Microgram',
-        imperial_ton: 'Imperial Ton',
-        us_ton: 'US Ton',
-        stone: 'Stone',
-        pound: 'Pound',
-        ounce: 'Ounce',
-        carat: 'Carat'
+        // Metric units
+        metric_kilogram: 'Kilogram (Metric)',
+        metric_tonne: 'Tonne (Metric)',
+        metric_gram: 'Gram (Metric)',
+        metric_milligram: 'Milligram (Metric)',
+        metric_microgram: 'Microgram (Metric)',
+        
+        // Avoirdupois units
+        avoirdupois_pound: 'Pound (Avoirdupois)',
+        avoirdupois_ounce: 'Ounce (Avoirdupois)',
+        avoirdupois_stone: 'Stone (Avoirdupois)',
+        avoirdupois_long_ton: 'Long Ton (Avoirdupois)',
+        avoirdupois_short_ton: 'Short Ton (Avoirdupois)',
+        
+        // Jewelry units
+        jewelry_carat: 'Carat (Jewelry)',
+        jewelry_grain: 'Grain (Jewelry)',
+        
+        // Traditional Chinese units
+        traditional_jin: 'Jin (Chinese Traditional)',
+        traditional_liang: 'Liang (Chinese Traditional)',
+        traditional_qian: 'Qian (Chinese Traditional)',
+        
+        // Pharmacy units
+        pharmacy_grain: 'Grain (Pharmacy)',
+        pharmacy_ounce: 'Ounce (Pharmacy)',
+        pharmacy_pound: 'Pound (Pharmacy)',
+        pharmacy_scruple: 'Scruple (Pharmacy)',
+        pharmacy_dram: 'Dram (Pharmacy)'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'The carat was originally based on the weight of carob seeds, but is now precisely defined as 0.2 grams.',
+          'The kilogram was the only SI base unit defined by a physical artifact until 2019, when it was redefined using the Planck constant.',
+          'Traditional Chinese units: 1 jin = 500g, 1 liang = 50g, 1 qian = 5g.',
+          'Pharmacy units have special conversion ratios, with the pharmacy ounce being slightly lighter than the avoirdupois ounce.',
+          'The avoirdupois system is the most commonly used weight system in English-speaking countries, with 1 avoirdupois pound equal to 453.59237 grams.',
+          'The difference between long and short tons: 1 long ton = 2240 pounds, 1 short ton = 2000 pounds.'
+        ]
       }
     },
     time: {

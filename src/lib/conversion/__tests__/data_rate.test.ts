@@ -1,96 +1,96 @@
 import { convert } from '../converter'
 
-describe('Data Rate Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Metric Conversions', () => {
-    test('metric_bit_per_second to metric_byte_per_second', () => {
-      const result = convert('data_rate', 8, 'metric_bit_per_second', 'metric_byte_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_byte_per_second')
+describe('数据传输率单位转换', () => {
+  // 基本单位转换
+  describe('基本单位转换', () => {
+    test('比特每秒到字节每秒的转换', () => {
+      const result = convert('data_rate', 8, 'bit_per_second', 'byte_per_second')
+      expect(result.value).toBe(1) // 精确转换：8 bit/s = 1 B/s
+      expect(result.unit).toBe('byte_per_second')
     })
 
-    test('metric_byte_per_second to metric_bit_per_second', () => {
-      const result = convert('data_rate', 1, 'metric_byte_per_second', 'metric_bit_per_second')
-      expect(result.value).toBe(8)
-      expect(result.unit).toBe('metric_bit_per_second')
-    })
-  })
-
-  // 测试二进制单位转换
-  describe('Binary Unit Conversions', () => {
-    test('metric_byte_per_second to binary_kibibyte_per_second', () => {
-      const result = convert('data_rate', 1024, 'metric_byte_per_second', 'binary_kibibyte_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('binary_kibibyte_per_second')
-    })
-
-    test('binary_kibibyte_per_second to binary_mebibyte_per_second', () => {
-      const result = convert('data_rate', 1024, 'binary_kibibyte_per_second', 'binary_mebibyte_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('binary_mebibyte_per_second')
-    })
-
-    test('binary_mebibyte_per_second to binary_gibibyte_per_second', () => {
-      const result = convert('data_rate', 1024, 'binary_mebibyte_per_second', 'binary_gibibyte_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('binary_gibibyte_per_second')
+    test('字节每秒到比特每秒的转换', () => {
+      const result = convert('data_rate', 1, 'byte_per_second', 'bit_per_second')
+      expect(result.value).toBe(8) // 精确转换：1 B/s = 8 bit/s
+      expect(result.unit).toBe('bit_per_second')
     })
   })
 
-  // 测试十进制单位转换
-  describe('Decimal Unit Conversions', () => {
-    test('metric_bit_per_second to metric_kilobit_per_second', () => {
-      const result = convert('data_rate', 1000, 'metric_bit_per_second', 'metric_kilobit_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_kilobit_per_second')
+  // 二进制单位转换
+  describe('二进制单位转换', () => {
+    test('字节每秒到二进制千字节每秒的转换', () => {
+      const result = convert('data_rate', 1024, 'byte_per_second', 'kibibyte_per_second')
+      expect(result.value).toBe(1) // 精确转换：1024 B/s = 1 KiB/s
+      expect(result.unit).toBe('kibibyte_per_second')
     })
 
-    test('metric_kilobit_per_second to metric_megabit_per_second', () => {
-      const result = convert('data_rate', 1000, 'metric_kilobit_per_second', 'metric_megabit_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_megabit_per_second')
+    test('二进制千字节每秒到二进制兆字节每秒的转换', () => {
+      const result = convert('data_rate', 1024, 'kibibyte_per_second', 'mebibyte_per_second')
+      expect(result.value).toBe(1) // 精确转换：1024 KiB/s = 1 MiB/s
+      expect(result.unit).toBe('mebibyte_per_second')
     })
 
-    test('metric_megabit_per_second to metric_gigabit_per_second', () => {
-      const result = convert('data_rate', 1000, 'metric_megabit_per_second', 'metric_gigabit_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_gigabit_per_second')
-    })
-  })
-
-  // 测试跨系统转换
-  describe('Cross-System Conversions', () => {
-    test('metric_megabit_per_second to binary_mebibyte_per_second', () => {
-      const result = convert('data_rate', 8, 'metric_megabit_per_second', 'binary_mebibyte_per_second')
-      expect(result.value).toBeCloseTo(0.953674, 6)
-      expect(result.unit).toBe('binary_mebibyte_per_second')
-    })
-
-    test('binary_gibibyte_per_second to metric_gigabit_per_second', () => {
-      const result = convert('data_rate', 1, 'binary_gibibyte_per_second', 'metric_gigabit_per_second')
-      expect(result.value).toBeCloseTo(8.58993, 5)
-      expect(result.unit).toBe('metric_gigabit_per_second')
+    test('二进制兆字节每秒到二进制吉字节每秒的转换', () => {
+      const result = convert('data_rate', 1024, 'mebibyte_per_second', 'gibibyte_per_second')
+      expect(result.value).toBe(1) // 精确转换：1024 MiB/s = 1 GiB/s
+      expect(result.unit).toBe('gibibyte_per_second')
     })
   })
 
-  // 测试极端值和边界条件
-  describe('Edge Cases', () => {
-    test('should handle very small data rates', () => {
-      const result = convert('data_rate', 1, 'metric_bit_per_second', 'binary_gibibyte_per_second')
-      expect(result.value).toBeCloseTo(1.1641532182693481e-10, 20)
-      expect(result.unit).toBe('binary_gibibyte_per_second')
+  // 十进制单位转换
+  describe('十进制单位转换', () => {
+    test('比特每秒到千比特每秒的转换', () => {
+      const result = convert('data_rate', 1000, 'bit_per_second', 'kilobit_per_second')
+      expect(result.value).toBe(1) // 精确转换：1000 bit/s = 1 kbit/s
+      expect(result.unit).toBe('kilobit_per_second')
     })
 
-    test('should handle very large data rates', () => {
-      const result = convert('data_rate', 1, 'binary_gibibyte_per_second', 'metric_bit_per_second')
-      expect(result.value).toBe(8589934592)
-      expect(result.unit).toBe('metric_bit_per_second')
+    test('千比特每秒到兆比特每秒的转换', () => {
+      const result = convert('data_rate', 1000, 'kilobit_per_second', 'megabit_per_second')
+      expect(result.value).toBe(1) // 精确转换：1000 kbit/s = 1 Mbit/s
+      expect(result.unit).toBe('megabit_per_second')
     })
 
-    test('should handle zero data rate', () => {
-      const result = convert('data_rate', 0, 'metric_bit_per_second', 'metric_gigabit_per_second')
-      expect(result.value).toBe(0)
-      expect(result.unit).toBe('metric_gigabit_per_second')
+    test('兆比特每秒到吉比特每秒的转换', () => {
+      const result = convert('data_rate', 1000, 'megabit_per_second', 'gigabit_per_second')
+      expect(result.value).toBe(1) // 精确转换：1000 Mbit/s = 1 Gbit/s
+      expect(result.unit).toBe('gigabit_per_second')
+    })
+  })
+
+  // 跨系统转换
+  describe('跨系统转换', () => {
+    test('兆比特每秒到二进制兆字节每秒的转换', () => {
+      const result = convert('data_rate', 8, 'megabit_per_second', 'mebibyte_per_second')
+      expect(result.value).toBeCloseTo(0.953674316, 9) // 近似转换
+      expect(result.unit).toBe('mebibyte_per_second')
+    })
+
+    test('二进制吉字节每秒到吉比特每秒的转换', () => {
+      const result = convert('data_rate', 1, 'gibibyte_per_second', 'gigabit_per_second')
+      expect(result.value).toBeCloseTo(8.589934592, 9) // 近似转换
+      expect(result.unit).toBe('gigabit_per_second')
+    })
+  })
+
+  // 极端值和边界条件
+  describe('极端值和边界条件', () => {
+    test('处理极小数据传输率', () => {
+      const result = convert('data_rate', 1, 'bit_per_second', 'gibibyte_per_second')
+      expect(result.value).toBeCloseTo(1.1641532182693481e-10, 19) // 保持高精度
+      expect(result.unit).toBe('gibibyte_per_second')
+    })
+
+    test('处理极大数据传输率', () => {
+      const result = convert('data_rate', 1, 'gibibyte_per_second', 'bit_per_second')
+      expect(result.value).toBe(8589934592) // 精确转换
+      expect(result.unit).toBe('bit_per_second')
+    })
+
+    test('处理零数据传输率', () => {
+      const result = convert('data_rate', 0, 'bit_per_second', 'gigabit_per_second')
+      expect(result.value).toBe(0) // 精确转换
+      expect(result.unit).toBe('gigabit_per_second')
     })
   })
 }) 

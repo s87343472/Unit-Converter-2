@@ -180,15 +180,44 @@ const de: Translation = {
     },
     flow: {
       title: 'Durchfluss',
-      description: 'Umrechnung von Durchflussraten'
+      description: 'Umrechnung von Durchflussraten',
+      units: {
+        cubicMeterPerSecond: 'Kubikmeter pro Sekunde',
+        literPerSecond: 'Liter pro Sekunde',
+        gallonPerMinute: 'Gallonen pro Minute',
+        cubicFootPerMinute: 'Kubikfuß pro Minute',
+        literPerMinute: 'Liter pro Minute',
+        cubicMeterPerHour: 'Kubikmeter pro Stunde'
+      }
     },
     torque: {
       title: 'Drehmoment',
-      description: 'Umrechnung von Drehmomenteinheiten (ISO 31-3)'
+      description: 'Umrechnung von Drehmomenteinheiten (ISO 31-3)',
+      units: {
+        newtonMeter: 'Newtonmeter',
+        poundFoot: 'Pfund-Fuß',
+        kilogramMeter: 'Kilogramm-Meter',
+        newtonCentimeter: 'Newtonzentimeter',
+        kilogramForceMeter: 'Kilogramm-Kraft-Meter',
+        poundInch: 'Pfund-Zoll'
+      }
     },
     data: {
       title: 'Datenspeicher',
-      description: 'Umrechnung von Datenspeichereinheiten (IEC 60027)'
+      description: 'Umrechnung von Datenspeichereinheiten (IEC 60027)',
+      units: {
+        bit: 'Bit',
+        byte: 'Byte',
+        kilobyte: 'Kilobyte',
+        megabyte: 'Megabyte',
+        gigabyte: 'Gigabyte',
+        terabyte: 'Terabyte',
+        petabyte: 'Petabyte',
+        kibibyte: 'Kibibyte',
+        mebibyte: 'Mebibyte',
+        gibibyte: 'Gibibyte',
+        tebibyte: 'Tebibyte'
+      }
     },
     data_rate: {
       title: 'Datenübertragung',

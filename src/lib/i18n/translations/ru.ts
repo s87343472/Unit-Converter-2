@@ -180,15 +180,44 @@ const ru: Translation = {
     },
     flow: {
       title: 'Расход',
-      description: 'Преобразование единиц расхода'
+      description: 'Конвертация единиц расхода',
+      units: {
+        cubicMeterPerSecond: 'Кубический метр в секунду',
+        literPerSecond: 'Литр в секунду',
+        gallonPerMinute: 'Галлон в минуту',
+        cubicFootPerMinute: 'Кубический фут в минуту',
+        literPerMinute: 'Литр в минуту',
+        cubicMeterPerHour: 'Кубический метр в час'
+      }
     },
     torque: {
       title: 'Крутящий момент',
-      description: 'Преобразование единиц крутящего момента (ISO 31-3)'
+      description: 'Конвертация единиц крутящего момента',
+      units: {
+        newtonMeter: 'Ньютон-метр',
+        poundFoot: 'Фунт-фут',
+        kilogramMeter: 'Килограмм-метр',
+        newtonCentimeter: 'Ньютон-сантиметр',
+        kilogramForceMeter: 'Килограмм-сила-метр',
+        poundInch: 'Фунт-дюйм'
+      }
     },
     data: {
-      title: 'Хранение данных',
-      description: 'Преобразование единиц хранения данных (IEC 60027)'
+      title: 'Данные',
+      description: 'Конвертация единиц данных',
+      units: {
+        bit: 'Бит',
+        byte: 'Байт',
+        kilobyte: 'Килобайт',
+        megabyte: 'Мегабайт',
+        gigabyte: 'Гигабайт',
+        terabyte: 'Терабайт',
+        petabyte: 'Петабайт',
+        kibibyte: 'Кибибайт',
+        mebibyte: 'Мебибайт',
+        gibibyte: 'Гибибайт',
+        tebibyte: 'Тебибайт'
+      }
     },
     data_rate: {
       title: 'Скорость передачи данных',

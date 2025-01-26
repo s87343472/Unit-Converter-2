@@ -1,147 +1,138 @@
 import { convert } from '../converter'
 
 describe('Density Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Conversions', () => {
+  // 测试公制密度单位转换
+  describe('Metric Density Units', () => {
     test('kilogram per cubic meter to gram per cubic centimeter', () => {
       const result = convert('density', 1000, 'kilogram_per_cubic_meter', 'gram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(1, 3)
+      expect(result.value).toBeCloseTo(1, 6)
       expect(result.unit).toBe('gram_per_cubic_centimeter')
     })
 
     test('gram per cubic centimeter to kilogram per cubic meter', () => {
       const result = convert('density', 1, 'gram_per_cubic_centimeter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1000, 0)
+      expect(result.value).toBeCloseTo(1000, 6)
       expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
   })
 
-  // 测试液体密度单位
+  // 测试液体密度单位转换
   describe('Liquid Density Units', () => {
-    test('kilogram per liter to gram per milliliter', () => {
-      const result = convert('density', 1, 'kilogram_per_liter', 'gram_per_milliliter')
-      expect(result.value).toBeCloseTo(1, 3)
-      expect(result.unit).toBe('gram_per_milliliter')
-    })
-
     test('gram per milliliter to kilogram per cubic meter', () => {
       const result = convert('density', 1, 'gram_per_milliliter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1000, 0)
-      expect(result.unit).toBe('kilogram_per_cubic_meter')
-    })
-  })
-
-  // 测试工业单位
-  describe('Industrial Units', () => {
-    test('slug per cubic foot to kilogram per cubic meter', () => {
-      const result = convert('density', 1, 'slug_per_cubic_foot', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(515.379, 3)
+      expect(result.value).toBeCloseTo(1000, 6)
       expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
 
-    test('kilogram per cubic decimeter to kilogram per cubic meter', () => {
-      const result = convert('density', 1, 'kilogram_per_cubic_decimeter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1000, 0)
-      expect(result.unit).toBe('kilogram_per_cubic_meter')
-    })
-  })
-
-  // 测试科学单位
-  describe('Scientific Units', () => {
-    test('gram per cubic meter to kilogram per cubic meter', () => {
-      const result = convert('density', 1000, 'gram_per_cubic_meter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1, 3)
-      expect(result.unit).toBe('kilogram_per_cubic_meter')
-    })
-
-    test('milligram per cubic centimeter to gram per cubic centimeter', () => {
-      const result = convert('density', 1000, 'milligram_per_cubic_centimeter', 'gram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(1, 3)
-      expect(result.unit).toBe('gram_per_cubic_centimeter')
-    })
-
-    test('milligram per milliliter to gram per milliliter', () => {
-      const result = convert('density', 1000, 'milligram_per_milliliter', 'gram_per_milliliter')
-      expect(result.value).toBeCloseTo(1, 3)
+    test('kilogram per liter to gram per milliliter', () => {
+      const result = convert('density', 1, 'kilogram_per_liter', 'gram_per_milliliter')
+      expect(result.value).toBeCloseTo(1, 6)
       expect(result.unit).toBe('gram_per_milliliter')
     })
-  })
 
-  // 测试特殊应用单位
-  describe('Special Application Units', () => {
-    test('kilogram per cubic centimeter to gram per cubic centimeter', () => {
-      const result = convert('density', 1, 'kilogram_per_cubic_centimeter', 'gram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(1000, 0)
-      expect(result.unit).toBe('gram_per_cubic_centimeter')
-    })
-
-    test('metric ton per cubic meter to kilogram per cubic meter', () => {
-      const result = convert('density', 1, 'metric_ton_per_cubic_meter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1000, 0)
+    test('gram per liter to kilogram per cubic meter', () => {
+      const result = convert('density', 1000, 'gram_per_liter', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1000, 6)
       expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
   })
 
-  // 测试英制单位
-  describe('Imperial Units', () => {
+  // 测试英制密度单位转换
+  describe('Imperial Density Units', () => {
     test('pound per cubic foot to kilogram per cubic meter', () => {
       const result = convert('density', 1, 'pound_per_cubic_foot', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(16.02, 2)
+      expect(result.value).toBeCloseTo(16.018463374, 9)
       expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
 
-    test('pound per cubic inch to gram per cubic centimeter', () => {
-      const result = convert('density', 1, 'pound_per_cubic_inch', 'gram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(27.68, 2)
-      expect(result.unit).toBe('gram_per_cubic_centimeter')
+    test('pound per cubic inch to kilogram per cubic meter', () => {
+      const result = convert('density', 1, 'pound_per_cubic_inch', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(27679.904710191, 9)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
 
-    test('US pound per gallon to gram per milliliter', () => {
-      const result = convert('density', 1, 'pound_per_gallon_us', 'gram_per_milliliter')
-      expect(result.value).toBeCloseTo(0.120, 3)
-      expect(result.unit).toBe('gram_per_milliliter')
+    test('ounce per cubic foot to kilogram per cubic meter', () => {
+      const result = convert('density', 1, 'ounce_per_cubic_foot', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1.001153961, 9)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
   })
 
-  // 测试跨单位系统转换
+  // 测试美制密度单位转换
+  describe('US Density Units', () => {
+    test('pound per gallon to kilogram per cubic meter', () => {
+      const result = convert('density', 1, 'pound_per_gallon', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(119.826427, 9)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
+    })
+
+    test('ounce per gallon to kilogram per cubic meter', () => {
+      const result = convert('density', 1, 'ounce_per_gallon', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(7.489151688, 9)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
+    })
+  })
+
+  // 测试科学密度单位转换
+  describe('Scientific Density Units', () => {
+    test('gram per cubic meter to kilogram per cubic meter', () => {
+      const result = convert('density', 1000, 'gram_per_cubic_meter', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
+    })
+
+    test('milligram per cubic meter to gram per cubic meter', () => {
+      const result = convert('density', 1000, 'milligram_per_cubic_meter', 'gram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('gram_per_cubic_meter')
+    })
+
+    test('microgram per cubic meter to milligram per cubic meter', () => {
+      const result = convert('density', 1000, 'microgram_per_cubic_meter', 'milligram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('milligram_per_cubic_meter')
+    })
+  })
+
+  // 测试跨系统转换
   describe('Cross-System Conversions', () => {
-    test('slug per cubic foot to pound per cubic foot', () => {
-      const result = convert('density', 1, 'slug_per_cubic_foot', 'pound_per_cubic_foot')
-      expect(result.value).toBeCloseTo(32.174, 3)
-      expect(result.unit).toBe('pound_per_cubic_foot')
+    test('pound per cubic foot to gram per cubic centimeter', () => {
+      const result = convert('density', 1, 'pound_per_cubic_foot', 'gram_per_cubic_centimeter')
+      expect(result.value).toBeCloseTo(0.016018463374, 9)
+      expect(result.unit).toBe('gram_per_cubic_centimeter')
     })
 
-    test('kilogram per cubic decimeter to pound per cubic foot', () => {
-      const result = convert('density', 1, 'kilogram_per_cubic_decimeter', 'pound_per_cubic_foot')
-      expect(result.value).toBeCloseTo(62.428, 3)
-      expect(result.unit).toBe('pound_per_cubic_foot')
+    test('gram per milliliter to pound per cubic inch', () => {
+      const result = convert('density', 1, 'gram_per_milliliter', 'pound_per_cubic_inch')
+      expect(result.value).toBeCloseTo(0.036127292, 9)
+      expect(result.unit).toBe('pound_per_cubic_inch')
     })
 
-    test('metric ton per cubic meter to pound per cubic foot', () => {
-      const result = convert('density', 1, 'metric_ton_per_cubic_meter', 'pound_per_cubic_foot')
-      expect(result.value).toBeCloseTo(62.428, 3)
-      expect(result.unit).toBe('pound_per_cubic_foot')
+    test('kilogram per liter to pound per gallon', () => {
+      const result = convert('density', 1, 'kilogram_per_liter', 'pound_per_gallon')
+      expect(result.value).toBeCloseTo(8.345404452, 9)
+      expect(result.unit).toBe('pound_per_gallon')
     })
   })
 
   // 测试精度
   describe('Precision', () => {
-    test('should handle very low densities', () => {
-      const result = convert('density', 0.001, 'kilogram_per_cubic_meter', 'gram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(0.000001, 6)
-      expect(result.unit).toBe('gram_per_cubic_centimeter')
+    test('should handle very small densities', () => {
+      const result = convert('density', 0.000001, 'kilogram_per_cubic_meter', 'microgram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(1000, 6)
+      expect(result.unit).toBe('microgram_per_cubic_meter')
     })
 
-    test('should handle very high densities', () => {
+    test('should handle very large densities', () => {
       const result = convert('density', 1000, 'gram_per_cubic_centimeter', 'kilogram_per_cubic_meter')
-      expect(result.value).toBeCloseTo(1000000, 0)
+      expect(result.value).toBeCloseTo(1000000, 6)
       expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
 
-    test('should handle extreme precision', () => {
-      const result = convert('density', 0.000001, 'gram_per_cubic_meter', 'milligram_per_cubic_centimeter')
-      expect(result.value).toBeCloseTo(0.000000001, 9)
-      expect(result.unit).toBe('milligram_per_cubic_centimeter')
+    test('should handle fractional densities', () => {
+      const result = convert('density', 0.5, 'gram_per_milliliter', 'kilogram_per_cubic_meter')
+      expect(result.value).toBeCloseTo(500, 6)
+      expect(result.unit).toBe('kilogram_per_cubic_meter')
     })
   })
 }) 

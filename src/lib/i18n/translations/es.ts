@@ -263,7 +263,10 @@ const es: Translation = {
       units: {
         cubicMeterPerSecond: 'Metro cúbico por segundo',
         literPerSecond: 'Litro por segundo',
-        gallonPerMinute: 'Galón por minuto'
+        gallonPerMinute: 'Galón por minuto',
+        cubicFootPerMinute: 'Pie cúbico por minuto',
+        literPerMinute: 'Litro por minuto',
+        cubicMeterPerHour: 'Metro cúbico por hora'
       }
     },
     torque: {
@@ -272,7 +275,10 @@ const es: Translation = {
       units: {
         newtonMeter: 'Newton-metro',
         poundFoot: 'Libra-pie',
-        kilogramMeter: 'Kilogramo-metro'
+        kilogramMeter: 'Kilogramo-metro',
+        newtonCentimeter: 'Newton-centímetro',
+        kilogramForceMeter: 'Kilogramo-fuerza metro',
+        poundInch: 'Libra-pulgada'
       }
     },
     data: {
@@ -284,7 +290,12 @@ const es: Translation = {
         kilobyte: 'Kilobyte',
         megabyte: 'Megabyte',
         gigabyte: 'Gigabyte',
-        terabyte: 'Terabyte'
+        terabyte: 'Terabyte',
+        petabyte: 'Petabyte',
+        kibibyte: 'Kibibyte',
+        mebibyte: 'Mebibyte',
+        gibibyte: 'Gibibyte',
+        tebibyte: 'Tebibyte'
       }
     },
     data_rate: {

@@ -1,123 +1,97 @@
 import type { ConversionCategory } from './types'
 
-// 使用千克每立方米作为基准单位
 const density: ConversionCategory = {
   id: 'density',
   baseUnit: 'kilogram_per_cubic_meter',
   units: {
+    // 基本单位
     kilogram_per_cubic_meter: {
       id: 'kilogram_per_cubic_meter',
-      label: '千克每立方米 (公制)',
+      label: '千克/立方米',
       symbol: 'kg/m³',
-      ratio: 1,
+      ratio: 1 // 基准单位
     },
+
+    // 公制密度单位
     gram_per_cubic_centimeter: {
       id: 'gram_per_cubic_centimeter',
-      label: '克每立方厘米 (公制)',
+      label: '克/立方厘米',
       symbol: 'g/cm³',
-      ratio: 1000,
+      ratio: 1000 // 1 g/cm³ = 1000 kg/m³（1 g/cm³ = 1000 kg/m³）
     },
     gram_per_milliliter: {
       id: 'gram_per_milliliter',
-      label: '克每毫升 (公制)',
+      label: '克/毫升',
       symbol: 'g/mL',
-      ratio: 1000,
+      ratio: 1000 // 1 g/mL = 1000 kg/m³（1 mL = 1 cm³）
     },
     kilogram_per_liter: {
       id: 'kilogram_per_liter',
-      label: '千克每升 (公制)',
+      label: '千克/升',
       symbol: 'kg/L',
-      ratio: 1000,
+      ratio: 1000 // 1 kg/L = 1000 kg/m³（1 L = 0.001 m³）
     },
-    // 工业常用单位
-    slug_per_cubic_foot: {
-      id: 'slug_per_cubic_foot',
-      label: '斯拉格每立方英尺 (工业)',
-      symbol: 'slug/ft³',
-      ratio: 515.379,
-    },
-    kilogram_per_cubic_decimeter: {
-      id: 'kilogram_per_cubic_decimeter',
-      label: '千克每立方分米 (工业)',
-      symbol: 'kg/dm³',
-      ratio: 1000,
-    },
-    // 科学单位
-    gram_per_cubic_meter: {
-      id: 'gram_per_cubic_meter',
-      label: '克每立方米 (科学)',
-      symbol: 'g/m³',
-      ratio: 0.001,
-    },
-    milligram_per_cubic_centimeter: {
-      id: 'milligram_per_cubic_centimeter',
-      label: '毫克每立方厘米 (科学)',
-      symbol: 'mg/cm³',
-      ratio: 1,
-    },
-    milligram_per_milliliter: {
-      id: 'milligram_per_milliliter',
-      label: '毫克每毫升 (科学)',
-      symbol: 'mg/mL',
-      ratio: 1,
-    },
-    // 特殊应用单位
-    kilogram_per_cubic_centimeter: {
-      id: 'kilogram_per_cubic_centimeter',
-      label: '千克每立方厘米 (特殊)',
-      symbol: 'kg/cm³',
-      ratio: 1000000,
-    },
-    metric_ton_per_cubic_meter: {
-      id: 'metric_ton_per_cubic_meter',
-      label: '吨每立方米 (特殊)',
-      symbol: 't/m³',
-      ratio: 1000,
-    },
-    // 英制单位
+
+    // 英制密度单位
     pound_per_cubic_foot: {
       id: 'pound_per_cubic_foot',
-      label: '磅每立方英尺 (英制)',
+      label: '磅/立方英尺',
       symbol: 'lb/ft³',
-      ratio: 16.0185,
+      ratio: 16.018463374 // 1 lb/ft³ ≈ 16.018463374 kg/m³（基于标准重力）
     },
     pound_per_cubic_inch: {
       id: 'pound_per_cubic_inch',
-      label: '磅每立方英寸 (英制)',
+      label: '磅/立方英寸',
       symbol: 'lb/in³',
-      ratio: 27679.9,
+      ratio: 27679.904710203 // 1 lb/in³ ≈ 27679.904710203 kg/m³（基于标准重力）
     },
-    pound_per_gallon_us: {
-      id: 'pound_per_gallon_us',
-      label: '磅每加仑 (美制)',
+    pound_per_gallon: {
+      id: 'pound_per_gallon',
+      label: '磅/英制加仑',
       symbol: 'lb/gal',
-      ratio: 119.826,
-    },
-    pound_per_gallon_uk: {
-      id: 'pound_per_gallon_uk',
-      label: '磅每加仑 (英制)',
-      symbol: 'lb/gal',
-      ratio: 99.7763,
+      ratio: 99.776372663 // 1 lb/gal ≈ 99.776372663 kg/m³（基于英制加仑）
     },
     ounce_per_cubic_foot: {
       id: 'ounce_per_cubic_foot',
-      label: '盎司每立方英尺 (英制)',
+      label: '盎司/立方英尺',
       symbol: 'oz/ft³',
-      ratio: 1.00116,
+      ratio: 1.001153961 // 1 oz/ft³ ≈ 1.001153961 kg/m³（基于标准重力）
     },
-    ounce_per_gallon_us: {
-      id: 'ounce_per_gallon_us',
-      label: '盎司每加仑 (美制)',
+
+    // 美制密度单位
+    us_pound_per_gallon: {
+      id: 'us_pound_per_gallon',
+      label: '磅/美制加仑',
+      symbol: 'lb/gal',
+      ratio: 119.826427 // 1 lb/gal ≈ 119.826427 kg/m³（基于美制加仑）
+    },
+    us_ounce_per_gallon: {
+      id: 'us_ounce_per_gallon',
+      label: '盎司/美制加仑',
       symbol: 'oz/gal',
-      ratio: 7.48915,
+      ratio: 7.489151688 // 1 oz/gal ≈ 7.489151688 kg/m³（基于美制加仑）
     },
-    ounce_per_gallon_uk: {
-      id: 'ounce_per_gallon_uk',
-      label: '盎司每加仑 (英制)',
-      symbol: 'oz/gal',
-      ratio: 6.23602,
+
+    // 科学密度单位
+    scientific_gram_per_cubic_meter: {
+      id: 'scientific_gram_per_cubic_meter',
+      label: '克/立方米',
+      symbol: 'g/m³',
+      ratio: 0.001 // 1 g/m³ = 0.001 kg/m³（基本换算关系）
     },
-  },
-}
+    scientific_milligram_per_cubic_meter: {
+      id: 'scientific_milligram_per_cubic_meter',
+      label: '毫克/立方米',
+      symbol: 'mg/m³',
+      ratio: 0.000001 // 1 mg/m³ = 0.000001 kg/m³（基本换算关系）
+    },
+    scientific_microgram_per_cubic_meter: {
+      id: 'scientific_microgram_per_cubic_meter',
+      label: '微克/立方米',
+      symbol: 'μg/m³',
+      ratio: 0.000000001 // 1 μg/m³ = 0.000001 kg/m³（基本换算关系）
+    }
+  }
+} as const
 
 export default density 

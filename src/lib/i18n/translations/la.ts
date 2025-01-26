@@ -263,7 +263,10 @@ const la: Translation = {
       units: {
         cubicMeterPerSecond: 'Metrum Cubicum per Secundum',
         literPerSecond: 'Litrum per Secundum',
-        gallonPerMinute: 'Congius per Minutum'
+        gallonPerMinute: 'Congius per Minutum',
+        cubicFootPerMinute: 'Pes Cubicus per Minutum',
+        literPerMinute: 'Litrum per Minutum',
+        cubicMeterPerHour: 'Metrum Cubicum per Horam'
       }
     },
     torque: {
@@ -272,7 +275,10 @@ const la: Translation = {
       units: {
         newtonMeter: 'Newton-Metrum',
         poundFoot: 'Libra-Pes',
-        kilogramMeter: 'Chilogramma-Metrum'
+        kilogramMeter: 'Chilogramma-Metrum',
+        newtonCentimeter: 'Newton-Centimetrum',
+        kilogramForceMeter: 'Chilogramma-Vis-Metrum',
+        poundInch: 'Libra-Digitus'
       }
     },
     data: {
@@ -284,7 +290,12 @@ const la: Translation = {
         kilobyte: 'Chilobyte',
         megabyte: 'Megabyte',
         gigabyte: 'Gigabyte',
-        terabyte: 'Terabyte'
+        terabyte: 'Terabyte',
+        petabyte: 'Petabyte',
+        kibibyte: 'Kibibyte',
+        mebibyte: 'Mebibyte',
+        gibibyte: 'Gibibyte',
+        tebibyte: 'Tebibyte'
       }
     },
     data_rate: {
