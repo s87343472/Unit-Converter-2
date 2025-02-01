@@ -17,27 +17,28 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   const [copySuccess, setCopySuccess] = useState(false)
 
   // 获取当前类型的所有单位
-  const units = type === 'numeral' ? {
-    decimal: t?.units?.numeral?.decimal?.title || '十进制',
-    binary: t?.units?.numeral?.binary?.title || '二进制',
-    octal: t?.units?.numeral?.octal?.title || '八进制',
-    hexadecimal: t?.units?.numeral?.hexadecimal?.title || '十六进制'
-  } : (t?.units?.[type]?.units || {})
+  const units = type === 'numeral' ? 
+    (t?.units?.numeral?.units || {
+      decimal: '十进制',
+      binary: '二进制',
+      octal: '八进制',
+      hexadecimal: '十六进制'
+    }) : (t?.units?.[type]?.units || {})
 
   // 格式化数值显示
   const formatNumber = (num: number): string => {
     if (Math.abs(num) === 0) return '0'
     
     // 使用统一的格式化规则
-    if (Math.abs(num) < 0.001 || Math.abs(num) >= 10000) {
-      // 科学计数法，保持6位有效数字
-      return num.toExponential(6)
+    if (Math.abs(num) < 0.000001 || Math.abs(num) >= 10000) {
+      // 科学计数法，保持10位有效数字
+      return num.toExponential(10)
         .replace(/\.?0+e/, 'e')  // 移除小数点后的多余0
         .replace(/e\+?/, 'e')    // 统一e的格式
     }
     
-    // 普通数字，最多保留6位小数
-    const fixed = num.toFixed(6)
+    // 普通数字，最多保留10位小数
+    const fixed = num.toFixed(10)
     return fixed.replace(/\.?0+$/, '')  // 移除末尾的0和不必要的小数点
   }
 
@@ -78,20 +79,16 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
         const numValue = parseFloat(value)
         if (isNaN(numValue)) return '0'
         
-        // 添加错误处理
         try {
           const result = convert(type, numValue, fromUnit, toUnitId) as ConversionResult
-          if (result.error) {
-            console.error('Conversion error:', result.error)
-            return '0'
-          }
           return formatNumber(result.value)
         } catch (error) {
           if (error instanceof Error && error.message.includes('Invalid unit')) {
             console.error('Invalid unit error:', error.message)
             return '0'
           }
-          throw error // 重新抛出其他错误
+          console.error('Conversion error:', error)
+          return '0'
         }
       }
     } catch (error) {

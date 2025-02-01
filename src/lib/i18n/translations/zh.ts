@@ -2,7 +2,7 @@ import type { Translation } from '../types'
 
 const zh: Translation = {
   common: {
-    title: '单位转换器',
+    title: 'metric-converter',
     description: '功能强大的在线单位转换工具，支持各种单位的转换计算。',
     loading: '加载中...',
     error: '错误',
@@ -1017,7 +1017,7 @@ const zh: Translation = {
     legal: '法律声明'
   },
   converter: {
-    title: '单位转换器',
+    title: 'metric-converter',
     description: '在线单位转换工具，支持多种单位的精确转换',
     from: '从',
     to: '到',

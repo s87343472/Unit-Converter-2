@@ -2,7 +2,7 @@ import type { Translation } from '../types'
 
 const en: Translation = {
   common: {
-    title: 'Unit Converter',
+    title: 'metric-converter',
     description: 'A powerful online unit conversion tool that supports various unit conversions.',
     loading: 'Loading...',
     error: 'Error',
@@ -452,6 +452,38 @@ const en: Translation = {
     selectUnit: 'Please select both units',
     conversionError: 'Error converting values',
     invalidTemperature: 'Temperature cannot be below absolute zero'
+  },
+  converter: {
+    title: 'metric-converter',
+    description: 'Online unit conversion tool that supports precise conversion between multiple units',
+    from: 'From',
+    to: 'To',
+    instructions: {
+      title: 'Instructions',
+      steps: [
+        'Enter the value you want to convert in the "From" field',
+        'Select the unit of the input value from the list',
+        'The system will automatically calculate and display values in all available units',
+        'Click the copy button to copy the result to clipboard'
+      ]
+    },
+    limitations: {
+      title: 'Limitations',
+      items: [
+        'Maintains precision up to 10 significant digits',
+        'Very large or small values are displayed in scientific notation',
+        'All conversions are based on the International System of Units (SI)'
+      ]
+    },
+    knowledge: {
+      title: 'Did you know?',
+      items: [
+        'A light year is not a unit of time, but a unit of distance that light travels in one year.',
+        'The Astronomical Unit (AU) is based on the average distance from Earth to the Sun.',
+        'The meter was originally defined as one ten-millionth of the distance from the North Pole to the Equator.',
+        'Today, the meter is defined by the speed of light in a vacuum.'
+      ]
+    }
   }
 }
 

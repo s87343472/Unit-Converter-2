@@ -1,6 +1,6 @@
 export const i18n = {
   defaultLocale: 'en',
-  locales: ['en', 'zh', 'de', 'fr', 'ja', 'ru', 'es', 'la'] as const,
+  locales: ['en', 'zh'] as const,
 } as const
 
 export const defaultLocale = i18n.defaultLocale
@@ -10,13 +10,7 @@ export type ValidLocale = typeof locales[number]
 
 export const localeNames: Record<ValidLocale, string> = {
   en: 'English',
-  zh: '中文',
-  de: 'Deutsch',
-  fr: 'Français',
-  ja: '日本語',
-  ru: 'Русский',
-  es: 'Español',
-  la: 'Latina'
+  zh: '中文'
 }
 
 export function isValidLocale(locale: string): locale is ValidLocale {
@@ -26,11 +20,5 @@ export function isValidLocale(locale: string): locale is ValidLocale {
 // 语言方向配置（用于RTL支持）
 export const localeDirections: Record<ValidLocale, 'ltr' | 'rtl'> = {
   en: 'ltr',
-  zh: 'ltr',
-  de: 'ltr',
-  fr: 'ltr',
-  ja: 'ltr',
-  ru: 'ltr',
-  es: 'ltr',
-  la: 'ltr'
+  zh: 'ltr'
 } 
