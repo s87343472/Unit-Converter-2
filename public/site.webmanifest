@@ -1,6 +1,6 @@
 {
-    "name": "Metric Converter",
-    "short_name": "MetricConv",
+    "name": "metric-converter",
+    "short_name": "metric-conv",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
