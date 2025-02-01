@@ -195,20 +195,37 @@ const ja: Translation = {
     },
     temperature: {
       title: '温度',
-      description: '温度単位の変換 (ISO 31-4)',
+      description: '異なる温度スケールと専門温度単位間の変換',
       units: {
-        celsius: '摂氏',
-        fahrenheit: '華氏',
-        kelvin: 'ケルビン',
-        rankine: 'ランキン',
-        reaumur: 'レオミュール'
+        scientific_kelvin: 'ケルビン (科学)',
+        metric_celsius: '摂氏 (メートル法)',
+        us_fahrenheit: '華氏 (米国)',
+        scientific_rankine: 'ランキン度 (科学)',
+        historical_reaumur: 'レオミュール度 (歴史)',
+        meteorological_celsius: '摂氏 (気象)',
+        meteorological_fahrenheit: '華氏 (気象)',
+        industrial_celsius: '摂氏 (工業)',
+        industrial_fahrenheit: '華氏 (工業)'
       },
       knowledge: {
-        title: '豆知識',
+        title: 'ご存知ですか？',
         items: [
-          'ケルビンは人名を冠した唯一の基本単位です。',
-          '絶対零度は-273.15°Cで、理論的に到達可能な最低温度です。',
-          '華氏の0度は塩水が凍る温度を基準としています。'
+          'ケルビンは国際単位系(SI)における温度の基本単位です。',
+          '気象温度単位は天気予報と気候研究に特化して使用されます。',
+          '工業温度単位は特定の安全基準と製造規制に従います。',
+          '絶対零度は0 K、-273.15°C、または-459.67°Fです。',
+          '摂氏は元々水の凝固点と沸点を基準に定義されました。',
+          '華氏は1724年にダニエル・ファーレンハイトによって考案されました。'
+        ]
+      },
+      conversion_tips: {
+        title: '変換のヒント',
+        items: [
+          '室温は通常20-22°C (68-72°F)の範囲です。',
+          '通常の体温は約37°C (98.6°F)です。',
+          '海面レベルで水は0°C (32°F)で凍り、100°C (212°F)で沸騰します。',
+          '工業プロセスは日常的な測定より高い温度を扱うことが多いです。',
+          '気象温度の報告には特定の精度要件があります。'
         ]
       }
     },
@@ -513,19 +530,19 @@ const ja: Translation = {
       title: '調理',
       description: '調理用計量単位の変換',
       units: {
-        cup_us: 'カップ (米式)',
-        cup_metric: 'カップ (公制)',
-        cup_jp: 'カップ (日本)',
-        tablespoon_us: '大さじ (米式)',
-        tablespoon_metric: '大さじ (公制)',
-        tablespoon_jp: '大さじ (日本)',
-        teaspoon_us: '小さじ (米式)',
-        teaspoon_metric: '小さじ (公制)',
-        teaspoon_jp: '小さじ (日本)',
-        fluid_ounce: '液量オンス (米式)',
-        milliliter: 'ミリリットル (公制)',
-        gou: '合 (日本)',
-        shaku: '勺 (日本)'
+        us_fluid_ounce: '米式液量オンス',
+        us_tablespoon: '米式大さじ',
+        us_teaspoon: '米式小さじ',
+        imperial_fluid_ounce: '英式液量オンス',
+        imperial_tablespoon: '英式大さじ',
+        imperial_teaspoon: '英式小さじ',
+        chinese_bowl: '中国式碗',
+        chinese_cup: '中国式カップ',
+        chinese_tablespoon: '中国式大さじ',
+        chinese_teaspoon: '中国式小さじ',
+        japanese_cup: '日本式カップ',
+        japanese_tablespoon: '大さじ',
+        japanese_teaspoon: '小さじ'
       },
       knowledge: {
         title: '豆知識',

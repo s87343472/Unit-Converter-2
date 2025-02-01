@@ -86,20 +86,22 @@ const en: Translation = {
       title: 'Length',
       description: 'Convert between different units of length',
       units: {
-        meter: 'Meter',
-        kilometer: 'Kilometer',
-        centimeter: 'Centimeter',
-        millimeter: 'Millimeter',
-        inch: 'Inch',
-        foot: 'Foot',
-        yard: 'Yard',
-        mile: 'Mile',
-        light_year: 'Light Year',
+        metric_meter: 'Meter',
+        metric_kilometer: 'Kilometer',
+        metric_centimeter: 'Centimeter',
+        metric_millimeter: 'Millimeter',
+        imperial_inch: 'Inch',
+        imperial_foot: 'Foot',
+        imperial_yard: 'Yard',
+        imperial_mile: 'Mile',
+        astronomical_light_year: 'Light Year',
         astronomical_unit: 'Astronomical Unit',
-        decimeter: 'Decimeter',
-        micrometer: 'Micrometer',
-        nanometer: 'Nanometer',
-        picometer: 'Picometer'
+        metric_decimeter: 'Decimeter',
+        metric_micrometer: 'Micrometer',
+        metric_nanometer: 'Nanometer',
+        metric_picometer: 'Picometer',
+        nautical_mile: 'Nautical Mile',
+        nautical_fathom: 'Fathom'
       },
       knowledge: {
         title: 'Did you know?',
@@ -115,75 +117,97 @@ const en: Translation = {
       title: 'Area',
       description: 'Convert between different units of area',
       units: {
-        square_meter: 'Square Meter',
-        square_kilometer: 'Square Kilometer',
-        square_centimeter: 'Square Centimeter',
-        square_millimeter: 'Square Millimeter',
-        square_inch: 'Square Inch',
-        square_foot: 'Square Foot',
-        square_yard: 'Square Yard',
-        square_mile: 'Square Mile',
-        hectare: 'Hectare',
-        acre: 'Acre',
-        square_decimeter: 'Square Decimeter'
+        metric_square_meter: 'Square Meter',
+        metric_square_kilometer: 'Square Kilometer',
+        metric_square_centimeter: 'Square Centimeter',
+        metric_square_millimeter: 'Square Millimeter',
+        imperial_square_inch: 'Square Inch',
+        imperial_square_foot: 'Square Foot',
+        imperial_square_yard: 'Square Yard',
+        imperial_square_mile: 'Square Mile',
+        metric_hectare: 'Hectare',
+        imperial_acre: 'Acre',
+        metric_square_decimeter: 'Square Decimeter',
+        metric_are: 'Are',
+        traditional_mu: 'Mu (Chinese)',
+        traditional_qing: 'Qing (Chinese)'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'The hectare was created to simplify land area measurements, with 1 hectare equal to 10,000 square meters.',
+          'The acre originated in medieval times, defined as the area one pair of oxen could plow in a day.',
+          'The Chinese mu dates back to the Shang-Zhou period, with 1 mu approximately equal to 666.67 square meters.',
+          'A square mile is the largest imperial area unit, equal to 640 acres.',
+          'The are is a metric area unit equal to 100 square meters, but is rarely used.',
+          'The qing is the largest traditional Chinese area unit, equal to 100 mu.'
+        ]
       }
     },
     volume: {
       title: 'Volume',
       description: 'Convert between different units of volume',
       units: {
-        cubic_meter: 'Cubic Meter',
-        cubic_kilometer: 'Cubic Kilometer',
-        cubic_centimeter: 'Cubic Centimeter',
-        cubic_millimeter: 'Cubic Millimeter',
-        cubic_decimeter: 'Cubic Decimeter',
-        liter: 'Liter',
-        milliliter: 'Milliliter',
-        gallon: 'Gallon',
-        quart: 'Quart',
-        pint: 'Pint',
-        cup: 'Cup',
-        fluid_ounce: 'Fluid Ounce',
-        tablespoon: 'Tablespoon',
-        teaspoon: 'Teaspoon',
-        cubic_yard: 'Cubic Yard',
-        cubic_foot: 'Cubic Foot',
-        cubic_inch: 'Cubic Inch'
+        metric_cubic_meter: 'Cubic Meter',
+        metric_cubic_kilometer: 'Cubic Kilometer',
+        metric_cubic_centimeter: 'Cubic Centimeter',
+        metric_cubic_millimeter: 'Cubic Millimeter',
+        metric_cubic_decimeter: 'Cubic Decimeter',
+        metric_liter: 'Liter',
+        metric_milliliter: 'Milliliter',
+        imperial_gallon: 'Imperial Gallon',
+        imperial_quart: 'Imperial Quart',
+        imperial_pint: 'Imperial Pint',
+        us_cup: 'US Cup',
+        imperial_fluid_ounce: 'Imperial Fluid Ounce',
+        us_tablespoon: 'US Tablespoon',
+        us_teaspoon: 'US Teaspoon',
+        imperial_cubic_yard: 'Cubic Yard',
+        imperial_cubic_foot: 'Cubic Foot',
+        imperial_cubic_inch: 'Cubic Inch',
+        traditional_dan: 'Dan (Chinese)',
+        traditional_dou: 'Dou (Chinese)',
+        traditional_sheng: 'Sheng (Chinese)',
+        traditional_gou: 'Gou (Japanese)',
+        traditional_shaku: 'Shaku (Japanese)',
+        traditional_sai: 'Sai (Japanese)',
+        industrial_oil_barrel: 'Oil Barrel',
+        industrial_beer_barrel: 'Beer Barrel'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          '1 liter is exactly equal to 1 cubic decimeter (1000 cubic centimeters), making metric volume conversions very convenient.',
+          'There is a significant difference between US and Imperial liquid units: 1 Imperial gallon ≈ 4.546 liters, 1 US gallon ≈ 3.785 liters.',
+          'The Chinese dou was an important unit of measurement in ancient times, with 1 dou equal to 10 sheng.',
+          'In US cooking measurements, 1 cup = 16 tablespoons = 48 teaspoons ≈ 237 milliliters.',
+          'The Imperial pint is used for measuring beer volume, equal to 568 milliliters.',
+          'Laboratory beakers and graduated cylinders typically use metric units (milliliters or liters).'
+        ]
       }
     },
     weight: {
       title: 'Weight',
-      description: 'Convert between different units of weight (including metric, avoirdupois, traditional, jewelry, and pharmacy units)',
+      description: 'Convert between different units of weight',
       units: {
-        // Metric units
-        metric_kilogram: 'Kilogram (Metric)',
-        metric_tonne: 'Tonne (Metric)',
-        metric_gram: 'Gram (Metric)',
-        metric_milligram: 'Milligram (Metric)',
-        metric_microgram: 'Microgram (Metric)',
-        
-        // Avoirdupois units
-        avoirdupois_pound: 'Pound (Avoirdupois)',
-        avoirdupois_ounce: 'Ounce (Avoirdupois)',
-        avoirdupois_stone: 'Stone (Avoirdupois)',
-        avoirdupois_long_ton: 'Long Ton (Avoirdupois)',
-        avoirdupois_short_ton: 'Short Ton (Avoirdupois)',
-        
-        // Jewelry units
-        jewelry_carat: 'Carat (Jewelry)',
-        jewelry_grain: 'Grain (Jewelry)',
-        
-        // Traditional Chinese units
-        traditional_jin: 'Jin (Chinese Traditional)',
-        traditional_liang: 'Liang (Chinese Traditional)',
-        traditional_qian: 'Qian (Chinese Traditional)',
-        
-        // Pharmacy units
-        pharmacy_grain: 'Grain (Pharmacy)',
-        pharmacy_ounce: 'Ounce (Pharmacy)',
-        pharmacy_pound: 'Pound (Pharmacy)',
-        pharmacy_scruple: 'Scruple (Pharmacy)',
-        pharmacy_dram: 'Dram (Pharmacy)'
+        metric_kilogram: 'Kilogram',
+        metric_tonne: 'Tonne',
+        metric_gram: 'Gram',
+        metric_milligram: 'Milligram',
+        metric_microgram: 'Microgram',
+        imperial_pound: 'Pound',
+        imperial_ounce: 'Ounce',
+        imperial_stone: 'Stone',
+        imperial_long_ton: 'Long Ton',
+        us_short_ton: 'Short Ton',
+        jewelry_carat: 'Carat',
+        jewelry_grain: 'Grain',
+        traditional_jin: 'Jin (Chinese)',
+        traditional_liang: 'Liang (Chinese)',
+        traditional_qian: 'Qian (Chinese)',
+        medical_grain: 'Medical Grain',
+        medical_dram: 'Medical Dram',
+        medical_ounce: 'Medical Ounce'
       },
       knowledge: {
         title: 'Did you know?',
@@ -201,24 +225,63 @@ const en: Translation = {
       title: 'Time',
       description: 'Convert between different units of time',
       units: {
-        second: 'Second',
-        minute: 'Minute',
-        hour: 'Hour',
-        day: 'Day',
-        week: 'Week',
-        month: 'Month',
-        year: 'Year',
-        millisecond: 'Millisecond',
-        microsecond: 'Microsecond'
+        metric_second: 'Second',
+        metric_minute: 'Minute',
+        metric_hour: 'Hour',
+        metric_day: 'Day',
+        metric_week: 'Week',
+        metric_month: 'Month',
+        metric_year: 'Year',
+        metric_decade: 'Decade',
+        metric_century: 'Century',
+        scientific_millisecond: 'Millisecond',
+        scientific_microsecond: 'Microsecond',
+        scientific_nanosecond: 'Nanosecond'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'A light year is not a unit of time, but a unit of distance that light travels in one year.',
+          'The Astronomical Unit (AU) is based on the average distance from Earth to the Sun.',
+          'The meter was originally defined as one ten-millionth of the distance from the North Pole to the Equator.',
+          'Today, the meter is defined by the speed of light in a vacuum.'
+        ]
       }
     },
     temperature: {
       title: 'Temperature',
-      description: 'Convert between different temperature scales',
+      description: 'Convert between different temperature scales and specialized units',
       units: {
-        celsius: 'Celsius',
-        fahrenheit: 'Fahrenheit',
-        kelvin: 'Kelvin'
+        scientific_kelvin: 'Kelvin (Scientific)',
+        metric_celsius: 'Celsius (Metric)',
+        us_fahrenheit: 'Fahrenheit (US)',
+        scientific_rankine: 'Rankine (Scientific)',
+        historical_reaumur: 'Réaumur (Historical)',
+        meteorological_celsius: 'Celsius (Meteorological)',
+        meteorological_fahrenheit: 'Fahrenheit (Meteorological)',
+        industrial_celsius: 'Celsius (Industrial)',
+        industrial_fahrenheit: 'Fahrenheit (Industrial)'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'The Kelvin scale is the primary unit of temperature measurement in the International System of Units (SI).',
+          'Meteorological temperature units are specifically used in weather forecasting and climate studies.',
+          'Industrial temperature units follow specific safety standards and regulations in manufacturing.',
+          'The absolute zero temperature is 0 K, -273.15°C, or -459.67°F.',
+          'The Celsius scale was originally defined using the freezing and boiling points of water.',
+          'The Fahrenheit scale was created by Daniel Gabriel Fahrenheit in 1724.'
+        ]
+      },
+      conversion_tips: {
+        title: 'Conversion Tips',
+        items: [
+          'Room temperature is typically around 20-22°C (68-72°F).',
+          'Normal human body temperature is about 37°C (98.6°F).',
+          'Water freezes at 0°C (32°F) and boils at 100°C (212°F) at sea level.',
+          'Industrial processes often involve temperatures much higher than everyday measurements.',
+          'Meteorological temperatures are reported with specific precision for weather forecasting.'
+        ]
       }
     },
     speed: {
@@ -398,14 +461,19 @@ const en: Translation = {
       title: 'Cooking',
       description: 'Convert between different cooking measurements',
       units: {
-        milliliter: 'Milliliter',
-        liter: 'Liter',
-        us_cup: 'US Cup',
+        us_fluid_ounce: 'US Fluid Ounce',
         us_tablespoon: 'US Tablespoon',
         us_teaspoon: 'US Teaspoon',
-        imperial_cup: 'Imperial Cup',
+        imperial_fluid_ounce: 'Imperial Fluid Ounce',
         imperial_tablespoon: 'Imperial Tablespoon',
-        imperial_teaspoon: 'Imperial Teaspoon'
+        imperial_teaspoon: 'Imperial Teaspoon',
+        chinese_bowl: 'Chinese Bowl',
+        chinese_cup: 'Chinese Cup',
+        chinese_tablespoon: 'Chinese Tablespoon',
+        chinese_teaspoon: 'Chinese Teaspoon',
+        japanese_cup: 'Japanese Cup',
+        japanese_tablespoon: 'Japanese Tablespoon',
+        japanese_teaspoon: 'Japanese Teaspoon'
       }
     },
     numeral: {

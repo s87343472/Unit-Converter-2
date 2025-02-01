@@ -45,6 +45,16 @@ describe('Density Conversion Tests', () => {
       const result = convert('density', 0.001, 'milligram_per_cubic_meter', 'kilogram_per_cubic_meter') as ConversionResult
       expect(result.value).toBe(0.000000001)
     })
+
+    test('Very small mg/m³ values', () => {
+      const result = convert('density', 0.0001, 'milligram_per_cubic_meter', 'kilogram_per_cubic_meter') as ConversionResult
+      expect(result.value).toBe(0.0000000001)
+    })
+
+    test('Extremely small mg/m³ values', () => {
+      const result = convert('density', 0.00001, 'milligram_per_cubic_meter', 'kilogram_per_cubic_meter') as ConversionResult
+      expect(result.value).toBe(0.00000000001)
+    })
   })
 
   // 大数值测试
@@ -65,6 +75,26 @@ describe('Density Conversion Tests', () => {
     test('Air density at sea level (1.225 kg/m³)', () => {
       const result = convert('density', 1.225, 'kilogram_per_cubic_meter', 'gram_per_liter') as ConversionResult
       expect(result.value).toBe(1.225)
+    })
+  })
+
+  // 精度测试
+  describe('Precision tests', () => {
+    test('Precise conversion between g/cm³ and kg/m³', () => {
+      const result = convert('density', 0.123456789, 'gram_per_cubic_centimeter', 'kilogram_per_cubic_meter') as ConversionResult
+      expect(result.value).toBe(123.456789)
+    })
+
+    test('Precise conversion between lb/ft³ and kg/m³', () => {
+      const result = convert('density', 0.123456789, 'pound_per_cubic_foot', 'kilogram_per_cubic_meter') as ConversionResult
+      expect(result.value).toBeCloseTo(1.977642, 6)
+    })
+
+    test('Multiple conversions maintaining precision', () => {
+      const value = 0.123456789
+      const result1 = convert('density', value, 'gram_per_cubic_centimeter', 'kilogram_per_cubic_meter') as ConversionResult
+      const result2 = convert('density', result1.value, 'kilogram_per_cubic_meter', 'gram_per_cubic_centimeter') as ConversionResult
+      expect(result2.value).toBeCloseTo(value, 9)
     })
   })
 }) 

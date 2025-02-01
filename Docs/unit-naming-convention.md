@@ -4,32 +4,58 @@
 
 ### 1.1 命名格式
 - 使用小写字母和下划线
-- 采用 `{category_prefix}_{unit_name}` 格式
-- 必须包含分类前缀
+- 采用 `{system}_{unit}` 格式
+- 必须包含系统前缀
 - 避免使用缩写（除非是广泛接受的缩写，如 km、cm 等）
 
-### 1.2 分类前缀
-所有单位必须包含以下分类前缀之一：
-- `metric_`: 公制单位（国际单位制）
-- `imperial_`: 英制单位
-- `us_`: 美制单位
-- `scientific_`: 科学单位（如开尔文、光年等）
+### 1.2 系统前缀
+所有单位必须包含以下系统前缀之一：
+
+基础计量系统：
+- `metric_`: 公制单位（国际单位制，全球通用）
+- `imperial_`: 英制单位（英国计量体系）
+- `us_`: 美制单位（美国计量体系）
+
+传统计量系统：
+- `chinese_`: 中国传统单位
+- `japanese_`: 日本传统单位
+- `korean_`: 韩国传统单位
+
+专业领域：
+- `scientific_`: 科学单位（如开尔文、电子伏特等）
 - `astronomical_`: 天文单位（如光年、天文单位等）
 - `nautical_`: 航海单位（如海里、英寻等）
-- `traditional_`: 传统单位（包括各国传统计量单位）
-- `industrial_`: 工业单位（如燃气标记等）
+- `medical_`: 医疗单位（如药用盎司等）
+- `industrial_`: 工业单位（如标准大气压等）
+
+历史单位：
 - `historical_`: 历史单位（如列氏度等）
+- `ancient_`: 古代单位
 
 ### 1.3 单位属性
 每个单位必须包含以下属性：
 ```typescript
 interface Unit {
   id: string;              // 单位标识符，如 metric_meter
-  label: string;           // 显示名称，如 "米 (公制)"
+  label: string;           // 显示名称，如 "米"
   symbol: string;          // 单位符号，如 "m"
-  ratio?: number;          // 相对于基准单位的转换比率
+  ratio: number;          // 相对于基准单位的转换比率
+  category: string;       // 单位分类
+  preferred_locales?: string[];  // 偏好显示的语言环境
   toBase?: (value: number) => number;    // 自定义转换到基准单位的函数
   fromBase?: (value: number) => number;  // 自定义从基准单位转换的函数
+}
+```
+
+### 1.4 多语言显示策略
+```typescript
+// 单位显示优先级配置
+const localeUnitPreferences = {
+  'zh-CN': ['metric_', 'chinese_'],
+  'en-US': ['us_', 'metric_'],
+  'en-GB': ['imperial_', 'metric_'],
+  'ja-JP': ['metric_', 'japanese_'],
+  'ko-KR': ['metric_', 'korean_']
 }
 ```
 
@@ -38,29 +64,35 @@ interface Unit {
 ### 2.1 长度单位
 - 公制：`metric_meter`, `metric_kilometer`, `metric_centimeter` 等
 - 英制：`imperial_mile`, `imperial_yard`, `imperial_foot` 等
-- 天文：`astronomical_light_year`, `astronomical_parsec` 等
-- 航海：`nautical_mile`, `nautical_fathom` 等
-- 测量：`surveying_chain`, `surveying_rod` 等
+- 美制：`us_foot`, `us_inch` 等
+- 中制：`chinese_li`, `chinese_zhang`, `chinese_chi` 等
+- 专业：`astronomical_light_year`, `nautical_mile` 等
 
 ### 2.2 重量单位
 - 公制：`metric_kilogram`, `metric_gram`, `metric_milligram` 等
 - 英制：`imperial_pound`, `imperial_ounce`, `imperial_stone` 等
-- 美制：`us_short_ton`, `us_hundredweight` 等
-- 特殊：`troy_ounce` (贵金属), `metric_carat` (珠宝) 等
+- 美制：`us_pound`, `us_ounce` 等
+- 中制：`chinese_dan`, `chinese_jin`, `chinese_liang` 等
+- 专业：`scientific_atomic_mass_unit`, `medical_grain` 等
 
 ### 2.3 体积单位
 - 公制：`metric_cubic_meter`, `metric_liter`, `metric_milliliter` 等
 - 英制：`imperial_gallon`, `imperial_quart`, `imperial_pint` 等
 - 美制：`us_gallon`, `us_quart`, `us_fluid_ounce` 等
+- 中制：`chinese_dan`, `chinese_dou`, `chinese_sheng` 等
 
-### 2.4 温度单位
+### 2.4 数据单位
+- 公制：`metric_bit`, `metric_byte`, `metric_kilobyte` 等
+- 科学：`scientific_pebibit`, `scientific_tebibyte` 等
+
+### 2.5 温度单位
 - 公制：`metric_celsius`, `metric_kelvin` 等
 - 美制：`us_fahrenheit` 等
 - 科学：`scientific_rankine` 等
 - 历史：`historical_reaumur` 等
 - 工业：`industrial_gas_mark` 等
 
-### 2.5 压力单位
+### 2.6 压力单位
 - 公制：`metric_pascal`, `metric_kilopascal`, `metric_megapascal` 等
 - 工业：`industrial_bar`, `industrial_millibar` 等
 - 科学：`scientific_atmosphere`, `scientific_torr` 等
@@ -68,27 +100,27 @@ interface Unit {
 - 英制：`imperial_pound_per_square_inch`, `imperial_pound_per_square_foot` 等
 - 工程：`engineering_kilopound_per_square_inch`, `engineering_centimeter_of_water` 等
 
-### 2.6 能量单位
+### 2.7 能量单位
 - 公制：`metric_joule`, `metric_kilojoule`, `metric_megajoule` 等
 - 热量：`thermal_calorie`, `thermal_kilocalorie`, `thermal_british_thermal_unit` 等
 - 电能：`electric_watt_hour`, `electric_kilowatt_hour`, `electric_megawatt_hour` 等
 - 科学：`scientific_electron_volt`, `scientific_kilo_electron_volt` 等
 - 机械：`mechanical_foot_pound`, `mechanical_kilogram_force_meter` 等
 
-### 2.7 功率单位
+### 2.8 功率单位
 - 公制：`metric_watt`, `metric_kilowatt`, `metric_megawatt`, `metric_gigawatt` 等
 - 机械：`mechanical_horsepower`, `mechanical_metric_horsepower` 等
 - 热力：`thermal_kilocalorie_per_hour`, `thermal_british_thermal_unit_per_hour` 等
 - 辐射：`radiation_erg_per_second`, `radiation_solar_luminosity` 等
 
-### 2.8 速度单位
+### 2.9 速度单位
 - 公制：`metric_meter_per_second`, `metric_kilometer_per_hour` 等
 - 航空：`aviation_knot`, `aviation_mach` 等
 - 英制：`imperial_mile_per_hour`, `imperial_foot_per_second` 等
 - 天文：`astronomical_light_speed`, `astronomical_parsec_per_year` 等
 - 科学：`scientific_speed_of_sound_air`, `scientific_speed_of_sound_water` 等
 
-### 2.9 流量单位
+### 2.10 流量单位
 - 公制：`metric_cubic_meter_per_second`, `metric_liter_per_second` 等
 - 英制：`imperial_cubic_foot_per_second`, `imperial_cubic_foot_per_minute` 等
 - 美制：`us_gallon_per_minute`, `us_million_gallon_per_day` 等
@@ -189,7 +221,7 @@ describe('Unit Type Conversion', () => {
 ## 5. 维护指南
 
 ### 5.1 添加新单位
-1. 确定适当的分类前缀
+1. 确定适当的系统前缀
 2. 创建符合命名规范的ID
 3. 提供必要的单位属性
 4. 添加单位转换逻辑
@@ -204,7 +236,7 @@ describe('Unit Type Conversion', () => {
 
 ### 5.3 代码审查清单
 - [ ] 命名符合规范
-- [ ] 分类前缀正确
+- [ ] 系统前缀正确
 - [ ] 单位属性完整
 - [ ] 转换逻辑准确
 - [ ] 测试用例完备

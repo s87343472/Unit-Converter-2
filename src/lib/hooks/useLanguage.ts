@@ -3,6 +3,7 @@
 import { useContext } from 'react'
 import { LanguageContext } from '@/components/shared/LanguageProvider'
 import type { Translation } from '@/lib/i18n/types'
+import { ValidLocale } from '@/lib/i18n/config'
 
 // 定义支持的语言类型
 export type SupportedLanguage = 'en' | 'zh' | 'de' | 'fr' | 'ja' | 'ru' | 'es'
@@ -97,6 +98,8 @@ const translations: Record<SupportedLanguage, Translations> = {
 
 interface LanguageContextType {
   t: Translation
+  language: ValidLocale
+  setLanguage: (lang: ValidLocale) => void
 }
 
 export function useLanguage(): LanguageContextType {

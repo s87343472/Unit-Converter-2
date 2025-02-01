@@ -2,74 +2,70 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
-import { locales, defaultLocale } from '@/lib/i18n/config'
+import { locales, defaultLocale, ValidLocale } from '@/lib/i18n/config'
 
-type Locale = typeof locales[number]
+// 获取请求的语言
+function getLanguage(request: NextRequest): ValidLocale | null {
+  const pathname = request.nextUrl.pathname
+  const pathnameElements = pathname.split('/')
+  const firstSegment = pathnameElements[1]
+  
+  return locales.includes(firstSegment as ValidLocale) ? firstSegment as ValidLocale : null
+}
 
-function getLocale(request: NextRequest): string {
+// 获取浏览器首选语言
+function getBrowserLanguage(request: NextRequest): ValidLocale {
   const negotiatorHeaders: Record<string, string> = {}
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
 
-  // @ts-ignore locales are readonly
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
   const localeList = [...locales]
 
   try {
-    return matchLocale(languages, localeList, defaultLocale)
+    return matchLocale(languages, localeList, defaultLocale) as ValidLocale
   } catch (e) {
     return defaultLocale
   }
 }
 
-// 获取请求的语言
-function getLanguage(request: NextRequest): Locale | null {
-  const pathname = request.nextUrl.pathname
-  const pathnameElements = pathname.split('/')
-  const firstSegment = pathnameElements[1]
-  return locales.includes(firstSegment as Locale) ? firstSegment as Locale : null
-}
-
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  
+  // 排除不需要处理的路径
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/static') ||
+    pathname.includes('.') // 静态文件
+  ) {
+    return NextResponse.next()
+  }
+
+  // 获取当前路径中的语言代码
   const language = getLanguage(request)
   
-  // 如果路径中没有有效的语言代码，使用用户之前选择的语言或浏览器语言
+  // 如果路径中没有语言代码，直接返回
   if (!language) {
-    // 从 cookie 获取用户之前选择的语言
-    const preferredLanguage = request.cookies.get('preferred_language')?.value
-    // 如果没有之前选择的语言，则使用浏览器语言
-    const detectedLanguage = getLocale(request)
-    const targetLanguage = preferredLanguage || detectedLanguage
-    
-    const url = new URL(`/${targetLanguage}${pathname}`, request.url)
-    const response = NextResponse.redirect(url)
-    
-    // 设置语言偏好 cookie
-    response.cookies.set('preferred_language', targetLanguage, {
-      path: '/',
-      maxAge: 365 * 24 * 60 * 60, // 1年
-      sameSite: 'lax'
-    })
-    
-    return response
+    return NextResponse.next()
   }
-  
-  // 创建响应
+
+  // 正常请求，添加语言相关的响应头
   const response = NextResponse.next()
   
-  // 更新语言偏好 cookie
-  response.cookies.set('preferred_language', language, {
-    path: '/',
-    maxAge: 365 * 24 * 60 * 60, // 1年
-    sameSite: 'lax'
-  })
-  
-  // 添加语言相关的标头
+  // 设置内容语言头
   response.headers.set('Content-Language', language)
-  response.headers.set('Vary', 'Accept-Language')
   
-  // 添加当前路径标头用于生成 hreflang 标签
-  response.headers.set('x-pathname', pathname)
+  // 添加 Link 头，用于 hreflang
+  const alternateLinks = []
+  // 添加默认语言（英文）版本
+  alternateLinks.push(`<${request.nextUrl.origin}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="en"`)
+  // 添加其他语言版本
+  for (const locale of locales) {
+    if (locale !== defaultLocale) {
+      alternateLinks.push(`<${request.nextUrl.origin}/${locale}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="${locale}"`)
+    }
+  }
+  response.headers.set('Link', alternateLinks.join(', '))
   
   return response
 }

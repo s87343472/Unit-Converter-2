@@ -1,105 +1,136 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react'
-import { defaultLocale } from '@/lib/i18n/config'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { defaultLocale, type ValidLocale, isValidLocale } from '@/lib/i18n/config'
 import { translations } from '@/lib/i18n/translations'
-import type { Translation, ValidLocale } from '@/lib/i18n/types'
+import type { Translation } from '@/lib/i18n/types'
 
 interface LanguageContextType {
-  t: Translation
   language: ValidLocale
   setLanguage: (lang: ValidLocale) => void
+  browserLanguage: ValidLocale | null
+  t: Translation
 }
 
-export const LanguageContext = createContext<LanguageContextType | null>(null)
+const LanguageContext = createContext<LanguageContextType>({
+  language: defaultLocale,
+  setLanguage: () => {},
+  browserLanguage: null,
+  t: translations[defaultLocale]
+})
+
+export function useLanguage() {
+  return useContext(LanguageContext)
+}
 
 interface LanguageProviderProps {
   children: ReactNode
   defaultLanguage?: ValidLocale
 }
 
-export default function LanguageProvider({
-  children,
-  defaultLanguage = defaultLocale
-}: LanguageProviderProps) {
+export default function LanguageProvider({ children, defaultLanguage = defaultLocale }: LanguageProviderProps) {
   const [language, setLanguage] = useState<ValidLocale>(defaultLanguage)
-  const [translation, setTranslation] = useState<Translation>(translations[defaultLanguage])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [browserLanguage, setBrowserLanguage] = useState<ValidLocale | null>(null)
+  const [showLanguageHint, setShowLanguageHint] = useState(false)
+  const [translation, setTranslation] = useState<Translation>(() => {
+    const trans = translations[defaultLanguage]
+    if (!trans) {
+      console.error(`Translation not found for language: ${defaultLanguage}, falling back to default`)
+      return translations[defaultLocale]
+    }
+    return trans
+  })
 
-  // 加载翻译的函数
-  const loadTranslation = useCallback(async (lang: ValidLocale) => {
-    setIsLoading(true)
-    try {
-      if (!translations[lang]) {
-        throw new Error(`Translation not found for language: ${lang}`)
-      }
-      
-      // 强制重新加载翻译
-      const newTranslation = translations[lang]
-      if (!newTranslation) {
-        throw new Error(`Failed to load translation for language: ${lang}`)
-      }
-      
-      setTranslation(newTranslation)
-      setError(null)
-    } catch (err) {
-      console.error('Error loading translations:', err)
-      setError(err instanceof Error ? err.message : 'Failed to load translations')
-      // 回退到默认语言
-      if (lang !== defaultLocale) {
-        setLanguage(defaultLocale)
-        const fallbackTranslation = translations[defaultLocale]
-        if (fallbackTranslation) {
-          setTranslation(fallbackTranslation)
+  useEffect(() => {
+    // 从 localStorage 获取已保存的语言设置
+    const savedLanguage = localStorage.getItem('preferred_language')
+    if (savedLanguage && isValidLocale(savedLanguage)) {
+      setLanguage(savedLanguage)
+    }
+
+    // 检测浏览器语言
+    const detectBrowserLanguage = () => {
+      const languages = navigator.languages || [navigator.language]
+      for (const lang of languages) {
+        // 处理完整的语言代码（如 zh-CN）
+        if (isValidLocale(lang)) {
+          if (lang !== language) {
+            setBrowserLanguage(lang)
+            setShowLanguageHint(true)
+          }
+          break
+        }
+        // 处理简短的语言代码（如 zh）
+        const shortLang = lang.toLowerCase().split('-')[0]
+        if (shortLang === 'zh') {
+          if ('zh-CN' !== language) {
+            setBrowserLanguage('zh-CN')
+            setShowLanguageHint(true)
+          }
+          break
         }
       }
-    } finally {
-      setIsLoading(false)
     }
-  }, [])
 
-  // 监听语言变化
+    detectBrowserLanguage()
+  }, [language])
+
+  // 当语言改变时更新翻译
   useEffect(() => {
-    loadTranslation(language)
-  }, [language, loadTranslation])
-
-  // 提供一个更新语言的函数
-  const handleSetLanguage = useCallback((newLanguage: ValidLocale) => {
-    if (translations[newLanguage]) {
-      setLanguage(newLanguage)
+    const trans = translations[language]
+    if (trans) {
+      setTranslation(trans)
     } else {
-      console.error(`Translation not found for language: ${newLanguage}`)
-      setLanguage(defaultLocale)
+      console.error(`Translation not found for language: ${language}, falling back to default`)
+      setTranslation(translations[defaultLocale])
     }
-  }, [])
+  }, [language])
 
-  if (isLoading) {
-    return <span className="sr-only">Loading translations...</span>
-  }
-
-  if (error) {
-    console.error('Translation error:', error)
-    return null
-  }
-
-  const value = {
-    t: translation,
-    language,
-    setLanguage: handleSetLanguage
+  const handleSetLanguage = (newLanguage: ValidLocale) => {
+    const trans = translations[newLanguage]
+    if (trans) {
+      setLanguage(newLanguage)
+      setTranslation(trans)
+    } else {
+      console.error(`Translation not found for language: ${newLanguage}, falling back to default`)
+      const defaultTrans = translations[defaultLocale]
+      if (defaultTrans) {
+        setLanguage(defaultLocale)
+        setTranslation(defaultTrans)
+      }
+    }
   }
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider value={{ language, setLanguage, browserLanguage, t: translation }}>
       {children}
+      {showLanguageHint && browserLanguage && browserLanguage !== language && (
+        <div className="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 max-w-sm border border-gray-200">
+          <p className="text-sm text-gray-600">
+            {language === 'zh-CN'
+              ? '您的浏览器语言设置为中文，是否切换到中文版？'
+              : 'Your browser language is set to Chinese. Would you like to switch to Chinese version?'}
+          </p>
+          <div className="mt-3 flex justify-end space-x-3">
+            <button
+              onClick={() => setShowLanguageHint(false)}
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              {language === 'zh-CN' ? '不用了' : 'No, thanks'}
+            </button>
+            <button
+              onClick={() => {
+                setLanguage(browserLanguage)
+                setShowLanguageHint(false)
+                localStorage.setItem('preferred_language', browserLanguage)
+              }}
+              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+            >
+              {language === 'zh-CN' ? '切换语言' : 'Switch language'}
+            </button>
+          </div>
+        </div>
+      )}
     </LanguageContext.Provider>
   )
-}
-
-export function useLanguage() {
-  const context = useContext(LanguageContext)
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider')
-  }
-  return context
 } 

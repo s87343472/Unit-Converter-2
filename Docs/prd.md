@@ -508,6 +508,7 @@
 
 ## 9. 多语言支持
 
+### 9.1 基础国际化
 *   使用 Next.js 的国际化 (i18n) 路由功能实现多语言支持。
 *   采用 **subpath routing** 策略，即在 URL 路径中添加语言代码来区分不同语言版本的页面 (例如：`example.com/en/about`, `example.com/zh/about`)。
 *   支持的语言：英语 (en)、中文 (zh)。
@@ -515,5 +516,74 @@
 *   语言文件存储在 `public/locales` 目录下，按语言和命名空间 (namespace) 分类。
 *   使用 `LanguageProvider` 组件提供当前语言环境和加载语言文件的方法。
 *   使用 `useTranslation` Hook 在组件中获取当前语言和翻译文本。
+
+### 9.2 单位系统本地化
+
+#### 9.2.1 单位显示策略
+* 根据用户语言环境（locale）动态调整显示的单位系统
+* 每个语言环境有其优先显示的单位系统：
+  - 中文（zh-CN）：优先显示公制单位和中国传统单位
+  - 美式英语（en-US）：优先显示美制单位，其次是公制单位
+  - 英式英语（en-GB）：优先显示英制单位，其次是公制单位
+  - 日语（ja-JP）：优先显示公制单位和日本传统单位
+  - 韩语（ko-KR）：优先显示公制单位和韩国传统单位
+
+#### 9.2.2 单位命名规范
+* 所有单位必须遵循统一的命名规范：
+  - 公制单位：使用 `metric_` 前缀
+  - 英制单位：使用 `imperial_` 前缀
+  - 美制单位：使用 `us_` 前缀
+  - 中国传统单位：使用 `chinese_` 前缀
+  - 日本传统单位：使用 `japanese_` 前缀
+  - 韩国传统单位：使用 `korean_` 前缀
+
+#### 9.2.3 单位本地化配置
+```typescript
+interface LocaleUnitConfig {
+  primarySystem: string;    // 主要单位系统
+  secondarySystem: string;  // 次要单位系统
+  showTraditional: boolean; // 是否显示传统单位
+  decimalSeparator: string; // 小数点符号
+  thousandsSeparator: string; // 千位分隔符
+}
+
+const localeUnitConfigs: Record<string, LocaleUnitConfig> = {
+  'zh-CN': {
+    primarySystem: 'metric',
+    secondarySystem: 'chinese',
+    showTraditional: true,
+    decimalSeparator: '.',
+    thousandsSeparator: ','
+  },
+  'en-US': {
+    primarySystem: 'us',
+    secondarySystem: 'metric',
+    showTraditional: false,
+    decimalSeparator: '.',
+    thousandsSeparator: ','
+  },
+  'en-GB': {
+    primarySystem: 'imperial',
+    secondarySystem: 'metric',
+    showTraditional: false,
+    decimalSeparator: '.',
+    thousandsSeparator: ','
+  }
+}
+```
+
+#### 9.2.4 单位显示组件
+* 开发 `UnitDisplay` 组件，根据当前语言环境自动选择合适的单位系统
+* 支持切换不同单位系统的显示
+* 提供单位换算提示
+* 支持自定义显示格式
+
+#### 9.2.5 数值格式化
+* 根据语言环境自动处理：
+  - 小数点符号
+  - 千位分隔符
+  - 数字格式化
+  - 科学计数法表示
+  - 有效数字处理
 
 ---

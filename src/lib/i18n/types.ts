@@ -1,6 +1,6 @@
 import type { UnitType, UnitInfo } from '@/lib/i18n/units'
 
-export type ValidLocale = 'en' | 'zh' | 'de' | 'fr' | 'ja' | 'ru' | 'es' | 'la'
+export type ValidLocale = 'en' | 'zh-CN'
 
 export interface CommonTranslation {
   title: string
@@ -21,6 +21,9 @@ export interface CommonTranslation {
   pageNotFoundDesc: string
   backToHome: string
   copyright: string
+  enterValue: string
+  from: string
+  to: string
   categories: {
     basic: string
     area_volume: string
@@ -70,8 +73,6 @@ export interface CommonTranslation {
   favoriteNamePlaceholder: string
   showFavorites: string
   hideFavorites: string
-  from: string
-  to: string
   selectUnit: string
   inputValue: string
   convertResult: string
@@ -103,6 +104,12 @@ export interface Translation {
     selectUnit: string
     conversionError: string
     invalidTemperature: string
+  }
+  errors: {
+    invalidInput: string
+    invalidFormat: string
+    conversionFailed: string
+    copyFailed: string
   }
   footer?: {
     about: string

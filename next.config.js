@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  webpack: (config, { isServer }) => {
+    // 自定义webpack配置
+    return config
+  }
 }
 
 module.exports = nextConfig 

@@ -4,7 +4,7 @@ import LanguageProvider from '@/components/shared/LanguageProvider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
-import { isValidLocale, locales, i18n } from '@/lib/i18n/config'
+import { isValidLocale, locales, i18n, searchEngineLocales, ValidLocale } from '@/lib/i18n/config'
 import { headers } from 'next/headers'
 import { seoConfig } from '@/lib/i18n/seo'
 
@@ -12,23 +12,31 @@ const inter = Inter({ subsets: ['latin'] })
 
 type Props = {
   params: {
-    lang: string
+    lang: ValidLocale
   }
 }
 
 export async function generateMetadata({ params: { lang } }: Props): Promise<Metadata> {
-  const languages = i18n.locales.reduce((acc, locale) => {
-    acc[locale] = `https://metric-converter.com/${locale}`
-    return acc
-  }, {} as Record<string, string>)
-
-  const seo = seoConfig[lang as keyof typeof seoConfig]
   const headersList = headers()
   const pathname = headersList.get('x-pathname') || ''
   const path = pathname.replace(`/${lang}`, '') || '/'
+  const baseUrl = 'https://metric-converter.com'
+
+  // 生成所有语言版本的URL
+  const languages = i18n.locales.reduce((acc, locale) => {
+    acc[locale] = `${baseUrl}/${locale}${path}`
+    return acc
+  }, {} as Record<ValidLocale, string>)
+
+  // 添加x-default
+  languages['x-default' as ValidLocale] = `${baseUrl}/en${path}`
+
+  // 获取SEO配置，如果没有找到对应语言的配置，使用英文配置
+  const seo = seoConfig[lang] || seoConfig['en']
+  const currentUrl = `${baseUrl}/${lang}${path}`
 
   return {
-    metadataBase: new URL('https://metric-converter.com'),
+    metadataBase: new URL(baseUrl),
     title: {
       template: `%s | ${seo.title}`,
       default: seo.title,
@@ -36,7 +44,7 @@ export async function generateMetadata({ params: { lang } }: Props): Promise<Met
     description: seo.description,
     keywords: seo.keywords,
     alternates: {
-      canonical: `https://metric-converter.com/${lang}`,
+      canonical: currentUrl,
       languages,
     },
     robots: {
@@ -53,11 +61,15 @@ export async function generateMetadata({ params: { lang } }: Props): Promise<Met
     openGraph: {
       title: seo.title,
       description: seo.description,
-      url: `https://metric-converter.com/${lang}${path}`,
+      url: currentUrl,
       siteName: 'Metric Converter',
-      locale: lang,
+      locale: searchEngineLocales[lang],
+      alternateLocale: Object.values(searchEngineLocales).filter(l => l !== searchEngineLocales[lang]),
       type: 'website',
     },
+    other: {
+      'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+    }
   }
 }
 

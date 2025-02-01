@@ -46,6 +46,14 @@ const categories = {
   numeral,
 } as Record<ConversionType, ConversionCategory>
 
+// 精度控制函数
+function roundToSignificantDigits(value: number, digits: number = 15): number {
+  if (value === 0) return 0
+  const magnitude = Math.floor(Math.log10(Math.abs(value)))
+  const precision = digits - magnitude
+  return Number(value.toPrecision(precision))
+}
+
 export function convert(
   type: 'numeral',
   value: number,
@@ -89,8 +97,7 @@ export function convert(
         throw new Error('Invalid conversion result: toBase must return a finite number')
       }
     } else if (from.ratio) {
-      // 直接使用乘法，不进行精度控制
-      baseValue = value * from.ratio
+      baseValue = roundToSignificantDigits(value * from.ratio)
       if (!isNumber(baseValue)) {
         throw new Error('Invalid conversion result: overflow in multiplication')
       }
@@ -103,19 +110,7 @@ export function convert(
     if (to.fromBase) {
       result = to.fromBase(baseValue)
     } else if (to.ratio) {
-      // 使用高精度计算避免精度丢失
-      result = baseValue / to.ratio
-      
-      // 改进极小值处理
-      if (Math.abs(result) < 1e-10) {
-        result = 0
-      } else {
-        // 使用动态精度控制
-        const magnitude = Math.floor(Math.log10(Math.abs(result)))
-        const precision = Math.max(10 - magnitude, 5) // 确保至少5位小数精度
-        result = Number(result.toPrecision(precision))
-      }
-      
+      result = roundToSignificantDigits(baseValue / to.ratio)
       if (!isNumber(result)) {
         throw new Error('Invalid conversion result: overflow in division')
       }

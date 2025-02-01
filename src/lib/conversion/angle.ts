@@ -1,110 +1,156 @@
 import type { ConversionCategory } from './types'
 
-// 使用弧度作为基准单位
+// 角度单位转换 (ISO 80000-3)
 const angle: ConversionCategory = {
   id: 'angle',
-  baseUnit: 'metric_radian',
+  baseUnit: 'radian',
   units: {
-    // 公制单位（SI）
-    metric_radian: {
-      id: 'metric_radian',
-      label: '弧度 (公制)',
+    // 公制角度单位
+    radian: {
+      id: 'radian',
+      label: '弧度',
       symbol: 'rad',
       ratio: 1,
+      category: 'metric'
     },
-    metric_milliradian: {
-      id: 'metric_milliradian',
-      label: '毫弧度 (公制)',
+    milliradian: {
+      id: 'milliradian',
+      label: '毫弧度',
       symbol: 'mrad',
-      ratio: 0.001, // 1 mrad = 0.001 rad
+      ratio: 0.001,
+      category: 'metric'
     },
-    metric_microradian: {
-      id: 'metric_microradian',
-      label: '微弧度 (公制)',
+    microradian: {
+      id: 'microradian',
+      label: '微弧度',
       symbol: 'μrad',
-      ratio: 1e-6, // 1 μrad = 0.000001 rad
+      ratio: 1e-6,
+      category: 'metric'
+    },
+    nanoradian: {
+      id: 'nanoradian',
+      label: '纳弧度',
+      symbol: 'nrad',
+      ratio: 1e-9,
+      category: 'metric'
     },
 
     // 标准角度单位
-    standard_degree: {
-      id: 'standard_degree',
-      label: '度 (标准)',
+    degree: {
+      id: 'degree',
+      label: '度',
       symbol: '°',
-      ratio: 0.0174533, // 1° = π/180 rad ≈ 0.0174533 rad
+      ratio: Math.PI / 180,
+      category: 'traditional'
     },
-    standard_arcminute: {
-      id: 'standard_arcminute',
-      label: '角分 (标准)',
+    arcminute: {
+      id: 'arcminute',
+      label: '角分',
       symbol: '′',
-      ratio: 2.90888e-4, // 1′ = 1/60° ≈ 0.000290888 rad
+      ratio: Math.PI / (180 * 60),
+      category: 'traditional'
     },
-    standard_arcsecond: {
-      id: 'standard_arcsecond',
-      label: '角秒 (标准)',
+    arcsecond: {
+      id: 'arcsecond',
+      label: '角秒',
       symbol: '″',
-      ratio: 4.84814e-6, // 1″ = 1/3600° ≈ 0.00000484814 rad
+      ratio: Math.PI / (180 * 3600),
+      category: 'traditional'
     },
-    standard_gradian: {
-      id: 'standard_gradian',
-      label: '百分度 (标准)',
+    gradian: {
+      id: 'gradian',
+      label: '百分度',
       symbol: 'grad',
-      ratio: 0.015708, // 1 grad = π/200 rad ≈ 0.015708 rad
+      ratio: Math.PI / 200,
+      category: 'traditional'
     },
 
     // 周期单位
-    cycle_revolution: {
-      id: 'cycle_revolution',
-      label: '周 (周期)',
+    revolution: {
+      id: 'revolution',
+      label: '周',
       symbol: 'rev',
-      ratio: 6.28319, // 1 rev = 2π rad ≈ 6.28319 rad
+      ratio: 2 * Math.PI,
+      category: 'scientific'
     },
-    cycle_quadrant: {
-      id: 'cycle_quadrant',
-      label: '象限 (周期)',
+    quadrant: {
+      id: 'quadrant',
+      label: '象限',
       symbol: 'quad',
-      ratio: 1.5708, // 1 quad = π/2 rad ≈ 1.5708 rad
+      ratio: Math.PI / 2,
+      category: 'scientific'
     },
-    cycle_semicircle: {
-      id: 'cycle_semicircle',
-      label: '半圆 (周期)',
+    semicircle: {
+      id: 'semicircle',
+      label: '半圆',
       symbol: 'sc',
-      ratio: 3.14159, // 1 sc = π rad ≈ 3.14159 rad
+      ratio: Math.PI,
+      category: 'scientific'
     },
 
     // 航海单位
-    nautical_point: {
-      id: 'nautical_point',
-      label: '罗盘点 (航海)',
+    point: {
+      id: 'point',
+      label: '罗盘点',
       symbol: 'pt',
-      ratio: 0.0490874, // 1 point = 11.25° ≈ 0.0490874 rad
+      ratio: Math.PI / 16,  // 1 point = 11.25°
+      category: 'traditional'
     },
-    nautical_sextant: {
-      id: 'nautical_sextant',
-      label: '六分仪 (航海)',
+    sextant: {
+      id: 'sextant',
+      label: '六分仪',
       symbol: 'sext',
-      ratio: 1.0472, // 1 sextant = π/3 rad ≈ 1.0472 rad
+      ratio: Math.PI / 3,  // 1 sextant = 60°
+      category: 'traditional'
     },
-    nautical_octant: {
-      id: 'nautical_octant',
-      label: '八分仪 (航海)',
+    octant: {
+      id: 'octant',
+      label: '八分仪',
       symbol: 'oct',
-      ratio: 0.785398, // 1 octant = π/4 rad ≈ 0.785398 rad
+      ratio: Math.PI / 4,  // 1 octant = 45°
+      category: 'traditional'
     },
 
     // 军事单位
-    military_mil: {
-      id: 'military_mil',
-      label: '密位 (军事)',
+    mil: {
+      id: 'mil',
+      label: '密位',
       symbol: 'mil',
-      ratio: 0.0009817, // 1 mil = 1/6400 rev ≈ 0.0009817 rad
+      ratio: 2 * Math.PI / 6400,  // NATO标准：6400密位=360°
+      category: 'scientific'
     },
-    military_nato_mil: {
-      id: 'military_nato_mil',
-      label: 'NATO密位 (军事)',
+    nato_mil: {
+      id: 'nato_mil',
+      label: 'NATO密位',
       symbol: 'mil',
-      ratio: 0.0009817, // 1 NATO mil = π/3200 rad ≈ 0.0009817 rad
-    },
+      ratio: Math.PI / 3200,  // NATO标准：6400密位=360°
+      category: 'scientific'
+    }
   },
-} as const
+
+  // 知识点
+  knowledge: {
+    title: '角度知识',
+    items: [
+      'ISO 80000-3标准定义了角度的基本单位弧度(rad)，表示圆弧长度等于半径时的角度',
+      '一个完整的圆周对应：2π弧度、360度、400百分度或6400密位',
+      '度分秒制源自古巴比伦的六十进制，1度=60分，1分=60秒',
+      '百分度(Gradian)源自法国大革命时期的十进制化运动',
+      '密位(Mil)主要用于军事瞄准和测距，不同国家标准略有差异',
+      '航海中使用的点(Point)源自传统罗盘的32分度法'
+    ]
+  },
+
+  // 转换提示
+  conversion_tips: {
+    title: '转换参考',
+    items: [
+      '常用角度参考：\n  - 直角：90° = π/2 rad = 100 grad\n  - 平角：180° = π rad = 200 grad\n  - 周角：360° = 2π rad = 400 grad',
+      '精确度参考：\n  - 天文观测：角秒(″)级\n  - 测绘测量：角分(′)级\n  - 工程应用：度(°)级\n  - 军事瞄准：密位(mil)级',
+      '弧度制优势：\n  - 微积分计算更简单\n  - 小角度时弧度≈正弦值\n  - 是国际单位制基本单位',
+      '实际应用参考：\n  - 天文：赤经赤纬（时分秒）\n  - 导航：方位角（度或点）\n  - 测绘：经纬度（度分秒）\n  - 军事：射击诸元（密位）'
+    ]
+  }
+}
 
 export default angle 

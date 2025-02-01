@@ -1,136 +1,206 @@
 import type { ConversionCategory } from './types'
 
-// 使用字节作为基准单位
+// 使用比特作为基准单位
 const data: ConversionCategory = {
   id: 'data',
-  baseUnit: 'byte',
+  baseUnit: 'bit',
+  description: '数据单位转换 (IEC 60027-2)',
   units: {
     // 基本单位
     bit: {
       id: 'bit',
       label: '比特',
-      symbol: 'b',
-      ratio: 0.125, // 1 byte = 8 bits
+      symbol: 'bit',
+      ratio: 1,
+      category: 'metric'
     },
     byte: {
       id: 'byte',
       label: '字节',
       symbol: 'B',
-      ratio: 1,
+      ratio: 8,
+      category: 'metric'
     },
-    // 二进制单位（1024进制）
-    kibibyte: {
-      id: 'kibibyte',
-      label: '二进制千字节',
-      symbol: 'KiB',
-      ratio: 1024,
+
+    // 十进制比特单位（1000倍数）
+    petabit: {
+      id: 'petabit',
+      label: '拍比特',
+      symbol: 'Pbit',
+      ratio: 1e15,
+      category: 'metric'
     },
-    mebibyte: {
-      id: 'mebibyte',
-      label: '二进制兆字节',
-      symbol: 'MiB',
-      ratio: 1048576, // 1024^2
+    terabit: {
+      id: 'terabit',
+      label: '太比特',
+      symbol: 'Tbit',
+      ratio: 1e12,
+      category: 'metric'
     },
-    gibibyte: {
-      id: 'gibibyte',
-      label: '二进制吉字节',
-      symbol: 'GiB',
-      ratio: 1073741824, // 1024^3
+    gigabit: {
+      id: 'gigabit',
+      label: '吉比特',
+      symbol: 'Gbit',
+      ratio: 1e9,
+      category: 'metric'
     },
-    tebibyte: {
-      id: 'tebibyte',
-      label: '二进制太字节',
-      symbol: 'TiB',
-      ratio: 1099511627776, // 1024^4
+    megabit: {
+      id: 'megabit',
+      label: '兆比特',
+      symbol: 'Mbit',
+      ratio: 1e6,
+      category: 'metric'
     },
-    pebibyte: {
-      id: 'pebibyte',
-      label: '二进制拍字节',
-      symbol: 'PiB',
-      ratio: 1125899906842624, // 1024^5
+    kilobit: {
+      id: 'kilobit',
+      label: '千比特',
+      symbol: 'kbit',
+      ratio: 1e3,
+      category: 'metric'
     },
-    // 十进制单位（1000进制）
-    kilobyte: {
-      id: 'kilobyte',
-      label: '十进制千字节',
-      symbol: 'KB',
-      ratio: 1000,
+    millibit: {
+      id: 'millibit',
+      label: '毫比特',
+      symbol: 'mbit',
+      ratio: 1e-3,
+      category: 'metric'
     },
-    megabyte: {
-      id: 'megabyte',
-      label: '十进制兆字节',
-      symbol: 'MB',
-      ratio: 1000000, // 1000^2
-    },
-    gigabyte: {
-      id: 'gigabyte',
-      label: '十进制吉字节',
-      symbol: 'GB',
-      ratio: 1000000000, // 1000^3
+
+    // 十进制字节单位（1000倍数）
+    petabyte: {
+      id: 'petabyte',
+      label: '拍字节',
+      symbol: 'PB',
+      ratio: 8e15,
+      category: 'metric'
     },
     terabyte: {
       id: 'terabyte',
-      label: '十进制太字节',
+      label: '太字节',
       symbol: 'TB',
-      ratio: 1000000000000, // 1000^4
+      ratio: 8e12,
+      category: 'metric'
     },
-    petabyte: {
-      id: 'petabyte',
-      label: '十进制拍字节',
-      symbol: 'PB',
-      ratio: 1000000000000000, // 1000^5
-    },
-    // 数据传输速率单位（每秒）
-    bit_per_second: {
-      id: 'bit_per_second',
-      label: '比特每秒',
-      symbol: 'bps',
-      ratio: 0.125,
-    },
-    kilobit_per_second: {
-      id: 'kilobit_per_second',
-      label: '千比特每秒',
-      symbol: 'Kbps',
-      ratio: 125, // 1000 bits = 125 bytes
-    },
-    megabit_per_second: {
-      id: 'megabit_per_second',
-      label: '兆比特每秒',
-      symbol: 'Mbps',
-      ratio: 125000, // 1000000 bits = 125000 bytes
-    },
-    gigabit_per_second: {
-      id: 'gigabit_per_second',
-      label: '吉比特每秒',
-      symbol: 'Gbps',
-      ratio: 125000000, // 1000000000 bits = 125000000 bytes
-    },
-    // 存储容量单位（硬盘制造商使用）
-    decimal_kilobyte: {
-      id: 'decimal_kilobyte',
-      label: '营销千字节',
-      symbol: 'KB',
-      ratio: 1000,
-    },
-    decimal_megabyte: {
-      id: 'decimal_megabyte',
-      label: '营销兆字节',
-      symbol: 'MB',
-      ratio: 1000000,
-    },
-    decimal_gigabyte: {
-      id: 'decimal_gigabyte',
-      label: '营销吉字节',
+    gigabyte: {
+      id: 'gigabyte',
+      label: '吉字节',
       symbol: 'GB',
-      ratio: 1000000000,
+      ratio: 8e9,
+      category: 'metric'
     },
-    decimal_terabyte: {
-      id: 'decimal_terabyte',
-      label: '营销太字节',
-      symbol: 'TB',
-      ratio: 1000000000000,
+    megabyte: {
+      id: 'megabyte',
+      label: '兆字节',
+      symbol: 'MB',
+      ratio: 8e6,
+      category: 'metric'
     },
+    kilobyte: {
+      id: 'kilobyte',
+      label: '千字节',
+      symbol: 'kB',
+      ratio: 8e3,
+      category: 'metric'
+    },
+
+    // 二进制比特单位（1024倍数）
+    pebibit: {
+      id: 'pebibit',
+      label: '皮比特',
+      symbol: 'Pibit',
+      ratio: Math.pow(1024, 5),
+      category: 'scientific'
+    },
+    tebibit: {
+      id: 'tebibit',
+      label: '太比特',
+      symbol: 'Tibit',
+      ratio: Math.pow(1024, 4),
+      category: 'scientific'
+    },
+    gibibit: {
+      id: 'gibibit',
+      label: '吉比特',
+      symbol: 'Gibit',
+      ratio: Math.pow(1024, 3),
+      category: 'scientific'
+    },
+    mebibit: {
+      id: 'mebibit',
+      label: '米比特',
+      symbol: 'Mibit',
+      ratio: Math.pow(1024, 2),
+      category: 'scientific'
+    },
+    kibibit: {
+      id: 'kibibit',
+      label: '基比特',
+      symbol: 'Kibit',
+      ratio: 1024,
+      category: 'scientific'
+    },
+
+    // 二进制字节单位（1024倍数）
+    pebibyte: {
+      id: 'pebibyte',
+      label: '皮字节',
+      symbol: 'PiB',
+      ratio: 8 * Math.pow(1024, 5),
+      category: 'scientific'
+    },
+    tebibyte: {
+      id: 'tebibyte',
+      label: '太字节',
+      symbol: 'TiB',
+      ratio: 8 * Math.pow(1024, 4),
+      category: 'scientific'
+    },
+    gibibyte: {
+      id: 'gibibyte',
+      label: '吉字节',
+      symbol: 'GiB',
+      ratio: 8 * Math.pow(1024, 3),
+      category: 'scientific'
+    },
+    mebibyte: {
+      id: 'mebibyte',
+      label: '米字节',
+      symbol: 'MiB',
+      ratio: 8 * Math.pow(1024, 2),
+      category: 'scientific'
+    },
+    kibibyte: {
+      id: 'kibibyte',
+      label: '基字节',
+      symbol: 'KiB',
+      ratio: 8 * 1024,
+      category: 'scientific'
+    }
   },
+
+  // 知识点
+  knowledge: {
+    title: '你知道吗？',
+    items: [
+      '1字节(B)等于8比特(bit)，用于存储一个字符。',
+      '十进制前缀(k, M, G)使用1000为基数，而二进制前缀(Ki, Mi, Gi)使用1024为基数。',
+      '硬盘制造商使用十进制前缀（KB、MB、GB），而操作系统通常使用二进制前缀（KiB、MiB、GiB）。',
+      'IEC 60027-2标准建议使用二进制前缀（Ki、Mi、Gi、Ti、Pi）来避免混淆。',
+      '一个ASCII字符占用1字节，而一个Unicode字符可能占用1-4字节。',
+      '现代计算机的内存地址通常是字节寻址的，而不是比特寻址。'
+    ]
+  },
+
+  // 转换提示
+  conversion_tips: {
+    title: '转换提示',
+    items: [
+      '存储介质参考值：\n  - U盘：8-256 GB\n  - SSD：256 GB-2 TB\n  - 机械硬盘：1-18 TB\n  - 企业级存储：100 TB-1 PB',
+      '文件大小参考值：\n  - 文本文档：几KB\n  - 图片：100 KB-10 MB\n  - MP3音乐：3-10 MB\n  - 1080p电影：4-8 GB\n  - 4K电影：50-100 GB',
+      '内存容量参考值：\n  - 智能手机：4-12 GB\n  - 笔记本电脑：8-32 GB\n  - 游戏电脑：16-128 GB\n  - 服务器：64 GB-2 TB',
+      '云存储参考值：\n  - 个人云盘：5-200 GB\n  - 企业存储：1-100 TB\n  - 数据中心：1-100 PB\n  - 超大规模云：1-100 EB'
+    ]
+  }
 }
 
 export default data 
