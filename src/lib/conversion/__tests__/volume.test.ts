@@ -103,43 +103,43 @@ describe('Volume Conversion', () => {
   // 测试中国传统容量单位转换
   describe('Chinese Traditional Units', () => {
     test('dan to dou', () => {
-      const result = convert('volume', 1, 'chinese_dan', 'chinese_dou')
+      const result = convert('volume', 1, 'traditional_dan', 'traditional_dou')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('chinese_dou')
+      expect(result.unit).toBe('traditional_dou')
     })
 
     test('dou to sheng', () => {
-      const result = convert('volume', 1, 'chinese_dou', 'chinese_sheng')
+      const result = convert('volume', 1, 'traditional_dou', 'traditional_sheng')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('chinese_sheng')
+      expect(result.unit).toBe('traditional_sheng')
     })
   })
 
   // 测试日本传统容量单位转换
   describe('Japanese Traditional Units', () => {
     test('gou to shaku', () => {
-      const result = convert('volume', 1, 'japanese_gou', 'japanese_shaku')
+      const result = convert('volume', 1, 'traditional_gou', 'traditional_shaku')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('japanese_shaku')
+      expect(result.unit).toBe('traditional_shaku')
     })
 
     test('shaku to sai', () => {
-      const result = convert('volume', 1, 'japanese_shaku', 'japanese_sai')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('japanese_sai')
+      const result = convert('volume', 1, 'traditional_shaku', 'traditional_sai')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('traditional_sai')
     })
   })
 
   // 测试工业容量单位转换
   describe('Industry Units', () => {
     test('oil barrel to beer barrel', () => {
-      const result = convert('volume', 1, 'industry_oil_barrel', 'industry_beer_barrel')
+      const result = convert('volume', 1, 'industrial_oil_barrel', 'industrial_beer_barrel')
       expect(result.value).toBeCloseTo(1.3548, 4)
-      expect(result.unit).toBe('industry_beer_barrel')
+      expect(result.unit).toBe('industrial_beer_barrel')
     })
 
     test('oil barrel to us gallon', () => {
-      const result = convert('volume', 1, 'industry_oil_barrel', 'us_gallon')
+      const result = convert('volume', 1, 'industrial_oil_barrel', 'us_gallon')
       expect(result.value).toBeCloseTo(42, 4)
       expect(result.unit).toBe('us_gallon')
     })

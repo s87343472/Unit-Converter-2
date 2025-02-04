@@ -3,114 +3,130 @@ import type { ConversionCategory } from './types'
 // 使用牛顿米作为基准单位
 const torque: ConversionCategory = {
   id: 'torque',
-  baseUnit: 'newton_meter',
+  baseUnit: 'metric_newton_meter',
   description: '扭矩单位转换 (ISO 80000-4)',
   units: {
     // 基本单位
-    newton_meter: {
-      id: 'newton_meter',
+    metric_newton_meter: {
+      id: 'metric_newton_meter',
       label: '牛顿米',
       symbol: 'N⋅m',
       ratio: 1,
+      category: 'metric'
     },
 
     // 公制扭矩单位
-    meganewton_meter: {
-      id: 'meganewton_meter',
+    metric_meganewton_meter: {
+      id: 'metric_meganewton_meter',
       label: '兆牛顿米',
       symbol: 'MN⋅m',
       ratio: 1000000,
+      category: 'metric'
     },
-    kilonewton_meter: {
-      id: 'kilonewton_meter',
+    metric_kilonewton_meter: {
+      id: 'metric_kilonewton_meter',
       label: '千牛顿米',
       symbol: 'kN⋅m',
       ratio: 1000,
+      category: 'metric'
     },
-    millinewton_meter: {
-      id: 'millinewton_meter',
+    metric_millinewton_meter: {
+      id: 'metric_millinewton_meter',
       label: '毫牛顿米',
       symbol: 'mN⋅m',
       ratio: 0.001,
+      category: 'metric'
     },
-    micronewton_meter: {
-      id: 'micronewton_meter',
+    metric_micronewton_meter: {
+      id: 'metric_micronewton_meter',
       label: '微牛顿米',
       symbol: 'μN⋅m',
       ratio: 0.000001,
+      category: 'metric'
     },
-    newton_centimeter: {
-      id: 'newton_centimeter',
+    metric_newton_centimeter: {
+      id: 'metric_newton_centimeter',
       label: '牛顿厘米',
       symbol: 'N⋅cm',
       ratio: 0.01,
+      category: 'metric'
     },
-    newton_millimeter: {
-      id: 'newton_millimeter',
+    metric_newton_millimeter: {
+      id: 'metric_newton_millimeter',
       label: '牛顿毫米',
       symbol: 'N⋅mm',
       ratio: 0.001,
+      category: 'metric'
     },
 
     // 英制扭矩单位
-    pound_force_foot: {
-      id: 'pound_force_foot',
+    imperial_pound_foot: {
+      id: 'imperial_pound_foot',
       label: '磅力英尺',
       symbol: 'lbf⋅ft',
       ratio: 1.35582,
+      category: 'imperial'
     },
-    pound_force_inch: {
-      id: 'pound_force_inch',
+    imperial_pound_inch: {
+      id: 'imperial_pound_inch',
       label: '磅力英寸',
       symbol: 'lbf⋅in',
       ratio: 0.112985,
+      category: 'imperial'
     },
-    ounce_force_inch: {
-      id: 'ounce_force_inch',
+    imperial_ounce_inch: {
+      id: 'imperial_ounce_inch',
       label: '盎司力英寸',
       symbol: 'ozf⋅in',
       ratio: 0.00706155,
+      category: 'imperial'
     },
-    kip_foot: {
-      id: 'kip_foot',
+    imperial_kip_foot: {
+      id: 'imperial_kip_foot',
       label: '千磅力英尺',
       symbol: 'kip⋅ft',
       ratio: 1355.82,
+      category: 'imperial'
     },
 
     // 工程扭矩单位
-    kilogram_force_meter: {
-      id: 'kilogram_force_meter',
+    engineering_kilogram_force_meter: {
+      id: 'engineering_kilogram_force_meter',
       label: '千克力米',
       symbol: 'kgf⋅m',
       ratio: 9.80665,
+      category: 'traditional'
     },
-    kilogram_force_centimeter: {
-      id: 'kilogram_force_centimeter',
+    engineering_kilogram_force_centimeter: {
+      id: 'engineering_kilogram_force_centimeter',
       label: '千克力厘米',
       symbol: 'kgf⋅cm',
       ratio: 0.0980665,
+      category: 'traditional'
     },
-    gram_force_meter: {
-      id: 'gram_force_meter',
+    engineering_gram_force_meter: {
+      id: 'engineering_gram_force_meter',
       label: '克力米',
       symbol: 'gf⋅m',
       ratio: 0.00980665,
+      category: 'traditional'
     },
-    gram_force_centimeter: {
-      id: 'gram_force_centimeter',
+    engineering_gram_force_centimeter: {
+      id: 'engineering_gram_force_centimeter',
       label: '克力厘米',
       symbol: 'gf⋅cm',
       ratio: 0.0000980665,
+      category: 'traditional'
     },
 
     // 科学扭矩单位
-    dyne_centimeter: {
-      id: 'dyne_centimeter',
+    scientific_dyne_centimeter: {
+      id: 'scientific_dyne_centimeter',
       label: '达因厘米',
       symbol: 'dyn⋅cm',
       ratio: 0.0000001,
-    },
+      category: 'scientific'
+    }
   },
 
   // 知识点
@@ -137,6 +153,6 @@ const torque: ConversionCategory = {
       '航空航天扭矩参考值：\n  - 小型螺旋桨：100-500 N⋅m\n  - 中型涡轮：500-2000 N⋅m\n  - 大型涡轮：2000-5000 N⋅m'
     ]
   }
-}
+} as const
 
 export default torque 

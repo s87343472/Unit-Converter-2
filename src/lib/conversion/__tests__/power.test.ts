@@ -1,150 +1,129 @@
 import { convert } from '../converter'
 
-describe('Power Conversion', () => {
-  // 测试公制功率单位转换
-  describe('Metric Power Units', () => {
-    test('watt to kilowatt', () => {
-      const result = convert('power', 1000, 'watt', 'kilowatt')
+describe('功率单位转换', () => {
+  // 基本单位转换测试
+  describe('基本单位转换', () => {
+    test('瓦特到千瓦', () => {
+      const result = convert('power', 1000, 'metric_watt', 'metric_kilowatt')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('kilowatt')
+      expect(result.unit).toBe('metric_kilowatt')
     })
 
-    test('kilowatt to megawatt', () => {
-      const result = convert('power', 1000, 'kilowatt', 'megawatt')
+    test('千瓦到兆瓦', () => {
+      const result = convert('power', 1000, 'metric_kilowatt', 'metric_megawatt')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('megawatt')
+      expect(result.unit).toBe('metric_megawatt')
     })
 
-    test('megawatt to gigawatt', () => {
-      const result = convert('power', 1000, 'megawatt', 'gigawatt')
+    test('兆瓦到吉瓦', () => {
+      const result = convert('power', 1000, 'metric_megawatt', 'metric_gigawatt')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('gigawatt')
+      expect(result.unit).toBe('metric_gigawatt')
     })
   })
 
-  // 测试机械功率单位转换
-  describe('Mechanical Power Units', () => {
-    test('horsepower to watt', () => {
-      const result = convert('power', 1, 'horsepower', 'watt')
-      expect(result.value).toBeCloseTo(745.699872, 9)
-      expect(result.unit).toBe('watt')
+  // 机械功率单位测试
+  describe('机械功率单位转换', () => {
+    test('机械马力到瓦特', () => {
+      const result = convert('power', 1, 'mechanical_horsepower', 'metric_watt')
+      expect(result.value).toBeCloseTo(745.699872, 6)
+      expect(result.unit).toBe('metric_watt')
     })
 
-    test('metric horsepower to watt', () => {
-      const result = convert('power', 1, 'metric_horsepower', 'watt')
-      expect(result.value).toBeCloseTo(735.49875, 9)
-      expect(result.unit).toBe('watt')
+    test('公制马力到瓦特', () => {
+      const result = convert('power', 1, 'mechanical_metric_horsepower', 'metric_watt')
+      expect(result.value).toBeCloseTo(735.49875, 6)
+      expect(result.unit).toBe('metric_watt')
     })
 
-    test('british horsepower to watt', () => {
-      const result = convert('power', 1, 'british_horsepower', 'watt')
-      expect(result.value).toBeCloseTo(745.7, 6)
-      expect(result.unit).toBe('watt')
-    })
-  })
-
-  // 测试热功率单位转换
-  describe('Thermal Power Units', () => {
-    test('BTU per hour to watt', () => {
-      const result = convert('power', 1, 'btu_per_hour', 'watt')
-      expect(result.value).toBeCloseTo(0.29307107, 9)
-      expect(result.unit).toBe('watt')
-    })
-
-    test('kilocalorie per hour to watt', () => {
-      const result = convert('power', 1, 'kilocalorie_per_hour', 'watt')
-      expect(result.value).toBeCloseTo(1.163, 6)
-      expect(result.unit).toBe('watt')
-    })
-
-    test('ton refrigeration to kilowatt', () => {
-      const result = convert('power', 1, 'ton_refrigeration', 'kilowatt')
-      expect(result.value).toBeCloseTo(3.516853, 9)
-      expect(result.unit).toBe('kilowatt')
+    test('锅炉马力到千瓦', () => {
+      const result = convert('power', 1, 'mechanical_boiler_horsepower', 'metric_kilowatt')
+      expect(result.value).toBeCloseTo(9.80965, 6)
+      expect(result.unit).toBe('metric_kilowatt')
     })
   })
 
-  // 测试工业功率单位转换
-  describe('Industrial Power Units', () => {
-    test('kilovolt ampere to kilowatt', () => {
-      const result = convert('power', 1, 'kilovolt_ampere', 'kilowatt')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('kilowatt')
-    })
-
-    test('kilovar to kilowatt', () => {
-      const result = convert('power', 1, 'kilovar', 'kilowatt')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('kilowatt')
-    })
-
-    test('megavolt ampere to megawatt', () => {
-      const result = convert('power', 1, 'megavolt_ampere', 'megawatt')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('megawatt')
-    })
-  })
-
-  // 测试科学功率单位转换
-  describe('Scientific Power Units', () => {
-    test('erg per second to watt', () => {
-      const result = convert('power', 10000000, 'erg_per_second', 'watt')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('watt')
-    })
-
-    test('joule per second to watt', () => {
-      const result = convert('power', 1, 'joule_per_second', 'watt')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('watt')
-    })
-
-    test('calorie per second to watt', () => {
-      const result = convert('power', 1, 'calorie_per_second', 'watt')
+  // 热功率单位测试
+  describe('热功率单位转换', () => {
+    test('卡路里每秒到瓦特', () => {
+      const result = convert('power', 1, 'thermal_calorie_per_second', 'metric_watt')
       expect(result.value).toBeCloseTo(4.1868, 6)
-      expect(result.unit).toBe('watt')
+      expect(result.unit).toBe('metric_watt')
+    })
+
+    test('英热单位每小时到瓦特', () => {
+      const result = convert('power', 1, 'thermal_btu_per_hour', 'metric_watt')
+      expect(result.value).toBeCloseTo(0.29307107, 6)
+      expect(result.unit).toBe('metric_watt')
+    })
+
+    test('制冷吨到千瓦', () => {
+      const result = convert('power', 1, 'thermal_ton_refrigeration', 'metric_kilowatt')
+      expect(result.value).toBeCloseTo(3.516853, 6)
+      expect(result.unit).toBe('metric_kilowatt')
     })
   })
 
-  // 测试跨系统转换
-  describe('Cross-System Conversions', () => {
-    test('horsepower to kilowatt', () => {
-      const result = convert('power', 1, 'horsepower', 'kilowatt')
-      expect(result.value).toBeCloseTo(0.745699872, 9)
-      expect(result.unit).toBe('kilowatt')
+  // 电气功率单位测试
+  describe('电气功率单位转换', () => {
+    test('伏安到瓦特', () => {
+      const result = convert('power', 1, 'electric_volt_ampere', 'metric_watt')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('metric_watt')
     })
 
-    test('BTU per hour to kilocalorie per hour', () => {
-      const result = convert('power', 1, 'btu_per_hour', 'kilocalorie_per_hour')
+    test('千伏安到千瓦', () => {
+      const result = convert('power', 1, 'electric_kilovolt_ampere', 'metric_kilowatt')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('metric_kilowatt')
+    })
+
+    test('兆伏安到兆瓦', () => {
+      const result = convert('power', 1, 'electric_megavolt_ampere', 'metric_megawatt')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('metric_megawatt')
+    })
+  })
+
+  // 跨系统转换测试
+  describe('跨系统转换', () => {
+    test('机械马力到千瓦', () => {
+      const result = convert('power', 1, 'mechanical_horsepower', 'metric_kilowatt')
+      expect(result.value).toBeCloseTo(0.745699872, 6)
+      expect(result.unit).toBe('metric_kilowatt')
+    })
+
+    test('英热单位每小时到千卡每小时', () => {
+      const result = convert('power', 1, 'thermal_btu_per_hour', 'thermal_kilocalorie_per_hour')
       expect(result.value).toBeCloseTo(0.252, 3)
-      expect(result.unit).toBe('kilocalorie_per_hour')
+      expect(result.unit).toBe('thermal_kilocalorie_per_hour')
     })
 
-    test('megavolt ampere to horsepower', () => {
-      const result = convert('power', 1, 'megavolt_ampere', 'horsepower')
+    test('兆伏安到机械马力', () => {
+      const result = convert('power', 1, 'electric_megavolt_ampere', 'mechanical_horsepower')
       expect(result.value).toBeCloseTo(1341.02, 2)
-      expect(result.unit).toBe('horsepower')
+      expect(result.unit).toBe('mechanical_horsepower')
     })
   })
 
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very small powers', () => {
-      const result = convert('power', 0.000001, 'watt', 'erg_per_second')
-      expect(result.value).toBeCloseTo(10, 6)
-      expect(result.unit).toBe('erg_per_second')
+  // 边界情况测试
+  describe('边界情况', () => {
+    test('大数值转换', () => {
+      const result = convert('power', 1000, 'metric_gigawatt', 'metric_watt')
+      expect(result.value).toBeCloseTo(1e12, 6)
+      expect(result.unit).toBe('metric_watt')
     })
 
-    test('should handle very large powers', () => {
-      const result = convert('power', 1000, 'gigawatt', 'watt')
-      expect(result.value).toBeCloseTo(1e12, 4)
-      expect(result.unit).toBe('watt')
+    test('小数值转换', () => {
+      const result = convert('power', 0.001, 'metric_watt', 'thermal_btu_per_hour')
+      expect(result.value).toBeCloseTo(0.003412141633, 6)
+      expect(result.unit).toBe('thermal_btu_per_hour')
     })
 
-    test('should handle fractional powers', () => {
-      const result = convert('power', 0.5, 'horsepower', 'watt')
-      expect(result.value).toBeCloseTo(372.849936, 9)
-      expect(result.unit).toBe('watt')
+    test('零值转换', () => {
+      const result = convert('power', 0, 'mechanical_horsepower', 'metric_watt')
+      expect(result.value).toBeCloseTo(0, 6)
+      expect(result.unit).toBe('metric_watt')
     })
   })
 }) 

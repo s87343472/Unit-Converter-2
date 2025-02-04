@@ -2,149 +2,171 @@ import type { ConversionCategory } from './types'
 
 const density: ConversionCategory = {
   id: 'density',
-  baseUnit: 'kilogram_per_cubic_meter',
+  baseUnit: 'metric_kilogram_per_cubic_meter',
   description: '密度单位转换 (ISO 80000-4)',
   units: {
     // 基本单位
-    kilogram_per_cubic_meter: {
-      id: 'kilogram_per_cubic_meter',
+    metric_kilogram_per_cubic_meter: {
+      id: 'metric_kilogram_per_cubic_meter',
       label: '千克每立方米',
       symbol: 'kg/m³',
-      ratio: 1 // 基准单位（SI基本单位）
+      ratio: 1, // 基准单位（SI基本单位）
+      category: 'metric'
     },
 
     // 公制密度单位
-    tonne_per_cubic_meter: {
-      id: 'tonne_per_cubic_meter',
+    metric_tonne_per_cubic_meter: {
+      id: 'metric_tonne_per_cubic_meter',
       label: '吨每立方米',
       symbol: 't/m³',
-      ratio: 1000 // 1 t/m³ = 1000 kg/m³
+      ratio: 1000, // 1 t/m³ = 1000 kg/m³
+      category: 'metric'
     },
-    gram_per_cubic_centimeter: {
-      id: 'gram_per_cubic_centimeter',
+    metric_gram_per_cubic_centimeter: {
+      id: 'metric_gram_per_cubic_centimeter',
       label: '克每立方厘米',
       symbol: 'g/cm³',
-      ratio: 1000 // 1 g/cm³ = 1000 kg/m³
+      ratio: 1000, // 1 g/cm³ = 1000 kg/m³
+      category: 'metric'
     },
-    gram_per_milliliter: {
-      id: 'gram_per_milliliter',
+    metric_gram_per_milliliter: {
+      id: 'metric_gram_per_milliliter',
       label: '克每毫升',
       symbol: 'g/mL',
-      ratio: 1000 // 1 g/mL = 1000 kg/m³（水的密度约为1 g/mL）
+      ratio: 1000, // 1 g/mL = 1000 kg/m³（水的密度约为1 g/mL）
+      category: 'metric'
     },
-    kilogram_per_liter: {
-      id: 'kilogram_per_liter',
+    metric_kilogram_per_liter: {
+      id: 'metric_kilogram_per_liter',
       label: '千克每升',
       symbol: 'kg/L',
-      ratio: 1000 // 1 kg/L = 1000 kg/m³
+      ratio: 1000, // 1 kg/L = 1000 kg/m³
+      category: 'metric'
     },
-    gram_per_cubic_meter: {
-      id: 'gram_per_cubic_meter',
+    metric_gram_per_cubic_meter: {
+      id: 'metric_gram_per_cubic_meter',
       label: '克每立方米',
       symbol: 'g/m³',
-      ratio: 0.001 // 1 g/m³ = 0.001 kg/m³
+      ratio: 0.001, // 1 g/m³ = 0.001 kg/m³
+      category: 'metric'
     },
-    milligram_per_cubic_meter: {
-      id: 'milligram_per_cubic_meter',
+    metric_milligram_per_cubic_meter: {
+      id: 'metric_milligram_per_cubic_meter',
       label: '毫克每立方米',
       symbol: 'mg/m³',
-      ratio: 1e-6 // 1 mg/m³ = 0.000001 kg/m³
+      ratio: 1e-6, // 1 mg/m³ = 0.000001 kg/m³
+      category: 'metric'
     },
-    microgram_per_cubic_meter: {
-      id: 'microgram_per_cubic_meter',
+    metric_microgram_per_cubic_meter: {
+      id: 'metric_microgram_per_cubic_meter',
       label: '微克每立方米',
       symbol: 'μg/m³',
-      ratio: 1e-9 // 1 μg/m³ = 0.000000001 kg/m³
+      ratio: 1e-9, // 1 μg/m³ = 0.000000001 kg/m³
+      category: 'metric'
     },
-    nanogram_per_cubic_meter: {
-      id: 'nanogram_per_cubic_meter',
+    metric_nanogram_per_cubic_meter: {
+      id: 'metric_nanogram_per_cubic_meter',
       label: '纳克每立方米',
       symbol: 'ng/m³',
-      ratio: 1e-12 // 1 ng/m³ = 0.000000000001 kg/m³
+      ratio: 1e-12, // 1 ng/m³ = 0.000000000001 kg/m³
+      category: 'metric'
     },
 
     // 工业密度单位
-    kilogram_per_cubic_meter_std: {
-      id: 'kilogram_per_cubic_meter_std',
+    industrial_kilogram_per_cubic_meter_std: {
+      id: 'industrial_kilogram_per_cubic_meter_std',
       label: '标准状态千克每立方米',
       symbol: 'kg/m³(std)',
-      ratio: 1 // 在标准状态下（0°C，1atm）
+      ratio: 1, // 在标准状态下（0°C，1atm）
+      category: 'industrial'
     },
-    gram_per_liter: {
-      id: 'gram_per_liter',
+    metric_gram_per_liter: {
+      id: 'metric_gram_per_liter',
       label: '克每升',
       symbol: 'g/L',
-      ratio: 1 // 1 g/L = 1 kg/m³
+      ratio: 1, // 1 g/L = 1 kg/m³
+      category: 'metric'
     },
-    milligram_per_liter: {
-      id: 'milligram_per_liter',
+    metric_milligram_per_liter: {
+      id: 'metric_milligram_per_liter',
       label: '毫克每升',
       symbol: 'mg/L',
-      ratio: 0.001 // 1 mg/L = 0.001 kg/m³
+      ratio: 0.001, // 1 mg/L = 0.001 kg/m³
+      category: 'metric'
     },
 
     // 英制密度单位
-    pound_per_cubic_foot: {
-      id: 'pound_per_cubic_foot',
+    imperial_pound_per_cubic_foot: {
+      id: 'imperial_pound_per_cubic_foot',
       label: '磅每立方英尺',
       symbol: 'lb/ft³',
-      ratio: 16.018463374 // 1 lb/ft³ = 16.018463374 kg/m³
+      ratio: 16.018463374, // 1 lb/ft³ = 16.018463374 kg/m³
+      category: 'imperial'
     },
-    pound_per_cubic_inch: {
-      id: 'pound_per_cubic_inch',
+    imperial_pound_per_cubic_inch: {
+      id: 'imperial_pound_per_cubic_inch',
       label: '磅每立方英寸',
       symbol: 'lb/in³',
-      ratio: 27679.904710191 // 1 lb/in³ = 27679.904710191 kg/m³
+      ratio: 27679.904710191, // 1 lb/in³ = 27679.904710191 kg/m³
+      category: 'imperial'
     },
-    pound_per_gallon_us: {
-      id: 'pound_per_gallon_us',
+    imperial_pound_per_gallon_us: {
+      id: 'imperial_pound_per_gallon_us',
       label: '磅每美制加仑',
       symbol: 'lb/gal US',
-      ratio: 119.826427 // 1 lb/gal US = 119.826427 kg/m³
+      ratio: 119.826427, // 1 lb/gal US = 119.826427 kg/m³
+      category: 'imperial'
     },
-    pound_per_gallon_uk: {
-      id: 'pound_per_gallon_uk',
+    imperial_pound_per_gallon_uk: {
+      id: 'imperial_pound_per_gallon_uk',
       label: '磅每英制加仑',
       symbol: 'lb/gal UK',
-      ratio: 99.776372663 // 1 lb/gal UK = 99.776372663 kg/m³
+      ratio: 99.776372663, // 1 lb/gal UK = 99.776372663 kg/m³
+      category: 'imperial'
     },
-    ounce_per_cubic_foot: {
-      id: 'ounce_per_cubic_foot',
+    imperial_ounce_per_cubic_foot: {
+      id: 'imperial_ounce_per_cubic_foot',
       label: '盎司每立方英尺',
       symbol: 'oz/ft³',
-      ratio: 1.001153961 // 1 oz/ft³ = 1.001153961 kg/m³
+      ratio: 1.001153961, // 1 oz/ft³ = 1.001153961 kg/m³
+      category: 'imperial'
     },
-    ounce_per_gallon_us: {
-      id: 'ounce_per_gallon_us',
+    imperial_ounce_per_gallon_us: {
+      id: 'imperial_ounce_per_gallon_us',
       label: '盎司每美制加仑',
       symbol: 'oz/gal US',
-      ratio: 7.489151688 // 1 oz/gal US = 7.489151688 kg/m³
+      ratio: 7.489151688, // 1 oz/gal US = 7.489151688 kg/m³
+      category: 'imperial'
     },
-    ounce_per_gallon_uk: {
-      id: 'ounce_per_gallon_uk',
+    imperial_ounce_per_gallon_uk: {
+      id: 'imperial_ounce_per_gallon_uk',
       label: '盎司每英制加仑',
       symbol: 'oz/gal UK',
-      ratio: 6.236023291 // 1 oz/gal UK = 6.236023291 kg/m³
+      ratio: 6.236023291, // 1 oz/gal UK = 6.236023291 kg/m³
+      category: 'imperial'
     },
-    grain_per_gallon_us: {
-      id: 'grain_per_gallon_us',
+    imperial_grain_per_gallon_us: {
+      id: 'imperial_grain_per_gallon_us',
       label: '格令每美制加仑',
       symbol: 'gr/gal US',
-      ratio: 0.017118 // 1 gr/gal US = 0.017118 kg/m³
+      ratio: 0.017118, // 1 gr/gal US = 0.017118 kg/m³
+      category: 'imperial'
     },
-    grain_per_gallon_uk: {
-      id: 'grain_per_gallon_uk',
+    imperial_grain_per_gallon_uk: {
+      id: 'imperial_grain_per_gallon_uk',
       label: '格令每英制加仑',
       symbol: 'gr/gal UK',
-      ratio: 0.014251 // 1 gr/gal UK = 0.014251 kg/m³
+      ratio: 0.014251, // 1 gr/gal UK = 0.014251 kg/m³
+      category: 'imperial'
     },
 
     // 专业密度单位
-    slug_per_cubic_foot: {
-      id: 'slug_per_cubic_foot',
+    scientific_slug_per_cubic_foot: {
+      id: 'scientific_slug_per_cubic_foot',
       label: '斯勒格每立方英尺',
       symbol: 'slug/ft³',
-      ratio: 515.378818 // 1 slug/ft³ = 515.378818 kg/m³
+      ratio: 515.378818, // 1 slug/ft³ = 515.378818 kg/m³
+      category: 'scientific'
     }
   },
 

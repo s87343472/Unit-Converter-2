@@ -81,36 +81,36 @@ const energy: ConversionCategory = {
     },
     
     // 热能单位
-    calorie: {
-      id: 'calorie',
+    thermal_calorie: {
+      id: 'thermal_calorie',
       label: '卡路里',
       symbol: 'cal',
       ratio: 4.1868, // 1 cal = 4.1868 J（热力学卡定义）
       category: 'traditional'
     },
-    kilo_calorie: {
-      id: 'kilo_calorie',
+    thermal_kilocalorie: {
+      id: 'thermal_kilocalorie',
       label: '千卡',
       symbol: 'kcal',
       ratio: 4186.8, // 1 kcal = 4186.8 J（食品能量常用单位）
       category: 'traditional'
     },
-    british_thermal_unit: {
-      id: 'british_thermal_unit',
+    thermal_british_thermal_unit: {
+      id: 'thermal_british_thermal_unit',
       label: '英热单位',
       symbol: 'BTU',
       ratio: 1055.05585262, // 1 BTU = 1055.05585262 J（国际蒸汽表）
       category: 'traditional'
     },
-    therm: {
-      id: 'therm',
+    thermal_therm: {
+      id: 'thermal_therm',
       label: '撒姆',
       symbol: 'thm',
       ratio: 105505585.262, // 1 thm = 100000 BTU（天然气计量单位）
       category: 'traditional'
     },
-    thermie: {
-      id: 'thermie',
+    thermal_thermie: {
+      id: 'thermal_thermie',
       label: '热力',
       symbol: 'th',
       ratio: 4186800, // 1 th = 4.1868 MJ（欧洲传统热量单位）
@@ -125,36 +125,36 @@ const energy: ConversionCategory = {
     },
     
     // 电能单位
-    watt_hour: {
-      id: 'watt_hour',
+    electric_watt_hour: {
+      id: 'electric_watt_hour',
       label: '瓦时',
       symbol: 'Wh',
       ratio: 3600, // 1 Wh = 3600 J（1 W × 3600 s）
       category: 'traditional'
     },
-    kilo_watt_hour: {
-      id: 'kilo_watt_hour',
+    electric_kilowatt_hour: {
+      id: 'electric_kilowatt_hour',
       label: '千瓦时',
       symbol: 'kWh',
       ratio: 3.6e6, // 1 kWh = 3.6×10⁶ J（常用电能计量单位）
       category: 'traditional'
     },
-    mega_watt_hour: {
-      id: 'mega_watt_hour',
+    electric_megawatt_hour: {
+      id: 'electric_megawatt_hour',
       label: '兆瓦时',
       symbol: 'MWh',
       ratio: 3.6e9, // 1 MWh = 3.6×10⁹ J（工业用电计量单位）
       category: 'traditional'
     },
-    giga_watt_hour: {
-      id: 'giga_watt_hour',
+    electric_gigawatt_hour: {
+      id: 'electric_gigawatt_hour',
       label: '吉瓦时',
       symbol: 'GWh',
       ratio: 3.6e12, // 1 GWh = 3.6×10¹² J
       category: 'traditional'
     },
-    tera_watt_hour: {
-      id: 'tera_watt_hour',
+    electric_terawatt_hour: {
+      id: 'electric_terawatt_hour',
       label: '太瓦时',
       symbol: 'TWh',
       ratio: 3.6e15, // 1 TWh = 3.6×10¹⁵ J
@@ -162,15 +162,15 @@ const energy: ConversionCategory = {
     },
     
     // 机械能单位
-    foot_pound: {
-      id: 'foot_pound',
+    mechanical_foot_pound: {
+      id: 'mechanical_foot_pound',
       label: '英尺磅',
       symbol: 'ft⋅lb',
       ratio: 1.3558179483314004, // 1 ft⋅lb = 1.3558179483314004 J（基于标准重力）
       category: 'traditional'
     },
-    kilogram_meter: {
-      id: 'kilogram_meter',
+    mechanical_kilogram_meter: {
+      id: 'mechanical_kilogram_meter',
       label: '千克米',
       symbol: 'kg⋅m',
       ratio: 9.80665, // 1 kg⋅m = 9.80665 J（基于标准重力）

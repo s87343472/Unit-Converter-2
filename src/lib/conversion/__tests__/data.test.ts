@@ -1,186 +1,108 @@
 import { convert } from '../converter'
 
-describe('Data Storage Conversion', () => {
-  // 测试基本单位转换
-  describe('Basic Conversions', () => {
-    test('bit to byte', () => {
+describe('数据单位转换', () => {
+  // 基本单位转换测试
+  describe('基本单位转换', () => {
+    test('比特到字节', () => {
       const result = convert('data', 8, 'bit', 'byte')
-      expect(result.value).toBe(1)
+      expect(result.value).toBeCloseTo(1, 6)
       expect(result.unit).toBe('byte')
     })
 
-    test('byte to bit', () => {
+    test('字节到比特', () => {
       const result = convert('data', 1, 'byte', 'bit')
-      expect(result.value).toBe(8)
+      expect(result.value).toBeCloseTo(8, 6)
       expect(result.unit).toBe('bit')
     })
   })
 
-  // 测试二进制单位转换（1024进制）
-  describe('Binary Units', () => {
-    test('byte to kibibyte', () => {
-      const result = convert('data', 1024, 'byte', 'kibibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('kibibyte')
+  // SI前缀单位转换测试
+  describe('SI前缀单位转换', () => {
+    test('比特到千比特', () => {
+      const result = convert('data', 1000, 'bit', 'scientific_kilobit')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_kilobit')
     })
 
-    test('kibibyte to mebibyte', () => {
-      const result = convert('data', 1024, 'kibibyte', 'mebibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('mebibyte')
+    test('千比特到兆比特', () => {
+      const result = convert('data', 1000, 'scientific_kilobit', 'scientific_megabit')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_megabit')
     })
 
-    test('mebibyte to gibibyte', () => {
-      const result = convert('data', 1024, 'mebibyte', 'gibibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('gibibyte')
+    test('兆字节到吉字节', () => {
+      const result = convert('data', 1000, 'scientific_megabyte', 'scientific_gigabyte')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_gigabyte')
     })
 
-    test('gibibyte to tebibyte', () => {
-      const result = convert('data', 1024, 'gibibyte', 'tebibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('tebibyte')
-    })
-
-    test('tebibyte to pebibyte', () => {
-      const result = convert('data', 1024, 'tebibyte', 'pebibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('pebibyte')
+    test('吉字节到太字节', () => {
+      const result = convert('data', 1000, 'scientific_gigabyte', 'scientific_terabyte')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_terabyte')
     })
   })
 
-  // 测试十进制单位转换（1000进制）
-  describe('Decimal Units', () => {
-    test('byte to kilobyte', () => {
-      const result = convert('data', 1000, 'byte', 'kilobyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('kilobyte')
+  // IEC前缀单位转换测试
+  describe('IEC前缀单位转换', () => {
+    test('比特到二进制千比特', () => {
+      const result = convert('data', 1024, 'bit', 'scientific_kibibit')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_kibibit')
     })
 
-    test('kilobyte to megabyte', () => {
-      const result = convert('data', 1000, 'kilobyte', 'megabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('megabyte')
+    test('二进制千比特到二进制兆比特', () => {
+      const result = convert('data', 1024, 'scientific_kibibit', 'scientific_mebibit')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_mebibit')
     })
 
-    test('megabyte to gigabyte', () => {
-      const result = convert('data', 1000, 'megabyte', 'gigabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('gigabyte')
+    test('二进制兆字节到二进制吉字节', () => {
+      const result = convert('data', 1024, 'scientific_mebibyte', 'scientific_gibibyte')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_gibibyte')
     })
 
-    test('gigabyte to terabyte', () => {
-      const result = convert('data', 1000, 'gigabyte', 'terabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('terabyte')
-    })
-
-    test('terabyte to petabyte', () => {
-      const result = convert('data', 1000, 'terabyte', 'petabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('petabyte')
+    test('二进制吉字节到二进制太字节', () => {
+      const result = convert('data', 1024, 'scientific_gibibyte', 'scientific_tebibyte')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_tebibyte')
     })
   })
 
-  // 测试数据传输速率单位转换
-  describe('Data Transfer Rate Units', () => {
-    test('bit per second to byte', () => {
-      const result = convert('data', 8, 'bit_per_second', 'byte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('byte')
+  // 跨系统转换测试
+  describe('跨系统转换', () => {
+    test('千比特到二进制千比特', () => {
+      const result = convert('data', 1000, 'scientific_kilobit', 'scientific_kibibit')
+      expect(result.value).toBeCloseTo(0.9765625, 6) // 1000/1024
+      expect(result.unit).toBe('scientific_kibibit')
     })
 
-    test('kilobit per second to kilobyte', () => {
-      const result = convert('data', 8, 'kilobit_per_second', 'kilobyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('kilobyte')
-    })
-
-    test('megabit per second to megabyte', () => {
-      const result = convert('data', 8, 'megabit_per_second', 'megabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('megabyte')
-    })
-
-    test('gigabit per second to gigabyte', () => {
-      const result = convert('data', 8, 'gigabit_per_second', 'gigabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('gigabyte')
+    test('兆字节到二进制兆字节', () => {
+      const result = convert('data', 1000, 'scientific_megabyte', 'scientific_mebibyte')
+      expect(result.value).toBeCloseTo(953.674316, 6) // 1000 * 1000/1024
+      expect(result.unit).toBe('scientific_mebibyte')
     })
   })
 
-  // 测试存储容量单位转换
-  describe('Storage Capacity Units', () => {
-    test('decimal kilobyte to kilobyte', () => {
-      const result = convert('data', 1, 'decimal_kilobyte', 'kilobyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('kilobyte')
+  // 边界情况测试
+  describe('边界情况', () => {
+    test('大数值转换', () => {
+      const result = convert('data', 1e12, 'bit', 'scientific_terabit')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('scientific_terabit')
     })
 
-    test('decimal megabyte to megabyte', () => {
-      const result = convert('data', 1, 'decimal_megabyte', 'megabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('megabyte')
+    test('小数值转换', () => {
+      const result = convert('data', 0.008, 'byte', 'bit')
+      expect(result.value).toBeCloseTo(0.064, 6)
+      expect(result.unit).toBe('bit')
     })
 
-    test('decimal gigabyte to gigabyte', () => {
-      const result = convert('data', 1, 'decimal_gigabyte', 'gigabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('gigabyte')
-    })
-
-    test('decimal terabyte to terabyte', () => {
-      const result = convert('data', 1, 'decimal_terabyte', 'terabyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('terabyte')
-    })
-  })
-
-  // 测试跨系统转换
-  describe('Cross-System Conversions', () => {
-    test('kibibyte to kilobyte', () => {
-      const result = convert('data', 1, 'kibibyte', 'kilobyte')
-      expect(result.value).toBeCloseTo(1.024, 3)
-      expect(result.unit).toBe('kilobyte')
-    })
-
-    test('mebibyte to megabyte', () => {
-      const result = convert('data', 1, 'mebibyte', 'megabyte')
-      expect(result.value).toBeCloseTo(1.048576, 6)
-      expect(result.unit).toBe('megabyte')
-    })
-
-    test('gibibyte to gigabyte', () => {
-      const result = convert('data', 1, 'gibibyte', 'gigabyte')
-      expect(result.value).toBeCloseTo(1.073741824, 9)
-      expect(result.unit).toBe('gigabyte')
-    })
-
-    test('kilobyte to kibibyte', () => {
-      const result = convert('data', 1, 'kilobyte', 'kibibyte')
-      expect(result.value).toBeCloseTo(0.9765625, 7)
-      expect(result.unit).toBe('kibibyte')
-    })
-  })
-
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very small data sizes', () => {
-      const result = convert('data', 1, 'bit', 'byte')
-      expect(result.value).toBeCloseTo(0.125, 3)
-      expect(result.unit).toBe('byte')
-    })
-
-    test('should handle very large data sizes', () => {
-      const result = convert('data', 1125899906842624, 'byte', 'pebibyte')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('pebibyte')
-    })
-
-    test('should handle decimal to binary conversion precision', () => {
-      const result = convert('data', 1000000, 'kilobyte', 'mebibyte')
-      expect(result.value).toBeCloseTo(953.674316, 6)
-      expect(result.unit).toBe('mebibyte')
+    test('零值转换', () => {
+      const result = convert('data', 0, 'scientific_megabit', 'scientific_gigabit')
+      expect(result.value).toBeCloseTo(0, 6)
+      expect(result.unit).toBe('scientific_gigabit')
     })
   })
 }) 

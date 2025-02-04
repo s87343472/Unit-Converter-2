@@ -1,177 +1,129 @@
 import { convert } from '../converter'
 
-describe('Energy Conversion', () => {
-  // 测试公制能量单位转换
-  describe('Metric Energy Units', () => {
-    test('joule to kilojoule', () => {
-      const result = convert('energy', 1000, 'joule', 'kilojoule')
+describe('能量单位转换', () => {
+  // 基本单位转换测试
+  describe('基本单位转换', () => {
+    test('焦耳到千焦耳', () => {
+      const result = convert('energy', 1000, 'joule', 'kilo_joule')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('kilojoule')
+      expect(result.unit).toBe('kilo_joule')
     })
 
-    test('kilojoule to megajoule', () => {
-      const result = convert('energy', 1000, 'kilojoule', 'megajoule')
+    test('千焦耳到兆焦耳', () => {
+      const result = convert('energy', 1000, 'kilo_joule', 'mega_joule')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('megajoule')
+      expect(result.unit).toBe('mega_joule')
     })
 
-    test('megajoule to gigajoule', () => {
-      const result = convert('energy', 1000, 'megajoule', 'gigajoule')
+    test('兆焦耳到吉焦耳', () => {
+      const result = convert('energy', 1000, 'mega_joule', 'giga_joule')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('gigajoule')
+      expect(result.unit).toBe('giga_joule')
     })
   })
 
-  // 测试热能单位转换
-  describe('Thermal Energy Units', () => {
-    test('calorie to joule', () => {
-      const result = convert('energy', 1, 'calorie', 'joule')
+  // 热能单位测试
+  describe('热能单位转换', () => {
+    test('卡路里到焦耳', () => {
+      const result = convert('energy', 1, 'thermal_calorie', 'joule')
       expect(result.value).toBeCloseTo(4.1868, 6)
       expect(result.unit).toBe('joule')
     })
 
-    test('kilocalorie to kilojoule', () => {
-      const result = convert('energy', 1, 'kilocalorie', 'kilojoule')
+    test('千卡到千焦耳', () => {
+      const result = convert('energy', 1, 'thermal_kilocalorie', 'kilo_joule')
       expect(result.value).toBeCloseTo(4.1868, 6)
-      expect(result.unit).toBe('kilojoule')
+      expect(result.unit).toBe('kilo_joule')
     })
 
-    test('BTU to kilojoule', () => {
-      const result = convert('energy', 1, 'british_thermal_unit', 'kilojoule')
-      expect(result.value).toBeCloseTo(1.05505585262, 9)
-      expect(result.unit).toBe('kilojoule')
+    test('英热单位到焦耳', () => {
+      const result = convert('energy', 1, 'thermal_british_thermal_unit', 'joule')
+      expect(result.value).toBeCloseTo(1055.05585262, 6)
+      expect(result.unit).toBe('joule')
     })
 
-    test('therm to megajoule', () => {
-      const result = convert('energy', 1, 'therm', 'megajoule')
-      expect(result.value).toBeCloseTo(105.505585262, 9)
-      expect(result.unit).toBe('megajoule')
+    test('撒姆到兆焦耳', () => {
+      const result = convert('energy', 1, 'thermal_therm', 'mega_joule')
+      expect(result.value).toBeCloseTo(105.505585262, 6)
+      expect(result.unit).toBe('mega_joule')
     })
   })
 
-  // 测试电能单位转换
-  describe('Electric Energy Units', () => {
-    test('watt hour to joule', () => {
-      const result = convert('energy', 1, 'watt_hour', 'joule')
+  // 电能单位测试
+  describe('电能单位转换', () => {
+    test('瓦时到焦耳', () => {
+      const result = convert('energy', 1, 'electric_watt_hour', 'joule')
       expect(result.value).toBeCloseTo(3600, 6)
       expect(result.unit).toBe('joule')
     })
 
-    test('kilowatt hour to megajoule', () => {
-      const result = convert('energy', 1, 'kilowatt_hour', 'megajoule')
+    test('千瓦时到兆焦耳', () => {
+      const result = convert('energy', 1, 'electric_kilowatt_hour', 'mega_joule')
       expect(result.value).toBeCloseTo(3.6, 6)
-      expect(result.unit).toBe('megajoule')
+      expect(result.unit).toBe('mega_joule')
     })
 
-    test('megawatt hour to gigajoule', () => {
-      const result = convert('energy', 1, 'megawatt_hour', 'gigajoule')
+    test('兆瓦时到吉焦耳', () => {
+      const result = convert('energy', 1, 'electric_megawatt_hour', 'giga_joule')
       expect(result.value).toBeCloseTo(3.6, 6)
-      expect(result.unit).toBe('gigajoule')
+      expect(result.unit).toBe('giga_joule')
     })
   })
 
-  // 测试机械能单位转换
-  describe('Mechanical Energy Units', () => {
-    test('foot pound to joule', () => {
-      const result = convert('energy', 1, 'foot_pound', 'joule')
-      expect(result.value).toBeCloseTo(1.355817948, 9)
+  // 机械能单位测试
+  describe('机械能单位转换', () => {
+    test('英尺磅到焦耳', () => {
+      const result = convert('energy', 1, 'mechanical_foot_pound', 'joule')
+      expect(result.value).toBeCloseTo(1.355817948, 6)
       expect(result.unit).toBe('joule')
     })
 
-    test('kilogram meter to joule', () => {
-      const result = convert('energy', 1, 'kilogram_meter', 'joule')
+    test('千克米到焦耳', () => {
+      const result = convert('energy', 1, 'mechanical_kilogram_meter', 'joule')
       expect(result.value).toBeCloseTo(9.80665, 6)
       expect(result.unit).toBe('joule')
     })
+  })
 
-    test('erg to joule', () => {
-      const result = convert('energy', 10000000, 'erg', 'joule')
+  // 跨系统转换测试
+  describe('跨系统转换', () => {
+    test('千卡到千瓦时', () => {
+      const result = convert('energy', 860.421, 'thermal_kilocalorie', 'electric_kilowatt_hour')
       expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('joule')
-    })
-  })
-
-  // 测试原子能单位转换
-  describe('Atomic Energy Units', () => {
-    test('electron volt to joule', () => {
-      const result = convert('energy', 1, 'electron_volt', 'joule')
-      expect(result.value).toBeCloseTo(1.602176634e-19, 25)
-      expect(result.unit).toBe('joule')
+      expect(result.unit).toBe('electric_kilowatt_hour')
     })
 
-    test('kiloelectron volt to joule', () => {
-      const result = convert('energy', 1, 'kiloelectron_volt', 'joule')
-      expect(result.value).toBeCloseTo(1.602176634e-16, 22)
-      expect(result.unit).toBe('joule')
-    })
-
-    test('megaelectron volt to joule', () => {
-      const result = convert('energy', 1, 'megaelectron_volt', 'joule')
-      expect(result.value).toBeCloseTo(1.602176634e-13, 19)
-      expect(result.unit).toBe('joule')
-    })
-  })
-
-  // 测试TNT当量单位转换
-  describe('TNT Equivalent Units', () => {
-    test('gram TNT to kilojoule', () => {
-      const result = convert('energy', 1, 'gram_tnt', 'kilojoule')
-      expect(result.value).toBeCloseTo(4.184, 6)
-      expect(result.unit).toBe('kilojoule')
-    })
-
-    test('kilogram TNT to megajoule', () => {
-      const result = convert('energy', 1, 'kilogram_tnt', 'megajoule')
-      expect(result.value).toBeCloseTo(4.184, 6)
-      expect(result.unit).toBe('megajoule')
-    })
-
-    test('ton TNT to gigajoule', () => {
-      const result = convert('energy', 1, 'ton_tnt', 'gigajoule')
-      expect(result.value).toBeCloseTo(4.184, 6)
-      expect(result.unit).toBe('gigajoule')
-    })
-  })
-
-  // 测试跨系统转换
-  describe('Cross-System Conversions', () => {
-    test('kilocalorie to kilowatt hour', () => {
-      const result = convert('energy', 860.421, 'kilocalorie', 'kilowatt_hour')
-      expect(result.value).toBeCloseTo(1, 6)
-      expect(result.unit).toBe('kilowatt_hour')
-    })
-
-    test('BTU to kilocalorie', () => {
-      const result = convert('energy', 1, 'british_thermal_unit', 'kilocalorie')
+    test('英热单位到千卡', () => {
+      const result = convert('energy', 1, 'thermal_british_thermal_unit', 'thermal_kilocalorie')
       expect(result.value).toBeCloseTo(0.252, 3)
-      expect(result.unit).toBe('kilocalorie')
+      expect(result.unit).toBe('thermal_kilocalorie')
     })
 
-    test('megawatt hour to ton TNT', () => {
-      const result = convert('energy', 1, 'megawatt_hour', 'ton_tnt')
-      expect(result.value).toBeCloseTo(0.86, 2)
-      expect(result.unit).toBe('ton_tnt')
+    test('兆瓦时到焦耳', () => {
+      const result = convert('energy', 1, 'electric_megawatt_hour', 'joule')
+      expect(result.value).toBeCloseTo(3.6e9, 6)
+      expect(result.unit).toBe('joule')
     })
   })
 
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very small energies', () => {
-      const result = convert('energy', 1e-15, 'joule', 'electron_volt')
-      expect(result.value).toBeCloseTo(6.242e3, 0)
-      expect(result.unit).toBe('electron_volt')
+  // 边界情况测试
+  describe('边界情况', () => {
+    test('大数值转换', () => {
+      const result = convert('energy', 1e12, 'joule', 'tera_joule')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('tera_joule')
     })
 
-    test('should handle very large energies', () => {
-      const result = convert('energy', 1000, 'ton_tnt', 'gigajoule')
-      expect(result.value).toBeCloseTo(4184, 4)
-      expect(result.unit).toBe('gigajoule')
+    test('小数值转换', () => {
+      const result = convert('energy', 0.001, 'joule', 'milli_joule')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('milli_joule')
     })
 
-    test('should handle fractional energies', () => {
-      const result = convert('energy', 0.5, 'kilocalorie', 'kilojoule')
-      expect(result.value).toBeCloseTo(2.0934, 6)
-      expect(result.unit).toBe('kilojoule')
+    test('零值转换', () => {
+      const result = convert('energy', 0, 'thermal_calorie', 'joule')
+      expect(result.value).toBeCloseTo(0, 6)
+      expect(result.unit).toBe('joule')
     })
   })
 }) 

@@ -4,102 +4,141 @@ describe('Angle Conversion', () => {
   // 公制单位转换测试
   describe('Metric Unit Conversions', () => {
     test('metric_radian to metric_milliradian', () => {
-      expect(convert('angle', 1, 'metric_radian', 'metric_milliradian')).toBe(1000)
+      const result = convert('angle', 1, 'metric_radian', 'metric_milliradian')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_milliradian')
     })
 
     test('metric_milliradian to metric_microradian', () => {
-      expect(convert('angle', 1, 'metric_milliradian', 'metric_microradian')).toBe(1000)
+      const result = convert('angle', 1, 'metric_milliradian', 'metric_microradian')
+      expect(result.value).toBe(1000)
+      expect(result.unit).toBe('metric_microradian')
     })
 
     test('metric_microradian to metric_radian', () => {
-      expect(convert('angle', 1e6, 'metric_microradian', 'metric_radian')).toBe(1)
+      const result = convert('angle', 1e6, 'metric_microradian', 'metric_radian')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('metric_radian')
     })
   })
 
   // 标准角度单位转换测试
   describe('Standard Angle Conversions', () => {
-    test('standard_degree to metric_radian', () => {
-      expect(convert('angle', 180, 'standard_degree', 'metric_radian')).toBeCloseTo(Math.PI, 6)
+    test('metric_degree to metric_radian', () => {
+      const result = convert('angle', 180, 'metric_degree', 'metric_radian')
+      expect(result.value).toBeCloseTo(Math.PI, 6)
+      expect(result.unit).toBe('metric_radian')
     })
 
-    test('standard_degree to standard_arcminute', () => {
-      expect(convert('angle', 1, 'standard_degree', 'standard_arcminute')).toBe(60)
+    test('metric_degree to metric_arcminute', () => {
+      const result = convert('angle', 1, 'metric_degree', 'metric_arcminute')
+      expect(result.value).toBe(60)
+      expect(result.unit).toBe('metric_arcminute')
     })
 
-    test('standard_arcminute to standard_arcsecond', () => {
-      expect(convert('angle', 1, 'standard_arcminute', 'standard_arcsecond')).toBe(60)
+    test('metric_arcminute to metric_arcsecond', () => {
+      const result = convert('angle', 1, 'metric_arcminute', 'metric_arcsecond')
+      expect(result.value).toBe(60)
+      expect(result.unit).toBe('metric_arcsecond')
     })
 
-    test('standard_gradian to standard_degree', () => {
-      expect(convert('angle', 100, 'standard_gradian', 'standard_degree')).toBeCloseTo(90, 6)
+    test('metric_gradian to metric_degree', () => {
+      const result = convert('angle', 100, 'metric_gradian', 'metric_degree')
+      expect(result.value).toBeCloseTo(90, 6)
+      expect(result.unit).toBe('metric_degree')
     })
   })
 
   // 周期单位转换测试
   describe('Cycle Unit Conversions', () => {
-    test('cycle_revolution to standard_degree', () => {
-      expect(convert('angle', 1, 'cycle_revolution', 'standard_degree')).toBeCloseTo(360, 6)
+    test('scientific_revolution to metric_degree', () => {
+      const result = convert('angle', 1, 'scientific_revolution', 'metric_degree')
+      expect(result.value).toBeCloseTo(360, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
-    test('cycle_quadrant to standard_degree', () => {
-      expect(convert('angle', 1, 'cycle_quadrant', 'standard_degree')).toBeCloseTo(90, 6)
+    test('scientific_quadrant to metric_degree', () => {
+      const result = convert('angle', 1, 'scientific_quadrant', 'metric_degree')
+      expect(result.value).toBeCloseTo(90, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
-    test('cycle_semicircle to standard_degree', () => {
-      expect(convert('angle', 1, 'cycle_semicircle', 'standard_degree')).toBeCloseTo(180, 6)
+    test('scientific_semicircle to metric_degree', () => {
+      const result = convert('angle', 1, 'scientific_semicircle', 'metric_degree')
+      expect(result.value).toBeCloseTo(180, 6)
+      expect(result.unit).toBe('metric_degree')
     })
   })
 
   // 航海单位转换测试
   describe('Nautical Unit Conversions', () => {
-    test('nautical_point to standard_degree', () => {
-      expect(convert('angle', 1, 'nautical_point', 'standard_degree')).toBeCloseTo(11.25, 6)
+    test('traditional_point to metric_degree', () => {
+      const result = convert('angle', 1, 'traditional_point', 'metric_degree')
+      expect(result.value).toBeCloseTo(11.25, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
-    test('nautical_sextant to standard_degree', () => {
-      expect(convert('angle', 1, 'nautical_sextant', 'standard_degree')).toBeCloseTo(60, 6)
+    test('traditional_sextant to metric_degree', () => {
+      const result = convert('angle', 1, 'traditional_sextant', 'metric_degree')
+      expect(result.value).toBeCloseTo(60, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
-    test('nautical_octant to standard_degree', () => {
-      expect(convert('angle', 1, 'nautical_octant', 'standard_degree')).toBeCloseTo(45, 6)
+    test('traditional_octant to metric_degree', () => {
+      const result = convert('angle', 1, 'traditional_octant', 'metric_degree')
+      expect(result.value).toBeCloseTo(45, 6)
+      expect(result.unit).toBe('metric_degree')
     })
   })
 
   // 军事单位转换测试
   describe('Military Unit Conversions', () => {
-    test('military_mil to standard_degree', () => {
-      expect(convert('angle', 160, 'military_mil', 'standard_degree')).toBeCloseTo(9, 6)
+    test('scientific_mil to metric_degree', () => {
+      const result = convert('angle', 160, 'scientific_mil', 'metric_degree')
+      expect(result.value).toBeCloseTo(9, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
-    test('military_nato_mil to standard_degree', () => {
-      expect(convert('angle', 160, 'military_nato_mil', 'standard_degree')).toBeCloseTo(9, 6)
+    test('scientific_nato_mil to metric_degree', () => {
+      const result = convert('angle', 160, 'scientific_nato_mil', 'metric_degree')
+      expect(result.value).toBeCloseTo(9, 6)
+      expect(result.unit).toBe('metric_degree')
     })
   })
 
   // 跨类型转换测试
   describe('Cross-type Conversions', () => {
-    test('standard_degree to military_mil', () => {
-      expect(convert('angle', 9, 'standard_degree', 'military_mil')).toBeCloseTo(160, 6)
+    test('metric_degree to scientific_mil', () => {
+      const result = convert('angle', 9, 'metric_degree', 'scientific_mil')
+      expect(result.value).toBeCloseTo(160, 6)
+      expect(result.unit).toBe('scientific_mil')
     })
 
-    test('cycle_revolution to nautical_point', () => {
-      expect(convert('angle', 1, 'cycle_revolution', 'nautical_point')).toBeCloseTo(32, 6)
+    test('scientific_revolution to traditional_point', () => {
+      const result = convert('angle', 1, 'scientific_revolution', 'traditional_point')
+      expect(result.value).toBeCloseTo(32, 6)
+      expect(result.unit).toBe('traditional_point')
     })
   })
 
   // 边界值测试
   describe('Boundary Value Tests', () => {
     test('very small angle (microradians)', () => {
-      expect(convert('angle', 1e-6, 'metric_radian', 'metric_microradian')).toBe(1)
+      const result = convert('angle', 1e-6, 'metric_radian', 'metric_microradian')
+      expect(result.value).toBe(1)
+      expect(result.unit).toBe('metric_microradian')
     })
 
     test('very large angle (multiple revolutions)', () => {
-      expect(convert('angle', 1e3, 'cycle_revolution', 'standard_degree')).toBeCloseTo(360000, 6)
+      const result = convert('angle', 1e3, 'scientific_revolution', 'metric_degree')
+      expect(result.value).toBeCloseTo(360000, 6)
+      expect(result.unit).toBe('metric_degree')
     })
 
     test('zero angle', () => {
-      expect(convert('angle', 0, 'metric_radian', 'standard_degree')).toBe(0)
+      const result = convert('angle', 0, 'metric_radian', 'metric_degree')
+      expect(result.value).toBe(0)
+      expect(result.unit).toBe('metric_degree')
     })
   })
-}) 
 }) 

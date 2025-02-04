@@ -49,8 +49,30 @@ const categories = {
 // 精度控制函数
 function roundToSignificantDigits(value: number, digits: number = 15): number {
   if (value === 0) return 0
+  
+  // 计算数量级
   const magnitude = Math.floor(Math.log10(Math.abs(value)))
-  const precision = digits - magnitude
+  
+  // 计算所需精度，并确保在1-100范围内
+  let precision = digits - magnitude
+  
+  // 如果精度超出范围，使用科学计数法
+  if (precision < 1 || precision > 100) {
+    // 对于非常大的数，使用较小的精度
+    if (precision < 1) {
+      precision = 1
+    }
+    // 对于非常小的数，限制最大精度
+    else {
+      precision = 100
+    }
+  }
+  
+  // 使用toExponential来处理非常大或非常小的数
+  if (Math.abs(value) < 1e-15 || Math.abs(value) > 1e15) {
+    return Number(value.toExponential(15))
+  }
+  
   return Number(value.toPrecision(precision))
 }
 

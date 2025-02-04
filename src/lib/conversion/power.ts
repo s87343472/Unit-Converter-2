@@ -3,16 +3,48 @@ import type { ConversionCategory } from './types'
 // 使用瓦特(W)作为基准单位
 const power: ConversionCategory = {
   id: 'power',
-  baseUnit: 'watt',
+  baseUnit: 'metric_watt',
   description: '功率单位转换 (ISO 80000-4)',
   units: {
     // 基本单位
-    watt: {
-      id: 'watt',
+    metric_watt: {
+      id: 'metric_watt',
       label: '瓦特',
       symbol: 'W',
       ratio: 1, // 基准单位（SI导出单位，1 W = 1 J/s）
       category: 'metric'
+    },
+
+    // 公制功率单位
+    metric_kilowatt: {
+      id: 'metric_kilowatt',
+      label: '千瓦',
+      symbol: 'kW',
+      ratio: 1e3, // 1 kW = 1000 W
+      category: 'metric'
+    },
+    metric_megawatt: {
+      id: 'metric_megawatt',
+      label: '兆瓦',
+      symbol: 'MW',
+      ratio: 1e6, // 1 MW = 1,000,000 W
+      category: 'metric'
+    },
+    metric_gigawatt: {
+      id: 'metric_gigawatt',
+      label: '吉瓦',
+      symbol: 'GW',
+      ratio: 1e9, // 1 GW = 1,000,000,000 W
+      category: 'metric'
+    },
+
+    // 机械功率单位
+    imperial_horsepower: {
+      id: 'imperial_horsepower',
+      label: '马力',
+      symbol: 'hp',
+      ratio: 745.7, // 1 hp ≈ 745.7 W
+      category: 'imperial'
     },
 
     // 公制功率单位
@@ -37,25 +69,11 @@ const power: ConversionCategory = {
       ratio: 1e12, // 1 TW = 10¹² W
       category: 'metric'
     },
-    giga_watt: {
-      id: 'giga_watt',
-      label: '吉瓦',
-      symbol: 'GW',
-      ratio: 1e9, // 1 GW = 10⁹ W
-      category: 'metric'
-    },
-    mega_watt: {
-      id: 'mega_watt',
-      label: '兆瓦',
-      symbol: 'MW',
-      ratio: 1e6, // 1 MW = 10⁶ W
-      category: 'metric'
-    },
     kilo_watt: {
       id: 'kilo_watt',
-      label: '千瓦',
-      symbol: 'kW',
-      ratio: 1e3, // 1 kW = 10³ W
+      label: '毫瓦',
+      symbol: 'mW',
+      ratio: 1e-3, // 1 mW = 10⁻³ W
       category: 'metric'
     },
     milli_watt: {
@@ -88,29 +106,22 @@ const power: ConversionCategory = {
     },
 
     // 机械功率单位
-    horsepower_mechanical: {
-      id: 'horsepower_mechanical',
+    mechanical_horsepower: {
+      id: 'mechanical_horsepower',
       label: '机械马力',
       symbol: 'hp',
       ratio: 745.699872, // 1 hp = 745.699872 W（英制马力标准）
       category: 'traditional'
     },
-    horsepower_metric: {
-      id: 'horsepower_metric',
+    mechanical_metric_horsepower: {
+      id: 'mechanical_metric_horsepower',
       label: '公制马力',
       symbol: 'PS',
       ratio: 735.49875, // 1 PS = 735.49875 W（公制马力标准）
       category: 'traditional'
     },
-    horsepower_electric: {
-      id: 'horsepower_electric',
-      label: '电气马力',
-      symbol: 'hp(E)',
-      ratio: 746, // 1 hp(E) = 746 W（电气马力标准）
-      category: 'traditional'
-    },
-    horsepower_boiler: {
-      id: 'horsepower_boiler',
+    mechanical_boiler_horsepower: {
+      id: 'mechanical_boiler_horsepower',
       label: '锅炉马力',
       symbol: 'hp(B)',
       ratio: 9809.5, // 1 hp(B) = 9809.5 W（锅炉马力标准）
@@ -118,43 +129,43 @@ const power: ConversionCategory = {
     },
 
     // 热功率单位
-    calorie_per_second: {
-      id: 'calorie_per_second',
+    thermal_calorie_per_second: {
+      id: 'thermal_calorie_per_second',
       label: '卡路里每秒',
       symbol: 'cal/s',
       ratio: 4.1868, // 1 cal/s = 4.1868 W（基于热力学卡）
       category: 'traditional'
     },
-    kilocalorie_per_hour: {
-      id: 'kilocalorie_per_hour',
+    thermal_kilocalorie_per_hour: {
+      id: 'thermal_kilocalorie_per_hour',
       label: '千卡每小时',
       symbol: 'kcal/h',
       ratio: 1.163, // 1 kcal/h = 1.163 W（基于热力学千卡）
       category: 'traditional'
     },
-    btu_per_hour: {
-      id: 'btu_per_hour',
+    thermal_btu_per_hour: {
+      id: 'thermal_btu_per_hour',
       label: '英热单位每小时',
       symbol: 'BTU/h',
       ratio: 0.29307107, // 1 BTU/h = 0.29307107 W（基于国际蒸汽表）
       category: 'traditional'
     },
-    btu_per_minute: {
-      id: 'btu_per_minute',
+    thermal_btu_per_minute: {
+      id: 'thermal_btu_per_minute',
       label: '英热单位每分钟',
       symbol: 'BTU/min',
       ratio: 17.584264, // 1 BTU/min = 17.584264 W
       category: 'traditional'
     },
-    btu_per_second: {
-      id: 'btu_per_second',
+    thermal_btu_per_second: {
+      id: 'thermal_btu_per_second',
       label: '英热单位每秒',
       symbol: 'BTU/s',
       ratio: 1055.05585, // 1 BTU/s = 1055.05585 W
       category: 'traditional'
     },
-    ton_refrigeration: {
-      id: 'ton_refrigeration',
+    thermal_ton_refrigeration: {
+      id: 'thermal_ton_refrigeration',
       label: '制冷吨',
       symbol: 'RT',
       ratio: 3516.853, // 1 RT = 3516.853 W（基于融化1短吨冰所需功率）
@@ -162,43 +173,43 @@ const power: ConversionCategory = {
     },
 
     // 电气功率单位
-    volt_ampere: {
-      id: 'volt_ampere',
+    electric_volt_ampere: {
+      id: 'electric_volt_ampere',
       label: '伏安',
       symbol: 'VA',
       ratio: 1, // 1 VA = 1 W（假设功率因数为1）
       category: 'scientific'
     },
-    kilo_volt_ampere: {
-      id: 'kilo_volt_ampere',
+    electric_kilovolt_ampere: {
+      id: 'electric_kilovolt_ampere',
       label: '千伏安',
       symbol: 'kVA',
       ratio: 1000, // 1 kVA = 1000 W（假设功率因数为1）
       category: 'scientific'
     },
-    mega_volt_ampere: {
-      id: 'mega_volt_ampere',
+    electric_megavolt_ampere: {
+      id: 'electric_megavolt_ampere',
       label: '兆伏安',
       symbol: 'MVA',
       ratio: 1000000, // 1 MVA = 1000000 W（假设功率因数为1）
       category: 'scientific'
     },
-    var: {
-      id: 'var',
+    electric_var: {
+      id: 'electric_var',
       label: '乏',
       symbol: 'var',
       ratio: 1, // 1 var = 1 W（假设功率因数为0）
       category: 'scientific'
     },
-    kilo_var: {
-      id: 'kilo_var',
+    electric_kilovar: {
+      id: 'electric_kilovar',
       label: '千乏',
       symbol: 'kvar',
       ratio: 1000, // 1 kvar = 1000 W（假设功率因数为0）
       category: 'scientific'
     },
-    mega_var: {
-      id: 'mega_var',
+    electric_megavar: {
+      id: 'electric_megavar',
       label: '兆乏',
       symbol: 'Mvar',
       ratio: 1000000, // 1 Mvar = 1000000 W（假设功率因数为0）

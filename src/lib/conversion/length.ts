@@ -101,21 +101,21 @@ const length: ConversionCategory = {
       label: '海里',
       symbol: 'nmi',
       ratio: 1852,
-      category: 'scientific'
+      category: 'traditional'
     },
     nautical_fathom: {
       id: 'nautical_fathom',
       label: '英寻',
       symbol: 'ftm',
       ratio: 1.8288,
-      category: 'scientific'
+      category: 'traditional'
     },
     nautical_cable: {
       id: 'nautical_cable',
       label: '缆',
       symbol: 'cb',
       ratio: 185.2,
-      category: 'scientific'
+      category: 'traditional'
     },
 
     // 天文单位
@@ -123,21 +123,21 @@ const length: ConversionCategory = {
       id: 'astronomical_light_year',
       label: '光年',
       symbol: 'ly',
-      ratio: 9.461e15,
+      ratio: 9.4607304725808e15, // 更精确的光年值
       category: 'scientific'
     },
     astronomical_unit: {
       id: 'astronomical_unit',
       label: '天文单位',
       symbol: 'AU',
-      ratio: 1.496e11,
+      ratio: 1.495978707e11, // 更精确的天文单位值
       category: 'scientific'
     },
     astronomical_parsec: {
       id: 'astronomical_parsec',
       label: '秒差距',
       symbol: 'pc',
-      ratio: 3.086e16,
+      ratio: 3.0856775814913673e16, // 更精确的秒差距值
       category: 'scientific'
     },
     astronomical_light_second: {
@@ -160,21 +160,28 @@ const length: ConversionCategory = {
       id: 'traditional_zhang',
       label: '丈',
       symbol: '丈',
-      ratio: 3.33333,
+      ratio: 3.333333333333333,
       category: 'traditional'
     },
     traditional_chi: {
       id: 'traditional_chi',
       label: '尺',
       symbol: '尺',
-      ratio: 0.33333,
+      ratio: 0.333333333333333,
       category: 'traditional'
     },
     traditional_cun: {
       id: 'traditional_cun',
       label: '寸',
       symbol: '寸',
-      ratio: 0.033333,
+      ratio: 0.033333333333333,
+      category: 'traditional'
+    },
+    traditional_fen: {
+      id: 'traditional_fen',
+      label: '分',
+      symbol: '分',
+      ratio: 0.003333333333333,
       category: 'traditional'
     },
 
@@ -198,8 +205,9 @@ const length: ConversionCategory = {
       label: '链节',
       symbol: 'lk',
       ratio: 0.201168,
-    },
-  },
+      category: 'scientific'
+    }
+  }
 } as const
 
 export default length 

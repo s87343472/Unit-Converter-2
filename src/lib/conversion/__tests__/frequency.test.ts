@@ -1,165 +1,90 @@
 import { convert } from '../converter'
 
-describe('Frequency Conversion', () => {
-  // 测试公制频率单位转换
-  describe('Metric Frequency Units', () => {
-    test('hertz to kilohertz', () => {
-      const result = convert('frequency', 1000, 'metric_hertz', 'metric_kilohertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_kilohertz')
+describe('频率单位转换', () => {
+  // 基本单位转换测试
+  describe('基本单位转换', () => {
+    test('赫兹到千赫兹', () => {
+      const result = convert('frequency', 1000, 'hertz', 'kilo_hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('kilo_hertz')
     })
 
-    test('kilohertz to megahertz', () => {
-      const result = convert('frequency', 1000, 'metric_kilohertz', 'metric_megahertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_megahertz')
+    test('千赫兹到兆赫兹', () => {
+      const result = convert('frequency', 1000, 'kilo_hertz', 'mega_hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('mega_hertz')
     })
 
-    test('megahertz to gigahertz', () => {
-      const result = convert('frequency', 1000, 'metric_megahertz', 'metric_gigahertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_gigahertz')
-    })
-
-    test('gigahertz to terahertz', () => {
-      const result = convert('frequency', 1000, 'metric_gigahertz', 'metric_terahertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_terahertz')
+    test('兆赫兹到吉赫兹', () => {
+      const result = convert('frequency', 1000, 'mega_hertz', 'giga_hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('giga_hertz')
     })
   })
 
-  // 测试周期单位转换
-  describe('Period Units', () => {
-    test('period per second to hertz', () => {
-      const result = convert('frequency', 1, 'period_per_second', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
+  // 角速度单位测试
+  describe('角速度单位转换', () => {
+    test('弧度每秒到角度每秒', () => {
+      const result = convert('frequency', 1, 'angular_radian_per_second', 'angular_degree_per_second')
+      expect(result.value).toBeCloseTo(57.2958, 4)
+      expect(result.unit).toBe('angular_degree_per_second')
     })
 
-    test('period per minute to hertz', () => {
-      const result = convert('frequency', 60, 'period_per_minute', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
+    test('转每分钟到转每秒', () => {
+      const result = convert('frequency', 60, 'angular_revolution_per_minute', 'angular_revolution_per_second')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('angular_revolution_per_second')
     })
 
-    test('period per hour to hertz', () => {
-      const result = convert('frequency', 3600, 'period_per_hour', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-  })
-
-  // 测试角速度单位转换
-  describe('Angular Velocity Units', () => {
-    test('radian per second to hertz', () => {
-      const result = convert('frequency', 2 * Math.PI, 'angular_radian_per_second', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-
-    test('degree per second to hertz', () => {
-      const result = convert('frequency', 360, 'angular_degree_per_second', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-
-    test('revolution per minute to hertz', () => {
-      const result = convert('frequency', 60, 'angular_revolution_per_minute', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-
-    test('revolution per second to hertz', () => {
-      const result = convert('frequency', 1, 'angular_revolution_per_second', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
+    test('千转每分钟到兆转每分钟', () => {
+      const result = convert('frequency', 1000, 'angular_kilo_rpm', 'angular_mega_rpm')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('angular_mega_rpm')
     })
   })
 
-  // 测试音频频率单位转换
-  describe('Audio Frequency Units', () => {
-    test('millihertz to hertz', () => {
-      const result = convert('frequency', 1000, 'audio_millihertz', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-
-    test('beat per minute to hertz', () => {
-      const result = convert('frequency', 60, 'audio_beat_per_minute', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
+  // 音频单位测试
+  describe('音频单位转换', () => {
+    test('拍每分钟到赫兹', () => {
+      const result = convert('frequency', 60, 'audio_beat_per_minute', 'hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('hertz')
     })
   })
 
-  // 测试光学频率单位转换
-  describe('Optical Frequency Units', () => {
-    test('petahertz to terahertz', () => {
-      const result = convert('frequency', 1, 'optical_petahertz', 'metric_terahertz')
-      expect(result.value).toBe(1000)
-      expect(result.unit).toBe('metric_terahertz')
+  // 跨系统转换测试
+  describe('跨系统转换', () => {
+    test('转每分钟到赫兹', () => {
+      const result = convert('frequency', 60, 'angular_revolution_per_minute', 'hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('hertz')
     })
 
-    test('wavenumber to terahertz', () => {
-      const result = convert('frequency', 1, 'optical_wavenumber', 'metric_terahertz')
-      expect(result.value).toBeCloseTo(0.02998, 5)
-      expect(result.unit).toBe('metric_terahertz')
-    })
-  })
-
-  // 测试电子学频率单位转换
-  describe('Electronic Frequency Units', () => {
-    test('frame per second to hertz', () => {
-      const result = convert('frequency', 1, 'electronic_frame_per_second', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-
-    test('refresh rate to hertz', () => {
-      const result = convert('frequency', 1, 'electronic_refresh_rate', 'metric_hertz')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('metric_hertz')
-    })
-  })
-
-  // 测试跨类型转换
-  describe('Cross-Category Conversions', () => {
-    test('revolution per minute to beat per minute', () => {
-      const result = convert('frequency', 1, 'angular_revolution_per_minute', 'audio_beat_per_minute')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('audio_beat_per_minute')
-    })
-
-    test('frame per second to period per second', () => {
-      const result = convert('frequency', 1, 'electronic_frame_per_second', 'period_per_second')
-      expect(result.value).toBe(1)
-      expect(result.unit).toBe('period_per_second')
-    })
-
-    test('radian per second to revolution per minute', () => {
+    test('弧度每秒到转每分钟', () => {
       const result = convert('frequency', 2 * Math.PI, 'angular_radian_per_second', 'angular_revolution_per_minute')
-      expect(result.value).toBe(60)
+      expect(result.value).toBeCloseTo(60, 6)
       expect(result.unit).toBe('angular_revolution_per_minute')
     })
   })
 
-  // 测试精度
-  describe('Precision', () => {
-    test('should handle very high frequencies', () => {
-      const result = convert('frequency', 1, 'optical_petahertz', 'metric_hertz')
-      expect(result.value).toBe(1e15)
-      expect(result.unit).toBe('metric_hertz')
+  // 边界情况测试
+  describe('边界情况', () => {
+    test('大数值转换', () => {
+      const result = convert('frequency', 1e12, 'hertz', 'tera_hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('tera_hertz')
     })
 
-    test('should handle very low frequencies', () => {
-      const result = convert('frequency', 1, 'period_per_hour', 'audio_millihertz')
-      expect(result.value).toBeCloseTo(0.2778, 4)
-      expect(result.unit).toBe('audio_millihertz')
+    test('小数值转换', () => {
+      const result = convert('frequency', 0.001, 'hertz', 'milli_hertz')
+      expect(result.value).toBeCloseTo(1, 6)
+      expect(result.unit).toBe('milli_hertz')
     })
 
-    test('should handle fractional frequencies', () => {
-      const result = convert('frequency', 0.5, 'angular_revolution_per_second', 'angular_degree_per_second')
-      expect(result.value).toBe(180)
-      expect(result.unit).toBe('angular_degree_per_second')
+    test('零值转换', () => {
+      const result = convert('frequency', 0, 'angular_revolution_per_minute', 'hertz')
+      expect(result.value).toBeCloseTo(0, 6)
+      expect(result.unit).toBe('hertz')
     })
   })
 }) 

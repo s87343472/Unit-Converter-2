@@ -3,160 +3,160 @@ import { convert } from '../converter'
 describe('Time Conversion', () => {
   // 测试基本时间单位转换
   describe('Basic Time Units', () => {
-    test('second to minute', () => {
-      const result = convert('time', 60, 'second', 'minute')
+    test('metric_second to metric_minute', () => {
+      const result = convert('time', 60, 'metric_second', 'metric_minute')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('minute')
+      expect(result.unit).toBe('metric_minute')
     })
 
-    test('minute to hour', () => {
-      const result = convert('time', 60, 'minute', 'hour')
+    test('metric_minute to metric_hour', () => {
+      const result = convert('time', 60, 'metric_minute', 'metric_hour')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('hour')
+      expect(result.unit).toBe('metric_hour')
     })
 
-    test('hour to day', () => {
-      const result = convert('time', 24, 'hour', 'day')
+    test('metric_hour to metric_day', () => {
+      const result = convert('time', 24, 'metric_hour', 'metric_day')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('day')
+      expect(result.unit).toBe('metric_day')
     })
 
-    test('day to week', () => {
-      const result = convert('time', 7, 'day', 'week')
+    test('metric_day to metric_week', () => {
+      const result = convert('time', 7, 'metric_day', 'metric_week')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('week')
+      expect(result.unit).toBe('metric_week')
     })
 
-    test('week to month', () => {
-      const result = convert('time', 4.348214285714286, 'week', 'month')
+    test('metric_week to metric_month', () => {
+      const result = convert('time', 4.348214285714286, 'metric_week', 'metric_month')
       expect(result.value).toBeCloseTo(1, 9)
-      expect(result.unit).toBe('month')
+      expect(result.unit).toBe('metric_month')
     })
 
-    test('month to year', () => {
-      const result = convert('time', 12, 'month', 'year')
+    test('metric_month to metric_year', () => {
+      const result = convert('time', 12, 'metric_month', 'metric_year')
       expect(result.value).toBeCloseTo(1, 9)
-      expect(result.unit).toBe('year')
+      expect(result.unit).toBe('metric_year')
     })
   })
 
   // 测试更大的时间单位
   describe('Larger Time Units', () => {
-    test('year to decade', () => {
-      const result = convert('time', 10, 'year', 'decade')
+    test('metric_year to metric_decade', () => {
+      const result = convert('time', 10, 'metric_year', 'metric_decade')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('decade')
+      expect(result.unit).toBe('metric_decade')
     })
 
-    test('decade to century', () => {
-      const result = convert('time', 10, 'decade', 'century')
+    test('metric_decade to metric_century', () => {
+      const result = convert('time', 10, 'metric_decade', 'metric_century')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('century')
+      expect(result.unit).toBe('metric_century')
     })
 
-    test('century to millennium', () => {
-      const result = convert('time', 10, 'century', 'millennium')
+    test('metric_century to metric_millennium', () => {
+      const result = convert('time', 10, 'metric_century', 'metric_millennium')
       expect(result.value).toBe(1)
-      expect(result.unit).toBe('millennium')
+      expect(result.unit).toBe('metric_millennium')
     })
   })
 
   // 测试更小的时间单位
   describe('Smaller Time Units', () => {
-    test('second to millisecond', () => {
-      const result = convert('time', 1, 'second', 'millisecond')
+    test('metric_second to scientific_millisecond', () => {
+      const result = convert('time', 1, 'metric_second', 'scientific_millisecond')
       expect(result.value).toBe(1000)
-      expect(result.unit).toBe('millisecond')
+      expect(result.unit).toBe('scientific_millisecond')
     })
 
-    test('millisecond to microsecond', () => {
-      const result = convert('time', 1, 'millisecond', 'microsecond')
+    test('scientific_millisecond to scientific_microsecond', () => {
+      const result = convert('time', 1, 'scientific_millisecond', 'scientific_microsecond')
       expect(result.value).toBe(1000)
-      expect(result.unit).toBe('microsecond')
+      expect(result.unit).toBe('scientific_microsecond')
     })
 
-    test('microsecond to nanosecond', () => {
-      const result = convert('time', 1, 'microsecond', 'nanosecond')
+    test('scientific_microsecond to scientific_nanosecond', () => {
+      const result = convert('time', 1, 'scientific_microsecond', 'scientific_nanosecond')
       expect(result.value).toBe(1000)
-      expect(result.unit).toBe('nanosecond')
+      expect(result.unit).toBe('scientific_nanosecond')
     })
 
-    test('nanosecond to picosecond', () => {
-      const result = convert('time', 1, 'nanosecond', 'picosecond')
+    test('scientific_nanosecond to scientific_picosecond', () => {
+      const result = convert('time', 1, 'scientific_nanosecond', 'scientific_picosecond')
       expect(result.value).toBe(1000)
-      expect(result.unit).toBe('picosecond')
+      expect(result.unit).toBe('scientific_picosecond')
     })
   })
 
   // 测试天文时间单位
   describe('Astronomical Time Units', () => {
-    test('sidereal day to second', () => {
-      const result = convert('time', 1, 'sidereal_day', 'second')
+    test('astronomical_sidereal_day to metric_second', () => {
+      const result = convert('time', 1, 'astronomical_sidereal_day', 'metric_second')
       expect(result.value).toBeCloseTo(86164.0905, 6)
-      expect(result.unit).toBe('second')
+      expect(result.unit).toBe('metric_second')
     })
 
-    test('sidereal year to day', () => {
-      const result = convert('time', 1, 'sidereal_year', 'day')
+    test('astronomical_sidereal_year to metric_day', () => {
+      const result = convert('time', 1, 'astronomical_sidereal_year', 'metric_day')
       expect(result.value).toBeCloseTo(365.256363004, 6)
-      expect(result.unit).toBe('day')
+      expect(result.unit).toBe('metric_day')
     })
 
-    test('tropical year to day', () => {
-      const result = convert('time', 1, 'tropical_year', 'day')
+    test('astronomical_tropical_year to metric_day', () => {
+      const result = convert('time', 1, 'astronomical_tropical_year', 'metric_day')
       expect(result.value).toBeCloseTo(365.242190402, 6)
-      expect(result.unit).toBe('day')
+      expect(result.unit).toBe('metric_day')
     })
   })
 
   // 测试计算机时间单位
   describe('Computer Time Units', () => {
-    test('second to jiffy', () => {
-      const result = convert('time', 1, 'second', 'jiffy')
+    test('metric_second to computing_jiffy', () => {
+      const result = convert('time', 1, 'metric_second', 'computing_jiffy')
       expect(result.value).toBe(100)
-      expect(result.unit).toBe('jiffy')
+      expect(result.unit).toBe('computing_jiffy')
     })
 
-    test('second to tick', () => {
-      const result = convert('time', 1, 'second', 'tick')
+    test('metric_second to computing_tick', () => {
+      const result = convert('time', 1, 'metric_second', 'computing_tick')
       expect(result.value).toBe(1000)
-      expect(result.unit).toBe('tick')
+      expect(result.unit).toBe('computing_tick')
     })
   })
 
   // 测试跨类型转换
   describe('Cross-Type Conversions', () => {
-    test('year to sidereal year', () => {
-      const result = convert('time', 1, 'year', 'sidereal_year')
+    test('metric_year to astronomical_sidereal_year', () => {
+      const result = convert('time', 1, 'metric_year', 'astronomical_sidereal_year')
       expect(result.value).toBeCloseTo(0.99997862, 9)
-      expect(result.unit).toBe('sidereal_year')
+      expect(result.unit).toBe('astronomical_sidereal_year')
     })
 
-    test('day to sidereal day', () => {
-      const result = convert('time', 1, 'day', 'sidereal_day')
+    test('metric_day to astronomical_sidereal_day', () => {
+      const result = convert('time', 1, 'metric_day', 'astronomical_sidereal_day')
       expect(result.value).toBeCloseTo(0.99726968, 9)
-      expect(result.unit).toBe('sidereal_day')
+      expect(result.unit).toBe('astronomical_sidereal_day')
     })
   })
 
   // 测试精度
   describe('Precision', () => {
     test('should handle very small times', () => {
-      const result = convert('time', 1, 'picosecond', 'second')
+      const result = convert('time', 1, 'scientific_picosecond', 'metric_second')
       expect(result.value).toBe(1e-12)
-      expect(result.unit).toBe('second')
+      expect(result.unit).toBe('metric_second')
     })
 
     test('should handle very large times', () => {
-      const result = convert('time', 1, 'millennium', 'second')
-      expect(result.value).toBe(31536000000)
-      expect(result.unit).toBe('second')
+      const result = convert('time', 1, 'metric_millennium', 'metric_second')
+      expect(result.value).toBe(31557000000)
+      expect(result.unit).toBe('metric_second')
     })
 
     test('should handle fractional times', () => {
-      const result = convert('time', 0.5, 'day', 'hour')
+      const result = convert('time', 0.5, 'metric_day', 'metric_hour')
       expect(result.value).toBe(12)
-      expect(result.unit).toBe('hour')
+      expect(result.unit).toBe('metric_hour')
     })
   })
 }) 

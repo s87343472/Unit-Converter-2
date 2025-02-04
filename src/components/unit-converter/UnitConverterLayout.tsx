@@ -83,8 +83,15 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     meter_per_second: 'metric_meter_per_second',
     kilometer_per_hour: 'metric_kilometer_per_hour',
     mile_per_hour: 'imperial_mile_per_hour',
-    knot: 'nautical_knot',
-    foot_per_second: 'imperial_foot_per_second'
+    foot_per_second: 'imperial_foot_per_second',
+    knot: 'traditional_knot',
+    mach: 'scientific_mach',
+    light_speed: 'scientific_light_speed',
+    astronomical_unit_per_year: 'scientific_astronomical_unit_per_year',
+    parsec_per_year: 'scientific_parsec_per_year',
+    kilometer_per_second: 'metric_kilometer_per_second',
+    kilometer_per_minute: 'metric_kilometer_per_minute',
+    meter_per_minute: 'metric_meter_per_minute'
   },
   pressure: {
     pascal: 'metric_pascal',
@@ -119,7 +126,22 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     megabyte: 'digital_megabyte',
     gigabyte: 'digital_gigabyte',
     terabyte: 'digital_terabyte',
-    petabyte: 'digital_petabyte'
+    petabyte: 'digital_petabyte',
+    kibibyte: 'digital_kibibyte',
+    mebibyte: 'digital_mebibyte',
+    gibibyte: 'digital_gibibyte',
+    tebibyte: 'digital_tebibyte',
+    pebibyte: 'digital_pebibyte',
+    kilobit: 'digital_kilobit',
+    megabit: 'digital_megabit',
+    gigabit: 'digital_gigabit',
+    terabit: 'digital_terabit',
+    petabit: 'digital_petabit',
+    kibibit: 'digital_kibibit',
+    mebibit: 'digital_mebibit',
+    gibibit: 'digital_gibibit',
+    tebibit: 'digital_tebibit',
+    pebibit: 'digital_pebibit'
   },
   data_rate: {
     bit_per_second: 'digital_bit_per_second',
@@ -157,7 +179,7 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
   torque: {
     newton_meter: 'metric_newton_meter',
     pound_foot: 'imperial_pound_foot',
-    kilogram_meter: 'metric_kilogram_meter'
+    kilogram_meter: 'engineering_kilogram_force_meter'
   },
   frequency: {
     hertz: 'metric_hertz',

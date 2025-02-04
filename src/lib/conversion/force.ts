@@ -46,23 +46,26 @@ const force: ConversionCategory = {
     },
     
     // 重力单位
-    kilogram_force: {
-      id: 'kilogram_force',
+    gravitational_kilogram_force: {
+      id: 'gravitational_kilogram_force',
       label: '千克力',
       symbol: 'kgf',
-      ratio: 9.80665 // 1 kgf = 9.80665 N（基于标准重力加速度）
+      ratio: 9.80665, // 1 kgf = 9.80665 N（基于标准重力加速度）
+      category: 'traditional'
     },
-    gram_force: {
-      id: 'gram_force',
+    gravitational_gram_force: {
+      id: 'gravitational_gram_force',
       label: '克力',
       symbol: 'gf',
-      ratio: 0.00980665 // 1 gf = 0.00980665 N
+      ratio: 0.00980665, // 1 gf = 0.00980665 N
+      category: 'traditional'
     },
-    ton_force: {
-      id: 'ton_force',
+    gravitational_ton_force: {
+      id: 'gravitational_ton_force',
       label: '吨力',
       symbol: 'tf',
-      ratio: 9806.65 // 1 tf = 9806.65 N
+      ratio: 9806.65, // 1 tf = 9806.65 N
+      category: 'traditional'
     },
     
     // 英制力单位
@@ -98,23 +101,26 @@ const force: ConversionCategory = {
     },
     
     // 科学单位
-    dyne: {
-      id: 'dyne',
+    scientific_dyne: {
+      id: 'scientific_dyne',
       label: '达因',
       symbol: 'dyn',
-      ratio: 0.00001 // 1 dyn = 0.00001 N
+      ratio: 0.00001, // 1 dyn = 0.00001 N
+      category: 'scientific'
     },
-    kilodyne: {
-      id: 'kilodyne',
+    scientific_kilodyne: {
+      id: 'scientific_kilodyne',
       label: '千达因',
       symbol: 'kdyn',
-      ratio: 0.01 // 1 kdyn = 0.01 N
+      ratio: 0.01, // 1 kdyn = 0.01 N
+      category: 'scientific'
     },
-    megadyne: {
-      id: 'megadyne',
+    scientific_megadyne: {
+      id: 'scientific_megadyne',
       label: '兆达因',
       symbol: 'Mdyn',
-      ratio: 10 // 1 Mdyn = 10 N
+      ratio: 10, // 1 Mdyn = 10 N
+      category: 'scientific'
     }
   },
 

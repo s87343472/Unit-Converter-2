@@ -3,79 +3,79 @@ import { convert } from '../converter'
 describe('Temperature Conversion', () => {
   // 测试基本温度单位转换
   describe('Basic Temperature Scales', () => {
-    test('celsius to kelvin', () => {
-      const result = convert('temperature', 0, 'celsius', 'kelvin')
+    test('metric_celsius to scientific_kelvin', () => {
+      const result = convert('temperature', 0, 'metric_celsius', 'scientific_kelvin')
       expect(result.value).toBeCloseTo(273.15, 6)
-      expect(result.unit).toBe('kelvin')
+      expect(result.unit).toBe('scientific_kelvin')
     })
 
-    test('kelvin to celsius', () => {
-      const result = convert('temperature', 273.15, 'kelvin', 'celsius')
+    test('scientific_kelvin to metric_celsius', () => {
+      const result = convert('temperature', 273.15, 'scientific_kelvin', 'metric_celsius')
       expect(result.value).toBeCloseTo(0, 6)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
 
-    test('fahrenheit to celsius', () => {
-      const result = convert('temperature', 32, 'fahrenheit', 'celsius')
+    test('us_fahrenheit to metric_celsius', () => {
+      const result = convert('temperature', 32, 'us_fahrenheit', 'metric_celsius')
       expect(result.value).toBeCloseTo(0, 6)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
 
-    test('celsius to fahrenheit', () => {
-      const result = convert('temperature', 100, 'celsius', 'fahrenheit')
+    test('metric_celsius to us_fahrenheit', () => {
+      const result = convert('temperature', 100, 'metric_celsius', 'us_fahrenheit')
       expect(result.value).toBeCloseTo(212, 6)
-      expect(result.unit).toBe('fahrenheit')
+      expect(result.unit).toBe('us_fahrenheit')
     })
 
-    test('rankine to kelvin', () => {
-      const result = convert('temperature', 491.67, 'rankine', 'kelvin')
+    test('scientific_rankine to scientific_kelvin', () => {
+      const result = convert('temperature', 491.67, 'scientific_rankine', 'scientific_kelvin')
       expect(result.value).toBeCloseTo(273.15, 6)
-      expect(result.unit).toBe('kelvin')
+      expect(result.unit).toBe('scientific_kelvin')
     })
 
-    test('reaumur to celsius', () => {
-      const result = convert('temperature', 80, 'reaumur', 'celsius')
+    test('historical_reaumur to metric_celsius', () => {
+      const result = convert('temperature', 80, 'historical_reaumur', 'metric_celsius')
       expect(result.value).toBeCloseTo(100, 6)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
   })
 
   // 测试特殊温度点
   describe('Special Temperature Points', () => {
     test('water freezing point', () => {
-      const result = convert('temperature', 32, 'fahrenheit', 'celsius')
+      const result = convert('temperature', 32, 'us_fahrenheit', 'metric_celsius')
       expect(result.value).toBeCloseTo(0, 6)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
 
     test('water boiling point', () => {
-      const result = convert('temperature', 100, 'celsius', 'fahrenheit')
+      const result = convert('temperature', 100, 'metric_celsius', 'us_fahrenheit')
       expect(result.value).toBeCloseTo(212, 6)
-      expect(result.unit).toBe('fahrenheit')
+      expect(result.unit).toBe('us_fahrenheit')
     })
 
     test('absolute zero', () => {
-      const result = convert('temperature', 0, 'kelvin', 'celsius')
+      const result = convert('temperature', 0, 'scientific_kelvin', 'metric_celsius')
       expect(result.value).toBeCloseTo(-273.15, 6)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
 
     test('room temperature', () => {
-      const result = convert('temperature', 20, 'celsius', 'fahrenheit')
+      const result = convert('temperature', 20, 'metric_celsius', 'us_fahrenheit')
       expect(result.value).toBeCloseTo(68, 6)
-      expect(result.unit).toBe('fahrenheit')
+      expect(result.unit).toBe('us_fahrenheit')
     })
   })
 
   // 测试气象温度单位
   describe('Meteorological Temperature Units', () => {
-    test('meteorological celsius to fahrenheit', () => {
+    test('meteorological_celsius to meteorological_fahrenheit', () => {
       const result = convert('temperature', 30, 'meteorological_celsius', 'meteorological_fahrenheit')
       expect(result.value).toBeCloseTo(86, 6)
       expect(result.unit).toBe('meteorological_fahrenheit')
     })
 
-    test('meteorological fahrenheit to celsius', () => {
+    test('meteorological_fahrenheit to meteorological_celsius', () => {
       const result = convert('temperature', 86, 'meteorological_fahrenheit', 'meteorological_celsius')
       expect(result.value).toBeCloseTo(30, 6)
       expect(result.unit).toBe('meteorological_celsius')
@@ -84,13 +84,13 @@ describe('Temperature Conversion', () => {
 
   // 测试工业温度单位
   describe('Industrial Temperature Units', () => {
-    test('industrial celsius to fahrenheit', () => {
+    test('industrial_celsius to industrial_fahrenheit', () => {
       const result = convert('temperature', 150, 'industrial_celsius', 'industrial_fahrenheit')
       expect(result.value).toBeCloseTo(302, 6)
       expect(result.unit).toBe('industrial_fahrenheit')
     })
 
-    test('industrial fahrenheit to celsius', () => {
+    test('industrial_fahrenheit to industrial_celsius', () => {
       const result = convert('temperature', 302, 'industrial_fahrenheit', 'industrial_celsius')
       expect(result.value).toBeCloseTo(150, 6)
       expect(result.unit).toBe('industrial_celsius')
@@ -106,30 +106,30 @@ describe('Temperature Conversion', () => {
     })
 
     test('industrial to basic fahrenheit', () => {
-      const result = convert('temperature', 451, 'industrial_fahrenheit', 'fahrenheit')
+      const result = convert('temperature', 451, 'industrial_fahrenheit', 'us_fahrenheit')
       expect(result.value).toBeCloseTo(451, 6)
-      expect(result.unit).toBe('fahrenheit')
+      expect(result.unit).toBe('us_fahrenheit')
     })
   })
 
   // 测试精度
   describe('Precision', () => {
     test('should handle very low temperatures', () => {
-      const result = convert('temperature', -273.15, 'celsius', 'kelvin')
+      const result = convert('temperature', -273.15, 'metric_celsius', 'scientific_kelvin')
       expect(result.value).toBeCloseTo(0, 10)
-      expect(result.unit).toBe('kelvin')
+      expect(result.unit).toBe('scientific_kelvin')
     })
 
     test('should handle very high temperatures', () => {
-      const result = convert('temperature', 1000000, 'kelvin', 'celsius')
+      const result = convert('temperature', 1000000, 'scientific_kelvin', 'metric_celsius')
       expect(result.value).toBeCloseTo(999726.85, 2)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
 
     test('should handle fractional temperatures', () => {
-      const result = convert('temperature', 98.6, 'fahrenheit', 'celsius')
+      const result = convert('temperature', 98.6, 'us_fahrenheit', 'metric_celsius')
       expect(result.value).toBeCloseTo(37, 1)
-      expect(result.unit).toBe('celsius')
+      expect(result.unit).toBe('metric_celsius')
     })
   })
 }) 

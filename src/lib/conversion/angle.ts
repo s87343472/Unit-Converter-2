@@ -1,87 +1,90 @@
 import type { ConversionCategory } from './types'
 
-// 角度单位转换 (ISO 80000-3)
+// 使用弧度(rad)作为基准单位
 const angle: ConversionCategory = {
   id: 'angle',
-  baseUnit: 'radian',
+  baseUnit: 'metric_radian',
+  description: '角度单位转换 (ISO 80000-3)',
   units: {
-    // 公制角度单位
-    radian: {
-      id: 'radian',
+    // 基本单位
+    metric_radian: {
+      id: 'metric_radian',
       label: '弧度',
       symbol: 'rad',
-      ratio: 1,
+      ratio: 1, // 基准单位（SI导出单位）
       category: 'metric'
     },
-    milliradian: {
-      id: 'milliradian',
+
+    // 常用角度单位
+    metric_degree: {
+      id: 'metric_degree',
+      label: '度',
+      symbol: '°',
+      ratio: 0.017453292519943295, // 1° = π/180 rad
+      category: 'metric'
+    },
+    metric_gradian: {
+      id: 'metric_gradian',
+      label: '百分度',
+      symbol: 'gon',
+      ratio: 0.015707963267948967, // 1 gon = π/200 rad
+      category: 'metric'
+    },
+    metric_arcminute: {
+      id: 'metric_arcminute',
+      label: '角分',
+      symbol: '′',
+      ratio: 0.0002908882086657216, // 1′ = π/10800 rad
+      category: 'metric'
+    },
+    metric_arcsecond: {
+      id: 'metric_arcsecond',
+      label: '角秒',
+      symbol: '″',
+      ratio: 0.000004848136811095278, // 1″ = π/648000 rad
+      category: 'metric'
+    },
+
+    // 公制角度单位
+    metric_milliradian: {
+      id: 'metric_milliradian',
       label: '毫弧度',
       symbol: 'mrad',
       ratio: 0.001,
       category: 'metric'
     },
-    microradian: {
-      id: 'microradian',
+    metric_microradian: {
+      id: 'metric_microradian',
       label: '微弧度',
       symbol: 'μrad',
       ratio: 1e-6,
       category: 'metric'
     },
-    nanoradian: {
-      id: 'nanoradian',
+    metric_nanoradian: {
+      id: 'metric_nanoradian',
       label: '纳弧度',
       symbol: 'nrad',
       ratio: 1e-9,
       category: 'metric'
     },
 
-    // 标准角度单位
-    degree: {
-      id: 'degree',
-      label: '度',
-      symbol: '°',
-      ratio: Math.PI / 180,
-      category: 'traditional'
-    },
-    arcminute: {
-      id: 'arcminute',
-      label: '角分',
-      symbol: '′',
-      ratio: Math.PI / (180 * 60),
-      category: 'traditional'
-    },
-    arcsecond: {
-      id: 'arcsecond',
-      label: '角秒',
-      symbol: '″',
-      ratio: Math.PI / (180 * 3600),
-      category: 'traditional'
-    },
-    gradian: {
-      id: 'gradian',
-      label: '百分度',
-      symbol: 'grad',
-      ratio: Math.PI / 200,
-      category: 'traditional'
-    },
-
     // 周期单位
-    revolution: {
-      id: 'revolution',
+    scientific_revolution: {
+      id: 'scientific_revolution',
       label: '周',
       symbol: 'rev',
       ratio: 2 * Math.PI,
       category: 'scientific'
     },
-    quadrant: {
-      id: 'quadrant',
+    scientific_quadrant: {
+      id: 'scientific_quadrant',
       label: '象限',
       symbol: 'quad',
       ratio: Math.PI / 2,
       category: 'scientific'
     },
-    semicircle: {
-      id: 'semicircle',
+    scientific_semicircle: {
+      id: 'scientific_semicircle',
       label: '半圆',
       symbol: 'sc',
       ratio: Math.PI,
@@ -89,22 +92,22 @@ const angle: ConversionCategory = {
     },
 
     // 航海单位
-    point: {
-      id: 'point',
+    traditional_point: {
+      id: 'traditional_point',
       label: '罗盘点',
       symbol: 'pt',
       ratio: Math.PI / 16,  // 1 point = 11.25°
       category: 'traditional'
     },
-    sextant: {
-      id: 'sextant',
+    traditional_sextant: {
+      id: 'traditional_sextant',
       label: '六分仪',
       symbol: 'sext',
       ratio: Math.PI / 3,  // 1 sextant = 60°
       category: 'traditional'
     },
-    octant: {
-      id: 'octant',
+    traditional_octant: {
+      id: 'traditional_octant',
       label: '八分仪',
       symbol: 'oct',
       ratio: Math.PI / 4,  // 1 octant = 45°
@@ -112,15 +115,15 @@ const angle: ConversionCategory = {
     },
 
     // 军事单位
-    mil: {
-      id: 'mil',
+    scientific_mil: {
+      id: 'scientific_mil',
       label: '密位',
       symbol: 'mil',
       ratio: 2 * Math.PI / 6400,  // NATO标准：6400密位=360°
       category: 'scientific'
     },
-    nato_mil: {
-      id: 'nato_mil',
+    scientific_nato_mil: {
+      id: 'scientific_nato_mil',
       label: 'NATO密位',
       symbol: 'mil',
       ratio: Math.PI / 3200,  // NATO标准：6400密位=360°
@@ -151,6 +154,6 @@ const angle: ConversionCategory = {
       '实际应用参考：\n  - 天文：赤经赤纬（时分秒）\n  - 导航：方位角（度或点）\n  - 测绘：经纬度（度分秒）\n  - 军事：射击诸元（密位）'
     ]
   }
-}
+} as const
 
 export default angle 

@@ -22,89 +22,96 @@ export const data_rate: ConversionCategory = {
     },
 
     // SI前缀单位 - 比特系列
-    kilo_bit_per_second: {
-      id: 'kilo_bit_per_second',
+    digital_kilobit_per_second: {
+      id: 'digital_kilobit_per_second',
       label: '千比特每秒',
       symbol: 'kbit/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 1000
     },
-    mega_bit_per_second: {
-      id: 'mega_bit_per_second',
+    digital_megabit_per_second: {
+      id: 'digital_megabit_per_second',
       label: '兆比特每秒',
       symbol: 'Mbit/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 1000000
     },
-    giga_bit_per_second: {
-      id: 'giga_bit_per_second',
+    digital_gigabit_per_second: {
+      id: 'digital_gigabit_per_second',
       label: '吉比特每秒',
       symbol: 'Gbit/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 1000000000
     },
-    tera_bit_per_second: {
-      id: 'tera_bit_per_second',
+    digital_terabit_per_second: {
+      id: 'digital_terabit_per_second',
       label: '太比特每秒',
       symbol: 'Tbit/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 1000000000000
     },
 
     // SI前缀单位 - 字节系列
-    kilo_byte_per_second: {
-      id: 'kilo_byte_per_second',
+    digital_byte_per_second: {
+      id: 'digital_byte_per_second',
+      label: '字节每秒',
+      symbol: 'B/s',
+      category: 'scientific',
+      ratio: 8
+    },
+    digital_kilobyte_per_second: {
+      id: 'digital_kilobyte_per_second',
       label: '千字节每秒',
       symbol: 'kB/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 8000
     },
-    mega_byte_per_second: {
-      id: 'mega_byte_per_second',
+    digital_megabyte_per_second: {
+      id: 'digital_megabyte_per_second',
       label: '兆字节每秒',
       symbol: 'MB/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 8000000
     },
-    giga_byte_per_second: {
-      id: 'giga_byte_per_second',
+    digital_gigabyte_per_second: {
+      id: 'digital_gigabyte_per_second',
       label: '吉字节每秒',
       symbol: 'GB/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 8000000000
     },
-    tera_byte_per_second: {
-      id: 'tera_byte_per_second',
+    digital_terabyte_per_second: {
+      id: 'digital_terabyte_per_second',
       label: '太字节每秒',
       symbol: 'TB/s',
-      category: 'metric',
+      category: 'scientific',
       ratio: 8000000000000
     },
 
     // IEC前缀单位 - 比特系列
-    kibi_bit_per_second: {
-      id: 'kibi_bit_per_second',
+    digital_kibibit_per_second: {
+      id: 'digital_kibibit_per_second',
       label: '二进制千比特每秒',
       symbol: 'Kibit/s',
       category: 'scientific',
       ratio: 1024
     },
-    mebi_bit_per_second: {
-      id: 'mebi_bit_per_second',
+    digital_mebibit_per_second: {
+      id: 'digital_mebibit_per_second',
       label: '二进制兆比特每秒',
       symbol: 'Mibit/s',
       category: 'scientific',
       ratio: 1048576
     },
-    gibi_bit_per_second: {
-      id: 'gibi_bit_per_second',
+    digital_gibibit_per_second: {
+      id: 'digital_gibibit_per_second',
       label: '二进制吉比特每秒',
       symbol: 'Gibit/s',
       category: 'scientific',
       ratio: 1073741824
     },
-    tebi_bit_per_second: {
-      id: 'tebi_bit_per_second',
+    digital_tebibit_per_second: {
+      id: 'digital_tebibit_per_second',
       label: '二进制太比特每秒',
       symbol: 'Tibit/s',
       category: 'scientific',
@@ -112,29 +119,29 @@ export const data_rate: ConversionCategory = {
     },
 
     // IEC前缀单位 - 字节系列
-    kibi_byte_per_second: {
-      id: 'kibi_byte_per_second',
+    digital_kibibyte_per_second: {
+      id: 'digital_kibibyte_per_second',
       label: '二进制千字节每秒',
       symbol: 'KiB/s',
       category: 'scientific',
       ratio: 8192
     },
-    mebi_byte_per_second: {
-      id: 'mebi_byte_per_second',
+    digital_mebibyte_per_second: {
+      id: 'digital_mebibyte_per_second',
       label: '二进制兆字节每秒',
       symbol: 'MiB/s',
       category: 'scientific',
       ratio: 8388608
     },
-    gibi_byte_per_second: {
-      id: 'gibi_byte_per_second',
+    digital_gibibyte_per_second: {
+      id: 'digital_gibibyte_per_second',
       label: '二进制吉字节每秒',
       symbol: 'GiB/s',
       category: 'scientific',
       ratio: 8589934592
     },
-    tebi_byte_per_second: {
-      id: 'tebi_byte_per_second',
+    digital_tebibyte_per_second: {
+      id: 'digital_tebibyte_per_second',
       label: '二进制太字节每秒',
       symbol: 'TiB/s',
       category: 'scientific',

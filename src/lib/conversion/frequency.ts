@@ -137,43 +137,43 @@ const frequency: ConversionCategory = {
     },
 
     // 角速度单位
-    radian_per_second: {
-      id: 'radian_per_second',
+    angular_radian_per_second: {
+      id: 'angular_radian_per_second',
       label: '弧度每秒',
       symbol: 'rad/s',
       ratio: 1/(2 * Math.PI),
       category: 'scientific'
     },
-    degree_per_second: {
-      id: 'degree_per_second',
+    angular_degree_per_second: {
+      id: 'angular_degree_per_second',
       label: '度每秒',
       symbol: '°/s',
       ratio: 1/360,
       category: 'scientific'
     },
-    revolution_per_second: {
-      id: 'revolution_per_second',
+    angular_revolution_per_second: {
+      id: 'angular_revolution_per_second',
       label: '转每秒',
       symbol: 'rps',
       ratio: 1,
       category: 'scientific'
     },
-    revolution_per_minute: {
-      id: 'revolution_per_minute',
+    angular_revolution_per_minute: {
+      id: 'angular_revolution_per_minute',
       label: '转每分钟',
       symbol: 'rpm',
       ratio: 1/60,
       category: 'scientific'
     },
-    kilo_rpm: {
-      id: 'kilo_rpm',
+    angular_kilo_rpm: {
+      id: 'angular_kilo_rpm',
       label: '千转每分钟',
       symbol: 'krpm',
       ratio: 1000/60,
       category: 'scientific'
     },
-    mega_rpm: {
-      id: 'mega_rpm',
+    angular_mega_rpm: {
+      id: 'angular_mega_rpm',
       label: '兆转每分钟',
       symbol: 'Mrpm',
       ratio: 1000000/60,
@@ -204,8 +204,8 @@ const frequency: ConversionCategory = {
     },
 
     // 音频频率单位
-    beat_per_minute: {
-      id: 'beat_per_minute',
+    audio_beat_per_minute: {
+      id: 'audio_beat_per_minute',
       label: '拍每分钟',
       symbol: 'bpm',
       ratio: 1/60,

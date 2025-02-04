@@ -41,24 +41,24 @@ describe('Weight Conversion', () => {
     })
   })
 
-  // 测试 Avoirdupois 单位转换
-  describe('Avoirdupois Units', () => {
-    test('avoirdupois_pound to avoirdupois_ounce', () => {
-      const result = convert('weight', 1, 'avoirdupois_pound', 'avoirdupois_ounce')
+  // 测试英制单位转换
+  describe('Imperial Units', () => {
+    test('imperial_pound to imperial_ounce', () => {
+      const result = convert('weight', 1, 'imperial_pound', 'imperial_ounce')
       expect(result.value).toBe(16)
-      expect(result.unit).toBe('avoirdupois_ounce')
+      expect(result.unit).toBe('imperial_ounce')
     })
 
-    test('avoirdupois_stone to avoirdupois_pound', () => {
-      const result = convert('weight', 1, 'avoirdupois_stone', 'avoirdupois_pound')
+    test('imperial_stone to imperial_pound', () => {
+      const result = convert('weight', 1, 'imperial_stone', 'imperial_pound')
       expect(result.value).toBe(14)
-      expect(result.unit).toBe('avoirdupois_pound')
+      expect(result.unit).toBe('imperial_pound')
     })
 
-    test('avoirdupois_long_ton to avoirdupois_stone', () => {
-      const result = convert('weight', 1, 'avoirdupois_long_ton', 'avoirdupois_stone')
+    test('imperial_long_ton to imperial_stone', () => {
+      const result = convert('weight', 1, 'imperial_long_ton', 'imperial_stone')
       expect(result.value).toBeCloseTo(160, 5)
-      expect(result.unit).toBe('avoirdupois_stone')
+      expect(result.unit).toBe('imperial_stone')
     })
   })
 
@@ -93,38 +93,38 @@ describe('Weight Conversion', () => {
   })
 
   // 测试药用重量单位转换
-  describe('Pharmacy Weight Units', () => {
-    test('pharmacy_ounce to pharmacy_dram', () => {
-      const result = convert('weight', 1, 'pharmacy_ounce', 'pharmacy_dram')
+  describe('Medical Weight Units', () => {
+    test('medical_ounce to medical_dram', () => {
+      const result = convert('weight', 1, 'medical_ounce', 'medical_dram')
       expect(result.value).toBeCloseTo(8, 5)
-      expect(result.unit).toBe('pharmacy_dram')
+      expect(result.unit).toBe('medical_dram')
     })
 
-    test('pharmacy_dram to pharmacy_grain', () => {
-      const result = convert('weight', 1, 'pharmacy_dram', 'pharmacy_grain')
+    test('medical_dram to medical_grain', () => {
+      const result = convert('weight', 1, 'medical_dram', 'medical_grain')
       expect(result.value).toBeCloseTo(60, 5)
-      expect(result.unit).toBe('pharmacy_grain')
+      expect(result.unit).toBe('medical_grain')
     })
   })
 
   // 测试跨系统转换
   describe('Cross-System Conversions', () => {
-    test('metric_kilogram to avoirdupois_pound', () => {
-      const result = convert('weight', 1, 'metric_kilogram', 'avoirdupois_pound')
+    test('metric_kilogram to imperial_pound', () => {
+      const result = convert('weight', 1, 'metric_kilogram', 'imperial_pound')
       expect(result.value).toBeCloseTo(2.20462, 5)
-      expect(result.unit).toBe('avoirdupois_pound')
+      expect(result.unit).toBe('imperial_pound')
     })
 
-    test('traditional_jin to avoirdupois_pound', () => {
-      const result = convert('weight', 1, 'traditional_jin', 'avoirdupois_pound')
+    test('traditional_jin to imperial_pound', () => {
+      const result = convert('weight', 1, 'traditional_jin', 'imperial_pound')
       expect(result.value).toBeCloseTo(1.10231, 5)
-      expect(result.unit).toBe('avoirdupois_pound')
+      expect(result.unit).toBe('imperial_pound')
     })
 
-    test('jewelry_carat to pharmacy_grain', () => {
-      const result = convert('weight', 1, 'jewelry_carat', 'pharmacy_grain')
+    test('jewelry_carat to medical_grain', () => {
+      const result = convert('weight', 1, 'jewelry_carat', 'medical_grain')
       expect(result.value).toBeCloseTo(3.08647, 5)
-      expect(result.unit).toBe('pharmacy_grain')
+      expect(result.unit).toBe('medical_grain')
     })
   })
 
@@ -143,7 +143,7 @@ describe('Weight Conversion', () => {
     })
 
     test('should handle fractional weights', () => {
-      const result = convert('weight', 0.5, 'avoirdupois_ounce', 'metric_gram')
+      const result = convert('weight', 0.5, 'imperial_ounce', 'metric_gram')
       expect(result.value).toBeCloseTo(14.17476, 5)
       expect(result.unit).toBe('metric_gram')
     })
