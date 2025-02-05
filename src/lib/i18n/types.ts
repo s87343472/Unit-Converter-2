@@ -117,12 +117,15 @@ export interface Translation {
     contact: string
     email: string
     legal: string
+    changelog: string
   }
-  converter?: {
+  converter: {
     title: string
     description: string
     from: string
     to: string
+    value: string
+    result: string
     instructions: {
       title: string
       steps: string[]
@@ -131,7 +134,7 @@ export interface Translation {
       title: string
       items: string[]
     }
-    knowledge: {
+    knowledge?: {
       title: string
       items: string[]
     }

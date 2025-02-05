@@ -28,7 +28,22 @@ export interface ConversionUnit {
   ratio?: number // 相对于基准单位的比率
   toBase?: (value: number) => number // 自定义转换到基准单位的函数
   fromBase?: (value: number) => number | string // 自定义从基准单位转换的函数,支持返回字符串
-  category?: 'metric' | 'imperial' | 'us' | 'scientific' | 'traditional' | 'industrial' // 单位分类
+  category?: 
+    | 'metric'      // 公制单位
+    | 'imperial'    // 英制单位
+    | 'us'          // 美制单位
+    | 'chinese'     // 中国传统单位
+    | 'japanese'    // 日本传统单位
+    | 'korean'      // 韩国传统单位
+    | 'scientific'  // 科学单位
+    | 'astronomical'// 天文单位
+    | 'nautical'    // 航海单位
+    | 'medical'     // 医疗单位
+    | 'industrial'  // 工业单位
+    | 'fiat'        // 法定货币单位
+    | 'crypto'      // 加密货币单位
+    | 'decimal'     // 十进制数据单位
+    | 'binary'      // 二进制数据单位
 }
 
 export interface KnowledgeSection {
@@ -55,13 +70,20 @@ export interface ConversionResult {
 export interface NumeralConversionCategory {
   id: string
   baseUnit: string
+  description?: string
   units: {
     [key: string]: {
       id: string
       label: string
       symbol: string
       base: number
+      category?: 'metric' | 'imperial' | 'us' | 'chinese' | 'japanese' | 'korean' | 'scientific' | 'astronomical' | 'nautical' | 'medical' | 'industrial' | 'fiat' | 'crypto' | 'decimal' | 'binary'
     }
+  }
+  knowledge?: KnowledgeSection
+  conversion_tips?: {
+    title: string
+    items: string[]
   }
 }
 

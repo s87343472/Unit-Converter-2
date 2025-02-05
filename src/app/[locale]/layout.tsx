@@ -12,19 +12,19 @@ const inter = Inter({ subsets: ['latin'] })
 
 type Props = {
   params: {
-    lang: ValidLocale
+    locale: ValidLocale
   }
 }
 
-export async function generateMetadata({ params: { lang } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
   const headersList = headers()
   const pathname = headersList.get('x-pathname') || ''
-  const path = pathname.replace(`/${lang}`, '') || '/'
+  const path = pathname.replace(`/${locale}`, '') || '/'
   const baseUrl = 'https://metric-converter.com'
 
   // 生成所有语言版本的URL
-  const languages = i18n.locales.reduce((acc, locale) => {
-    acc[locale] = `${baseUrl}/${locale}${path}`
+  const languages = i18n.locales.reduce((acc, loc) => {
+    acc[loc] = `${baseUrl}/${loc}${path}`
     return acc
   }, {} as Record<ValidLocale, string>)
 
@@ -32,8 +32,8 @@ export async function generateMetadata({ params: { lang } }: Props): Promise<Met
   languages['x-default' as ValidLocale] = `${baseUrl}/en${path}`
 
   // 获取SEO配置，如果没有找到对应语言的配置，使用英文配置
-  const seo = seoConfig[lang] || seoConfig['en']
-  const currentUrl = `${baseUrl}/${lang}${path}`
+  const seo = seoConfig[locale] || seoConfig['en']
+  const currentUrl = `${baseUrl}/${locale}${path}`
 
   return {
     metadataBase: new URL(baseUrl),
@@ -63,8 +63,8 @@ export async function generateMetadata({ params: { lang } }: Props): Promise<Met
       description: seo.description,
       url: currentUrl,
       siteName: 'Metric Converter',
-      locale: searchEngineLocales[lang],
-      alternateLocale: Object.values(searchEngineLocales).filter(l => l !== searchEngineLocales[lang]),
+      locale: searchEngineLocales[locale],
+      alternateLocale: Object.values(searchEngineLocales).filter(l => l !== searchEngineLocales[locale]),
       type: 'website',
     },
     other: {
@@ -78,15 +78,16 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: { lang: string }
+  params: { locale: string }
 }) {
-  if (!isValidLocale(params.lang)) {
+  if (!isValidLocale(params.locale)) {
     return null
   }
 
   return (
-    <LanguageProvider defaultLanguage={params.lang}>
+    <LanguageProvider defaultLanguage={params.locale}>
       <div className="flex flex-col min-h-screen">
+        <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
           {children}
         </main>

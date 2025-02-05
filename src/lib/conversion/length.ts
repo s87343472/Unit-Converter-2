@@ -101,21 +101,21 @@ const length: ConversionCategory = {
       label: '海里',
       symbol: 'nmi',
       ratio: 1852,
-      category: 'traditional'
+      category: 'nautical'
     },
     nautical_fathom: {
       id: 'nautical_fathom',
       label: '英寻',
       symbol: 'ftm',
       ratio: 1.8288,
-      category: 'traditional'
+      category: 'nautical'
     },
     nautical_cable: {
       id: 'nautical_cable',
       label: '缆',
       symbol: 'cb',
       ratio: 185.2,
-      category: 'traditional'
+      category: 'nautical'
     },
 
     // 天文单位
@@ -123,89 +123,89 @@ const length: ConversionCategory = {
       id: 'astronomical_light_year',
       label: '光年',
       symbol: 'ly',
-      ratio: 9.4607304725808e15, // 更精确的光年值
-      category: 'scientific'
+      ratio: 9.4607304725808e15,
+      category: 'astronomical'
     },
     astronomical_unit: {
       id: 'astronomical_unit',
       label: '天文单位',
       symbol: 'AU',
-      ratio: 1.495978707e11, // 更精确的天文单位值
-      category: 'scientific'
+      ratio: 1.495978707e11,
+      category: 'astronomical'
     },
     astronomical_parsec: {
       id: 'astronomical_parsec',
       label: '秒差距',
       symbol: 'pc',
-      ratio: 3.0856775814913673e16, // 更精确的秒差距值
-      category: 'scientific'
+      ratio: 3.0856775814913673e16,
+      category: 'astronomical'
     },
     astronomical_light_second: {
       id: 'astronomical_light_second',
       label: '光秒',
       symbol: 'ls',
-      ratio: 299792458, // 光速 * 1秒
-      category: 'scientific'
+      ratio: 299792458,
+      category: 'astronomical'
     },
 
     // 中国传统长度单位
-    traditional_li: {
-      id: 'traditional_li',
+    chinese_li: {
+      id: 'chinese_li',
       label: '里',
       symbol: '里',
       ratio: 500,
-      category: 'traditional'
+      category: 'chinese'
     },
-    traditional_zhang: {
-      id: 'traditional_zhang',
+    chinese_zhang: {
+      id: 'chinese_zhang',
       label: '丈',
       symbol: '丈',
       ratio: 3.333333333333333,
-      category: 'traditional'
+      category: 'chinese'
     },
-    traditional_chi: {
-      id: 'traditional_chi',
+    chinese_chi: {
+      id: 'chinese_chi',
       label: '尺',
       symbol: '尺',
       ratio: 0.333333333333333,
-      category: 'traditional'
+      category: 'chinese'
     },
-    traditional_cun: {
-      id: 'traditional_cun',
+    chinese_cun: {
+      id: 'chinese_cun',
       label: '寸',
       symbol: '寸',
       ratio: 0.033333333333333,
-      category: 'traditional'
+      category: 'chinese'
     },
-    traditional_fen: {
-      id: 'traditional_fen',
+    chinese_fen: {
+      id: 'chinese_fen',
       label: '分',
       symbol: '分',
       ratio: 0.003333333333333,
-      category: 'traditional'
+      category: 'chinese'
     },
 
     // 测量专用单位
-    survey_chain: {
-      id: 'survey_chain',
+    industrial_chain: {
+      id: 'industrial_chain',
       label: '测链',
       symbol: 'ch',
       ratio: 20.1168,
-      category: 'scientific'
+      category: 'industrial'
     },
-    survey_rod: {
-      id: 'survey_rod',
+    industrial_rod: {
+      id: 'industrial_rod',
       label: '杆',
       symbol: 'rd',
       ratio: 5.0292,
-      category: 'scientific'
+      category: 'industrial'
     },
-    survey_link: {
-      id: 'survey_link',
+    industrial_link: {
+      id: 'industrial_link',
       label: '链节',
       symbol: 'lk',
       ratio: 0.201168,
-      category: 'scientific'
+      category: 'industrial'
     }
   }
 } as const

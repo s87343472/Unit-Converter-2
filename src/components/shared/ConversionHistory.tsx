@@ -1,7 +1,7 @@
 'use client'
 
 import { useConversionHistory } from '@/lib/hooks/useConversionHistory'
-import { useLanguage } from '@/lib/hooks/useLanguage'
+import { useAppLanguage } from '@/lib/hooks/useLanguage'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { ConversionHistory as ConversionHistoryType } from '@/lib/types/history'
@@ -13,7 +13,7 @@ interface ConversionHistoryProps {
 
 export function ConversionHistory({ onReuse, className = '' }: ConversionHistoryProps) {
   const { history, removeHistory, clearHistory } = useConversionHistory()
-  const { t } = useLanguage()
+  const { t } = useAppLanguage()
   const [showConfirm, setShowConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 

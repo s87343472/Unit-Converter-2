@@ -70,20 +70,20 @@ const pressure: ConversionCategory = {
       category: 'scientific'
     },
 
-    // 医学压力单位（使用traditional类别）
+    // 医学压力单位
     medical_millimeter_of_mercury: {
       id: 'medical_millimeter_of_mercury',
       label: '毫米汞柱',
       symbol: 'mmHg',
       ratio: 133.322387415, // 1 mmHg = 133.322387415 Pa
-      category: 'traditional'
+      category: 'medical'
     },
     medical_centimeter_of_water: {
       id: 'medical_centimeter_of_water',
       label: '厘米水柱',
       symbol: 'cmH₂O',
       ratio: 98.0665, // 1 cmH₂O = 98.0665 Pa
-      category: 'traditional'
+      category: 'medical'
     },
 
     // 英制压力单位
@@ -102,7 +102,7 @@ const pressure: ConversionCategory = {
       category: 'imperial'
     },
 
-    // 工程压力单位（使用scientific类别）
+    // 科学压力单位（工程用）
     engineering_kilopound_per_square_inch: {
       id: 'engineering_kilopound_per_square_inch',
       label: '千磅力/平方英寸',

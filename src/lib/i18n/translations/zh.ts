@@ -2,7 +2,7 @@ import type { Translation } from '../types'
 
 const zh: Translation = {
   common: {
-    title: 'metric-converter',
+    title: 'Metric Converter',
     description: '功能强大的在线单位转换工具，支持各种单位的转换计算。',
     loading: '加载中...',
     error: '错误',
@@ -20,6 +20,7 @@ const zh: Translation = {
     pageNotFoundDesc: '抱歉，您访问的页面不存在。',
     backToHome: '返回首页',
     copyright: '版权所有。',
+    enterValue: '输入数值',
     categories: {
       basic: '基础单位',
       area_volume: '面积体积',
@@ -705,23 +706,31 @@ const zh: Translation = {
       }
     },
     numeral: {
-      title: '进制',
-      description: '数字进制转换',
-      binary: {
-        title: '二进制',
-        description: '二进制数字系统 (0-1)'
+      title: '进制转换',
+      description: '在不同进制之间转换数字（二进制、八进制、十进制、十六进制）',
+      units: {
+        decimal: '十进制',
+        binary: '二进制',
+        octal: '八进制',
+        hexadecimal: '十六进制'
       },
-      octal: {
-        title: '八进制',
-        description: '八进制数字系统 (0-7)'
+      knowledge: {
+        title: '进制转换知识',
+        items: [
+          '十进制：使用0-9十个数字表示',
+          '二进制：使用0-1两个数字表示，常用于计算机底层',
+          '八进制：使用0-7八个数字表示',
+          '十六进制：使用0-9和A-F表示，常用于编程'
+        ]
       },
-      decimal: {
-        title: '十进制',
-        description: '十进制数字系统 (0-9)'
-      },
-      hexadecimal: {
-        title: '十六进制',
-        description: '十六进制数字系统 (0-9, A-F)'
+      conversion_tips: {
+        title: '转换提示',
+        items: [
+          '二进制前缀：0b 或 0B',
+          '八进制前缀：0o 或 0O',
+          '十六进制前缀：0x 或 0X',
+          '常见应用：\n  - 二进制：计算机底层数据\n  - 八进制：Unix文件权限\n  - 十六进制：颜色代码、内存地址'
+        ]
       }
     },
     frequency: {
@@ -783,49 +792,49 @@ const zh: Translation = {
     copy: '复制'
   },
   messages: {
-    copied: '已复制到剪贴板',
+    copied: '已复制！',
     error: '发生错误',
     invalidNumber: '请输入有效数字',
-    selectUnit: '请选择两个单位',
+    selectUnit: '请选择单位',
     conversionError: '转换错误',
-    invalidTemperature: '温度不能低于绝对零度'
+    invalidTemperature: '无效的温度值'
+  },
+  errors: {
+    invalidInput: '无效输入',
+    invalidFormat: '格式无效',
+    conversionFailed: '转换失败',
+    copyFailed: '复制失败'
   },
   footer: {
     about: '关于我们',
     description: '免费在线单位转换工具',
     contact: '联系我们',
-    email: 'contact@unitconverter.com',
-    legal: '法律声明'
+    email: 'support@metric-converter.com',
+    legal: '法律信息',
+    changelog: '开发日志'
   },
   converter: {
-    title: 'metric-converter',
-    description: '在线单位转换工具，支持多种单位的精确转换',
+    title: '单位转换器',
+    description: '在线单位转换工具',
     from: '从',
     to: '到',
+    value: '数值',
+    result: '结果',
     instructions: {
       title: '使用说明',
       steps: [
-        '在"从"输入框中输入需要转换的数值',
-        '从列表中选择输入值的单位',
-        '系统会自动计算并显示所有可用单位的对应值',
-        '点击复制按钮可以将结果复制到剪贴板'
+        '在输入框中输入需要转换的数值',
+        '选择输入值的单位',
+        '系统会自动计算并显示其他单位的对应值',
+        '点击结果可以快速复制带单位的数值'
       ]
     },
     limitations: {
       title: '使用限制',
       items: [
-        '保证10位有效数字的精确度',
-        '超大或超小的数值会使用科学计数法显示',
-        '所有转换都基于国际单位制（SI）进行'
-      ]
-    },
-    knowledge: {
-      title: '你知道吗？',
-      items: [
-        '光年不是时间单位，而是距离单位，表示光在一年内传播的距离。',
-        '天文单位（AU）是基于地球到太阳的平均距离。',
-        '米的最初定义是地球子午线四分之一长度的千万分之一。',
-        '现在，米是根据真空中光速来定义的。'
+        '最多支持20位数字（含小数点）',
+        '最多10位小数',
+        '超大或超小的数字会使用科学计数法显示'
       ]
     }
   }

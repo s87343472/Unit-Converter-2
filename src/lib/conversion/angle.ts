@@ -92,26 +92,26 @@ const angle: ConversionCategory = {
     },
 
     // 航海单位
-    traditional_point: {
-      id: 'traditional_point',
+    nautical_point: {
+      id: 'nautical_point',
       label: '罗盘点',
       symbol: 'pt',
       ratio: Math.PI / 16,  // 1 point = 11.25°
-      category: 'traditional'
+      category: 'nautical'
     },
-    traditional_sextant: {
-      id: 'traditional_sextant',
+    nautical_sextant: {
+      id: 'nautical_sextant',
       label: '六分仪',
       symbol: 'sext',
       ratio: Math.PI / 3,  // 1 sextant = 60°
-      category: 'traditional'
+      category: 'nautical'
     },
-    traditional_octant: {
-      id: 'traditional_octant',
+    nautical_octant: {
+      id: 'nautical_octant',
       label: '八分仪',
       symbol: 'oct',
       ratio: Math.PI / 4,  // 1 octant = 45°
-      category: 'traditional'
+      category: 'nautical'
     },
 
     // 军事单位
@@ -146,7 +146,7 @@ const angle: ConversionCategory = {
 
   // 转换提示
   conversion_tips: {
-    title: '转换参考',
+    title: '角度换算提示',
     items: [
       '常用角度参考：\n  - 直角：90° = π/2 rad = 100 grad\n  - 平角：180° = π rad = 200 grad\n  - 周角：360° = 2π rad = 400 grad',
       '精确度参考：\n  - 天文观测：角秒(″)级\n  - 测绘测量：角分(′)级\n  - 工程应用：度(°)级\n  - 军事瞄准：密位(mil)级',

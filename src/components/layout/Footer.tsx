@@ -1,6 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/components/shared/LanguageProvider'
+import Link from 'next/link'
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -20,9 +21,17 @@ export default function Footer() {
           </div>
           <div className="text-center md:text-right">
             <h3 className="font-semibold mb-4">{t?.footer?.legal}</h3>
-            <p className="text-sm text-gray-600">
-              © {currentYear} Metric Converter. All rights reserved.
-            </p>
+            <div className="space-y-2">
+              <p className="text-sm text-gray-600">
+                © {currentYear} Metric Converter. All rights reserved.
+              </p>
+              <Link 
+                href="/changelog" 
+                className="text-sm text-indigo-600 hover:text-indigo-700"
+              >
+                {t?.footer?.changelog || 'Changelog'}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

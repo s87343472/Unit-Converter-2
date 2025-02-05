@@ -108,28 +108,28 @@ const weight: ConversionCategory = {
       label: '担',
       symbol: '担',
       ratio: 50,
-      category: 'traditional'
+      category: 'chinese'
     },
     traditional_jin: {
       id: 'traditional_jin',
       label: '斤',
       symbol: '斤',
       ratio: 0.5,
-      category: 'traditional'
+      category: 'chinese'
     },
     traditional_liang: {
       id: 'traditional_liang',
       label: '两',
       symbol: '两',
       ratio: 0.05,
-      category: 'traditional'
+      category: 'chinese'
     },
     traditional_qian: {
       id: 'traditional_qian',
       label: '钱',
       symbol: '钱',
       ratio: 0.005,
-      category: 'traditional'
+      category: 'chinese'
     },
 
     // 珠宝重量单位

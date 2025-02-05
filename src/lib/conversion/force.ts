@@ -3,101 +3,112 @@ import type { ConversionCategory } from './types'
 const force: ConversionCategory = {
   id: 'force',
   description: '力单位转换 (ISO 80000-4)',
-  baseUnit: 'newton',
+  baseUnit: 'metric_newton',
   units: {
     // 基准单位
-    newton: {
-      id: 'newton',
+    metric_newton: {
+      id: 'metric_newton',
       label: '牛顿',
       symbol: 'N',
-      ratio: 1 // 基准单位
+      ratio: 1, // 基准单位
+      category: 'metric'
     },
 
     // 公制力单位
-    kilonewton: {
-      id: 'kilonewton',
+    metric_kilonewton: {
+      id: 'metric_kilonewton',
       label: '千牛顿',
       symbol: 'kN',
-      ratio: 1000 // 1 kN = 1000 N
+      ratio: 1000, // 1 kN = 1000 N
+      category: 'metric'
     },
-    meganewton: {
-      id: 'meganewton',
+    metric_meganewton: {
+      id: 'metric_meganewton',
       label: '兆牛顿',
       symbol: 'MN',
-      ratio: 1000000 // 1 MN = 1,000,000 N
+      ratio: 1000000, // 1 MN = 1,000,000 N
+      category: 'metric'
     },
-    giganewton: {
-      id: 'giganewton',
+    metric_giganewton: {
+      id: 'metric_giganewton',
       label: '吉牛顿',
       symbol: 'GN',
-      ratio: 1000000000 // 1 GN = 1,000,000,000 N
+      ratio: 1000000000, // 1 GN = 1,000,000,000 N
+      category: 'metric'
     },
-    millinewton: {
-      id: 'millinewton',
+    metric_millinewton: {
+      id: 'metric_millinewton',
       label: '毫牛顿',
       symbol: 'mN',
-      ratio: 0.001 // 1 mN = 0.001 N
+      ratio: 0.001, // 1 mN = 0.001 N
+      category: 'metric'
     },
-    micronewton: {
-      id: 'micronewton',
+    metric_micronewton: {
+      id: 'metric_micronewton',
       label: '微牛顿',
       symbol: 'μN',
-      ratio: 0.000001 // 1 μN = 0.000001 N
+      ratio: 0.000001, // 1 μN = 0.000001 N
+      category: 'metric'
     },
     
     // 重力单位
-    gravitational_kilogram_force: {
-      id: 'gravitational_kilogram_force',
+    scientific_kilogram_force: {
+      id: 'scientific_kilogram_force',
       label: '千克力',
       symbol: 'kgf',
       ratio: 9.80665, // 1 kgf = 9.80665 N（基于标准重力加速度）
-      category: 'traditional'
+      category: 'scientific'
     },
-    gravitational_gram_force: {
-      id: 'gravitational_gram_force',
+    scientific_gram_force: {
+      id: 'scientific_gram_force',
       label: '克力',
       symbol: 'gf',
       ratio: 0.00980665, // 1 gf = 0.00980665 N
-      category: 'traditional'
+      category: 'scientific'
     },
-    gravitational_ton_force: {
-      id: 'gravitational_ton_force',
+    scientific_ton_force: {
+      id: 'scientific_ton_force',
       label: '吨力',
       symbol: 'tf',
       ratio: 9806.65, // 1 tf = 9806.65 N
-      category: 'traditional'
+      category: 'scientific'
     },
     
     // 英制力单位
-    pound_force: {
-      id: 'pound_force',
+    imperial_pound_force: {
+      id: 'imperial_pound_force',
       label: '磅力',
       symbol: 'lbf',
-      ratio: 4.4482216152605 // 1 lbf = 4.4482216152605 N
+      ratio: 4.4482216152605, // 1 lbf = 4.4482216152605 N
+      category: 'imperial'
     },
-    ounce_force: {
-      id: 'ounce_force',
+    imperial_ounce_force: {
+      id: 'imperial_ounce_force',
       label: '盎司力',
       symbol: 'ozf',
-      ratio: 0.278013850953781 // 1 ozf = 0.278013850953781 N
+      ratio: 0.278013850953781, // 1 ozf = 0.278013850953781 N
+      category: 'imperial'
     },
-    ton_force_long: {
-      id: 'ton_force_long',
+    imperial_ton_force: {
+      id: 'imperial_ton_force',
       label: '英吨力',
       symbol: 'tnf',
-      ratio: 9964.01616 // 1 long tnf = 9964.01616 N
+      ratio: 9964.01616, // 1 long tnf = 9964.01616 N
+      category: 'imperial'
     },
-    ton_force_short: {
-      id: 'ton_force_short',
+    us_ton_force: {
+      id: 'us_ton_force',
       label: '美吨力',
       symbol: 'tnf(US)',
-      ratio: 8896.443230521 // 1 short tnf = 8896.443230521 N
+      ratio: 8896.443230521, // 1 short tnf = 8896.443230521 N
+      category: 'us'
     },
-    poundal: {
-      id: 'poundal',
+    imperial_poundal: {
+      id: 'imperial_poundal',
       label: '磅达',
       symbol: 'pdl',
-      ratio: 0.138254954376 // 1 pdl = 0.138254954376 N
+      ratio: 0.138254954376, // 1 pdl = 0.138254954376 N
+      category: 'imperial'
     },
     
     // 科学单位

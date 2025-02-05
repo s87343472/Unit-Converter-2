@@ -50,9 +50,7 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     cubic_kilometer: 'metric_cubic_kilometer',
     cubic_centimeter: 'metric_cubic_centimeter',
     cubic_millimeter: 'metric_cubic_millimeter',
-    cubic_inch: 'imperial_cubic_inch',
-    cubic_foot: 'imperial_cubic_foot',
-    cubic_yard: 'imperial_cubic_yard',
+    cubic_decimeter: 'metric_cubic_decimeter',
     liter: 'metric_liter',
     milliliter: 'metric_milliliter',
     gallon: 'us_gallon',
@@ -61,7 +59,19 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     cup: 'us_cup',
     fluid_ounce: 'us_fluid_ounce',
     tablespoon: 'us_tablespoon',
-    teaspoon: 'us_teaspoon'
+    teaspoon: 'us_teaspoon',
+    cubic_yard: 'imperial_cubic_yard',
+    cubic_foot: 'imperial_cubic_foot',
+    cubic_inch: 'imperial_cubic_inch',
+    dan: 'chinese_dan',
+    dou: 'chinese_dou',
+    sheng: 'chinese_sheng',
+    koku: 'japanese_koku',
+    to: 'japanese_to',
+    sho: 'japanese_sho',
+    go: 'japanese_go',
+    oil_barrel: 'industrial_oil_barrel',
+    beer_barrel: 'industrial_beer_barrel'
   },
   temperature: {
     celsius: 'metric_celsius',
@@ -84,7 +94,7 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     kilometer_per_hour: 'metric_kilometer_per_hour',
     mile_per_hour: 'imperial_mile_per_hour',
     foot_per_second: 'imperial_foot_per_second',
-    knot: 'traditional_knot',
+    knot: 'nautical_knot',
     mach: 'scientific_mach',
     light_speed: 'scientific_light_speed',
     astronomical_unit_per_year: 'scientific_astronomical_unit_per_year',
@@ -97,21 +107,21 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     pascal: 'metric_pascal',
     kilopascal: 'metric_kilopascal',
     megapascal: 'metric_megapascal',
-    bar: 'metric_bar',
-    atmosphere: 'metric_atmosphere',
-    torr: 'metric_torr',
+    bar: 'industrial_bar',
+    atmosphere: 'scientific_atmosphere',
+    torr: 'scientific_torr',
     pound_per_square_inch: 'imperial_pound_per_square_inch'
   },
   energy: {
     joule: 'metric_joule',
     kilojoule: 'metric_kilojoule',
-    calorie: 'metric_calorie',
-    kilocalorie: 'metric_kilocalorie',
-    watt_hour: 'metric_watt_hour',
-    kilowatt_hour: 'metric_kilowatt_hour',
-    electron_volt: 'metric_electron_volt',
+    calorie: 'scientific_calorie',
+    kilocalorie: 'scientific_kilocalorie',
+    watt_hour: 'scientific_watt_hour',
+    kilowatt_hour: 'scientific_kilowatt_hour',
+    electron_volt: 'scientific_electron_volt',
     british_thermal_unit: 'imperial_british_thermal_unit',
-    us_therm: 'imperial_us_therm'
+    us_therm: 'scientific_therm'
   },
   power: {
     watt: 'metric_watt',
@@ -120,36 +130,48 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
     horsepower: 'imperial_horsepower'
   },
   data: {
-    bit: 'digital_bit',
-    byte: 'digital_byte',
-    kilobyte: 'digital_kilobyte',
-    megabyte: 'digital_megabyte',
-    gigabyte: 'digital_gigabyte',
-    terabyte: 'digital_terabyte',
-    petabyte: 'digital_petabyte',
-    kibibyte: 'digital_kibibyte',
-    mebibyte: 'digital_mebibyte',
-    gibibyte: 'digital_gibibyte',
-    tebibyte: 'digital_tebibyte',
-    pebibyte: 'digital_pebibyte',
-    kilobit: 'digital_kilobit',
-    megabit: 'digital_megabit',
-    gigabit: 'digital_gigabit',
-    terabit: 'digital_terabit',
-    petabit: 'digital_petabit',
-    kibibit: 'digital_kibibit',
-    mebibit: 'digital_mebibit',
-    gibibit: 'digital_gibibit',
-    tebibit: 'digital_tebibit',
-    pebibit: 'digital_pebibit'
+    bit: 'metric_bit',
+    byte: 'metric_byte',
+    kilobyte: 'metric_kilobyte',
+    megabyte: 'metric_megabyte',
+    gigabyte: 'metric_gigabyte',
+    terabyte: 'metric_terabyte',
+    petabyte: 'metric_petabyte',
+    kibibyte: 'binary_kibibyte',
+    mebibyte: 'binary_mebibyte',
+    gibibyte: 'binary_gibibyte',
+    tebibyte: 'binary_tebibyte',
+    pebibyte: 'binary_pebibyte',
+    kilobit: 'metric_kilobit',
+    megabit: 'metric_megabit',
+    gigabit: 'metric_gigabit',
+    terabit: 'metric_terabit',
+    petabit: 'metric_petabit',
+    kibibit: 'binary_kibibit',
+    mebibit: 'binary_mebibit',
+    gibibit: 'binary_gibibit',
+    tebibit: 'binary_tebibit',
+    pebibit: 'binary_pebibit'
   },
   data_rate: {
     bit_per_second: 'digital_bit_per_second',
     byte_per_second: 'digital_byte_per_second',
     kilobit_per_second: 'digital_kilobit_per_second',
+    kilobyte_per_second: 'digital_kilobyte_per_second',
     megabit_per_second: 'digital_megabit_per_second',
+    megabyte_per_second: 'digital_megabyte_per_second',
     gigabit_per_second: 'digital_gigabit_per_second',
-    terabit_per_second: 'digital_terabit_per_second'
+    gigabyte_per_second: 'digital_gigabyte_per_second',
+    terabit_per_second: 'digital_terabit_per_second',
+    terabyte_per_second: 'digital_terabyte_per_second',
+    kibibit_per_second: 'binary_kibibit_per_second',
+    kibibyte_per_second: 'binary_kibibyte_per_second',
+    mebibit_per_second: 'binary_mebibit_per_second',
+    mebibyte_per_second: 'binary_mebibyte_per_second',
+    gibibit_per_second: 'binary_gibibit_per_second',
+    gibibyte_per_second: 'binary_gibibyte_per_second',
+    tebibit_per_second: 'binary_tebibit_per_second',
+    tebibyte_per_second: 'binary_tebibyte_per_second'
   },
   angle: {
     degree: 'metric_degree',
@@ -161,14 +183,20 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
   force: {
     newton: 'metric_newton',
     kilonewton: 'metric_kilonewton',
-    dyne: 'metric_dyne',
+    dyne: 'scientific_dyne',
     pound_force: 'imperial_pound_force',
-    kilogram_force: 'metric_kilogram_force'
+    kilogram_force: 'scientific_kilogram_force'
   },
   density: {
     kilogram_per_cubic_meter: 'metric_kilogram_per_cubic_meter',
     gram_per_cubic_centimeter: 'metric_gram_per_cubic_centimeter',
-    pound_per_cubic_foot: 'imperial_pound_per_cubic_foot'
+    gram_per_milliliter: 'metric_gram_per_milliliter',
+    kilogram_per_liter: 'metric_kilogram_per_liter',
+    pound_per_cubic_foot: 'imperial_pound_per_cubic_foot',
+    pound_per_cubic_inch: 'imperial_pound_per_cubic_inch',
+    pound_per_gallon: 'us_pound_per_gallon',
+    ounce_per_cubic_inch: 'imperial_ounce_per_cubic_foot',
+    ounce_per_gallon: 'us_ounce_per_gallon'
   },
   flow: {
     cubic_meter_per_second: 'metric_cubic_meter_per_second',
@@ -178,8 +206,11 @@ const UNIT_ID_MAP: Record<string, Record<string, string>> = {
   },
   torque: {
     newton_meter: 'metric_newton_meter',
+    newton_centimeter: 'metric_newton_centimeter',
     pound_foot: 'imperial_pound_foot',
-    kilogram_meter: 'engineering_kilogram_force_meter'
+    pound_inch: 'imperial_pound_inch',
+    kilogram_force_meter: 'scientific_kilogram_force_meter',
+    kilogram_force_centimeter: 'scientific_kilogram_force_centimeter'
   },
   frequency: {
     hertz: 'metric_hertz',
@@ -233,7 +264,33 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   // 获取实际的单位 ID
   const getActualUnitId = (unitId: string): string => {
     if (type === 'numeral') return unitId
-    return UNIT_ID_MAP[type]?.[unitId] || unitId
+    
+    // 标准化单位ID
+    let normalizedUnitId = unitId
+      .replace('bits_', 'bit_')
+      .replace('bytes_', 'byte_')
+      .replace('bps_', 'bit_per_second_')
+      .replace('Bps_', 'byte_per_second_')
+    
+    // 处理常见的速率单位缩写
+    if (type === 'data_rate') {
+      normalizedUnitId = normalizedUnitId
+        .replace('kbps', 'kilobit_per_second')
+        .replace('kBps', 'kilobyte_per_second')
+        .replace('mbps', 'megabit_per_second')
+        .replace('mBps', 'megabyte_per_second')
+        .replace('gbps', 'gigabit_per_second')
+        .replace('gBps', 'gigabyte_per_second')
+        .replace('tbps', 'terabit_per_second')
+        .replace('tBps', 'terabyte_per_second')
+    }
+    
+    const mappedId = UNIT_ID_MAP[type]?.[normalizedUnitId]
+    if (!mappedId) {
+      return normalizedUnitId
+    }
+    
+    return mappedId
   }
 
   // 格式化数值显示
@@ -251,63 +308,36 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   }
 
   // 处理转换
-  const handleConvert = (toUnitId: string) => {
-    if (!value || !fromUnit) return '0'
-    setError(null)
-
+  const handleConvert = (toUnitId: string): string => {
     try {
+      setError(null)
+      if (!value || !fromUnit || !toUnitId) {
+        setError(t?.messages?.selectUnit || '请选择两个单位')
+        return '0'
+      }
+
+      const numValue = Number(value)
+      if (!Number.isFinite(numValue)) {
+        setError(t?.messages?.invalidNumber || '请输入有效数字')
+        return '0'
+      }
+
+      const actualFromUnit = getActualUnitId(fromUnit)
+      const actualToUnit = getActualUnitId(toUnitId)
+      
       if (type === 'numeral') {
-        const cleanValue = value.replace(/^0[box]?/i, '')
-        const base = fromUnit === 'decimal' ? 10 : 
-                    fromUnit === 'binary' ? 2 : 
-                    fromUnit === 'octal' ? 8 : 16
-        const numValue = parseInt(cleanValue, base)
-        
-        if (isNaN(numValue)) {
-          setError(t?.errors?.invalidInput || 'Invalid input')
-          return '0'
-        }
-        
-        let result = ''
-        switch (toUnitId) {
-          case 'binary':
-            result = '0b' + numValue.toString(2)
-            break
-          case 'octal':
-            result = '0o' + numValue.toString(8)
-            break
-          case 'decimal':
-            result = numValue.toString(10)
-            break
-          case 'hexadecimal':
-            result = '0x' + numValue.toString(16).toUpperCase()
-            break
-          default:
-            result = '0'
-        }
-        return result
+        const result = convert(type, numValue, actualFromUnit, actualToUnit) as NumeralConversionResult
+        return result.value.toString()
       } else {
-        const numValue = parseFloat(value)
-        if (isNaN(numValue)) {
-          setError(t?.errors?.invalidInput || 'Invalid input')
-          return '0'
-        }
-        
-        try {
-          const actualFromUnit = getActualUnitId(fromUnit)
-          const actualToUnit = getActualUnitId(toUnitId)
-          console.log(`Converting ${type}: ${actualFromUnit} -> ${actualToUnit}`)
-          const result = convert(type, numValue, actualFromUnit, actualToUnit) as ConversionResult
-          return formatNumber(result.value)
-        } catch (error) {
-          console.error('Conversion error:', error)
-          setError(t?.errors?.conversionFailed || 'Conversion failed')
-          return '0'
-        }
+        const result = convert(type, numValue, actualFromUnit, actualToUnit) as ConversionResult
+        return formatNumber(result.value)
       }
     } catch (error) {
-      console.error('Conversion error:', error)
-      setError(t?.errors?.conversionFailed || 'Conversion failed')
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError(t?.messages?.conversionError || '转换错误')
+      }
       return '0'
     }
   }
@@ -358,141 +388,129 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   }, [value, fromUnit, units])
 
   return (
-    <div className="flex-1 bg-gray-50">
-      {/* 标题和描述 */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-4">
-            <p className="text-sm text-gray-500">{t?.units?.[type]?.description || t?.converter?.description}</p>
+    <div className="flex-1">
+      {/* 错误提示 */}
+      {error && (
+        <div className="mb-4 p-4 rounded-md bg-red-50 border border-red-200">
+          <p className="text-sm text-red-600">{error}</p>
+        </div>
+      )}
+
+      {/* 转换区域 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* 左侧 - From */}
+        <div>
+          <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.from || 'From'}:</h2>
+          <input
+            type="text"
+            value={value}
+            onChange={handleInput}
+            className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder={type === 'numeral' ? 
+              (t?.common?.enterValue?.replace('{unit}', units[fromUnit]) || `Enter ${units[fromUnit]} value`) :
+              (t?.common?.enterValue || 'Enter value')}
+          />
+          <div className="mt-4 rounded-md border border-gray-200 overflow-hidden">
+            {Object.entries(units).map(([unitId, unit]) => (
+              <button
+                key={unitId}
+                className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+                  ${fromUnit === unitId 
+                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                    : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                onClick={() => setFromUnit(unitId)}
+              >
+                <span className="flex-1">{unit}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 右侧 - To */}
+        <div>
+          <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.to || 'To'}:</h2>
+          <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
+            {conversionResults && toUnit ? conversionResults[toUnit] : '0'}
+          </div>
+          <div className="rounded-md border border-gray-200 overflow-hidden">
+            {Object.entries(units).map(([unitId, unit]) => (
+              <button
+                key={unitId}
+                className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+                  ${toUnit === unitId 
+                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                    : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                onClick={() => setToUnit(unitId)}
+              >
+                <span className="flex-1">{unit}</span>
+                <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
+                  ({conversionResults ? conversionResults[unitId] : '0'})
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* 主体内容 */}
-      <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        {/* 错误提示 */}
-        {error && (
-          <div className="mb-4 p-4 rounded-md bg-red-50 border border-red-200">
-            <p className="text-sm text-red-600">{error}</p>
-          </div>
-        )}
-
-        {/* 转换区域 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* 左侧 - From */}
-          <div>
-            <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.from || 'From'}:</h2>
-            <input
-              type="text"
-              value={value}
-              onChange={handleInput}
-              className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder={type === 'numeral' ? 
-                (t?.common?.enterValue?.replace('{unit}', units[fromUnit]) || `Enter ${units[fromUnit]} value`) :
-                (t?.common?.enterValue || 'Enter value')}
-            />
-            <div className="mt-4 rounded-md border border-gray-200 overflow-hidden">
-              {Object.entries(units).map(([unitId, unit]) => (
-                <button
-                  key={unitId}
-                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
-                    ${fromUnit === unitId 
-                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
-                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
-                  onClick={() => setFromUnit(unitId)}
-                >
-                  <span className="flex-1">{unit}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 右侧 - To */}
-          <div>
-            <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.to || 'To'}:</h2>
-            <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
-              {conversionResults && toUnit ? conversionResults[toUnit] : '0'}
-            </div>
-            <div className="rounded-md border border-gray-200 overflow-hidden">
-              {Object.entries(units).map(([unitId, unit]) => (
-                <button
-                  key={unitId}
-                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
-                    ${toUnit === unitId 
-                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
-                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
-                  onClick={() => setToUnit(unitId)}
-                >
-                  <span className="flex-1">{unit}</span>
-                  <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
-                    ({conversionResults ? conversionResults[unitId] : '0'})
+      {/* 使用指南和知识区域 */}
+      <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="max-w-3xl">
+          {/* 使用说明 */}
+          <section className="mb-8">
+            <h2 className="text-lg font-medium text-gray-900 mb-4">
+              {t?.converter?.instructions?.title || 'Instructions'}
+            </h2>
+            <div className="space-y-3">
+              {(t?.converter?.instructions?.steps || []).map((step, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 text-gray-600 text-sm mr-3">
+                    {index + 1}
                   </span>
-                </button>
+                  <p className="text-gray-600">{step}</p>
+                </div>
               ))}
             </div>
-          </div>
-        </div>
+          </section>
 
-        {/* 使用指南和知识区域 */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="max-w-3xl">
-            {/* 使用说明 */}
-            <section className="mb-8">
+          {/* 限制条件 */}
+          <section className="mb-8">
+            <h2 className="text-lg font-medium text-gray-900 mb-4">
+              {t?.converter?.limitations?.title || 'Limitations'}
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
+              {(t?.converter?.limitations?.items || []).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 有趣的知识 */}
+          {t?.units?.[type]?.knowledge && (
+            <section>
               <h2 className="text-lg font-medium text-gray-900 mb-4">
-                {t?.converter?.instructions?.title || 'Instructions'}
+                {t?.units?.[type]?.knowledge?.title || 'Knowledge'}
               </h2>
-              <div className="space-y-3">
-                {(t?.converter?.instructions?.steps || []).map((step, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 text-gray-600 text-sm mr-3">
-                      {index + 1}
-                    </span>
-                    <p className="text-gray-600">{step}</p>
-                  </div>
+              <div className="bg-gray-50 rounded-lg p-4 space-y-4 text-gray-600">
+                {(t?.units?.[type]?.knowledge?.items || []).map((item, index) => (
+                  <p key={index}>• {item}</p>
                 ))}
               </div>
             </section>
+          )}
+        </div>
+      </div>
 
-            {/* 限制条件 */}
-            <section className="mb-8">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">
-                {t?.converter?.limitations?.title || 'Limitations'}
-              </h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-600">
-                {(t?.converter?.limitations?.items || []).map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </section>
-
-            {/* 有趣的知识 */}
-            {t?.units?.[type]?.knowledge && (
-              <section>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">
-                  {t?.units?.[type]?.knowledge?.title || 'Knowledge'}
-                </h2>
-                <div className="bg-gray-50 rounded-lg p-4 space-y-4 text-gray-600">
-                  {(t?.units?.[type]?.knowledge?.items || []).map((item, index) => (
-                    <p key={index}>• {item}</p>
-                  ))}
-                </div>
-              </section>
-            )}
+      {/* 复制提示 */}
+      {copySuccess && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2 rounded-full shadow-lg">
+          <div className="flex items-center">
+            <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            {t?.messages?.copied || 'Copied!'}
           </div>
         </div>
-
-        {/* 复制提示 */}
-        {copySuccess && (
-          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2 rounded-full shadow-lg">
-            <div className="flex items-center">
-              <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              {t?.messages?.copied || 'Copied!'}
-            </div>
-          </div>
-        )}
-      </main>
+      )}
     </div>
   )
 } 

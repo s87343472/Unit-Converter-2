@@ -21,6 +21,7 @@ import currency from './currency'
 import cooking from './cooking'
 import numeral from './numeral'
 import torque from './torque'
+import { convertNumeral } from './numeralConverter'
 
 const categories = {
   length,
@@ -77,18 +78,6 @@ function roundToSignificantDigits(value: number, digits: number = 15): number {
 }
 
 export function convert(
-  type: 'numeral',
-  value: number,
-  fromUnit: string,
-  toUnit: string
-): NumeralConversionResult
-export function convert(
-  type: Exclude<ConversionType, 'numeral'>,
-  value: number,
-  fromUnit: string,
-  toUnit: string
-): ConversionResult
-export function convert(
   type: ConversionType,
   value: number,
   fromUnit: string,
@@ -102,6 +91,11 @@ export function convert(
     const category = categories[type]
     if (!category) {
       throw new Error(`Unsupported conversion type: ${type}`)
+    }
+
+    // 对于进制转换，使用专门的转换函数
+    if (type === 'numeral') {
+      return convertNumeral(value.toString(), fromUnit, toUnit)
     }
 
     const from = category.units[fromUnit]
@@ -128,9 +122,13 @@ export function convert(
     }
 
     // 从基准单位转换到目标单位
-    let result: number | string
+    let result: number
     if (to.fromBase) {
-      result = to.fromBase(baseValue)
+      const fromBaseResult = to.fromBase(baseValue)
+      if (!isNumber(fromBaseResult)) {
+        throw new Error('Invalid conversion result: fromBase must return a finite number')
+      }
+      result = fromBaseResult
     } else if (to.ratio) {
       result = roundToSignificantDigits(baseValue / to.ratio)
       if (!isNumber(result)) {
@@ -140,34 +138,9 @@ export function convert(
       throw new Error(`No conversion method for unit: ${toUnit}`)
     }
 
-    // 对于数字系统转换，返回字符串结果
-    if (type === 'numeral') {
-      if (toUnit === 'decimal') {
-        if (!isNumber(result)) {
-          throw new Error('Decimal conversion must return a number')
-        }
-        return {
-          value: result,
-          unit: toUnit,
-        } as ConversionResult
-      }
-      if (typeof result !== 'string') {
-        throw new Error('Numeral conversion must return a string')
-      }
-      return {
-        value: result,
-        unit: toUnit,
-      } as NumeralConversionResult
-    }
-
-    // 对于其他转换，确保结果是数字
-    if (!isNumber(result)) {
-      throw new Error('Invalid conversion result: must be a finite number')
-    }
-
     return {
       value: result,
-      unit: toUnit,
+      unit: toUnit
     } as ConversionResult
   } catch (error) {
     throw error instanceof Error ? error : new Error('Unknown error')

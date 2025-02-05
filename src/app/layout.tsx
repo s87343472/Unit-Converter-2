@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import ClientLayout from '@/components/layouts/ClientLayout'
 import Analytics from '@/components/shared/Analytics'
 
 const inter = Inter({
@@ -43,9 +42,7 @@ export default function RootLayout({
         background: 'rgb(var(--background-rgb))'
       }} className="font-sans antialiased">
         <Analytics />
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+        {children}
       </body>
     </html>
   )

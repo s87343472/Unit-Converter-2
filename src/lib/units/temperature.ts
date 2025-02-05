@@ -2,9 +2,9 @@ import { Unit } from './length'
 
 // 温度单位
 export const temperatureUnits: Unit[] = [
-  { id: 'celsius', symbol: '°C', ratio: 1 },
-  { id: 'fahrenheit', symbol: '°F', ratio: 1 },
-  { id: 'kelvin', symbol: 'K', ratio: 1 }
+  { id: 'celsius', symbol: '°C', ratio: 1, category: 'metric' },
+  { id: 'fahrenheit', symbol: '°F', ratio: 1, category: 'imperial' },
+  { id: 'kelvin', symbol: 'K', ratio: 1, category: 'scientific' }
 ]
 
 // 温度转换函数

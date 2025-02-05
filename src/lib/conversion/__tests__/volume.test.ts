@@ -103,30 +103,36 @@ describe('Volume Conversion', () => {
   // 测试中国传统容量单位转换
   describe('Chinese Traditional Units', () => {
     test('dan to dou', () => {
-      const result = convert('volume', 1, 'traditional_dan', 'traditional_dou')
+      const result = convert('volume', 1, 'chinese_dan', 'chinese_dou')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('traditional_dou')
+      expect(result.unit).toBe('chinese_dou')
     })
 
     test('dou to sheng', () => {
-      const result = convert('volume', 1, 'traditional_dou', 'traditional_sheng')
+      const result = convert('volume', 1, 'chinese_dou', 'chinese_sheng')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('traditional_sheng')
+      expect(result.unit).toBe('chinese_sheng')
     })
   })
 
   // 测试日本传统容量单位转换
   describe('Japanese Traditional Units', () => {
-    test('gou to shaku', () => {
-      const result = convert('volume', 1, 'traditional_gou', 'traditional_shaku')
+    test('koku to to', () => {
+      const result = convert('volume', 1, 'japanese_koku', 'japanese_to')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('traditional_shaku')
+      expect(result.unit).toBe('japanese_to')
     })
 
-    test('shaku to sai', () => {
-      const result = convert('volume', 1, 'traditional_shaku', 'traditional_sai')
+    test('to to sho', () => {
+      const result = convert('volume', 1, 'japanese_to', 'japanese_sho')
       expect(result.value).toBe(10)
-      expect(result.unit).toBe('traditional_sai')
+      expect(result.unit).toBe('japanese_sho')
+    })
+
+    test('sho to go', () => {
+      const result = convert('volume', 1, 'japanese_sho', 'japanese_go')
+      expect(result.value).toBe(10)
+      expect(result.unit).toBe('japanese_go')
     })
   })
 

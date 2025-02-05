@@ -48,7 +48,7 @@ export function convertNumeral(value: string, fromUnit: string, toUnit: string):
   const toBase = numeral.units[toUnit]?.base
   
   if (!fromBase || !toBase) {
-    throw new Error('Invalid base system')
+    throw new Error(`Invalid base system: ${!fromBase ? fromUnit : toUnit}`)
   }
 
   try {
@@ -57,14 +57,25 @@ export function convertNumeral(value: string, fromUnit: string, toUnit: string):
     const absValue = isNegative ? value.slice(1) : value
 
     // 先转换为十进制
-    const decimal = toDecimal(absValue, fromBase)
+    const decimal = parseInt(absValue, fromBase)
+    if (isNaN(decimal)) {
+      throw new Error(`Invalid value for base ${fromBase}: ${value}`)
+    }
     
     // 再从十进制转换为目标进制
-    const result = fromDecimal(isNegative ? -decimal : decimal, toBase)
+    let result = decimal.toString(toBase)
+
+    // 对十六进制结果进行大写转换
+    if (toBase === 16) {
+      result = result.toUpperCase()
+    }
+
+    // 添加负号（如果原数是负数）
+    result = isNegative ? '-' + result : result
 
     return {
       value: result,
-      unit: toUnit,
+      unit: toUnit
     }
   } catch (err: unknown) {
     if (err instanceof Error) {
@@ -85,22 +96,19 @@ export function isValidNumeralString(value: string, base: number): boolean {
     value = value.slice(1)
   }
   
-  // 检查每个字符是否在有效范围内
-  return value.split('').every(char => {
-    const digit = DIGITS.indexOf(char)
-    return digit >= 0 && digit < base
-  })
+  // 根据进制创建有效字符集
+  const validChars = '0123456789ABCDEF'.slice(0, base)
+  const pattern = new RegExp(`^[${validChars}]+$`, 'i')
+  
+  return pattern.test(value)
 }
 
 /**
  * 获取指定进制的最大值
  */
 export function getMaxValue(base: number, digits: number): string {
-  let result = ''
-  for (let i = 0; i < digits; i++) {
-    result += DIGITS[base - 1]
-  }
-  return result
+  const chars = '0123456789ABCDEF'.slice(0, base)
+  return chars[base - 1].repeat(digits)
 }
 
 /**

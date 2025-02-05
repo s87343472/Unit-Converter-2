@@ -44,16 +44,10 @@ export default function LanguagePrompt() {
   // 根据当前语言获取提示文本
   const getPromptText = () => {
     switch (language) {
-      case 'zh':
+      case 'zh-CN':
         return `看起来您的浏览器语言是${localeNames[detectedLocale]}，是否切换？`
-      case 'de':
-        return `Möchten Sie zur Browsersprache ${localeNames[detectedLocale]} wechseln?`
-      case 'fr':
-        return `Souhaitez-vous passer à la langue de votre navigateur (${localeNames[detectedLocale]}) ?`
-      case 'ja':
-        return `ブラウザの言語は${localeNames[detectedLocale]}のようです。切り替えますか？`
-      case 'ru':
-        return `Похоже, язык вашего браузера - ${localeNames[detectedLocale]}. Хотите переключиться?`
+      case 'en':
+        return `Would you like to switch to your browser language (${localeNames[detectedLocale]})?`
       default:
         return `Would you like to switch to your browser language (${localeNames[detectedLocale]})?`
     }

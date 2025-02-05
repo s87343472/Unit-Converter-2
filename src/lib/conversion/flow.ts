@@ -143,64 +143,64 @@ const flow: ConversionCategory = {
     },
 
     // 质量流量单位
-    mass_kilogram_per_second: {
-      id: 'mass_kilogram_per_second',
+    metric_kilogram_per_second: {
+      id: 'metric_kilogram_per_second',
       label: '千克/秒',
       symbol: 'kg/s',
       ratio: 0.001, // 基于水的密度 (1000 kg/m³)
       category: 'metric'
     },
-    mass_kilogram_per_minute: {
-      id: 'mass_kilogram_per_minute',
+    metric_kilogram_per_minute: {
+      id: 'metric_kilogram_per_minute',
       label: '千克/分钟',
       symbol: 'kg/min',
       ratio: 0.001/60,
       category: 'metric'
     },
-    mass_kilogram_per_hour: {
-      id: 'mass_kilogram_per_hour',
+    metric_kilogram_per_hour: {
+      id: 'metric_kilogram_per_hour',
       label: '千克/小时',
       symbol: 'kg/h',
       ratio: 0.001/3600,
       category: 'metric'
     },
-    mass_gram_per_second: {
-      id: 'mass_gram_per_second',
+    metric_gram_per_second: {
+      id: 'metric_gram_per_second',
       label: '克/秒',
       symbol: 'g/s',
       ratio: 0.000001,
       category: 'metric'
     },
-    mass_gram_per_minute: {
-      id: 'mass_gram_per_minute',
+    metric_gram_per_minute: {
+      id: 'metric_gram_per_minute',
       label: '克/分钟',
       symbol: 'g/min',
       ratio: 0.000001/60,
       category: 'metric'
     },
-    mass_gram_per_hour: {
-      id: 'mass_gram_per_hour',
+    metric_gram_per_hour: {
+      id: 'metric_gram_per_hour',
       label: '克/小时',
       symbol: 'g/h',
       ratio: 0.000001/3600,
       category: 'metric'
     },
-    mass_pound_per_second: {
-      id: 'mass_pound_per_second',
+    imperial_pound_per_second: {
+      id: 'imperial_pound_per_second',
       label: '磅/秒',
       symbol: 'lb/s',
       ratio: 0.00045359237, // 基于 1 lb = 0.45359237 kg
       category: 'imperial'
     },
-    mass_pound_per_minute: {
-      id: 'mass_pound_per_minute',
+    imperial_pound_per_minute: {
+      id: 'imperial_pound_per_minute',
       label: '磅/分钟',
       symbol: 'lb/min',
       ratio: 0.00045359237/60,
       category: 'imperial'
     },
-    mass_pound_per_hour: {
-      id: 'mass_pound_per_hour',
+    imperial_pound_per_hour: {
+      id: 'imperial_pound_per_hour',
       label: '磅/小时',
       symbol: 'lb/h',
       ratio: 0.00045359237/3600,

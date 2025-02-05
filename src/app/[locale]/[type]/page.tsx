@@ -6,7 +6,7 @@ import type { ValidLocale } from '@/lib/i18n/types'
 
 interface ConversionPageProps {
   params: {
-    lang: ValidLocale
+    locale: ValidLocale
     type: ConversionType
   }
 }

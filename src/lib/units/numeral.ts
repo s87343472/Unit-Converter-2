@@ -2,10 +2,10 @@ import { Unit } from './length'
 
 // 使用十进制作为基准
 export const numeralUnits: Unit[] = [
-  { id: 'binary', symbol: 'bin', ratio: 1 },
-  { id: 'octal', symbol: 'oct', ratio: 1 },
-  { id: 'decimal', symbol: 'dec', ratio: 1 },
-  { id: 'hexadecimal', symbol: 'hex', ratio: 1 }
+  { id: 'binary', symbol: 'bin', ratio: 1, category: 'scientific' },
+  { id: 'octal', symbol: 'oct', ratio: 1, category: 'scientific' },
+  { id: 'decimal', symbol: 'dec', ratio: 1, category: 'scientific' },
+  { id: 'hexadecimal', symbol: 'hex', ratio: 1, category: 'scientific' }
 ]
 
 // 转换函数

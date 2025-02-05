@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { defaultLocale, type ValidLocale, isValidLocale } from '@/lib/i18n/config'
 import { translations } from '@/lib/i18n/translations'
 import type { Translation } from '@/lib/i18n/types'
+import { useRouter, usePathname } from 'next/navigation'
 
 interface LanguageContextType {
   language: ValidLocale
@@ -29,7 +30,9 @@ interface LanguageProviderProps {
 }
 
 export default function LanguageProvider({ children, defaultLanguage = defaultLocale }: LanguageProviderProps) {
-  const [language, setLanguage] = useState<ValidLocale>(defaultLanguage)
+  const router = useRouter()
+  const pathname = usePathname()
+  const [language, setLanguageState] = useState<ValidLocale>(defaultLanguage)
   const [browserLanguage, setBrowserLanguage] = useState<ValidLocale | null>(null)
   const [showLanguageHint, setShowLanguageHint] = useState(false)
   const [translation, setTranslation] = useState<Translation>(() => {
@@ -41,10 +44,23 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
     return trans
   })
 
+  // 更新语言并同时更新URL
+  const setLanguage = (newLanguage: ValidLocale) => {
+    if (newLanguage === language) return
+
+    const currentPathname = pathname || ''
+    const pathWithoutLocale = currentPathname.replace(/^\/[^/]+/, '')
+    const newPath = `/${newLanguage}${pathWithoutLocale}`
+    
+    setLanguageState(newLanguage)
+    localStorage.setItem('preferred_language', newLanguage)
+    router.push(newPath)
+  }
+
   useEffect(() => {
     // 从 localStorage 获取已保存的语言设置
     const savedLanguage = localStorage.getItem('preferred_language')
-    if (savedLanguage && isValidLocale(savedLanguage)) {
+    if (savedLanguage && isValidLocale(savedLanguage) && savedLanguage !== language) {
       setLanguage(savedLanguage)
     }
 
@@ -86,21 +102,6 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
     }
   }, [language])
 
-  const handleSetLanguage = (newLanguage: ValidLocale) => {
-    const trans = translations[newLanguage]
-    if (trans) {
-      setLanguage(newLanguage)
-      setTranslation(trans)
-    } else {
-      console.error(`Translation not found for language: ${newLanguage}, falling back to default`)
-      const defaultTrans = translations[defaultLocale]
-      if (defaultTrans) {
-        setLanguage(defaultLocale)
-        setTranslation(defaultTrans)
-      }
-    }
-  }
-
   return (
     <LanguageContext.Provider value={{ language, setLanguage, browserLanguage, t: translation }}>
       {children}
@@ -122,7 +123,6 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
               onClick={() => {
                 setLanguage(browserLanguage)
                 setShowLanguageHint(false)
-                localStorage.setItem('preferred_language', browserLanguage)
               }}
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >

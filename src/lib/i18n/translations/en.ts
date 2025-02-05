@@ -2,8 +2,8 @@ import type { Translation } from '../types'
 
 const en: Translation = {
   common: {
-    title: 'metric-converter',
-    description: 'A powerful online unit conversion tool that supports various unit conversions.',
+    title: 'Metric Converter',
+    description: 'A powerful online unit conversion tool.',
     loading: 'Loading...',
     error: 'Error',
     copy: 'Copy',
@@ -16,10 +16,11 @@ const en: Translation = {
     home: 'Home',
     selectType: 'Select conversion type',
     selectLanguage: 'Select language',
-    pageNotFound: 'Page Not Found',
-    pageNotFoundDesc: 'Sorry, the page you are looking for does not exist.',
-    backToHome: 'Back to Home',
-    copyright: 'All rights reserved.',
+    pageNotFound: 'Page not found',
+    pageNotFoundDesc: 'Sorry, the page you visited does not exist.',
+    backToHome: 'Back to home',
+    copyright: 'Copyright',
+    enterValue: 'Enter value',
     categories: {
       basic: 'Basic Units',
       area_volume: 'Area & Volume',
@@ -165,12 +166,13 @@ const en: Translation = {
         imperial_cubic_yard: 'Cubic Yard',
         imperial_cubic_foot: 'Cubic Foot',
         imperial_cubic_inch: 'Cubic Inch',
-        traditional_dan: 'Dan (Chinese)',
-        traditional_dou: 'Dou (Chinese)',
-        traditional_sheng: 'Sheng (Chinese)',
-        traditional_gou: 'Gou (Japanese)',
-        traditional_shaku: 'Shaku (Japanese)',
-        traditional_sai: 'Sai (Japanese)',
+        chinese_dan: 'Dan (Chinese)',
+        chinese_dou: 'Dou (Chinese)',
+        chinese_sheng: 'Sheng (Chinese)',
+        japanese_koku: 'Koku (Japanese)',
+        japanese_to: 'To (Japanese)',
+        japanese_sho: 'Sho (Japanese)',
+        japanese_go: 'Go (Japanese)',
         industrial_oil_barrel: 'Oil Barrel',
         industrial_beer_barrel: 'Beer Barrel'
       },
@@ -479,21 +481,29 @@ const en: Translation = {
     numeral: {
       title: 'Number Base',
       description: 'Convert numbers between different number bases (binary, octal, decimal, hexadecimal)',
-      binary: {
-        title: 'Binary',
-        description: 'Base-2 number system (0-1)'
+      units: {
+        decimal: 'Decimal',
+        binary: 'Binary',
+        octal: 'Octal',
+        hexadecimal: 'Hexadecimal'
       },
-      octal: {
-        title: 'Octal',
-        description: 'Base-8 number system (0-7)'
+      knowledge: {
+        title: 'Number Base Knowledge',
+        items: [
+          'Decimal: Uses digits 0-9',
+          'Binary: Uses digits 0-1, commonly used in computer systems',
+          'Octal: Uses digits 0-7',
+          'Hexadecimal: Uses digits 0-9 and letters A-F, commonly used in programming'
+        ]
       },
-      decimal: {
-        title: 'Decimal',
-        description: 'Base-10 number system (0-9)'
-      },
-      hexadecimal: {
-        title: 'Hexadecimal',
-        description: 'Base-16 number system (0-9, A-F)'
+      conversion_tips: {
+        title: 'Conversion Tips',
+        items: [
+          'Binary prefix: 0b or 0B',
+          'Octal prefix: 0o or 0O',
+          'Hexadecimal prefix: 0x or 0X',
+          'Common uses:\n  - Binary: Computer data\n  - Octal: Unix file permissions\n  - Hexadecimal: Color codes, memory addresses'
+        ]
       }
     },
     frequency: {
@@ -514,44 +524,51 @@ const en: Translation = {
     copy: 'Copy'
   },
   messages: {
-    copied: 'Copied to clipboard',
+    copied: 'Copied!',
     error: 'An error occurred',
     invalidNumber: 'Please enter a valid number',
-    selectUnit: 'Please select both units',
-    conversionError: 'Error converting values',
-    invalidTemperature: 'Temperature cannot be below absolute zero'
+    selectUnit: 'Please select a unit',
+    conversionError: 'Conversion error',
+    invalidTemperature: 'Invalid temperature value'
   },
   converter: {
-    title: 'metric-converter',
-    description: 'Online unit conversion tool that supports precise conversion between multiple units',
+    title: 'Unit Converter',
+    description: 'Online unit conversion tool',
     from: 'From',
     to: 'To',
+    value: 'Value',
+    result: 'Result',
     instructions: {
       title: 'Instructions',
       steps: [
-        'Enter the value you want to convert in the "From" field',
-        'Select the unit of the input value from the list',
-        'The system will automatically calculate and display values in all available units',
-        'Click the copy button to copy the result to clipboard'
+        'Enter the value you want to convert',
+        'Select the unit of the input value',
+        'The system will automatically calculate and display the corresponding values',
+        'Click on any result to quickly copy the value'
       ]
     },
     limitations: {
       title: 'Limitations',
       items: [
-        'Maintains precision up to 10 significant digits',
-        'Very large or small values are displayed in scientific notation',
-        'All conversions are based on the International System of Units (SI)'
-      ]
-    },
-    knowledge: {
-      title: 'Did you know?',
-      items: [
-        'A light year is not a unit of time, but a unit of distance that light travels in one year.',
-        'The Astronomical Unit (AU) is based on the average distance from Earth to the Sun.',
-        'The meter was originally defined as one ten-millionth of the distance from the North Pole to the Equator.',
-        'Today, the meter is defined by the speed of light in a vacuum.'
+        'Supports up to 20 digits (including decimal point)',
+        'Up to 10 decimal places',
+        'Very large or small numbers will be displayed in scientific notation'
       ]
     }
+  },
+  errors: {
+    invalidInput: 'Invalid input',
+    invalidFormat: 'Invalid format',
+    conversionFailed: 'Conversion failed',
+    copyFailed: 'Copy failed'
+  },
+  footer: {
+    about: 'About',
+    description: 'A powerful online unit conversion tool.',
+    contact: 'Contact',
+    email: 'support@metric-converter.com',
+    legal: 'Legal',
+    changelog: 'Changelog'
   }
 }
 

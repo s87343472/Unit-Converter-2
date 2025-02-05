@@ -16,7 +16,7 @@ import density from './density'
 import flow from './flow'
 import torque from './torque'
 import data from './data'
-import dataRate from './data-rate'
+import data_rate from './data_rate'
 import currency from './currency'
 import cooking from './cooking'
 import numeral from './numeral'
@@ -39,7 +39,7 @@ const conversions: Record<string, ConversionCategory> = {
   flow,
   torque,
   data,
-  data_rate: dataRate,
+  data_rate: data_rate,
   currency,
   cooking,
   numeral,

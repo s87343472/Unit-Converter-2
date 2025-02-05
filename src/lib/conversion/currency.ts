@@ -3,117 +3,137 @@ import type { ConversionCategory } from './types'
 // 使用美元作为基准单位
 const currency: ConversionCategory = {
   id: 'currency',
-  baseUnit: 'usd',
+  baseUnit: 'fiat_usd',
+  description: '货币单位转换',
   units: {
-    // 主要国际货币
+    // 法定货币（带前缀）
+    fiat_usd: {
+      id: 'fiat_usd',
+      label: '美元',
+      symbol: '$',
+      ratio: 1, // 基准单位
+      category: 'fiat'
+    },
+    fiat_eur: {
+      id: 'fiat_eur',
+      label: '欧元',
+      symbol: '€',
+      ratio: 0.92, // 1 EUR = 0.92 USD
+      category: 'fiat'
+    },
+    fiat_gbp: {
+      id: 'fiat_gbp',
+      label: '英镑',
+      symbol: '£',
+      ratio: 1.27, // 1 GBP = 1.27 USD
+      category: 'fiat'
+    },
+    fiat_jpy: {
+      id: 'fiat_jpy',
+      label: '日元',
+      symbol: '¥',
+      ratio: 0.0067, // 1 JPY = 0.0067 USD
+      category: 'fiat'
+    },
+    fiat_cny: {
+      id: 'fiat_cny',
+      label: '人民币',
+      symbol: '¥',
+      ratio: 0.14, // 1 CNY = 0.14 USD
+      category: 'fiat'
+    },
+    fiat_krw: {
+      id: 'fiat_krw',
+      label: '韩元',
+      symbol: '₩',
+      ratio: 0.00076, // 1 KRW = 0.00076 USD
+      category: 'fiat'
+    },
+    fiat_inr: {
+      id: 'fiat_inr',
+      label: '印度卢比',
+      symbol: '₹',
+      ratio: 0.012, // 1 INR = 0.012 USD
+      category: 'fiat'
+    },
+
+    // 法定货币（不带前缀，用于兼容）
     usd: {
       id: 'usd',
       label: '美元',
       symbol: '$',
       ratio: 1,
+      category: 'fiat'
     },
     eur: {
       id: 'eur',
       label: '欧元',
       symbol: '€',
-      ratio: 1.09, // 1 EUR = 1.09 USD
+      ratio: 0.92,
+      category: 'fiat'
     },
     gbp: {
       id: 'gbp',
       label: '英镑',
       symbol: '£',
-      ratio: 1.27, // 1 GBP = 1.27 USD
+      ratio: 1.27,
+      category: 'fiat'
     },
     jpy: {
       id: 'jpy',
       label: '日元',
       symbol: '¥',
-      ratio: 0.0067, // 1 JPY = 0.0067 USD
+      ratio: 0.0067,
+      category: 'fiat'
     },
     cny: {
       id: 'cny',
       label: '人民币',
       symbol: '¥',
-      ratio: 0.14, // 1 CNY = 0.14 USD
-    },
-    // 其他主要货币
-    chf: {
-      id: 'chf',
-      label: '瑞士法郎',
-      symbol: 'Fr',
-      ratio: 1.16, // 1 CHF = 1.16 USD
-    },
-    aud: {
-      id: 'aud',
-      label: '澳元',
-      symbol: 'A$',
-      ratio: 0.66, // 1 AUD = 0.66 USD
-    },
-    cad: {
-      id: 'cad',
-      label: '加拿大元',
-      symbol: 'C$',
-      ratio: 0.74, // 1 CAD = 0.74 USD
-    },
-    nzd: {
-      id: 'nzd',
-      label: '新西兰元',
-      symbol: 'NZ$',
-      ratio: 0.61, // 1 NZD = 0.61 USD
-    },
-    // 亚洲货币
-    hkd: {
-      id: 'hkd',
-      label: '港元',
-      symbol: 'HK$',
-      ratio: 0.13, // 1 HKD = 0.13 USD
+      ratio: 0.14,
+      category: 'fiat'
     },
     krw: {
       id: 'krw',
       label: '韩元',
       symbol: '₩',
-      ratio: 0.00076, // 1 KRW = 0.00076 USD
+      ratio: 0.00076,
+      category: 'fiat'
     },
-    sgd: {
-      id: 'sgd',
-      label: '新加坡元',
-      symbol: 'S$',
-      ratio: 0.75, // 1 SGD = 0.75 USD
-    },
-    // 加密货币
-    btc: {
-      id: 'btc',
-      label: '比特币',
-      symbol: '₿',
-      ratio: 43000, // 1 BTC = 43000 USD
-    },
-    eth: {
-      id: 'eth',
-      label: '以太币',
-      symbol: 'Ξ',
-      ratio: 2200, // 1 ETH = 2200 USD
-    },
-    // 贵金属
-    xau: {
-      id: 'xau',
-      label: '黄金盎司',
-      symbol: 'XAU',
-      ratio: 2030, // 1 XAU = 2030 USD
-    },
-    xag: {
-      id: 'xag',
-      label: '白银盎司',
-      symbol: 'XAG',
-      ratio: 23, // 1 XAG = 23 USD
-    },
-    // 特殊货币单位
-    sdr: {
-      id: 'sdr',
-      label: '特别提款权',
-      symbol: 'SDR',
-      ratio: 1.34, // 1 SDR = 1.34 USD
-    },
+    inr: {
+      id: 'inr',
+      label: '印度卢比',
+      symbol: '₹',
+      ratio: 0.012,
+      category: 'fiat'
+    }
   },
-}
+
+  // 知识点
+  knowledge: {
+    title: '货币知识',
+    items: [
+      '汇率会随时间波动，这里的转换比率仅供参考',
+      '美元是国际主要结算货币',
+      '欧元是欧盟的统一货币',
+      '人民币是中国的法定货币',
+      '日元是日本的法定货币',
+      '英镑是英国的法定货币',
+      '韩元是韩国的法定货币',
+      '印度卢比是印度的法定货币'
+    ]
+  },
+
+  // 转换提示
+  conversion_tips: {
+    title: '货币换算提示',
+    items: [
+      '汇率每天都在变动，建议使用实时汇率进行转换',
+      '银行和货币兑换处的汇率可能与市场汇率有所不同',
+      '不同货币的最小单位不同，如：\n  - 美元：1美分（$0.01）\n  - 日元：1日元（¥1）\n  - 欧元：1欧分（€0.01）',
+      '部分国家可能对货币兑换有管制，需要注意相关规定'
+    ]
+  }
+} as const
 
 export default currency 

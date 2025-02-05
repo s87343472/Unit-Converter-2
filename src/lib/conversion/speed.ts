@@ -11,95 +11,117 @@ const speed: ConversionCategory = {
       id: 'metric_meter_per_second',
       label: '米/秒',
       symbol: 'm/s',
-      ratio: 1, // 基准单位（SI导出单位）
-      category: 'metric'
+      ratio: 1,
+      category: 'metric',
+      toBase: (value: number) => value,
+      fromBase: (value: number) => value
     },
 
-    // 常用速度单位
+    // 公制速度单位
     metric_kilometer_per_hour: {
       id: 'metric_kilometer_per_hour',
       label: '千米/时',
       symbol: 'km/h',
-      ratio: 0.277777778, // 1 km/h = 0.277777778 m/s
-      category: 'metric'
+      ratio: 1/3.6,  // 1 km/h = 1000m/3600s = 1/3.6 m/s
+      category: 'metric',
+      toBase: (value: number) => value * (1/3.6),
+      fromBase: (value: number) => value * 3.6
     },
-    imperial_mile_per_hour: {
-      id: 'imperial_mile_per_hour',
-      label: '英里/时',
-      symbol: 'mph',
-      ratio: 0.44704, // 1 mph = 0.44704 m/s
-      category: 'imperial'
-    },
-    traditional_knot: {
-      id: 'traditional_knot',
-      label: '节',
-      symbol: 'kn',
-      ratio: 0.514444444, // 1 kn = 0.514444444 m/s
-      category: 'traditional'
-    },
-    imperial_foot_per_second: {
-      id: 'imperial_foot_per_second',
-      label: '英尺/秒',
-      symbol: 'ft/s',
-      ratio: 0.3048, // 1 ft/s = 0.3048 m/s
-      category: 'imperial'
-    },
-
-    // 公制速度单位
     metric_kilometer_per_second: {
       id: 'metric_kilometer_per_second',
       label: '千米/秒',
       symbol: 'km/s',
-      ratio: 1000, // 1 km/s = 1000 m/s
-      category: 'metric'
+      ratio: 1000,  // 1 km/s = 1000 m/s
+      category: 'metric',
+      toBase: (value: number) => value * 1000,
+      fromBase: (value: number) => value / 1000
     },
-    
-    // 航空速度单位
-    scientific_mach: {
-      id: 'scientific_mach',
-      label: '马赫',
-      symbol: 'M',
-      ratio: 340.3, // 1 M = 340.3 m/s（基于海平面标准大气中的声速）
-      category: 'scientific'
-    },
-    
-    // 天文速度单位
-    scientific_light_speed: {
-      id: 'scientific_light_speed',
-      label: '光速',
-      symbol: 'c',
-      ratio: 299792458, // 1 c = 299792458 m/s（真空中的光速）
-      category: 'scientific'
-    },
-    scientific_astronomical_unit_per_year: {
-      id: 'scientific_astronomical_unit_per_year',
-      label: '天文单位/年',
-      symbol: 'AU/y',
-      ratio: 4.74057581, // 约4.74 km/s
-      category: 'scientific'
-    },
-    scientific_parsec_per_year: {
-      id: 'scientific_parsec_per_year',
-      label: '秒差距/年',
-      symbol: 'pc/y',
-      ratio: 977813.952, // 约977.8 km/s
-      category: 'scientific'
-    },
-    
-    // 运动速度单位
     metric_kilometer_per_minute: {
       id: 'metric_kilometer_per_minute',
       label: '千米/分',
       symbol: 'km/min',
-      ratio: 16.6667, // 1 km/min = 16.6667 m/s
-      category: 'metric'
+      ratio: 1000/60,  // 1 km/min = 1000m/60s
+      category: 'metric',
+      toBase: (value: number) => value * (1000/60),
+      fromBase: (value: number) => value * (60/1000)
     },
     metric_meter_per_minute: {
       id: 'metric_meter_per_minute',
       label: '米/分',
       symbol: 'm/min',
-      ratio: 1/60, // 1 m/min = 1/60 m/s
-      category: 'metric'
+      ratio: 1/60,  // 1 m/min = 1m/60s
+      category: 'metric',
+      toBase: (value: number) => value * (1/60),
+      fromBase: (value: number) => value * 60
+    },
+
+    // 英制速度单位
+    imperial_mile_per_hour: {
+      id: 'imperial_mile_per_hour',
+      label: '英里/时',
+      symbol: 'mph',
+      ratio: 0.44704,  // 1 mph = 0.44704 m/s
+      category: 'imperial',
+      toBase: (value: number) => value * 0.44704,
+      fromBase: (value: number) => value / 0.44704
+    },
+    imperial_foot_per_second: {
+      id: 'imperial_foot_per_second',
+      label: '英尺/秒',
+      symbol: 'ft/s',
+      ratio: 0.3048,  // 1 ft/s = 0.3048 m/s
+      category: 'imperial',
+      toBase: (value: number) => value * 0.3048,
+      fromBase: (value: number) => value / 0.3048
+    },
+
+    // 航海和航空单位
+    nautical_knot: {
+      id: 'nautical_knot',
+      label: '节',
+      symbol: 'kn',
+      ratio: 0.514444,  // 1 knot = 0.514444 m/s
+      category: 'nautical',
+      toBase: (value: number) => value * 0.514444,
+      fromBase: (value: number) => value / 0.514444
+    },
+    scientific_mach: {
+      id: 'scientific_mach',
+      label: '马赫',
+      symbol: 'M',
+      ratio: 340.3,  // 1 Mach ≈ 340.3 m/s (at sea level, 15°C)
+      category: 'scientific',
+      toBase: (value: number) => value * 340.3,
+      fromBase: (value: number) => value / 340.3
+    },
+
+    // 天文单位
+    scientific_light_speed: {
+      id: 'scientific_light_speed',
+      label: '光速',
+      symbol: 'c',
+      ratio: 299792458,  // Speed of light in m/s
+      category: 'scientific',
+      toBase: (value: number) => value * 299792458,
+      fromBase: (value: number) => value / 299792458
+    },
+    scientific_astronomical_unit_per_year: {
+      id: 'scientific_astronomical_unit_per_year',
+      label: '天文单位/年',
+      symbol: 'AU/y',
+      ratio: 4.74057581,  // 约4.74 km/s
+      category: 'scientific',
+      toBase: (value: number) => value * 4.74057581,
+      fromBase: (value: number) => value / 4.74057581
+    },
+    scientific_parsec_per_year: {
+      id: 'scientific_parsec_per_year',
+      label: '秒差距/年',
+      symbol: 'pc/y',
+      ratio: 977813.952,  // 约977.8 km/s
+      category: 'scientific',
+      toBase: (value: number) => value * 977813.952,
+      fromBase: (value: number) => value / 977813.952
     }
   },
 

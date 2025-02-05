@@ -44,9 +44,11 @@ export function middleware(request: NextRequest) {
   // 获取当前路径中的语言代码
   const language = getLanguage(request)
   
-  // 如果路径中没有语言代码，直接返回
+  // 如果路径中没有语言代码，重定向到浏览器首选语言
   if (!language) {
-    return NextResponse.next()
+    const browserLanguage = getBrowserLanguage(request)
+    const redirectUrl = new URL(`/${browserLanguage}${pathname}`, request.url)
+    return NextResponse.redirect(redirectUrl)
   }
 
   // 正常请求，添加语言相关的响应头
@@ -57,8 +59,8 @@ export function middleware(request: NextRequest) {
   
   // 添加 Link 头，用于 hreflang
   const alternateLinks = []
-  // 添加默认语言（英文）版本
-  alternateLinks.push(`<${request.nextUrl.origin}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="en"`)
+  // 添加默认语言版本
+  alternateLinks.push(`<${request.nextUrl.origin}/${defaultLocale}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="${defaultLocale}"`)
   // 添加其他语言版本
   for (const locale of locales) {
     if (locale !== defaultLocale) {

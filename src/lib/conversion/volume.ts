@@ -179,49 +179,70 @@ const volume: ConversionCategory = {
     },
 
     // 中国传统容量单位
-    traditional_dan: {
-      id: 'traditional_dan',
+    chinese_dan: {
+      id: 'chinese_dan',
       label: '石',
       symbol: '石',
-      ratio: 0.1,
-      category: 'traditional'
+      ratio: 0.1,  // 1石 = 100升 = 0.1立方米
+      category: 'chinese',
+      toBase: (value: number) => value * 0.1,
+      fromBase: (value: number) => value / 0.1
     },
-    traditional_dou: {
-      id: 'traditional_dou',
+    chinese_dou: {
+      id: 'chinese_dou',
       label: '斗',
       symbol: '斗',
-      ratio: 0.01,
-      category: 'traditional'
+      ratio: 0.01,  // 1斗 = 10升 = 0.01立方米
+      category: 'chinese',
+      toBase: (value: number) => value * 0.01,
+      fromBase: (value: number) => value / 0.01
     },
-    traditional_sheng: {
-      id: 'traditional_sheng',
+    chinese_sheng: {
+      id: 'chinese_sheng',
       label: '升',
       symbol: '升',
-      ratio: 0.001,
-      category: 'traditional'
+      ratio: 0.001,  // 1升 = 1升 = 0.001立方米
+      category: 'chinese',
+      toBase: (value: number) => value * 0.001,
+      fromBase: (value: number) => value / 0.001
     },
 
     // 日本传统容量单位
-    traditional_gou: {
-      id: 'traditional_gou',
+    japanese_koku: {
+      id: 'japanese_koku',
+      label: '石',
+      symbol: '石',
+      ratio: 0.18039,  // 1石 ≈ 180.39升 = 0.18039立方米
+      category: 'japanese',
+      toBase: (value: number) => value * 0.18039,
+      fromBase: (value: number) => value / 0.18039
+    },
+    japanese_to: {
+      id: 'japanese_to',
+      label: '斗',
+      symbol: '斗',
+      ratio: 0.018039,  // 1斗 ≈ 18.039升 = 0.018039立方米
+      category: 'japanese',
+      toBase: (value: number) => value * 0.018039,
+      fromBase: (value: number) => value / 0.018039
+    },
+    japanese_sho: {
+      id: 'japanese_sho',
+      label: '升',
+      symbol: '升',
+      ratio: 0.0018039,  // 1升 ≈ 1.8039升 = 0.0018039立方米
+      category: 'japanese',
+      toBase: (value: number) => value * 0.0018039,
+      fromBase: (value: number) => value / 0.0018039
+    },
+    japanese_go: {
+      id: 'japanese_go',
       label: '合',
       symbol: '合',
-      ratio: 0.0001804,
-      category: 'traditional'
-    },
-    traditional_shaku: {
-      id: 'traditional_shaku',
-      label: '勺',
-      symbol: '勺',
-      ratio: 0.00001804,
-      category: 'traditional'
-    },
-    traditional_sai: {
-      id: 'traditional_sai',
-      label: '才',
-      symbol: '才',
-      ratio: 0.000001804,
-      category: 'traditional'
+      ratio: 0.00018039,  // 1合 ≈ 0.18039升 = 0.00018039立方米
+      category: 'japanese',
+      toBase: (value: number) => value * 0.00018039,
+      fromBase: (value: number) => value / 0.00018039
     },
 
     // 工业容量单位
@@ -239,7 +260,30 @@ const volume: ConversionCategory = {
       ratio: 0.117347765,
       category: 'industrial'
     }
+  },
+
+  // 知识点
+  knowledge: {
+    title: '体积知识',
+    items: [
+      '1升等于1立方分米，即1000立方厘米',
+      '英制加仑和美制加仑的容量不同：1英制加仑≈4.546升，1美制加仑≈3.785升',
+      '中国传统容量单位：1石=10斗=100升',
+      '日本传统容量单位：1石≈180.39升，1斗≈18.039升，1升≈1.8039升，1合≈0.18039升',
+      '石油桶是石油工业的标准单位，1桶≈159升'
+    ]
+  },
+
+  // 转换提示
+  conversion_tips: {
+    title: '体积换算提示',
+    items: [
+      '日常生活体积参考：\n  - 茶杯：约200-250毫升\n  - 易拉罐：330-355毫升\n  - 矿泉水瓶：500毫升或1.5升',
+      '工业容量参考：\n  - 油桶：159升\n  - 啤酒桶：117升\n  - 集装箱：20-40立方米',
+      '传统单位参考：\n  - 中国斗：10升\n  - 日本合：0.1804升',
+      '注意区分：\n  - 英制和美制单位虽然名称相同但容量不同\n  - 公制单位之间转换最方便'
+    ]
   }
-}
+} as const
 
 export default volume 

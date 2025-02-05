@@ -110,15 +110,15 @@ const density: ConversionCategory = {
       ratio: 27679.904710191, // 1 lb/in³ = 27679.904710191 kg/m³
       category: 'imperial'
     },
-    imperial_pound_per_gallon_us: {
-      id: 'imperial_pound_per_gallon_us',
+    us_pound_per_gallon: {
+      id: 'us_pound_per_gallon',
       label: '磅每美制加仑',
       symbol: 'lb/gal US',
       ratio: 119.826427, // 1 lb/gal US = 119.826427 kg/m³
-      category: 'imperial'
+      category: 'us'
     },
-    imperial_pound_per_gallon_uk: {
-      id: 'imperial_pound_per_gallon_uk',
+    imperial_pound_per_gallon: {
+      id: 'imperial_pound_per_gallon',
       label: '磅每英制加仑',
       symbol: 'lb/gal UK',
       ratio: 99.776372663, // 1 lb/gal UK = 99.776372663 kg/m³
@@ -131,29 +131,29 @@ const density: ConversionCategory = {
       ratio: 1.001153961, // 1 oz/ft³ = 1.001153961 kg/m³
       category: 'imperial'
     },
-    imperial_ounce_per_gallon_us: {
-      id: 'imperial_ounce_per_gallon_us',
+    us_ounce_per_gallon: {
+      id: 'us_ounce_per_gallon',
       label: '盎司每美制加仑',
       symbol: 'oz/gal US',
       ratio: 7.489151688, // 1 oz/gal US = 7.489151688 kg/m³
-      category: 'imperial'
+      category: 'us'
     },
-    imperial_ounce_per_gallon_uk: {
-      id: 'imperial_ounce_per_gallon_uk',
+    imperial_ounce_per_gallon: {
+      id: 'imperial_ounce_per_gallon',
       label: '盎司每英制加仑',
       symbol: 'oz/gal UK',
       ratio: 6.236023291, // 1 oz/gal UK = 6.236023291 kg/m³
       category: 'imperial'
     },
-    imperial_grain_per_gallon_us: {
-      id: 'imperial_grain_per_gallon_us',
+    us_grain_per_gallon: {
+      id: 'us_grain_per_gallon',
       label: '格令每美制加仑',
       symbol: 'gr/gal US',
       ratio: 0.017118, // 1 gr/gal US = 0.017118 kg/m³
-      category: 'imperial'
+      category: 'us'
     },
-    imperial_grain_per_gallon_uk: {
-      id: 'imperial_grain_per_gallon_uk',
+    imperial_grain_per_gallon: {
+      id: 'imperial_grain_per_gallon',
       label: '格令每英制加仑',
       symbol: 'gr/gal UK',
       ratio: 0.014251, // 1 gr/gal UK = 0.014251 kg/m³
@@ -185,7 +185,7 @@ const density: ConversionCategory = {
 
   // 转换提示
   conversion_tips: {
-    title: '转换参考',
+    title: '密度换算提示',
     items: [
       '常见液体密度：\n  - 水：1000 kg/m³\n  - 汽油：700-750 kg/m³\n  - 柴油：820-860 kg/m³\n  - 水银：13600 kg/m³',
       '常见气体密度(0°C)：\n  - 空气：1.293 kg/m³\n  - 氧气：1.429 kg/m³\n  - 氮气：1.251 kg/m³\n  - 氢气：0.090 kg/m³',
