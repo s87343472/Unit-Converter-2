@@ -70,15 +70,15 @@ export default function Header() {
     <header className="w-full border-b border-gray-200 bg-white">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center mb-4">
-          <Link 
-            href={`/${language}`} 
+          <Link
+            href={`/${language}`}
             className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            {t.common.title}
+            <h1>{t.common.title}</h1>
           </Link>
           <LanguageSwitcher />
         </div>
-        
+
         <div className="relative">
           {/* 左滚动按钮 */}
           {showLeftScroll && (
@@ -94,12 +94,12 @@ export default function Header() {
               <div className="w-8 h-full scroll-fade-left" />
             </div>
           )}
-          
+
           {/* 导航栏 */}
           <div className="nav-scroll-container">
-            <nav 
+            <nav
               ref={navRef}
-              className="flex -mb-px overflow-x-auto hide-scrollbar relative" 
+              className="flex -mb-px overflow-x-auto hide-scrollbar relative"
               aria-label="Unit types"
             >
               {conversionTypes.map(({ id, icon: Icon }) => (
@@ -107,11 +107,10 @@ export default function Header() {
                   key={id}
                   href={`/${language}/${id}`}
                   data-type={id}
-                  className={`whitespace-nowrap px-4 py-2 border-b-2 text-sm font-medium flex items-center ${
-                    pathname.split('/')[2] === id
+                  className={`whitespace-nowrap px-4 py-2 border-b-2 text-sm font-medium flex items-center ${pathname.split('/')[2] === id
                       ? 'border-gray-900 text-gray-900'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-4 h-4 mr-2" />
                   {t.units[id]?.title || id}
@@ -119,7 +118,7 @@ export default function Header() {
               ))}
             </nav>
           </div>
-          
+
           {/* 右滚动按钮 */}
           {showRightScroll && (
             <div className="absolute right-0 top-0 bottom-0 flex items-center">

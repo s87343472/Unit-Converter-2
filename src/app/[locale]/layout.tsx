@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   const headersList = headers()
   const pathname = headersList.get('x-pathname') || ''
   const path = pathname.replace(`/${locale}`, '') || '/'
-  const baseUrl = 'https://metric-converter.com'
+  const baseUrl = 'https://www.metric-converter.com'
 
   // 生成所有语言版本的URL
   const languages = i18n.locales.reduce((acc, loc) => {
