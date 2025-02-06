@@ -3,7 +3,7 @@ import { locales } from '@/lib/i18n/config'
 import { conversionTypes } from '@/lib/conversion-types'
 
 const baseUrl = 'https://www.metric-converter.com'
-const lastMod = '2024-01-24'
+const lastMod = '2024-02-06'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = []
