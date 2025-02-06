@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     const seo = seoConfig[params.locale] || seoConfig['en']
 
     return {
-        title: seo.title,
-        description: seo.description,
+        // title: seo.title,
+        // description: seo.description,
         alternates: {
             canonical: canonicalUrl,
         },
