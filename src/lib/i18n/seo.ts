@@ -16,9 +16,9 @@ type SEOConfig = {
 
 export const seoConfig: Record<ValidLocale, SEOConfig> = {
   'en': {
-    title: 'metric-converter - Professional Online Unit Conversion Tool',
-    description: 'Free online metric converter with 20+ measurement types. Convert between metric, imperial and other units instantly. Supports length, area, volume, weight, temperature, pressure and more.',
-    keywords: 'metric converter, unit converter, measurement converter, metric to imperial converter, imperial to metric converter, length converter, weight converter, temperature converter',
+    title: 'Unit Converter - Online Metric & Imperial Conversion - Metric-Converter.com',
+    description: 'Free online unit converter with 20+ types. Instantly convert metric, imperial & other units for length, weight, temperature, area, volume & more. Fast & accurate!',
+    keywords: 'unit converter, metric converter, imperial converter, online unit converter, length converter, weight converter, temperature converter',
     canonical: 'https://www.metric-converter.com',
     ogTitle: 'metric-converter - Professional Metric Conversion Tool',
     ogDescription: 'Convert between metric, imperial and other measurement units instantly. Support for length, area, volume, weight, temperature, pressure and more.',
@@ -29,9 +29,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card.png'
   },
   'zh-CN': {
-    title: 'metric-converter - 专业在线度量衡换算工具',
-    description: '免费在线公制单位转换器，支持20多种计量单位，包括长度、面积、体积、重量、温度、压力等。提供公制与英制单位互换，支持科学计数法。',
-    keywords: 'metric converter,公制转换器,单位换算,度量衡换算,公制单位,英制单位,长度换算,重量换算,温度换算',
+    title: '单位换算器 - 在线免费单位转换工具 - Metric-Converter.com',
+    description: '免费在线单位换算器，支持20+种单位类型，瞬间完成长度、重量、温度、面积、体积等单位转换。快速、准确、易用！',
+    keywords: '单位换算器, 单位转换, 在线单位换算, 公制单位转换, 英制单位转换, 长度单位换算, 重量单位换算',
     canonical: 'https://www.metric-converter.com/zh-CN',
     ogTitle: 'metric-converter - 专业公制单位换算工具',
     ogDescription: '在线公制单位转换工具，支持公制、英制等多种单位系统，提供20多种计量单位的即时转换。',
@@ -42,9 +42,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card-zh.png'
   },
   'fr': {
-    title: 'metric-converter - Outil professionnel de conversion d\'unités en ligne',
-    description: 'Convertisseur d\'unités métriques en ligne gratuit avec plus de 20 types de mesures. Convertissez instantanément entre le système métrique, impérial et d\'autres unités.',
-    keywords: 'convertisseur métrique, convertisseur d\'unités, conversion de mesures, métrique à impérial, longueur, poids, température',
+    title: 'Convertisseur d\'Unités - En Ligne Gratuit - Metric-Converter.com',
+    description: 'Convertisseur d\'unités en ligne gratuit avec plus de 20 types. Conversion instantanée métrique, impériale et autres pour longueur, poids, température, surface, volume, etc. Rapide et précis !',
+    keywords: 'convertisseur d\'unités, convertisseur métrique, convertisseur impérial, convertisseur en ligne, conversion unités, longueur, poids, température',
     canonical: 'https://www.metric-converter.com/fr',
     ogTitle: 'metric-converter - Outil de conversion métrique professionnel',
     ogDescription: 'Convertissez instantanément entre les unités métriques, impériales et autres. Prise en charge de la longueur, de la superficie, du volume, du poids, de la température et de la pression.',
@@ -55,9 +55,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card-fr.png'
   },
   'de': {
-    title: 'metric-converter - Professionelles Online-Einheiten-Umrechnungstool',
-    description: 'Kostenloser Online-Einheitenumrechner mit über 20 Messarten. Sofortige Umrechnung zwischen metrischen, imperialen und anderen Einheiten.',
-    keywords: 'metrischer Umrechner, Einheitenumrechner, Maßumrechner, metrisch zu imperial, Länge, Gewicht, Temperatur',
+    title: 'Einheitenumrechner - Online & Kostenlos - Metric-Converter.com',
+    description: 'Kostenloser Online-Einheitenumrechner mit über 20 Einheitentypen. Sofortige Umrechnung von metrischen, imperialen und anderen Einheiten für Länge, Gewicht, Temperatur, Fläche, Volumen uvm. Schnell & präzise!',
+    keywords: 'Einheitenumrechner, metrischer Umrechner, imperialer Umrechner, Online Umrechner, Einheiten Umrechnung, Längenrechner, Gewichtsrechner, Temperaturrechner',
     canonical: 'https://www.metric-converter.com/de',
     ogTitle: 'metric-converter - Professionelles metrisches Umrechnungstool',
     ogDescription: 'Sofortige Umrechnung zwischen metrischen, imperialen und anderen Einheiten. Unterstützt Länge, Fläche, Volumen, Gewicht, Temperatur und Druck.',
@@ -68,9 +68,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card-de.png'
   },
   'es': {
-    title: 'metric-converter - Herramienta profesional de conversión de unidades en línea',
-    description: 'Conversor de unidades en línea gratuito con más de 20 tipos de medidas. Convierte instantáneamente entre el sistema métrico, imperial y otras unidades.',
-    keywords: 'conversor métrico, conversor de unidades, conversión de medidas, métrico a imperial, longitud, peso, temperatura',
+    title: 'Convertidor de Unidades - Online y Gratis - Metric-Converter.com',
+    description: 'Convertidor de unidades online gratuito con más de 20 tipos. Convierte instantáneamente unidades métricas, imperiales y otras para longitud, peso, temperatura, área, volumen y más. ¡Rápido y preciso!',
+    keywords: 'convertidor de unidades, convertidor métrico, convertidor imperial, convertidor online, conversión de unidades, longitud, peso, temperatura',
     canonical: 'https://www.metric-converter.com/es',
     ogTitle: 'metric-converter - Herramienta profesional de conversión métrica',
     ogDescription: 'Convierte instantáneamente entre unidades métricas, imperiales y otras. Soporte para longitud, área, volumen, peso, temperatura y presión.',
@@ -81,9 +81,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card-es.png'
   },
   'ru': {
-    title: 'metric-converter - Профессиональный онлайн-конвертер единиц измерения',
-    description: 'Бесплатный онлайн-конвертер единиц измерения с более чем 20 типами измерений. Мгновенный перевод между метрической, имперской и другими системами.',
-    keywords: 'метрический конвертер, конвертер единиц, конвертер измерений, длина, вес, температура',
+    title: 'Конвертер Величин - Онлайн и Бесплатно - Metric-Converter.com',
+    description: 'Бесплатный онлайн конвертер величин с более чем 20 типами. Мгновенное преобразование метрических, имперских и других единиц измерения: длина, вес, температура, площадь, объем и многое другое. Быстро и точно!',
+    keywords: 'конвертер величин, метрический конвертер, онлайн конвертер, преобразование единиц, конвертер длины, конвертер веса, конвертер температуры',
     canonical: 'https://www.metric-converter.com/ru',
     ogTitle: 'metric-converter - Профессиональный метрический конвертер',
     ogDescription: 'Мгновенная конверсия между метрическими, имперскими и другими единицами измерения.',
@@ -94,9 +94,9 @@ export const seoConfig: Record<ValidLocale, SEOConfig> = {
     twitterImage: 'https://www.metric-converter.com/twitter-card-ru.png'
   },
   'ja': {
-    title: 'metric-converter - プロフェッショナルなオンライン単位変換ツール',
-    description: '無料のオンライン単位変換ツールで、20種類以上の測定タイプに対応。メートル法、ヤード・ポンド法などの単位を即座に変換。',
-    keywords: 'メートル法変換,単位変換,測定変換,長さ変換,重量変換,温度変換',
+    title: '単位換算 - オンライン無料換算ツール - Metric-Converter.com',
+    description: '20種類以上の単位に対応した無料オンライン単位換算ツール。長さ、重さ、温度、面積、体積など、メートル法、ヤード・ポンド法などを瞬時に換算。 быстро & 正確！',
+    keywords: '単位換算, 単位変換, オンライン単位換算, メートル法換算, ヤードポンド法換算, 長さ 換算, 重さ 換算, 温度 換算',
     canonical: 'https://www.metric-converter.com/ja',
     ogTitle: 'metric-converter - プロフェッショナルな単位変換ツール',
     ogDescription: 'メートル法、ヤード・ポンド法などの単位を即座に変換可能。長さ、面積、体積、重量、温度、圧力に対応。',
