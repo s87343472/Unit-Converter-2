@@ -4,7 +4,8 @@ import { useState, useEffect, useMemo } from 'react'
 import { useLanguage } from '@/components/shared/LanguageProvider'
 import type { ConversionType, ConversionResult, NumeralConversionResult } from '@/lib/conversion/types'
 import { convert, getUnits } from '@/lib/conversion/converter'
-
+import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 // 单位 ID 映射表
 const UNIT_ID_MAP: Record<string, Record<string, string>> = {
   length: {
@@ -248,7 +249,18 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
     return t?.units?.[type]?.units || {}
   }, [type, t])
 
+
+
+  const searchParams = useSearchParams()
+  const paramValue = searchParams.get('from') // 获取 ?key=value 中的 value
+  const paramValue2 = searchParams.get('to') // 获取 ?key=value 中的 value
+
+
+
+
+
   // 初始化默认单位
+
   useEffect(() => {
     const availableUnits = Object.keys(units)
     if (availableUnits.length > 0) {
@@ -261,17 +273,26 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
     }
   }, [units]) // 只依赖 units 的变化
 
+  useEffect(() => {
+    if (paramValue) {
+      setFromUnit(paramValue) // 只有当 paramValue 变化时才更新
+    }
+    if (paramValue2) {
+      setToUnit(paramValue2) // 只有当 paramValue 变化时才更新
+    }
+  }, [paramValue, paramValue2])
+
   // 获取实际的单位 ID
   const getActualUnitId = (unitId: string): string => {
     if (type === 'numeral') return unitId
-    
+
     // 标准化单位ID
     let normalizedUnitId = unitId
       .replace('bits_', 'bit_')
       .replace('bytes_', 'byte_')
       .replace('bps_', 'bit_per_second_')
       .replace('Bps_', 'byte_per_second_')
-    
+
     // 处理常见的速率单位缩写
     if (type === 'data_rate') {
       normalizedUnitId = normalizedUnitId
@@ -284,25 +305,25 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
         .replace('tbps', 'terabit_per_second')
         .replace('tBps', 'terabyte_per_second')
     }
-    
+
     const mappedId = UNIT_ID_MAP[type]?.[normalizedUnitId]
     if (!mappedId) {
       return normalizedUnitId
     }
-    
+
     return mappedId
   }
 
   // 格式化数值显示
   const formatNumber = (num: number): string => {
     if (Math.abs(num) === 0) return '0'
-    
+
     if (Math.abs(num) < 0.0000001 || Math.abs(num) >= 1e7) {
       return num.toExponential(15)
         .replace(/\.?0+e/, 'e')
         .replace(/e\+?/, 'e')
     }
-    
+
     const fixed = num.toFixed(15)
     return fixed.replace(/\.?0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1')
   }
@@ -324,7 +345,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
 
       const actualFromUnit = getActualUnitId(fromUnit)
       const actualToUnit = getActualUnitId(toUnitId)
-      
+
       if (type === 'numeral') {
         const result = convert(type, numValue, actualFromUnit, actualToUnit) as NumeralConversionResult
         return result.value.toString()
@@ -349,10 +370,10 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
 
     if (type === 'numeral') {
       const base = fromUnit === 'decimal' ? /^[0-9]*$/ :
-                  fromUnit === 'binary' ? /^(0b)?[01]*$/i :
-                  fromUnit === 'octal' ? /^(0o)?[0-7]*$/i :
-                  /^(0x)?[0-9A-Fa-f]*$/i
-      
+        fromUnit === 'binary' ? /^(0b)?[01]*$/i :
+          fromUnit === 'octal' ? /^(0o)?[0-7]*$/i :
+            /^(0x)?[0-9A-Fa-f]*$/i
+
       if (base.test(newValue)) {
         setValue(newValue)
       } else {
@@ -406,7 +427,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
             value={value}
             onChange={handleInput}
             className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder={type === 'numeral' ? 
+            placeholder={type === 'numeral' ?
               (t?.common?.enterValue?.replace('{unit}', units[fromUnit]) || `Enter ${units[fromUnit]} value`) :
               (t?.common?.enterValue || 'Enter value')}
           />
@@ -415,8 +436,8 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
               <button
                 key={unitId}
                 className={`w-full flex items-center h-10 px-4 text-sm transition-colors
-                  ${fromUnit === unitId 
-                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                  ${fromUnit === unitId
+                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
                     : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                 onClick={() => setFromUnit(unitId)}
               >
@@ -437,8 +458,8 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
               <button
                 key={unitId}
                 className={`w-full flex items-center h-10 px-4 text-sm transition-colors
-                  ${toUnit === unitId 
-                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500' 
+                  ${toUnit === unitId
+                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
                     : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                 onClick={() => setToUnit(unitId)}
               >
@@ -450,6 +471,24 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 p-6 mt-8 bg-white rounded-lg shadow-sm border border-gray-200">
+        {units &&
+          Object.entries(units).flatMap(([fromKey, fromValue]) =>
+            Object.entries(units)
+              .filter(([toKey, toValue]) => fromValue !== toValue) // 过滤掉相同的值
+              .map(([toKey, toValue]) => (
+                <Link
+                  key={`${fromKey}-${toKey}`}
+                  href={`/${language}/${type}?from=${fromKey}&to=${toKey}`}
+                  className="block text-blue-600 hover:text-blue-800 hover:underline"
+                >
+                  {fromValue} -- {toValue}
+                </Link>
+              ))
+          )
+        }
       </div>
 
       {/* 使用指南和知识区域 */}
@@ -505,7 +544,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
         <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2 rounded-full shadow-lg">
           <div className="flex items-center">
             <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             {t?.messages?.copied || 'Copied!'}
           </div>
