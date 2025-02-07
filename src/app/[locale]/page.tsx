@@ -49,10 +49,11 @@ export default function HomePage() {
             </div>
             <div className="mt-4 space-y-2">
               {t.units[type.id]?.units &&
-                Object.entries(t.units[type.id].units).flatMap(([fromKey, fromValue]) =>
-                  Object.entries(t.units[type.id].units)
+                Object.entries(t.units[type.id].units || {}).flatMap(([fromKey, fromValue]) =>
+                  Object.entries(t.units[type.id].units || {})
                     .filter(([toKey, toValue]) => fromValue !== toValue) // 过滤掉相同的值
                     .map(([toKey, toValue]) => (
+
                       <Link
                         key={`${fromKey}-${toKey}`}
                         href={`/${language}/${type.id}?from=${fromKey}&to=${toKey}`}
