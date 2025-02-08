@@ -2,7 +2,7 @@ import type { Translation } from '../types'
 
 const zhCN: Translation = {
   common: {
-    title: '单位转换器',
+    title: '单位转换',
     description: '一个功能强大的在线单位转换工具，支持各种单位转换。',
     loading: '加载中...',
     error: '错误',
@@ -126,6 +126,13 @@ const zhCN: Translation = {
         square_mile: '平方英里',
         hectare: '公顷',
         acre: '英亩'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1平方米等于10.7639平方英尺。',
+          '1公顷等于10,000平方米。'
+        ]
       }
     },
     volume: {
@@ -148,6 +155,13 @@ const zhCN: Translation = {
         fluid_ounce: '液量盎司',
         tablespoon: '汤匙',
         teaspoon: '茶匙'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1升等于1000毫升。',
+          '1加仑等于3.78541升。'
+        ]
       }
     },
     weight: {
@@ -162,6 +176,13 @@ const zhCN: Translation = {
         ounce: '盎司',
         carat: '克拉',
         atomic_mass_unit: '原子质量单位'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1千克等于1000克。',
+          '1磅等于0.453592千克。'
+        ]
       }
     },
     temperature: {
@@ -171,6 +192,13 @@ const zhCN: Translation = {
         celsius: '摄氏度',
         fahrenheit: '华氏度',
         kelvin: '开尔文'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '0摄氏度等于32华氏度。',
+          '绝对零度为-273.15摄氏度。'
+        ]
       }
     },
     time: {
@@ -186,6 +214,13 @@ const zhCN: Translation = {
         year: '年',
         decade: '十年',
         century: '世纪'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1分钟等于60秒。',
+          '1年大约等于365.25天。'
+        ]
       }
     },
     speed: {
@@ -197,6 +232,13 @@ const zhCN: Translation = {
         mile_per_hour: '英里/小时',
         knot: '节',
         foot_per_second: '英尺/秒'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1米/秒等于3.6千米/小时。',
+          '1节等于1.852千米/小时。'
+        ]
       }
     },
     pressure: {
@@ -210,6 +252,13 @@ const zhCN: Translation = {
         atmosphere: '标准大气压',
         torr: '托',
         pound_per_square_inch: '磅/平方英寸'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1大气压等于101325帕斯卡。',
+          '1托等于133.322帕斯卡。'
+        ]
       }
     },
     energy: {
@@ -225,6 +274,13 @@ const zhCN: Translation = {
         electron_volt: '电子伏特',
         british_thermal_unit: '英热单位',
         us_therm: '美制热量单位'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1千焦等于1000焦耳。',
+          '1卡路里等于4.184焦耳。'
+        ]
       }
     },
     power: {
@@ -235,6 +291,13 @@ const zhCN: Translation = {
         kilowatt: '千瓦',
         megawatt: '兆瓦',
         horsepower: '马力'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1千瓦等于1000瓦特。',
+          '1马力等于745.7瓦特。'
+        ]
       }
     },
     data: {
@@ -248,6 +311,13 @@ const zhCN: Translation = {
         gigabyte: '吉字节',
         terabyte: '太字节',
         petabyte: '拍字节'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1字节等于8比特。',
+          '1千字节等于1024字节。'
+        ]
       }
     },
     data_rate: {
@@ -260,6 +330,13 @@ const zhCN: Translation = {
         megabit_per_second: '兆比特/秒',
         gigabit_per_second: '吉比特/秒',
         terabit_per_second: '太比特/秒'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1字节/秒等于8比特/秒。',
+          '1兆比特/秒等于1,000,000比特/秒。'
+        ]
       }
     },
     angle: {
@@ -271,6 +348,13 @@ const zhCN: Translation = {
         gradian: '百分度',
         arcminute: '角分',
         arcsecond: '角秒'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '360度等于2π弧度。',
+          '1度等于60角分。'
+        ]
       }
     },
     force: {
@@ -282,6 +366,13 @@ const zhCN: Translation = {
         dyne: '达因',
         pound_force: '磅力',
         kilogram_force: '千克力'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1牛顿是使1千克质量产生1米/秒²加速度的力。',
+          '1磅力等于4.44822牛顿。'
+        ]
       }
     },
     density: {
@@ -291,6 +382,13 @@ const zhCN: Translation = {
         kilogram_per_cubic_meter: '千克/立方米',
         gram_per_cubic_centimeter: '克/立方厘米',
         pound_per_cubic_foot: '磅/立方英尺'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '水的密度约为1千克/立方米。',
+          '1克/立方厘米等于1000千克/立方米。'
+        ]
       }
     },
     flow: {
@@ -301,6 +399,13 @@ const zhCN: Translation = {
         liter_per_second: '升/秒',
         cubic_foot_per_second: '立方英尺/秒',
         gallon_per_minute: '加仑/分钟'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1立方米/秒等于1000升/秒。',
+          '1加仑/分钟约等于0.06309升/秒。'
+        ]
       }
     },
     torque: {
@@ -310,6 +415,13 @@ const zhCN: Translation = {
         newton_meter: '牛顿米',
         pound_foot: '磅英尺',
         kilogram_meter: '千克米'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1牛顿米等于0.737562磅英尺。',
+          '1千克米等于9.80665牛顿米。'
+        ]
       }
     },
     frequency: {
@@ -323,6 +435,13 @@ const zhCN: Translation = {
         cycles_per_second: '周/秒',
         rpm: '转/分钟',
         bpm: '拍/分钟'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1赫兹等于1周/秒。',
+          '1转/分钟等于0.01667赫兹。'
+        ]
       }
     },
     currency: {
@@ -336,6 +455,13 @@ const zhCN: Translation = {
         cny: '人民币',
         krw: '韩元',
         inr: '印度卢比'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '美元是世界上最常用的储备货币。',
+          '欧元是19个欧盟国家的官方货币。'
+        ]
       }
     },
     cooking: {
@@ -348,6 +474,13 @@ const zhCN: Translation = {
         metric_cup: '公制杯',
         metric_tablespoon: '公制汤匙',
         metric_teaspoon: '公制茶匙'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '1美制杯等于240毫升。',
+          '1公制茶匙等于5毫升。'
+        ]
       }
     },
     numeral: {
@@ -368,6 +501,13 @@ const zhCN: Translation = {
       hexadecimal: {
         title: '十六进制',
         description: '基于16的数字系统 (0-9, A-F)'
+      },
+      knowledge: {
+        title: '你知道吗？',
+        items: [
+          '二进制是计算机内部使用的基本数字系统。',
+          '十六进制常用于编程中表示颜色和内存地址。'
+        ]
       }
     }
   },

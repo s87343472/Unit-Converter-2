@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function Footer() {
   const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
-  
+
   return (
     <footer className="w-full border-t border-gray-200 bg-white mt-auto">
       <div className="container mx-auto px-4 py-8">
@@ -25,12 +25,12 @@ export default function Footer() {
               <p className="text-sm text-gray-600">
                 © {currentYear} Metric Converter. All rights reserved.
               </p>
-              <Link 
+              {/* <Link 
                 href="/changelog" 
                 className="text-sm text-indigo-600 hover:text-indigo-700"
               >
                 {t?.footer?.changelog || 'Changelog'}
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

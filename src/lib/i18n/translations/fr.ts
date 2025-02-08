@@ -157,6 +157,14 @@ const fr: Translation = {
         imperial_fluid_ounce: 'Once liquide',
         imperial_cubic_inch: 'Pouce cube',
         imperial_cubic_foot: 'Pied cube'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un litre est égal à un décimètre cube.',
+          'Le gallon impérial est utilisé principalement au Royaume-Uni.',
+          'Un mètre cube contient 1 000 litres.'
+        ]
       }
     },
     weight: {
@@ -168,6 +176,14 @@ const fr: Translation = {
         metric_milligram: 'Milligramme',
         imperial_pound: 'Livre',
         imperial_ounce: 'Once'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un kilogramme est l\'unité de base de masse dans le Système international.',
+          'Une livre équivaut à environ 0,453592 kilogrammes.',
+          'Le gramme a été défini comme étant un millième de kilogramme.'
+        ]
       }
     },
     time: {
@@ -181,6 +197,14 @@ const fr: Translation = {
         week: 'Semaine',
         month: 'Mois',
         year: 'Année'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Une minute est composée de 60 secondes.',
+          'Le mois n\'a pas un nombre constant de jours.',
+          'Une année bissextile compte 366 jours.'
+        ]
       }
     },
     temperature: {
@@ -190,6 +214,14 @@ const fr: Translation = {
         celsius: 'Celsius',
         fahrenheit: 'Fahrenheit',
         kelvin: 'Kelvin'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Le zéro absolu correspond à -273,15°C.',
+          'L\'échelle Fahrenheit est principalement utilisée aux États-Unis.',
+          'La température Kelvin est utilisée dans les sciences pour éviter les valeurs négatives.'
+        ]
       }
     },
     speed: {
@@ -200,6 +232,14 @@ const fr: Translation = {
         kilometer_per_hour: 'Kilomètre par heure',
         mile_per_hour: 'Mile par heure',
         knot: 'Nœud'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un nœud équivaut à une vitesse de 1 mille marin par heure.',
+          'La vitesse du son dans l\'air est d\'environ 343 mètres par seconde.',
+          'Le kilomètre par heure est l\'unité de vitesse la plus couramment utilisée dans le monde.'
+        ]
       }
     },
     angle: {
@@ -208,6 +248,14 @@ const fr: Translation = {
       units: {
         degree: 'Degré',
         radian: 'Radian'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un cercle complet a 360 degrés.',
+          'Un radian équivaut à environ 57,2958 degrés.',
+          'Le radian est l\'unité d\'angle utilisée dans le Système international.'
+        ]
       }
     },
     pressure: {
@@ -217,6 +265,14 @@ const fr: Translation = {
         pascal: 'Pascal',
         bar: 'Bar',
         psi: 'Livre par pouce carré'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un bar équivaut à 100 000 pascals.',
+          'Le pascal est l\'unité de pression dans le Système international.',
+          'Psi est couramment utilisé aux États-Unis pour mesurer la pression des pneus.'
+        ]
       }
     },
     power: {
@@ -226,6 +282,14 @@ const fr: Translation = {
         watt: 'Watt',
         kilowatt: 'Kilowatt',
         horsepower: 'Cheval-vapeur'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un cheval-vapeur équivaut à environ 735,5 watts.',
+          'Le watt est l\'unité de puissance dans le Système international.',
+          'La puissance nécessaire pour élever un kilogramme à un mètre par seconde est d\'un watt.'
+        ]
       }
     },
     energy: {
@@ -236,6 +300,14 @@ const fr: Translation = {
         kilojoule: 'Kilojoule',
         calorie: 'Calorie',
         kilocalorie: 'Kilocalorie'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un kilojoule équivaut à 1 000 joules.',
+          'Une calorie est la quantité d\'énergie nécessaire pour élever 1 gramme d\'eau de 1°C.',
+          'La kilocalorie est souvent utilisée pour mesurer l\'énergie dans les aliments.'
+        ]
       }
     },
     force: {
@@ -244,6 +316,14 @@ const fr: Translation = {
       units: {
         newton: 'Newton',
         kilonewton: 'Kilonewton'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un newton est l\'unité de force dans le Système international.',
+          'Un kilonewton équivaut à 1 000 newtons.',
+          'La force exercée par la gravité terrestre est d\'environ 9,81 newtons par kilogramme.'
+        ]
       }
     },
     density: {
@@ -252,6 +332,14 @@ const fr: Translation = {
       units: {
         kilogram_per_cubic_meter: 'Kilogramme par mètre cube',
         gram_per_cubic_centimeter: 'Gramme par centimètre cube'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'La densité de l\'eau est de 1 gramme par centimètre cube.',
+          'La densité est une mesure de masse par unité de volume.',
+          'Différentes substances ont des densités variées, ce qui influence leur flottabilité.'
+        ]
       }
     },
     flow: {
@@ -260,6 +348,14 @@ const fr: Translation = {
       units: {
         cubic_meter_per_second: 'Mètre cube par seconde',
         liter_per_minute: 'Litre par minute'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Le débit en mètres cubes par seconde est utilisé pour mesurer le flux de gros volumes de liquides.',
+          'Le litre par minute est couramment utilisé dans les systèmes de plomberie résidentiels.',
+          'Le débit peut être influencé par la pression et la résistance du conduit.'
+        ]
       }
     },
     torque: {
@@ -268,6 +364,14 @@ const fr: Translation = {
       units: {
         newton_meter: 'Newton mètre',
         pound_foot: 'Livre pied'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Le couple est une mesure de la force de rotation.',
+          'Un pound-foot équivaut à environ 1,35582 newton-mètres.',
+          'Le couple est essentiel pour déterminer la puissance d\'un moteur.'
+        ]
       }
     },
     data: {
@@ -278,6 +382,14 @@ const fr: Translation = {
         kilobyte: 'Kilo-octet',
         megabyte: 'Mégaoctet',
         gigabyte: 'Gigaoctet'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          '1 kilooctet équivaut à 1 024 octets.',
+          'Le gigaoctet est souvent utilisé pour mesurer la capacité de stockage des ordinateurs.',
+          'La quantité de données nécessaire pour stocker une photo dépend de sa résolution.'
+        ]
       }
     },
     data_rate: {
@@ -287,6 +399,14 @@ const fr: Translation = {
         bit_per_second: 'Bit par seconde',
         kilobit_per_second: 'Kilobit par seconde',
         megabit_per_second: 'Mégabit par seconde'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un mégabit par seconde est équivalent à 1 000 kilobits par seconde.',
+          'Le débit de données influence la vitesse de téléchargement sur Internet.',
+          'Les réseaux modernes peuvent atteindre des débits de plusieurs gigabits par seconde.'
+        ]
       }
     },
     currency: {
@@ -297,6 +417,14 @@ const fr: Translation = {
         eur: 'Euro',
         gbp: 'Livre sterling',
         jpy: 'Yen japonais'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Le yen japonais est l\'une des devises les plus échangées au monde.',
+          'L\'euro est utilisé par 19 des 27 pays membres de l\'UE.',
+          'Le dollar américain est souvent utilisé comme monnaie de réserve internationale.'
+        ]
       }
     },
     cooking: {
@@ -306,6 +434,14 @@ const fr: Translation = {
         teaspoon: 'Cuillère à café',
         tablespoon: 'Cuillère à soupe',
         cup: 'Tasse'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Une tasse américaine équivaut à environ 240 millilitres.',
+          'Une cuillère à soupe contient trois cuillères à café.',
+          'Les mesures de cuisine peuvent varier selon les pays.'
+        ]
       }
     },
     numeral: {
@@ -316,6 +452,14 @@ const fr: Translation = {
         binary: 'Binaire',
         octal: 'Octal',
         hexadecimal: 'Hexadécimal'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Le système binaire est la base du fonctionnement des ordinateurs.',
+          'Le système hexadécimal est souvent utilisé en programmation pour simplifier la représentation binaire.',
+          'Le système octal était plus courant dans les premiers ordinateurs avant l\'adoption généralisée de l\'hexadécimal.'
+        ]
       }
     },
     frequency: {
@@ -325,6 +469,14 @@ const fr: Translation = {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
         megahertz: 'Mégahertz'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Un hertz équivaut à une oscillation par seconde.',
+          'Les fréquences audio que l\'oreille humaine peut percevoir vont de 20 Hz à 20 kHz.',
+          'Les ondes radio utilisent des fréquences mesurées en mégahertz.'
+        ]
       }
     }
   },

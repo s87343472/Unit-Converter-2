@@ -157,6 +157,13 @@ const de: Translation = {
         imperial_fluid_ounce: 'Flüssigunze',
         imperial_cubic_inch: 'Kubikzoll',
         imperial_cubic_foot: 'Kubikfuß'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Liter entspricht 1000 Millilitern.',
+          '1 Gallone entspricht 3,78541 Litern.'
+        ]
       }
     },
     weight: {
@@ -169,6 +176,13 @@ const de: Translation = {
         imperial_pound: 'Pfund',
         imperial_ounce: 'Unze',
         metric_tonne: 'Tonne'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Kilogramm entspricht 1000 Gramm.',
+          '1 Pfund entspricht 0,453592 Kilogramm.'
+        ]
       }
     },
     time: {
@@ -182,6 +196,13 @@ const de: Translation = {
         week: 'Woche',
         month: 'Monat',
         year: 'Jahr'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Minute entspricht 60 Sekunden.',
+          '1 Jahr entspricht ungefähr 365,25 Tagen.'
+        ]
       }
     },
     temperature: {
@@ -191,6 +212,13 @@ const de: Translation = {
         celsius: 'Celsius',
         fahrenheit: 'Fahrenheit',
         kelvin: 'Kelvin'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '0 Grad Celsius entspricht 32 Grad Fahrenheit.',
+          'Der absolute Nullpunkt ist -273,15 Grad Celsius.'
+        ]
       }
     },
     speed: {
@@ -201,6 +229,13 @@ const de: Translation = {
         metric_kilometer_per_hour: 'Kilometer pro Stunde',
         imperial_mile_per_hour: 'Meilen pro Stunde',
         knot: 'Knoten'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Meter pro Sekunde entspricht 3,6 Kilometern pro Stunde.',
+          '1 Knoten entspricht 1,852 Kilometern pro Stunde.'
+        ]
       }
     },
     angle: {
@@ -209,6 +244,13 @@ const de: Translation = {
       units: {
         degree: 'Grad',
         radian: 'Radiant'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '360 Grad entsprechen 2π Radiant.',
+          '1 Grad entspricht 60 Winkelminuten.'
+        ]
       }
     },
     pressure: {
@@ -218,6 +260,13 @@ const de: Translation = {
         pascal: 'Pascal',
         bar: 'Bar',
         psi: 'Pfund pro Quadratzoll'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Bar entspricht 100.000 Pascal.',
+          '1 Pfund pro Quadratzoll entspricht 6894,76 Pascal.'
+        ]
       }
     },
     power: {
@@ -227,6 +276,13 @@ const de: Translation = {
         watt: 'Watt',
         kilowatt: 'Kilowatt',
         horsepower: 'Pferdestärke'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Kilowatt entspricht 1000 Watt.',
+          '1 Pferdestärke entspricht 745,7 Watt.'
+        ]
       }
     },
     energy: {
@@ -237,6 +293,13 @@ const de: Translation = {
         kilojoule: 'Kilojoule',
         calorie: 'Kalorie',
         kilocalorie: 'Kilokalorie'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Kilojoule entspricht 1000 Joule.',
+          '1 Kalorie entspricht 4,184 Joule.'
+        ]
       }
     },
     force: {
@@ -245,6 +308,13 @@ const de: Translation = {
       units: {
         newton: 'Newton',
         kilonewton: 'Kilonewton'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Newton ist die Kraft, die benötigt wird, um eine Masse von 1 Kilogramm mit einer Beschleunigung von 1 Meter pro Sekunde² zu beschleunigen.',
+          '1 Kilonewton entspricht 1000 Newton.'
+        ]
       }
     },
     density: {
@@ -253,6 +323,13 @@ const de: Translation = {
       units: {
         kilogram_per_cubic_meter: 'Kilogramm pro Kubikmeter',
         gram_per_cubic_centimeter: 'Gramm pro Kubikzentimeter'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          'Die Dichte von Wasser beträgt etwa 1 Kilogramm pro Kubikmeter.',
+          '1 Gramm pro Kubikzentimeter entspricht 1000 Kilogramm pro Kubikmeter.'
+        ]
       }
     },
     flow: {
@@ -261,6 +338,13 @@ const de: Translation = {
       units: {
         cubic_meter_per_second: 'Kubikmeter pro Sekunde',
         liter_per_minute: 'Liter pro Minute'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Kubikmeter pro Sekunde entspricht 1000 Litern pro Sekunde.',
+          '1 Liter pro Minute entspricht ungefähr 0,01667 Kubikmeter pro Sekunde.'
+        ]
       }
     },
     torque: {
@@ -269,6 +353,13 @@ const de: Translation = {
       units: {
         newton_meter: 'Newtonmeter',
         pound_foot: 'Pfund-Fuß'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Newtonmeter entspricht 0,737562 Pfund-Fuß.',
+          '1 Pfund-Fuß entspricht 1,35582 Newtonmeter.'
+        ]
       }
     },
     data: {
@@ -279,6 +370,13 @@ const de: Translation = {
         kilobyte: 'Kilobyte',
         megabyte: 'Megabyte',
         gigabyte: 'Gigabyte'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Byte entspricht 8 Bits.',
+          '1 Kilobyte entspricht 1024 Bytes.'
+        ]
       }
     },
     data_rate: {
@@ -288,6 +386,13 @@ const de: Translation = {
         bit_per_second: 'Bit pro Sekunde',
         kilobit_per_second: 'Kilobit pro Sekunde',
         megabit_per_second: 'Megabit pro Sekunde'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Byte entspricht 8 Bits.',
+          '1 Kilobyte entspricht 1024 Bytes.'
+        ]
       }
     },
     currency: {
@@ -298,6 +403,13 @@ const de: Translation = {
         eur: 'Euro',
         gbp: 'Britisches Pfund',
         jpy: 'Japanischer Yen'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          'Der US-Dollar ist die weltweit am häufigsten verwendete Reservewährung.',
+          'Der Euro ist die offizielle Währung von 19 der 27 EU-Mitgliedstaaten.'
+        ]
       }
     },
     cooking: {
@@ -307,6 +419,13 @@ const de: Translation = {
         teaspoon: 'Teelöffel',
         tablespoon: 'Esslöffel',
         cup: 'Tasse'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Teelöffel entspricht etwa 5 Millilitern.',
+          '1 Esslöffel entspricht etwa 15 Millilitern.'
+        ]
       }
     },
     numeral: {
@@ -317,6 +436,13 @@ const de: Translation = {
         binary: 'Binär',
         octal: 'Oktal',
         hexadecimal: 'Hexadezimal'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          'Das Binärsystem wird intern in Computern verwendet.',
+          'Hexadezimal wird häufig in der Programmierung zur Darstellung von Farben und Speicheradressen verwendet.'
+        ]
       }
     },
     frequency: {
@@ -326,6 +452,13 @@ const de: Translation = {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
         megahertz: 'Megahertz'
+      },
+      knowledge: {
+        title: 'Wussten Sie schon?',
+        items: [
+          '1 Hertz entspricht 1 Zyklus pro Sekunde.',
+          '1 Kilohertz entspricht 1000 Hertz.'
+        ]
       }
     }
   },

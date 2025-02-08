@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { conversionTypes } from '@/lib/conversion-types'
 import { useRef, useState, useEffect } from 'react'
+import { UnitType } from '@/lib/i18n/units'
 
 export default function Header() {
   const { t, language } = useLanguage()
@@ -13,6 +14,7 @@ export default function Header() {
   const navRef = useRef<HTMLDivElement>(null)
   const [showLeftScroll, setShowLeftScroll] = useState(false)
   const [showRightScroll, setShowRightScroll] = useState(false)
+  const [selId, setSeld] = useState('')
 
   // 检查是否需要显示滚动按钮
   const checkScroll = () => {
@@ -53,6 +55,7 @@ export default function Header() {
   useEffect(() => {
     if (navRef.current) {
       const currentType = pathname.split('/')[2]
+      setActiveType(currentType as UnitType)
       const activeButton = navRef.current.querySelector(`[data-type="${currentType}"]`)
       if (activeButton) {
         const { offsetLeft, offsetWidth } = activeButton as HTMLElement
@@ -66,15 +69,22 @@ export default function Header() {
     }
   }, [pathname])
 
+
+  const setActiveType = (id: UnitType): void => {
+    setSeld(t.units[id]?.title)
+  }
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center mb-4">
+          <Link className='' href={`/${language}`}>
+            <img src="/logo-txt.png" alt="logo" className='w-full h-12' />
+          </Link>
           <Link
             href={`/${language}`}
             className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <h1>{t.common.title}</h1>
+            <h1>{selId} {t.common.title}</h1>
           </Link>
           <LanguageSwitcher />
         </div>
@@ -108,8 +118,8 @@ export default function Header() {
                   href={`/${language}/${id}`}
                   data-type={id}
                   className={`whitespace-nowrap px-4 py-2 border-b-2 text-sm font-medium flex items-center ${pathname.split('/')[2] === id
-                      ? 'border-gray-900 text-gray-900'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-gray-900 text-gray-900'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                 >
                   <Icon className="w-4 h-4 mr-2" />

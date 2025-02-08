@@ -157,6 +157,14 @@ const es: Translation = {
         imperial_fluid_ounce: 'Onza líquida',
         imperial_cubic_inch: 'Pulgada cúbica',
         imperial_cubic_foot: 'Pie cúbico'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un galón imperial equivale a aproximadamente 4.546 litros.',
+          'El metro cúbico es una unidad de volumen utilizada principalmente en industrias como la construcción y la ingeniería.',
+          'La onza líquida estadounidense es diferente a la británica en términos de volumen.'
+        ]
       }
     },
     weight: {
@@ -168,6 +176,14 @@ const es: Translation = {
         metric_milligram: 'Miligramo',
         imperial_pound: 'Libra',
         imperial_ounce: 'Onza'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'La libra avoirdupois es la unidad de peso más comúnmente utilizada en los Estados Unidos.',
+          'Un kilogramo es igual a 2.20462 libras.',
+          'El miligramo es una unidad de peso utilizada principalmente para medir sustancias muy ligeras.'
+        ]
       }
     },
     time: {
@@ -181,6 +197,14 @@ const es: Translation = {
         week: 'Semana',
         month: 'Mes',
         year: 'Año'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un año no siempre tiene exactamente 365 días debido a los años bisiestos.',
+          'El segundo se define como la duración de 9,192,631,770 periodos de la radiación correspondiente a la transición entre dos niveles hiperfinos del estado fundamental del átomo de cesio-133.',
+          'Antes del Calendario Gregoriano, diferentes culturas tenían diferentes divisiones y nombres para las unidades de tiempo.'
+        ]
       }
     },
     temperature: {
@@ -190,6 +214,14 @@ const es: Translation = {
         celsius: 'Celsius',
         fahrenheit: 'Fahrenheit',
         kelvin: 'Kelvin'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'La escala Kelvin es la unidad de temperatura en el Sistema Internacional de Unidades y comienza en el cero absoluto.',
+          'Fahrenheit se utiliza principalmente en los Estados Unidos, mientras que Celsius es más común en el resto del mundo.',
+          'La conversión de Celsius a Fahrenheit es (°C * 9/5) + 32.'
+        ]
       }
     },
     speed: {
@@ -200,6 +232,14 @@ const es: Translation = {
         kilometer_per_hour: 'Kilómetro por hora',
         mile_per_hour: 'Milla por hora',
         knot: 'Nudo'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un nudo equivale a una milla náutica por hora.',
+          'La velocidad de la luz es aproximadamente 299,792 kilómetros por segundo.',
+          'Kilómetros por hora es la unidad de velocidad más utilizada en la mayoría de los países para medir la velocidad de los vehículos.'
+        ]
       }
     },
     angle: {
@@ -208,6 +248,14 @@ const es: Translation = {
       units: {
         degree: 'Grado',
         radian: 'Radián'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un círculo completo tiene 360 grados.',
+          'El radián es la unidad de ángulo en el sistema internacional y es la relación entre el largo del arco y el radio de un círculo.',
+          'Existen otras unidades de ángulo como el gon y el minuto de arco, utilizadas en diferentes contextos.'
+        ]
       }
     },
     pressure: {
@@ -217,6 +265,14 @@ const es: Translation = {
         pascal: 'Pascal',
         bar: 'Bar',
         psi: 'Libra por pulgada cuadrada'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un pascal es igual a una newton por metro cuadrado.',
+          'La presión atmosférica estándar al nivel del mar es de aproximadamente 101.325 pascales.',
+          'El PSI (libra por pulgada cuadrada) es una unidad de presión comúnmente utilizada en Estados Unidos.'
+        ]
       }
     },
     power: {
@@ -226,6 +282,14 @@ const es: Translation = {
         watt: 'Vatio',
         kilowatt: 'Kilovatio',
         horsepower: 'Caballo de fuerza'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un caballo de fuerza es una unidad de potencia que se originó para medir la potencia de las máquinas de vapor.',
+          'El vatio es la unidad de potencia en el Sistema Internacional y equivale a un julio por segundo.',
+          'Un kilovatio es igual a 1,000 vatios.'
+        ]
       }
     },
     energy: {
@@ -236,6 +300,14 @@ const es: Translation = {
         kilojoule: 'Kilojulio',
         calorie: 'Caloría',
         kilocalorie: 'Kilocaloría'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un julio es la cantidad de energía transferida cuando se aplica una fuerza de un newton a través de un metro.',
+          'La caloría es una unidad de energía utilizada principalmente para medir el contenido energético de los alimentos.',
+          'Un kilojulio es igual a 1,000 julios.'
+        ]
       }
     },
     force: {
@@ -244,6 +316,14 @@ const es: Translation = {
       units: {
         newton: 'Newton',
         kilonewton: 'Kilonewton'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un newton es la fuerza necesaria para acelerar una masa de un kilogramo a un metro por segundo al cuadrado.',
+          'El kilonewton es una unidad de fuerza utilizada principalmente en ingeniería y construcción.',
+          'La libra-fuerza es una unidad de fuerza utilizada en el sistema imperial.'
+        ]
       }
     },
     density: {
@@ -252,6 +332,14 @@ const es: Translation = {
       units: {
         kilogram_per_cubic_meter: 'Kilogramo por metro cúbico',
         gram_per_cubic_centimeter: 'Gramo por centímetro cúbico'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'La densidad es la masa por unidad de volumen de una sustancia.',
+          'El agua tiene una densidad de aproximadamente 1 gramo por centímetro cúbico a 4°C.',
+          'La densidad del aire varía con la temperatura y la presión.'
+        ]
       }
     },
     flow: {
@@ -260,6 +348,14 @@ const es: Translation = {
       units: {
         cubic_meter_per_second: 'Metro cúbico por segundo',
         liter_per_minute: 'Litro por minuto'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El flujo de volumen mide la cantidad de fluido que pasa por una sección transversal por unidad de tiempo.',
+          'El litro por minuto es una unidad comúnmente utilizada para medir el flujo de líquidos en sistemas domésticos.',
+          'El metro cúbico por segundo es una unidad de flujo utilizada principalmente en ingeniería hidráulica.'
+        ]
       }
     },
     torque: {
@@ -268,6 +364,14 @@ const es: Translation = {
       units: {
         newton_meter: 'Newton metro',
         pound_foot: 'Libra pie'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El torque es una medida de la fuerza que puede causar que un objeto gire alrededor de un eje.',
+          'Un newton metro es la unidad de torque en el Sistema Internacional.',
+          'El torque se utiliza ampliamente en la mecánica automotriz para describir la potencia de un motor.'
+        ]
       }
     },
     data: {
@@ -278,6 +382,14 @@ const es: Translation = {
         kilobyte: 'Kilobyte',
         megabyte: 'Megabyte',
         gigabyte: 'Gigabyte'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un byte consta de 8 bits y es la unidad básica de almacenamiento de datos en informática.',
+          'Un gigabyte equivale a aproximadamente 1,073,741,824 bytes.',
+          'Las unidades de datos como kilobyte, megabyte y gigabyte se utilizan para medir la capacidad de almacenamiento de dispositivos electrónicos.'
+        ]
       }
     },
     data_rate: {
@@ -287,6 +399,14 @@ const es: Translation = {
         bit_per_second: 'Bit por segundo',
         kilobit_per_second: 'Kilobit por segundo',
         megabit_per_second: 'Megabit por segundo'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'La tasa de bits mide la cantidad de datos transmitidos por segundo en una red.',
+          'Un megabit por segundo (Mbps) es comúnmente utilizado para medir velocidades de conexión a Internet.',
+          'La tasa de datos es crucial para determinar la capacidad de transferencia de datos en transmisiones digitales.'
+        ]
       }
     },
     currency: {
@@ -297,6 +417,14 @@ const es: Translation = {
         eur: 'Euro',
         gbp: 'Libra esterlina',
         jpy: 'Yen japonés'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El dólar estadounidense es una de las monedas más utilizadas en el comercio internacional.',
+          'El euro es la moneda oficial de 19 de los 27 países miembros de la Unión Europea.',
+          'La tasa de cambio entre monedas puede fluctuar debido a factores económicos y políticos.'
+        ]
       }
     },
     cooking: {
@@ -306,6 +434,14 @@ const es: Translation = {
         teaspoon: 'Cucharadita',
         tablespoon: 'Cucharada',
         cup: 'Taza'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Una cucharadita equivale a aproximadamente 5 mililitros.',
+          'En algunas recetas, una taza puede variar en tamaño dependiendo del país (por ejemplo, EEUU vs. Reino Unido).',
+          'La conversión precisa de unidades de cocina es esencial para el éxito en la repostería.'
+        ]
       }
     },
     numeral: {
@@ -316,6 +452,14 @@ const es: Translation = {
         binary: 'Binario',
         octal: 'Octal',
         hexadecimal: 'Hexadecimal'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El sistema binario es la base de la computación digital.',
+          'El sistema hexadecimal se utiliza frecuentemente en programación para simplificar la representación de bytes.',
+          'El sistema octal fue utilizado en sistemas informáticos antiguos antes de ser reemplazado por el hexadecimal.'
+        ]
       }
     },
     frequency: {
@@ -325,6 +469,14 @@ const es: Translation = {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
         megahertz: 'Megahertz'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'El hertz es la unidad de frecuencia en el Sistema Internacional y equivale a un ciclo por segundo.',
+          'Las ondas de radio se miden en kilohertz y megahertz.',
+          'La frecuencia es una propiedad fundamental en campos como la acústica y las telecomunicaciones.'
+        ]
       }
     }
   },

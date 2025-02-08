@@ -157,6 +157,14 @@ const ja: Translation = {
         imperial_fluid_ounce: '液量オンス',
         imperial_cubic_inch: '立方インチ',
         imperial_cubic_foot: '立方フィート'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1リットルは1000ミリリットルに相当します。',
+          '立方メートルは、1メートルの立方体の体積です。',
+          'ガロンは、アメリカとイギリスで異なる定義があります。'
+        ]
       }
     },
     weight: {
@@ -168,6 +176,14 @@ const ja: Translation = {
         metric_milligram: 'ミリグラム',
         imperial_pound: 'ポンド',
         imperial_ounce: 'オンス'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キログラムは約2.20462ポンドに相当します。',
+          '1ポンドは16オンスに相当します。',
+          'グラムは、キログラムの1000分の1です。'
+        ]
       }
     },
     time: {
@@ -190,6 +206,14 @@ const ja: Translation = {
         celsius: '摂氏',
         fahrenheit: '華氏',
         kelvin: 'ケルビン'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '摂氏と華氏の間の変換は、(°C × 9/5) + 32 = °F です。',
+          'ケルビンは絶対温度の単位で、0Kは絶対零度です。',
+          '水の氷点は0°C、沸点は100°Cです。'
+        ]
       }
     },
     speed: {
@@ -200,6 +224,14 @@ const ja: Translation = {
         kilometer_per_hour: 'キロメートル毎時',
         mile_per_hour: 'マイル毎時',
         knot: 'ノット'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1ノットは約1.852キロメートル毎時に相当します。',
+          'メートル毎秒は、国際単位系(SI)の速度の単位です。',
+          'キロメートル毎時は、主に道路交通の速度を表すのに使われます。'
+        ]
       }
     },
     angle: {
@@ -208,6 +240,14 @@ const ja: Translation = {
       units: {
         degree: '度',
         radian: 'ラジアン'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1ラジアンは約57.2958度に相当します。',
+          '360度は1周を表します。',
+          'ラジアンは、円の半径に対する弧の長さで定義されます。'
+        ]
       }
     },
     pressure: {
@@ -217,6 +257,14 @@ const ja: Translation = {
         pascal: 'パスカル',
         bar: 'バール',
         psi: 'ポンド毎平方インチ'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1バールは約100,000パスカルに相当します。',
+          'パスカルは、1ニュートンの力が1平方メートルの面積にかかる圧力です。',
+          'psiは、主にアメリカで使用される圧力の単位です。'
+        ]
       }
     },
     power: {
@@ -226,6 +274,14 @@ const ja: Translation = {
         watt: 'ワット',
         kilowatt: 'キロワット',
         horsepower: '馬力'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キロワットは1000ワットに相当します。',
+          '馬力は、エンジンの出力を表すために使用されます。',
+          'ワットは、エネルギーの消費率を示します。'
+        ]
       }
     },
     energy: {
@@ -236,6 +292,14 @@ const ja: Translation = {
         kilojoule: 'キロジュール',
         calorie: 'カロリー',
         kilocalorie: 'キロカロリー'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キロジュールは1000ジュールに相当します。',
+          '1カロリーは、1グラムの水の温度を1度上げるのに必要なエネルギーです。',
+          'キロカロリーは、食品のエネルギー量を表すのに使われます。'
+        ]
       }
     },
     force: {
@@ -244,6 +308,13 @@ const ja: Translation = {
       units: {
         newton: 'ニュートン',
         kilonewton: 'キロニュートン'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1ニュートンは、1キログラムの物体に1メートル毎秒毎秒の加速度を与える力です。',
+          'キロニュートンは、主に構造工学で使用される力の単位です。'
+        ]
       }
     },
     density: {
@@ -252,6 +323,13 @@ const ja: Translation = {
       units: {
         kilogram_per_cubic_meter: 'キログラム毎立方メートル',
         gram_per_cubic_centimeter: 'グラム毎立方センチメートル'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '水の密度は約1グラム毎立方センチメートルです。',
+          '密度は、物質の質量と体積の比率です。'
+        ]
       }
     },
     flow: {
@@ -260,6 +338,13 @@ const ja: Translation = {
       units: {
         cubic_meter_per_second: '立方メートル毎秒',
         liter_per_minute: 'リットル毎分'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1リットル毎分は約0.01667立方メートル毎秒に相当します。',
+          '流量は、流体の移動速度を示します。'
+        ]
       }
     },
     torque: {
@@ -268,6 +353,13 @@ const ja: Translation = {
       units: {
         newton_meter: 'ニュートンメートル',
         pound_foot: 'ポンドフィート'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          'トルクは、回転力を示す物理量です。',
+          '1ニュートンメートルは、1ニュートンの力が1メートルの距離で作用するトルクです。'
+        ]
       }
     },
     data: {
@@ -278,6 +370,14 @@ const ja: Translation = {
         kilobyte: 'キロバイト',
         megabyte: 'メガバイト',
         gigabyte: 'ギガバイト'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キロバイトは1024バイトに相当します。',
+          '1メガバイトは1024キロバイトに相当します。',
+          'データの単位は、情報の量を示します。'
+        ]
       }
     },
     data_rate: {
@@ -287,6 +387,13 @@ const ja: Translation = {
         bit_per_second: 'ビット毎秒',
         kilobit_per_second: 'キロビット毎秒',
         megabit_per_second: 'メガビット毎秒'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キロビット毎秒は1024ビット毎秒に相当します。',
+          'データレートは、情報の転送速度を示します。'
+        ]
       }
     },
     currency: {
@@ -297,6 +404,13 @@ const ja: Translation = {
         eur: 'ユーロ',
         gbp: '英ポンド',
         jpy: '日本円'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '米ドルは世界で最も広く使用されている通貨です。',
+          'ユーロは、欧州連合の共通通貨です。'
+        ]
       }
     },
     cooking: {
@@ -306,6 +420,13 @@ const ja: Translation = {
         teaspoon: '小さじ',
         tablespoon: '大さじ',
         cup: 'カップ'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1カップは約240ミリリットルに相当します。',
+          '小さじと大さじは、料理の計量に使われる一般的な単位です。'
+        ]
       }
     },
     numeral: {
@@ -316,6 +437,13 @@ const ja: Translation = {
         binary: '二進法',
         octal: '八進法',
         hexadecimal: '十六進法'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '二進法は、コンピュータの基本的な数値システムです。',
+          '十六進法は、色の表現に広く使用されます。'
+        ]
       }
     },
     frequency: {
@@ -325,6 +453,13 @@ const ja: Translation = {
         hertz: 'ヘルツ',
         kilohertz: 'キロヘルツ',
         megahertz: 'メガヘルツ'
+      },
+      knowledge: {
+        title: '知っていましたか？',
+        items: [
+          '1キロヘルツは1000ヘルツに相当します。',
+          '周波数は、1秒間に発生する周期的な現象の回数を示します。'
+        ]
       }
     }
   },

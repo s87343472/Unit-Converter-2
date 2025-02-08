@@ -420,6 +420,13 @@ const en: Translation = {
         gibibyte: 'Gibibyte',
         tebibyte: 'Tebibyte',
         pebibyte: 'Pebibyte'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          '1 Kilobit per Second equals 1000 Bits per Second.',
+          '1 Megabit per Second equals 1000 Kilobits per Second.'
+        ]
       }
     },
     data_rate: {
@@ -444,6 +451,13 @@ const en: Translation = {
         mebibytes_per_second: 'Mebibytes per Second',
         gibibytes_per_second: 'Gibibytes per Second',
         tebibytes_per_second: 'Tebibytes per Second'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          '1 Kilobit per Second equals 1000 Bits per Second.',
+          '1 Megabit per Second equals 1000 Kilobits per Second.'
+        ]
       }
     },
     currency: {
@@ -457,6 +471,13 @@ const en: Translation = {
         cny: 'Chinese Yuan',
         krw: 'Korean Won',
         inr: 'Indian Rupee'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'The US Dollar is the most widely used reserve currency in the world.',
+          'The Euro is the official currency of 19 of the 27 European Union member states.'
+        ]
       }
     },
     cooking: {
@@ -476,6 +497,15 @@ const en: Translation = {
         japanese_cup: 'Japanese Cup',
         japanese_tablespoon: 'Japanese Tablespoon',
         japanese_teaspoon: 'Japanese Teaspoon'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          '1 US fluid ounce is approximately 29.5735 milliliters.',
+          '1 Imperial fluid ounce is approximately 28.4131 milliliters.',
+          '1 US tablespoon equals 3 teaspoons.',
+          '1 Chinese cup is traditionally used in culinary measurements and varies regionally.'
+        ]
       }
     },
     numeral: {
