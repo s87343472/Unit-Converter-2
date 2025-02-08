@@ -329,7 +329,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   }
 
   // 处理转换
-  const handleConvert = (toUnitId: string): string => {
+  const handleConvert = (value: string, fromUnit: string, toUnitId: string): string => {
     try {
       setError(null)
       if (!value || !fromUnit || !toUnitId) {
@@ -403,10 +403,23 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   const conversionResults = useMemo(() => {
     if (!value || !fromUnit) return null
     return Object.keys(units).reduce((acc, unitId) => {
-      acc[unitId] = handleConvert(unitId)
+      acc[unitId] = handleConvert(value, fromUnit, unitId)
       return acc
     }, {} as Record<string, string>)
   }, [value, fromUnit, units])
+
+
+
+  // 计算 value 为 1 的所有单位的转换结果
+  const calculateConversionForOne = (): Record<string, string> => {
+    return Object.keys(units).reduce((acc, unitId) => {
+      acc[unitId] = handleConvert('1', Object.keys(units)[0], unitId) // 使用 handleConvert 函数
+      return acc
+    }, {} as Record<string, string>)
+
+  }
+  // 计算 value 为 1 的转换结果
+  const oneConversionResults = useMemo(() => calculateConversionForOne(), [fromUnit, units])
 
   return (
     <div className="flex-1">
@@ -489,6 +502,19 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
               ))
           )
         }
+      </div>
+
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-6 mt-8 bg-white rounded-lg shadow-sm border border-gray-200'>
+        {Object.entries(units).map(([unitId, unit]) => (
+          <div key={unitId} className='flex gap-2 flex-wrap'>
+            <div>
+              1 {Object.entries(units)[0][1]} =
+            </div>
+            <div>
+              {oneConversionResults ? oneConversionResults[unitId] : '0'} {unit}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* 使用指南和知识区域 */}
