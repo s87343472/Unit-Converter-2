@@ -67,7 +67,7 @@ const numeral: NumeralConversionCategory = {
     // 科学计算进制
     scientific_base32: {
       id: 'scientific_base32',
-      label: 'Ternary',
+      label: 'Base-32',
       symbol: 'b32',
       base: 32,
       category: 'scientific'
@@ -81,7 +81,7 @@ const numeral: NumeralConversionCategory = {
     },
     scientific_base64: {
       id: 'scientific_base64',
-      label: 'Hexadecimal',
+      label: 'Base-64',
       symbol: 'b64',
       base: 64,
     },

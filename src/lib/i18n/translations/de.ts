@@ -149,14 +149,31 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Volumeneinheiten umrechnen',
       units: {
         metric_cubic_meter: 'Kubikmeter',
+        metric_cubic_kilometer: 'Kubikkilometer',
+        metric_cubic_centimeter: 'Kubikzentimeter',
+        metric_cubic_millimeter: 'Kubikmillimeter',
+        metric_cubic_decimeter: 'Kubikdezimeter',
         metric_liter: 'Liter',
         metric_milliliter: 'Milliliter',
-        imperial_gallon: 'Gallone',
-        imperial_quart: 'Quart',
-        imperial_pint: 'Pint',
-        imperial_fluid_ounce: 'Flüssigunze',
+        imperial_gallon: 'Imperial Gallone',
+        imperial_quart: 'Imperial Quart',
+        imperial_pint: 'Imperial Pint',
+        us_cup: 'US Tasse',
+        imperial_fluid_ounce: 'Imperial Flüssigunze',
+        us_tablespoon: 'US Esslöffel',
+        us_teaspoon: 'US Teelöffel',
+        imperial_cubic_yard: 'Kubikyard',
+        imperial_cubic_foot: 'Kubikfuß',
         imperial_cubic_inch: 'Kubikzoll',
-        imperial_cubic_foot: 'Kubikfuß'
+        chinese_dan: 'Dan (Chinesisch)',
+        chinese_dou: 'Dou (Chinesisch)',
+        chinese_sheng: 'Sheng (Chinesisch)',
+        japanese_koku: 'Koku (Japanisch)',
+        japanese_to: 'To (Japanisch)',
+        japanese_sho: 'Sho (Japanisch)',
+        japanese_go: 'Go (Japanisch)',
+        industrial_oil_barrel: 'Ölfass',
+        industrial_beer_barrel: 'Bierfass'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -171,11 +188,23 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Gewichtseinheiten umrechnen',
       units: {
         metric_kilogram: 'Kilogramm',
+        metric_tonne: 'Tonne',
         metric_gram: 'Gramm',
         metric_milligram: 'Milligramm',
+        metric_microgram: 'Mikrogramm',
         imperial_pound: 'Pfund',
         imperial_ounce: 'Unze',
-        metric_tonne: 'Tonne'
+        imperial_stone: 'Stone',
+        imperial_long_ton: 'Long Ton',
+        us_short_ton: 'Short Ton',
+        jewelry_carat: 'Karat',
+        jewelry_grain: 'Grain',
+        traditional_jin: 'Jin (Chinesisch)',
+        traditional_liang: 'Liang (Chinesisch)',
+        traditional_qian: 'Qian (Chinesisch)',
+        medical_grain: 'Medizinisches Grain',
+        medical_dram: 'Medizinische Drachme',
+        medical_ounce: 'Medizinische Unze'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -189,13 +218,18 @@ const de: Translation = {
       title: 'Zeit',
       description: 'Zwischen verschiedenen Zeiteinheiten umrechnen',
       units: {
-        second: 'Sekunde',
-        minute: 'Minute',
-        hour: 'Stunde',
-        day: 'Tag',
-        week: 'Woche',
-        month: 'Monat',
-        year: 'Jahr'
+        metric_second: 'Sekunde',
+        metric_minute: 'Minute',
+        metric_hour: 'Stunde',
+        metric_day: 'Tag',
+        metric_week: 'Woche',
+        metric_month: 'Monat',
+        metric_year: 'Jahr',
+        metric_decade: 'Jahrzehnt',
+        metric_century: 'Jahrhundert',
+        scientific_millisecond: 'Millisekunde',
+        scientific_microsecond: 'Mikrosekunde',
+        scientific_nanosecond: 'Nanosekunde'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -209,9 +243,15 @@ const de: Translation = {
       title: 'Temperatur',
       description: 'Zwischen verschiedenen Temperatureinheiten umrechnen',
       units: {
-        celsius: 'Celsius',
-        fahrenheit: 'Fahrenheit',
-        kelvin: 'Kelvin'
+        scientific_kelvin: 'Kelvin (Wissenschaftlich)',
+        metric_celsius: 'Celsius (Metrisch)',
+        us_fahrenheit: 'Fahrenheit (US)',
+        scientific_rankine: 'Rankine (Wissenschaftlich)',
+        historical_reaumur: 'Réaumur (Historisch)',
+        meteorological_celsius: 'Celsius (Meteorologisch)',
+        meteorological_fahrenheit: 'Fahrenheit (Meteorologisch)',
+        industrial_celsius: 'Celsius (Industriell)',
+        industrial_fahrenheit: 'Fahrenheit (Industriell)'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -243,7 +283,10 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Winkeleinheiten umrechnen',
       units: {
         degree: 'Grad',
-        radian: 'Radiant'
+        radian: 'Radiant',
+        gradian: 'Gradient',
+        arcminute: 'Bogenminute',
+        arcsecond: 'Bogensekunde'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -258,8 +301,10 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Druckeinheiten umrechnen',
       units: {
         pascal: 'Pascal',
+        kilopascal: 'Kilopascal',
         bar: 'Bar',
-        psi: 'Pfund pro Quadratzoll'
+        psi: 'PSI',
+        atmosphere: 'Atmosphäre'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -307,7 +352,9 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Krafteinheiten umrechnen',
       units: {
         newton: 'Newton',
-        kilonewton: 'Kilonewton'
+        kilonewton: 'Kilonewton',
+        dyne: 'Dyn',
+        pound_force: 'Pfund-Kraft'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -322,7 +369,13 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Dichteeinheiten umrechnen',
       units: {
         kilogram_per_cubic_meter: 'Kilogramm pro Kubikmeter',
-        gram_per_cubic_centimeter: 'Gramm pro Kubikzentimeter'
+        gram_per_cubic_centimeter: 'Gramm pro Kubikzentimeter',
+        pound_per_cubic_foot: 'Pfund pro Kubikfuß',
+        pound_per_cubic_inch: 'Pfund pro Kubikzoll',
+        kilogram_per_liter: 'Kilogramm pro Liter',
+        gram_per_milliliter: 'Gramm pro Milliliter',
+        pound_per_gallon: 'Pfund pro Gallone',
+        ounce_per_cubic_inch: 'Unze pro Kubikzoll'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -337,7 +390,8 @@ const de: Translation = {
       description: 'Zwischen verschiedenen Durchflusseinheiten umrechnen',
       units: {
         cubic_meter_per_second: 'Kubikmeter pro Sekunde',
-        liter_per_minute: 'Liter pro Minute'
+        liter_per_minute: 'Liter pro Minute',
+        gallon_per_minute: 'Gallonen pro Minute'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -366,10 +420,28 @@ const de: Translation = {
       title: 'Daten',
       description: 'Zwischen verschiedenen Dateneinheiten umrechnen',
       units: {
+        bit: 'Bit',
+        kilobit: 'Kilobit',
+        megabit: 'Megabit',
+        gigabit: 'Gigabit',
+        terabit: 'Terabit',
+        petabit: 'Petabit',
         byte: 'Byte',
         kilobyte: 'Kilobyte',
         megabyte: 'Megabyte',
-        gigabyte: 'Gigabyte'
+        gigabyte: 'Gigabyte',
+        terabyte: 'Terabyte',
+        petabyte: 'Petabyte',
+        kibibit: 'Kibibit',
+        mebibit: 'Mebibit',
+        gibibit: 'Gibibit',
+        tebibit: 'Tebibit',
+        pebibit: 'Pebibit',
+        kibibyte: 'Kibibyte',
+        mebibyte: 'Mebibyte',
+        gibibyte: 'Gibibyte',
+        tebibyte: 'Tebibyte',
+        pebibyte: 'Pebibyte'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -380,12 +452,27 @@ const de: Translation = {
       }
     },
     data_rate: {
-      title: 'Datenrate',
-      description: 'Zwischen verschiedenen Datenraten umrechnen',
+      title: 'Datenübertragungsrate',
+      description: 'Zwischen verschiedenen Datenübertragungsraten umrechnen',
       units: {
-        bit_per_second: 'Bit pro Sekunde',
-        kilobit_per_second: 'Kilobit pro Sekunde',
-        megabit_per_second: 'Megabit pro Sekunde'
+        bits_per_second: 'Bit pro Sekunde',
+        kilobits_per_second: 'Kilobit pro Sekunde',
+        megabits_per_second: 'Megabit pro Sekunde',
+        gigabits_per_second: 'Gigabit pro Sekunde',
+        terabits_per_second: 'Terabit pro Sekunde',
+        bytes_per_second: 'Byte pro Sekunde',
+        kilobytes_per_second: 'Kilobyte pro Sekunde',
+        megabytes_per_second: 'Megabyte pro Sekunde',
+        gigabytes_per_second: 'Gigabyte pro Sekunde',
+        terabytes_per_second: 'Terabyte pro Sekunde',
+        kibibits_per_second: 'Kibibit pro Sekunde',
+        mebibits_per_second: 'Mebibit pro Sekunde',
+        gibibits_per_second: 'Gibibit pro Sekunde',
+        tebibits_per_second: 'Tebibit pro Sekunde',
+        kibibytes_per_second: 'Kibibyte pro Sekunde',
+        mebibytes_per_second: 'Mebibyte pro Sekunde',
+        gibibytes_per_second: 'Gibibyte pro Sekunde',
+        tebibytes_per_second: 'Tebibyte pro Sekunde'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -397,12 +484,15 @@ const de: Translation = {
     },
     currency: {
       title: 'Währung',
-      description: 'Zwischen verschiedenen Währungseinheiten umrechnen',
+      description: 'Zwischen verschiedenen Währungen umrechnen',
       units: {
         usd: 'US-Dollar',
         eur: 'Euro',
         gbp: 'Britisches Pfund',
-        jpy: 'Japanischer Yen'
+        jpy: 'Japanischer Yen',
+        cny: 'Chinesischer Yuan',
+        krw: 'Südkoreanischer Won',
+        inr: 'Indische Rupie'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -414,11 +504,21 @@ const de: Translation = {
     },
     cooking: {
       title: 'Kochen',
-      description: 'Zwischen verschiedenen Kocheinheiten umrechnen',
+      description: 'Zwischen verschiedenen Kochmaßeinheiten umrechnen',
       units: {
-        teaspoon: 'Teelöffel',
-        tablespoon: 'Esslöffel',
-        cup: 'Tasse'
+        us_fluid_ounce: 'US Flüssigunze',
+        us_tablespoon: 'US Esslöffel',
+        us_teaspoon: 'US Teelöffel',
+        imperial_fluid_ounce: 'Imperial Flüssigunze',
+        imperial_tablespoon: 'Imperial Esslöffel',
+        imperial_teaspoon: 'Imperial Teelöffel',
+        chinese_bowl: 'Chinesische Schüssel',
+        chinese_cup: 'Chinesische Tasse',
+        chinese_tablespoon: 'Chinesischer Esslöffel',
+        chinese_teaspoon: 'Chinesischer Teelöffel',
+        japanese_cup: 'Japanische Tasse',
+        japanese_tablespoon: 'Japanischer Esslöffel',
+        japanese_teaspoon: 'Japanischer Teelöffel'
       },
       knowledge: {
         title: 'Wussten Sie schon?',
@@ -451,7 +551,8 @@ const de: Translation = {
       units: {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
-        megahertz: 'Megahertz'
+        megahertz: 'Megahertz',
+        gigahertz: 'Gigahertz'
       },
       knowledge: {
         title: 'Wussten Sie schon?',

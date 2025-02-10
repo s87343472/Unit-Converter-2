@@ -103,7 +103,7 @@ const ru: Translation = {
         metric_nanometer: 'Нанометр',
         metric_picometer: 'Пикометр',
         nautical_mile: 'Морская миля',
-        nautical_fathom: 'Фатом'
+        nautical_fathom: 'Морская сажень'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -131,8 +131,8 @@ const ru: Translation = {
         imperial_acre: 'Акр',
         metric_square_decimeter: 'Квадратный дециметр',
         metric_are: 'Ар',
-        traditional_mu: 'Му (Китайская)',
-        traditional_qing: 'Цин (Китайская)'
+        traditional_mu: 'Му (Китайский)',
+        traditional_qing: 'Цин (Китайский)'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -145,18 +145,35 @@ const ru: Translation = {
       }
     },
     volume: {
-      title: 'Объем',
-      description: 'Конвертировать между различными единицами объема',
+      title: 'Объём',
+      description: 'Конвертировать между различными единицами объёма',
       units: {
         metric_cubic_meter: 'Кубический метр',
+        metric_cubic_kilometer: 'Кубический километр',
+        metric_cubic_centimeter: 'Кубический сантиметр',
+        metric_cubic_millimeter: 'Кубический миллиметр',
+        metric_cubic_decimeter: 'Кубический дециметр',
         metric_liter: 'Литр',
         metric_milliliter: 'Миллилитр',
-        imperial_gallon: 'Галлон',
-        imperial_quart: 'Кварта',
-        imperial_pint: 'Пинта',
-        imperial_fluid_ounce: 'Жидкая унция',
+        imperial_gallon: 'Галлон (Британский)',
+        imperial_quart: 'Кварта (Британская)',
+        imperial_pint: 'Пинта (Британская)',
+        us_cup: 'Чашка (США)',
+        imperial_fluid_ounce: 'Жидкая унция (Британская)',
+        us_tablespoon: 'Столовая ложка (США)',
+        us_teaspoon: 'Чайная ложка (США)',
+        imperial_cubic_yard: 'Кубический ярд',
+        imperial_cubic_foot: 'Кубический фут',
         imperial_cubic_inch: 'Кубический дюйм',
-        imperial_cubic_foot: 'Кубический фут'
+        chinese_dan: 'Дань (Китайский)',
+        chinese_dou: 'Доу (Китайский)',
+        chinese_sheng: 'Шэн (Китайский)',
+        japanese_koku: 'Коку (Японский)',
+        japanese_to: 'То (Японский)',
+        japanese_sho: 'Сё (Японский)',
+        japanese_go: 'Го (Японский)',
+        industrial_oil_barrel: 'Нефтяной баррель',
+        industrial_beer_barrel: 'Пивной баррель'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -172,10 +189,23 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами веса',
       units: {
         metric_kilogram: 'Килограмм',
+        metric_tonne: 'Тонна',
         metric_gram: 'Грамм',
         metric_milligram: 'Миллиграмм',
+        metric_microgram: 'Микрограмм',
         imperial_pound: 'Фунт',
-        imperial_ounce: 'Унция'
+        imperial_ounce: 'Унция',
+        imperial_stone: 'Стоун',
+        imperial_long_ton: 'Длинная тонна',
+        us_short_ton: 'Короткая тонна',
+        jewelry_carat: 'Карат',
+        jewelry_grain: 'Гран',
+        traditional_jin: 'Цзинь (Китайский)',
+        traditional_liang: 'Лян (Китайский)',
+        traditional_qian: 'Цянь (Китайский)',
+        medical_grain: 'Гран (Медицинский)',
+        medical_dram: 'Драхма (Медицинская)',
+        medical_ounce: 'Унция (Медицинская)'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -190,22 +220,33 @@ const ru: Translation = {
       title: 'Время',
       description: 'Конвертировать между различными единицами времени',
       units: {
-        second: 'Секунда',
-        minute: 'Минута',
-        hour: 'Час',
-        day: 'День',
-        week: 'Неделя',
-        month: 'Месяц',
-        year: 'Год'
+        metric_second: 'Секунда',
+        metric_minute: 'Минута',
+        metric_hour: 'Час',
+        metric_day: 'День',
+        metric_week: 'Неделя',
+        metric_month: 'Месяц',
+        metric_year: 'Год',
+        metric_decade: 'Десятилетие',
+        metric_century: 'Век',
+        scientific_millisecond: 'Миллисекунда',
+        scientific_microsecond: 'Микросекунда',
+        scientific_nanosecond: 'Наносекунда'
       }
     },
     temperature: {
       title: 'Температура',
       description: 'Конвертировать между различными единицами температуры',
       units: {
-        celsius: 'Цельсий',
-        fahrenheit: 'Фаренгейт',
-        kelvin: 'Кельвин'
+        scientific_kelvin: 'Кельвин (Научный)',
+        metric_celsius: 'Цельсий (Метрический)',
+        us_fahrenheit: 'Фаренгейт (США)',
+        scientific_rankine: 'Ранкин (Научный)',
+        historical_reaumur: 'Реомюр (Исторический)',
+        meteorological_celsius: 'Цельсий (Метеорологический)',
+        meteorological_fahrenheit: 'Фаренгейт (Метеорологический)',
+        industrial_celsius: 'Цельсий (Промышленный)',
+        industrial_fahrenheit: 'Фаренгейт (Промышленный)'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -220,9 +261,14 @@ const ru: Translation = {
       title: 'Скорость',
       description: 'Конвертировать между различными единицами скорости',
       units: {
-        meter_per_second: 'Метр в секунду',
-        kilometer_per_hour: 'Километр в час',
-        mile_per_hour: 'Миля в час'
+        meter_per_second: 'Метров в секунду',
+        kilometer_per_hour: 'Километров в час',
+        mile_per_hour: 'Миль в час',
+        foot_per_second: 'Футов в секунду',
+        knot: 'Узел',
+        mach: 'Мах',
+        kilometer_per_second: 'Километров в секунду',
+        light_speed: 'Скорость света'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -238,7 +284,10 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами угла',
       units: {
         degree: 'Градус',
-        radian: 'Радиан'
+        radian: 'Радиан',
+        gradian: 'Град',
+        arcminute: 'Угловая минута',
+        arcsecond: 'Угловая секунда'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -254,8 +303,10 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами давления',
       units: {
         pascal: 'Паскаль',
+        kilopascal: 'Килопаскаль',
         bar: 'Бар',
-        psi: 'Фунт на квадратный дюйм'
+        psi: 'Фунт на квадратный дюйм',
+        atmosphere: 'Атмосфера'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -290,7 +341,9 @@ const ru: Translation = {
         joule: 'Джоуль',
         kilojoule: 'Килоджоуль',
         calorie: 'Калория',
-        kilocalorie: 'Килокалория'
+        kilocalorie: 'Килокалория',
+        watt_hour: 'Ватт-час',
+        kilowatt_hour: 'Киловатт-час'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -306,7 +359,9 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами силы',
       units: {
         newton: 'Ньютон',
-        kilonewton: 'Килоньютон'
+        kilonewton: 'Килоньютон',
+        dyne: 'Дина',
+        pound_force: 'Фунт-сила'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -322,7 +377,13 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами плотности',
       units: {
         kilogram_per_cubic_meter: 'Килограмм на кубический метр',
-        gram_per_cubic_centimeter: 'Грамм на кубический сантиметр'
+        gram_per_cubic_centimeter: 'Грамм на кубический сантиметр',
+        pound_per_cubic_foot: 'Фунт на кубический фут',
+        pound_per_cubic_inch: 'Фунт на кубический дюйм',
+        kilogram_per_liter: 'Килограмм на литр',
+        gram_per_milliliter: 'Грамм на миллилитр',
+        pound_per_gallon: 'Фунт на галлон',
+        ounce_per_cubic_inch: 'Унция на кубический дюйм'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -334,11 +395,12 @@ const ru: Translation = {
       }
     },
     flow: {
-      title: 'Поток',
-      description: 'Конвертировать между различными единицами потока',
+      title: 'Расход',
+      description: 'Конвертировать между различными единицами расхода',
       units: {
-        cubic_meter_per_second: 'Кубический метр в секунду',
-        liter_per_minute: 'Литр в минуту'
+        cubic_meter_per_second: 'Кубических метров в секунду',
+        liter_per_minute: 'Литров в минуту',
+        gallon_per_minute: 'Галлонов в минуту'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -354,7 +416,8 @@ const ru: Translation = {
       description: 'Конвертировать между различными единицами крутящего момента',
       units: {
         newton_meter: 'Ньютон-метр',
-        pound_foot: 'Фунт-фут'
+        pound_foot: 'Фунт-фут',
+        kilogram_force_meter: 'Килограмм-сила-метр'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -369,10 +432,28 @@ const ru: Translation = {
       title: 'Данные',
       description: 'Конвертировать между различными единицами данных',
       units: {
+        bit: 'Бит',
+        kilobit: 'Килобит',
+        megabit: 'Мегабит',
+        gigabit: 'Гигабит',
+        terabit: 'Терабит',
+        petabit: 'Петабит',
         byte: 'Байт',
         kilobyte: 'Килобайт',
         megabyte: 'Мегабайт',
-        gigabyte: 'Гигабайт'
+        gigabyte: 'Гигабайт',
+        terabyte: 'Терабайт',
+        petabyte: 'Петабайт',
+        kibibit: 'Кибибит',
+        mebibit: 'Мебибит',
+        gibibit: 'Гибибит',
+        tebibit: 'Тебибит',
+        pebibit: 'Пебибит',
+        kibibyte: 'Кибибайт',
+        mebibyte: 'Мебибайт',
+        gibibyte: 'Гибибайт',
+        tebibyte: 'Тебибайт',
+        pebibyte: 'Пебибайт'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -385,11 +466,26 @@ const ru: Translation = {
     },
     data_rate: {
       title: 'Скорость передачи данных',
-      description: 'Конвертировать между различными скоростями передачи данных',
+      description: 'Конвертировать между различными единицами скорости передачи данных',
       units: {
-        bit_per_second: 'Бит в секунду',
-        kilobit_per_second: 'Килобит в секунду',
-        megabit_per_second: 'Мегабит в секунду'
+        bits_per_second: 'Бит в секунду',
+        kilobits_per_second: 'Килобит в секунду',
+        megabits_per_second: 'Мегабит в секунду',
+        gigabits_per_second: 'Гигабит в секунду',
+        terabits_per_second: 'Терабит в секунду',
+        bytes_per_second: 'Байт в секунду',
+        kilobytes_per_second: 'Килобайт в секунду',
+        megabytes_per_second: 'Мегабайт в секунду',
+        gigabytes_per_second: 'Гигабайт в секунду',
+        terabytes_per_second: 'Терабайт в секунду',
+        kibibits_per_second: 'Кибибит в секунду',
+        mebibits_per_second: 'Мебибит в секунду',
+        gibibits_per_second: 'Гибибит в секунду',
+        tebibits_per_second: 'Тебибит в секунду',
+        kibibytes_per_second: 'Кибибайт в секунду',
+        mebibytes_per_second: 'Мебибайт в секунду',
+        gibibytes_per_second: 'Гибибайт в секунду',
+        tebibytes_per_second: 'Тебибайт в секунду'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -406,8 +502,11 @@ const ru: Translation = {
       units: {
         usd: 'Доллар США',
         eur: 'Евро',
-        gbp: 'Британский фунт',
-        jpy: 'Японская иена'
+        gbp: 'Фунт стерлингов',
+        jpy: 'Японская иена',
+        cny: 'Китайский юань',
+        krw: 'Южнокорейская вона',
+        inr: 'Индийская рупия'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -420,11 +519,21 @@ const ru: Translation = {
     },
     cooking: {
       title: 'Кулинария',
-      description: 'Конвертировать между различными кулинарными единицами',
+      description: 'Конвертировать между различными кулинарными мерами',
       units: {
-        teaspoon: 'Чайная ложка',
-        tablespoon: 'Столовая ложка',
-        cup: 'Чашка'
+        us_fluid_ounce: 'Жидкая унция (США)',
+        us_tablespoon: 'Столовая ложка (США)',
+        us_teaspoon: 'Чайная ложка (США)',
+        imperial_fluid_ounce: 'Жидкая унция (Британская)',
+        imperial_tablespoon: 'Столовая ложка (Британская)',
+        imperial_teaspoon: 'Чайная ложка (Британская)',
+        chinese_bowl: 'Чаша (Китайская)',
+        chinese_cup: 'Чашка (Китайская)',
+        chinese_tablespoon: 'Столовая ложка (Китайская)',
+        chinese_teaspoon: 'Чайная ложка (Китайская)',
+        japanese_cup: 'Чашка (Японская)',
+        japanese_tablespoon: 'Столовая ложка (Японская)',
+        japanese_teaspoon: 'Чайная ложка (Японская)'
       },
       knowledge: {
         title: 'Знаете ли вы?',
@@ -436,8 +545,8 @@ const ru: Translation = {
       }
     },
     numeral: {
-      title: 'Числовая система',
-      description: 'Конвертировать между различными числовыми системами',
+      title: 'Системы счисления',
+      description: 'Конвертировать между различными системами счисления',
       units: {
         decimal: 'Десятичная',
         binary: 'Двоичная',
@@ -459,7 +568,8 @@ const ru: Translation = {
       units: {
         hertz: 'Герц',
         kilohertz: 'Килогерц',
-        megahertz: 'Мегагерц'
+        megahertz: 'Мегагерц',
+        gigahertz: 'Гигагерц'
       },
       knowledge: {
         title: 'Знаете ли вы?',

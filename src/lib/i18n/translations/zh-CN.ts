@@ -85,22 +85,24 @@ const zhCN: Translation = {
   units: {
     length: {
       title: '长度',
-      description: '在不同长度单位之间转换 (ISO 31-1)',
+      description: '在不同长度单位之间转换',
       units: {
-        meter: '米',
-        kilometer: '千米',
-        centimeter: '厘米',
-        millimeter: '毫米',
-        inch: '英寸',
-        foot: '英尺',
-        yard: '码',
-        mile: '英里',
-        light_year: '光年',
+        metric_meter: '米',
+        metric_kilometer: '千米',
+        metric_centimeter: '厘米',
+        metric_millimeter: '毫米',
+        imperial_inch: '英寸',
+        imperial_foot: '英尺',
+        imperial_yard: '码',
+        imperial_mile: '英里',
+        astronomical_light_year: '光年',
         astronomical_unit: '天文单位',
-        decimeter: '分米',
-        micrometer: '微米',
-        nanometer: '纳米',
-        picometer: '皮米'
+        metric_decimeter: '分米',
+        metric_micrometer: '微米',
+        metric_nanometer: '纳米',
+        metric_picometer: '皮米',
+        nautical_mile: '海里',
+        nautical_fathom: '寻'
       },
       knowledge: {
         title: '你知道吗？',
@@ -116,16 +118,20 @@ const zhCN: Translation = {
       title: '面积',
       description: '在不同面积单位之间转换',
       units: {
-        square_meter: '平方米',
-        square_kilometer: '平方千米',
-        square_centimeter: '平方厘米',
-        square_millimeter: '平方毫米',
-        square_inch: '平方英寸',
-        square_foot: '平方英尺',
-        square_yard: '平方码',
-        square_mile: '平方英里',
-        hectare: '公顷',
-        acre: '英亩'
+        metric_square_meter: '平方米',
+        metric_square_kilometer: '平方千米',
+        metric_square_centimeter: '平方厘米',
+        metric_square_millimeter: '平方毫米',
+        imperial_square_inch: '平方英寸',
+        imperial_square_foot: '平方英尺',
+        imperial_square_yard: '平方码',
+        imperial_square_mile: '平方英里',
+        metric_hectare: '公顷',
+        imperial_acre: '英亩',
+        metric_square_decimeter: '平方分米',
+        metric_are: '公亩',
+        traditional_mu: '亩',
+        traditional_qing: '倾'
       },
       knowledge: {
         title: '你知道吗？',
@@ -139,22 +145,32 @@ const zhCN: Translation = {
       title: '体积',
       description: '在不同体积单位之间转换',
       units: {
-        cubic_meter: '立方米',
-        cubic_kilometer: '立方千米',
-        cubic_centimeter: '立方厘米',
-        cubic_millimeter: '立方毫米',
-        cubic_inch: '立方英寸',
-        cubic_foot: '立方英尺',
-        cubic_yard: '立方码',
-        liter: '升',
-        milliliter: '毫升',
-        gallon: '加仑',
-        quart: '夸脱',
-        pint: '品脱',
-        cup: '杯',
-        fluid_ounce: '液量盎司',
-        tablespoon: '汤匙',
-        teaspoon: '茶匙'
+        metric_cubic_meter: '立方米',
+        metric_cubic_kilometer: '立方千米',
+        metric_cubic_centimeter: '立方厘米',
+        metric_cubic_millimeter: '立方毫米',
+        metric_cubic_decimeter: '立方分米',
+        metric_liter: '升',
+        metric_milliliter: '毫升',
+        imperial_gallon: '英制加仑',
+        imperial_quart: '英制夸脱',
+        imperial_pint: '英制品脱',
+        us_cup: '美制杯',
+        imperial_fluid_ounce: '英制液盎司',
+        us_tablespoon: '美制汤匙',
+        us_teaspoon: '美制茶匙',
+        imperial_cubic_yard: '立方码',
+        imperial_cubic_foot: '立方英尺',
+        imperial_cubic_inch: '立方英寸',
+        chinese_dan: '担',
+        chinese_dou: '斗',
+        chinese_sheng: '升',
+        japanese_koku: '石',
+        japanese_to: '斗',
+        japanese_sho: '升',
+        japanese_go: '合',
+        industrial_oil_barrel: '油桶',
+        industrial_beer_barrel: '啤酒桶'
       },
       knowledge: {
         title: '你知道吗？',
@@ -168,14 +184,24 @@ const zhCN: Translation = {
       title: '重量',
       description: '在不同重量单位之间转换',
       units: {
-        kilogram: '千克',
-        gram: '克',
-        milligram: '毫克',
-        metric_ton: '公吨',
-        pound: '磅',
-        ounce: '盎司',
-        carat: '克拉',
-        atomic_mass_unit: '原子质量单位'
+        metric_kilogram: '千克',
+        metric_tonne: '吨',
+        metric_gram: '克',
+        metric_milligram: '毫克',
+        metric_microgram: '微克',
+        imperial_pound: '磅',
+        imperial_ounce: '盎司',
+        imperial_stone: '石',
+        imperial_long_ton: '长吨',
+        us_short_ton: '短吨',
+        jewelry_carat: '克拉',
+        jewelry_grain: '谷',
+        traditional_jin: '斤',
+        traditional_liang: '两',
+        traditional_qian: '钱',
+        medical_grain: '药用谷',
+        medical_dram: '药用盎司',
+        medical_ounce: '药用盎司'
       },
       knowledge: {
         title: '你知道吗？',
@@ -189,9 +215,15 @@ const zhCN: Translation = {
       title: '温度',
       description: '在不同温度单位之间转换',
       units: {
-        celsius: '摄氏度',
-        fahrenheit: '华氏度',
-        kelvin: '开尔文'
+        scientific_kelvin: '开尔文',
+        metric_celsius: '摄氏度',
+        us_fahrenheit: '华氏度',
+        scientific_rankine: '兰金',
+        historical_reaumur: '列氏度',
+        meteorological_celsius: '气象摄氏度',
+        meteorological_fahrenheit: '气象华氏度',
+        industrial_celsius: '工业摄氏度',
+        industrial_fahrenheit: '工业华氏度'
       },
       knowledge: {
         title: '你知道吗？',
@@ -205,15 +237,18 @@ const zhCN: Translation = {
       title: '时间',
       description: '在不同时间单位之间转换',
       units: {
-        second: '秒',
-        minute: '分钟',
-        hour: '小时',
-        day: '天',
-        week: '周',
-        month: '月',
-        year: '年',
-        decade: '十年',
-        century: '世纪'
+        metric_second: '秒',
+        metric_minute: '分钟',
+        metric_hour: '小时',
+        metric_day: '天',
+        metric_week: '周',
+        metric_month: '月',
+        metric_year: '年',
+        metric_decade: '十年',
+        metric_century: '世纪',
+        scientific_millisecond: '毫秒',
+        scientific_microsecond: '微秒',
+        scientific_nanosecond: '纳秒'
       },
       knowledge: {
         title: '你知道吗？',
@@ -227,11 +262,14 @@ const zhCN: Translation = {
       title: '速度',
       description: '在不同速度单位之间转换',
       units: {
-        meter_per_second: '米/秒',
-        kilometer_per_hour: '千米/小时',
-        mile_per_hour: '英里/小时',
+        meter_per_second: '米每秒',
+        kilometer_per_hour: '千米每小时',
+        mile_per_hour: '英里每小时',
+        foot_per_second: '英尺每秒',
         knot: '节',
-        foot_per_second: '英尺/秒'
+        mach: '马赫',
+        kilometer_per_second: '千米每秒',
+        light_speed: '光速'
       },
       knowledge: {
         title: '你知道吗？',
@@ -247,11 +285,9 @@ const zhCN: Translation = {
       units: {
         pascal: '帕斯卡',
         kilopascal: '千帕',
-        megapascal: '兆帕',
         bar: '巴',
-        atmosphere: '标准大气压',
-        torr: '托',
-        pound_per_square_inch: '磅/平方英寸'
+        psi: '磅每平方英寸',
+        atmosphere: '大气压'
       },
       knowledge: {
         title: '你知道吗？',
@@ -270,10 +306,7 @@ const zhCN: Translation = {
         calorie: '卡路里',
         kilocalorie: '千卡',
         watt_hour: '瓦时',
-        kilowatt_hour: '千瓦时',
-        electron_volt: '电子伏特',
-        british_thermal_unit: '英热单位',
-        us_therm: '美制热量单位'
+        kilowatt_hour: '千瓦时'
       },
       knowledge: {
         title: '你知道吗？',
@@ -289,7 +322,6 @@ const zhCN: Translation = {
       units: {
         watt: '瓦特',
         kilowatt: '千瓦',
-        megawatt: '兆瓦',
         horsepower: '马力'
       },
       knowledge: {
@@ -301,16 +333,31 @@ const zhCN: Translation = {
       }
     },
     data: {
-      title: '数据',
-      description: '在不同数据单位之间转换',
+      title: '数据大小',
+      description: '在不同数字数据单位之间转换',
       units: {
         bit: '比特',
+        kilobit: '千比特',
+        megabit: '兆比特',
+        gigabit: '吉比特',
+        terabit: '太比特',
+        petabit: '拍比特',
         byte: '字节',
         kilobyte: '千字节',
         megabyte: '兆字节',
         gigabyte: '吉字节',
         terabyte: '太字节',
-        petabyte: '拍字节'
+        petabyte: '拍字节',
+        kibibit: '千比特',
+        mebibit: '兆比特',
+        gibibit: '吉比特',
+        tebibit: '太比特',
+        pebibit: '拍比特',
+        kibibyte: '千字节',
+        mebibyte: '兆字节',
+        gibibyte: '吉字节',
+        tebibyte: '太字节',
+        pebibyte: '拍字节'
       },
       knowledge: {
         title: '你知道吗？',
@@ -324,12 +371,24 @@ const zhCN: Translation = {
       title: '数据传输速率',
       description: '在不同数据传输速率单位之间转换',
       units: {
-        bit_per_second: '比特/秒',
-        byte_per_second: '字节/秒',
-        kilobit_per_second: '千比特/秒',
-        megabit_per_second: '兆比特/秒',
-        gigabit_per_second: '吉比特/秒',
-        terabit_per_second: '太比特/秒'
+        bits_per_second: '比特每秒',
+        kilobits_per_second: '千比特每秒',
+        megabits_per_second: '兆比特每秒',
+        gigabits_per_second: '吉比特每秒',
+        terabits_per_second: '太比特每秒',
+        bytes_per_second: '字节每秒',
+        kilobytes_per_second: '千字节每秒',
+        megabytes_per_second: '兆字节每秒',
+        gigabytes_per_second: '吉字节每秒',
+        terabytes_per_second: '太字节每秒',
+        kibibits_per_second: '千比特每秒',
+        mebibits_per_second: '兆比特每秒',
+        gibibits_per_second: '吉比特每秒',
+        tebibits_per_second: '太比特每秒',
+        kibibytes_per_second: '千字节每秒',
+        mebibytes_per_second: '兆字节每秒',
+        gibibytes_per_second: '吉字节每秒',
+        tebibytes_per_second: '太字节每秒'
       },
       knowledge: {
         title: '你知道吗？',
@@ -345,9 +404,9 @@ const zhCN: Translation = {
       units: {
         degree: '度',
         radian: '弧度',
-        gradian: '百分度',
-        arcminute: '角分',
-        arcsecond: '角秒'
+        gradian: '梯度',
+        arcminute: '分',
+        arcsecond: '秒'
       },
       knowledge: {
         title: '你知道吗？',
@@ -362,10 +421,9 @@ const zhCN: Translation = {
       description: '在不同力单位之间转换',
       units: {
         newton: '牛顿',
-        kilonewton: '千牛顿',
+        kilonewton: '千牛',
         dyne: '达因',
-        pound_force: '磅力',
-        kilogram_force: '千克力'
+        pound_force: '磅力'
       },
       knowledge: {
         title: '你知道吗？',
@@ -379,9 +437,14 @@ const zhCN: Translation = {
       title: '密度',
       description: '在不同密度单位之间转换',
       units: {
-        kilogram_per_cubic_meter: '千克/立方米',
-        gram_per_cubic_centimeter: '克/立方厘米',
-        pound_per_cubic_foot: '磅/立方英尺'
+        kilogram_per_cubic_meter: '千克每立方米',
+        gram_per_cubic_centimeter: '克每立方厘米',
+        pound_per_cubic_foot: '磅每立方英尺',
+        pound_per_cubic_inch: '磅每立方英寸',
+        kilogram_per_liter: '千克每升',
+        gram_per_milliliter: '克每毫升',
+        pound_per_gallon: '磅每加仑',
+        ounce_per_cubic_inch: '盎司每立方英寸'
       },
       knowledge: {
         title: '你知道吗？',
@@ -395,10 +458,9 @@ const zhCN: Translation = {
       title: '流量',
       description: '在不同流量单位之间转换',
       units: {
-        cubic_meter_per_second: '立方米/秒',
-        liter_per_second: '升/秒',
-        cubic_foot_per_second: '立方英尺/秒',
-        gallon_per_minute: '加仑/分钟'
+        cubic_meter_per_second: '立方米每秒',
+        liter_per_minute: '升每分钟',
+        gallon_per_minute: '加仑每分钟'
       },
       knowledge: {
         title: '你知道吗？',
@@ -414,7 +476,7 @@ const zhCN: Translation = {
       units: {
         newton_meter: '牛顿米',
         pound_foot: '磅英尺',
-        kilogram_meter: '千克米'
+        kilogram_force_meter: '千克力米'
       },
       knowledge: {
         title: '你知道吗？',
@@ -429,12 +491,9 @@ const zhCN: Translation = {
       description: '在不同频率单位之间转换',
       units: {
         hertz: '赫兹',
-        kilohertz: '千赫兹',
-        megahertz: '兆赫兹',
-        gigahertz: '吉赫兹',
-        cycles_per_second: '周/秒',
-        rpm: '转/分钟',
-        bpm: '拍/分钟'
+        kilohertz: '千赫',
+        megahertz: '兆赫',
+        gigahertz: '吉赫'
       },
       knowledge: {
         title: '你知道吗？',
@@ -466,14 +525,21 @@ const zhCN: Translation = {
     },
     cooking: {
       title: '烹饪',
-      description: '在不同烹饪单位之间转换',
+      description: '在不同烹饪测量单位之间转换',
       units: {
-        us_cup: '美制杯',
+        us_fluid_ounce: '美制液盎司',
         us_tablespoon: '美制汤匙',
         us_teaspoon: '美制茶匙',
-        metric_cup: '公制杯',
-        metric_tablespoon: '公制汤匙',
-        metric_teaspoon: '公制茶匙'
+        imperial_fluid_ounce: '英制液盎司',
+        imperial_tablespoon: '英制汤匙',
+        imperial_teaspoon: '英制茶匙',
+        chinese_bowl: '中国碗',
+        chinese_cup: '中国杯',
+        chinese_tablespoon: '中国汤匙',
+        chinese_teaspoon: '中国茶匙',
+        japanese_cup: '日本杯',
+        japanese_tablespoon: '日本汤匙',
+        japanese_teaspoon: '日本茶匙'
       },
       knowledge: {
         title: '你知道吗？',
@@ -484,23 +550,13 @@ const zhCN: Translation = {
       }
     },
     numeral: {
-      title: '进制',
-      description: '在不同进制之间转换',
-      binary: {
-        title: '二进制',
-        description: '基于2的数字系统 (0-1)'
-      },
-      octal: {
-        title: '八进制',
-        description: '基于8的数字系统 (0-7)'
-      },
-      decimal: {
-        title: '十进制',
-        description: '基于10的数字系统 (0-9)'
-      },
-      hexadecimal: {
-        title: '十六进制',
-        description: '基于16的数字系统 (0-9, A-F)'
+      title: '数字基数',
+      description: '在不同数字基数（十进制、二进制、八进制、十六进制）之间转换',
+      units: {
+        decimal: '十进制',
+        binary: '二进制',
+        octal: '八进制',
+        hexadecimal: '十六进制'
       },
       knowledge: {
         title: '你知道吗？',

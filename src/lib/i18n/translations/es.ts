@@ -96,13 +96,13 @@ const es: Translation = {
         imperial_foot: 'Pie',
         imperial_yard: 'Yarda',
         imperial_mile: 'Milla',
-        astronomical_light_year: 'Año luz',
-        astronomical_unit: 'Unidad astronómica',
+        astronomical_light_year: 'Año Luz',
+        astronomical_unit: 'Unidad Astronómica',
         metric_decimeter: 'Decímetro',
         metric_micrometer: 'Micrómetro',
         metric_nanometer: 'Nanómetro',
         metric_picometer: 'Picómetro',
-        nautical_mile: 'Milla náutica',
+        nautical_mile: 'Milla Náutica',
         nautical_fathom: 'Braza'
       },
       knowledge: {
@@ -119,18 +119,18 @@ const es: Translation = {
       title: 'Área',
       description: 'Convertir entre diferentes unidades de área',
       units: {
-        metric_square_meter: 'Metro cuadrado',
-        metric_square_kilometer: 'Kilómetro cuadrado',
-        metric_square_centimeter: 'Centímetro cuadrado',
-        metric_square_millimeter: 'Milímetro cuadrado',
-        imperial_square_inch: 'Pulgada cuadrada',
-        imperial_square_foot: 'Pie cuadrado',
-        imperial_square_yard: 'Yarda cuadrada',
-        imperial_square_mile: 'Milla cuadrada',
+        metric_square_meter: 'Metro Cuadrado',
+        metric_square_kilometer: 'Kilómetro Cuadrado',
+        metric_square_centimeter: 'Centímetro Cuadrado',
+        metric_square_millimeter: 'Milímetro Cuadrado',
+        imperial_square_inch: 'Pulgada Cuadrada',
+        imperial_square_foot: 'Pie Cuadrado',
+        imperial_square_yard: 'Yarda Cuadrada',
+        imperial_square_mile: 'Milla Cuadrada',
         metric_hectare: 'Hectárea',
         imperial_acre: 'Acre',
-        metric_square_decimeter: 'Decímetro cuadrado',
-        metric_are: 'Área',
+        metric_square_decimeter: 'Decímetro Cuadrado',
+        metric_are: 'Are',
         traditional_mu: 'Mu (Chino)',
         traditional_qing: 'Qing (Chino)'
       },
@@ -148,15 +148,32 @@ const es: Translation = {
       title: 'Volumen',
       description: 'Convertir entre diferentes unidades de volumen',
       units: {
-        metric_cubic_meter: 'Metro cúbico',
+        metric_cubic_meter: 'Metro Cúbico',
+        metric_cubic_kilometer: 'Kilómetro Cúbico',
+        metric_cubic_centimeter: 'Centímetro Cúbico',
+        metric_cubic_millimeter: 'Milímetro Cúbico',
+        metric_cubic_decimeter: 'Decímetro Cúbico',
         metric_liter: 'Litro',
         metric_milliliter: 'Mililitro',
-        imperial_gallon: 'Galón',
-        imperial_quart: 'Cuarto',
-        imperial_pint: 'Pinta',
-        imperial_fluid_ounce: 'Onza líquida',
-        imperial_cubic_inch: 'Pulgada cúbica',
-        imperial_cubic_foot: 'Pie cúbico'
+        imperial_gallon: 'Galón Imperial',
+        imperial_quart: 'Cuarto Imperial',
+        imperial_pint: 'Pinta Imperial',
+        us_cup: 'Taza US',
+        imperial_fluid_ounce: 'Onza Líquida Imperial',
+        us_tablespoon: 'Cucharada US',
+        us_teaspoon: 'Cucharadita US',
+        imperial_cubic_yard: 'Yarda Cúbica',
+        imperial_cubic_foot: 'Pie Cúbico',
+        imperial_cubic_inch: 'Pulgada Cúbica',
+        chinese_dan: 'Dan (Chino)',
+        chinese_dou: 'Dou (Chino)',
+        chinese_sheng: 'Sheng (Chino)',
+        japanese_koku: 'Koku (Japonés)',
+        japanese_to: 'To (Japonés)',
+        japanese_sho: 'Sho (Japonés)',
+        japanese_go: 'Go (Japonés)',
+        industrial_oil_barrel: 'Barril de Petróleo',
+        industrial_beer_barrel: 'Barril de Cerveza'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -172,10 +189,23 @@ const es: Translation = {
       description: 'Convertir entre diferentes unidades de peso',
       units: {
         metric_kilogram: 'Kilogramo',
+        metric_tonne: 'Tonelada',
         metric_gram: 'Gramo',
         metric_milligram: 'Miligramo',
+        metric_microgram: 'Microgramo',
         imperial_pound: 'Libra',
-        imperial_ounce: 'Onza'
+        imperial_ounce: 'Onza',
+        imperial_stone: 'Stone',
+        imperial_long_ton: 'Tonelada Larga',
+        us_short_ton: 'Tonelada Corta',
+        jewelry_carat: 'Quilate',
+        jewelry_grain: 'Grano',
+        traditional_jin: 'Jin (Chino)',
+        traditional_liang: 'Liang (Chino)',
+        traditional_qian: 'Qian (Chino)',
+        medical_grain: 'Grano Médico',
+        medical_dram: 'Dracma Médico',
+        medical_ounce: 'Onza Médica'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -186,34 +216,19 @@ const es: Translation = {
         ]
       }
     },
-    time: {
-      title: 'Tiempo',
-      description: 'Convertir entre diferentes unidades de tiempo',
-      units: {
-        second: 'Segundo',
-        minute: 'Minuto',
-        hour: 'Hora',
-        day: 'Día',
-        week: 'Semana',
-        month: 'Mes',
-        year: 'Año'
-      },
-      knowledge: {
-        title: '¿Sabías que?',
-        items: [
-          'Un año no siempre tiene exactamente 365 días debido a los años bisiestos.',
-          'El segundo se define como la duración de 9,192,631,770 periodos de la radiación correspondiente a la transición entre dos niveles hiperfinos del estado fundamental del átomo de cesio-133.',
-          'Antes del Calendario Gregoriano, diferentes culturas tenían diferentes divisiones y nombres para las unidades de tiempo.'
-        ]
-      }
-    },
     temperature: {
       title: 'Temperatura',
-      description: 'Convertir entre diferentes unidades de temperatura',
+      description: 'Convertir entre diferentes escalas de temperatura',
       units: {
-        celsius: 'Celsius',
-        fahrenheit: 'Fahrenheit',
-        kelvin: 'Kelvin'
+        scientific_kelvin: 'Kelvin (Científico)',
+        metric_celsius: 'Celsius (Métrico)',
+        us_fahrenheit: 'Fahrenheit (US)',
+        scientific_rankine: 'Rankine (Científico)',
+        historical_reaumur: 'Réaumur (Histórico)',
+        meteorological_celsius: 'Celsius (Meteorológico)',
+        meteorological_fahrenheit: 'Fahrenheit (Meteorológico)',
+        industrial_celsius: 'Celsius (Industrial)',
+        industrial_fahrenheit: 'Fahrenheit (Industrial)'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -224,14 +239,44 @@ const es: Translation = {
         ]
       }
     },
+    time: {
+      title: 'Tiempo',
+      description: 'Convertir entre diferentes unidades de tiempo',
+      units: {
+        metric_second: 'Segundo',
+        metric_minute: 'Minuto',
+        metric_hour: 'Hora',
+        metric_day: 'Día',
+        metric_week: 'Semana',
+        metric_month: 'Mes',
+        metric_year: 'Año',
+        metric_decade: 'Década',
+        metric_century: 'Siglo',
+        scientific_millisecond: 'Milisegundo',
+        scientific_microsecond: 'Microsegundo',
+        scientific_nanosecond: 'Nanosegundo'
+      },
+      knowledge: {
+        title: '¿Sabías que?',
+        items: [
+          'Un año no siempre tiene exactamente 365 días debido a los años bisiestos.',
+          'El segundo se define como la duración de 9,192,631,770 periodos de la radiación correspondiente a la transición entre dos niveles hiperfinos del estado fundamental del átomo de cesio-133.',
+          'Antes del Calendario Gregoriano, diferentes culturas tenían diferentes divisiones y nombres para las unidades de tiempo.'
+        ]
+      }
+    },
     speed: {
       title: 'Velocidad',
       description: 'Convertir entre diferentes unidades de velocidad',
       units: {
-        meter_per_second: 'Metro por segundo',
-        kilometer_per_hour: 'Kilómetro por hora',
-        mile_per_hour: 'Milla por hora',
-        knot: 'Nudo'
+        meter_per_second: 'Metros por Segundo',
+        kilometer_per_hour: 'Kilómetros por Hora',
+        mile_per_hour: 'Millas por Hora',
+        foot_per_second: 'Pies por Segundo',
+        knot: 'Nudos',
+        mach: 'Mach',
+        kilometer_per_second: 'Kilómetros por Segundo',
+        light_speed: 'Velocidad de la Luz'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -247,7 +292,10 @@ const es: Translation = {
       description: 'Convertir entre diferentes unidades de ángulo',
       units: {
         degree: 'Grado',
-        radian: 'Radián'
+        radian: 'Radián',
+        gradian: 'Gradián',
+        arcminute: 'Minuto de Arco',
+        arcsecond: 'Segundo de Arco'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -263,8 +311,10 @@ const es: Translation = {
       description: 'Convertir entre diferentes unidades de presión',
       units: {
         pascal: 'Pascal',
+        kilopascal: 'Kilopascal',
         bar: 'Bar',
-        psi: 'Libra por pulgada cuadrada'
+        psi: 'PSI',
+        atmosphere: 'Atmósfera'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -281,7 +331,7 @@ const es: Translation = {
       units: {
         watt: 'Vatio',
         kilowatt: 'Kilovatio',
-        horsepower: 'Caballo de fuerza'
+        horsepower: 'Caballo de Fuerza'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -299,7 +349,9 @@ const es: Translation = {
         joule: 'Julio',
         kilojoule: 'Kilojulio',
         calorie: 'Caloría',
-        kilocalorie: 'Kilocaloría'
+        kilocalorie: 'Kilocaloría',
+        watt_hour: 'Vatio Hora',
+        kilowatt_hour: 'Kilovatio Hora'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -315,7 +367,9 @@ const es: Translation = {
       description: 'Convertir entre diferentes unidades de fuerza',
       units: {
         newton: 'Newton',
-        kilonewton: 'Kilonewton'
+        kilonewton: 'Kilonewton',
+        dyne: 'Dina',
+        pound_force: 'Libra Fuerza'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -330,8 +384,14 @@ const es: Translation = {
       title: 'Densidad',
       description: 'Convertir entre diferentes unidades de densidad',
       units: {
-        kilogram_per_cubic_meter: 'Kilogramo por metro cúbico',
-        gram_per_cubic_centimeter: 'Gramo por centímetro cúbico'
+        kilogram_per_cubic_meter: 'Kilogramo por Metro Cúbico',
+        gram_per_cubic_centimeter: 'Gramo por Centímetro Cúbico',
+        pound_per_cubic_foot: 'Libra por Pie Cúbico',
+        pound_per_cubic_inch: 'Libra por Pulgada Cúbica',
+        kilogram_per_liter: 'Kilogramo por Litro',
+        gram_per_milliliter: 'Gramo por Mililitro',
+        pound_per_gallon: 'Libra por Galón',
+        ounce_per_cubic_inch: 'Onza por Pulgada Cúbica'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -343,11 +403,12 @@ const es: Translation = {
       }
     },
     flow: {
-      title: 'Flujo',
-      description: 'Convertir entre diferentes unidades de flujo',
+      title: 'Caudal',
+      description: 'Convertir entre diferentes unidades de caudal',
       units: {
-        cubic_meter_per_second: 'Metro cúbico por segundo',
-        liter_per_minute: 'Litro por minuto'
+        cubic_meter_per_second: 'Metro Cúbico por Segundo',
+        liter_per_minute: 'Litro por Minuto',
+        gallon_per_minute: 'Galón por Minuto'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -359,11 +420,12 @@ const es: Translation = {
       }
     },
     torque: {
-      title: 'Torque',
-      description: 'Convertir entre diferentes unidades de torque',
+      title: 'Par Motor',
+      description: 'Convertir entre diferentes unidades de par motor',
       units: {
-        newton_meter: 'Newton metro',
-        pound_foot: 'Libra pie'
+        newton_meter: 'Newton Metro',
+        pound_foot: 'Libra Pie',
+        kilogram_force_meter: 'Kilogramo Fuerza Metro'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -376,12 +438,30 @@ const es: Translation = {
     },
     data: {
       title: 'Datos',
-      description: 'Convertir entre diferentes unidades de datos',
+      description: 'Convertir entre diferentes unidades de datos digitales',
       units: {
+        bit: 'Bit',
+        kilobit: 'Kilobit',
+        megabit: 'Megabit',
+        gigabit: 'Gigabit',
+        terabit: 'Terabit',
+        petabit: 'Petabit',
         byte: 'Byte',
         kilobyte: 'Kilobyte',
         megabyte: 'Megabyte',
-        gigabyte: 'Gigabyte'
+        gigabyte: 'Gigabyte',
+        terabyte: 'Terabyte',
+        petabyte: 'Petabyte',
+        kibibit: 'Kibibit',
+        mebibit: 'Mebibit',
+        gibibit: 'Gibibit',
+        tebibit: 'Tebibit',
+        pebibit: 'Pebibit',
+        kibibyte: 'Kibibyte',
+        mebibyte: 'Mebibyte',
+        gibibyte: 'Gibibyte',
+        tebibyte: 'Tebibyte',
+        pebibyte: 'Pebibyte'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -393,12 +473,27 @@ const es: Translation = {
       }
     },
     data_rate: {
-      title: 'Tasa de datos',
-      description: 'Convertir entre diferentes tasas de datos',
+      title: 'Velocidad de Datos',
+      description: 'Convertir entre diferentes unidades de velocidad de datos',
       units: {
-        bit_per_second: 'Bit por segundo',
-        kilobit_per_second: 'Kilobit por segundo',
-        megabit_per_second: 'Megabit por segundo'
+        bits_per_second: 'Bits por Segundo',
+        kilobits_per_second: 'Kilobits por Segundo',
+        megabits_per_second: 'Megabits por Segundo',
+        gigabits_per_second: 'Gigabits por Segundo',
+        terabits_per_second: 'Terabits por Segundo',
+        bytes_per_second: 'Bytes por Segundo',
+        kilobytes_per_second: 'Kilobytes por Segundo',
+        megabytes_per_second: 'Megabytes por Segundo',
+        gigabytes_per_second: 'Gigabytes por Segundo',
+        terabytes_per_second: 'Terabytes por Segundo',
+        kibibits_per_second: 'Kibibits por Segundo',
+        mebibits_per_second: 'Mebibits por Segundo',
+        gibibits_per_second: 'Gibibits por Segundo',
+        tebibits_per_second: 'Tebibits por Segundo',
+        kibibytes_per_second: 'Kibibytes por Segundo',
+        mebibytes_per_second: 'Mebibytes por Segundo',
+        gibibytes_per_second: 'Gibibytes por Segundo',
+        tebibytes_per_second: 'Tebibytes por Segundo'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -411,12 +506,15 @@ const es: Translation = {
     },
     currency: {
       title: 'Moneda',
-      description: 'Convertir entre diferentes unidades de moneda',
+      description: 'Convertir entre diferentes monedas',
       units: {
-        usd: 'Dólar estadounidense',
+        usd: 'Dólar Estadounidense',
         eur: 'Euro',
-        gbp: 'Libra esterlina',
-        jpy: 'Yen japonés'
+        gbp: 'Libra Esterlina',
+        jpy: 'Yen Japonés',
+        cny: 'Yuan Chino',
+        krw: 'Won Surcoreano',
+        inr: 'Rupia India'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -429,11 +527,21 @@ const es: Translation = {
     },
     cooking: {
       title: 'Cocina',
-      description: 'Convertir entre diferentes unidades de cocina',
+      description: 'Convertir entre diferentes medidas de cocina',
       units: {
-        teaspoon: 'Cucharadita',
-        tablespoon: 'Cucharada',
-        cup: 'Taza'
+        us_fluid_ounce: 'Onza Líquida US',
+        us_tablespoon: 'Cucharada US',
+        us_teaspoon: 'Cucharadita US',
+        imperial_fluid_ounce: 'Onza Líquida Imperial',
+        imperial_tablespoon: 'Cucharada Imperial',
+        imperial_teaspoon: 'Cucharadita Imperial',
+        chinese_bowl: 'Tazón Chino',
+        chinese_cup: 'Taza China',
+        chinese_tablespoon: 'Cucharada China',
+        chinese_teaspoon: 'Cucharadita China',
+        japanese_cup: 'Taza Japonesa',
+        japanese_tablespoon: 'Cucharada Japonesa',
+        japanese_teaspoon: 'Cucharadita Japonesa'
       },
       knowledge: {
         title: '¿Sabías que?',
@@ -445,7 +553,7 @@ const es: Translation = {
       }
     },
     numeral: {
-      title: 'Sistema numérico',
+      title: 'Sistema Numérico',
       description: 'Convertir entre diferentes sistemas numéricos',
       units: {
         decimal: 'Decimal',
@@ -468,7 +576,8 @@ const es: Translation = {
       units: {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
-        megahertz: 'Megahertz'
+        megahertz: 'Megahertz',
+        gigahertz: 'Gigahertz'
       },
       knowledge: {
         title: '¿Sabías que?',

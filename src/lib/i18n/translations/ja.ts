@@ -86,7 +86,7 @@ const ja: Translation = {
   units: {
     length: {
       title: '長さ',
-      description: 'さまざまな長さの単位を変換',
+      description: '異なる長さの単位間で変換',
       units: {
         metric_meter: 'メートル',
         metric_kilometer: 'キロメートル',
@@ -117,7 +117,7 @@ const ja: Translation = {
     },
     area: {
       title: '面積',
-      description: 'さまざまな面積の単位を変換',
+      description: '異なる面積の単位間で変換',
       units: {
         metric_square_meter: '平方メートル',
         metric_square_kilometer: '平方キロメートル',
@@ -131,8 +131,8 @@ const ja: Translation = {
         imperial_acre: 'エーカー',
         metric_square_decimeter: '平方デシメートル',
         metric_are: 'アール',
-        traditional_mu: 'ムー（中国）',
-        traditional_qing: 'チン（中国）'
+        traditional_mu: '畝（中国）',
+        traditional_qing: '頃（中国）'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -146,17 +146,34 @@ const ja: Translation = {
     },
     volume: {
       title: '体積',
-      description: 'さまざまな体積の単位を変換',
+      description: '異なる体積の単位間で変換',
       units: {
         metric_cubic_meter: '立方メートル',
+        metric_cubic_kilometer: '立方キロメートル',
+        metric_cubic_centimeter: '立方センチメートル',
+        metric_cubic_millimeter: '立方ミリメートル',
+        metric_cubic_decimeter: '立方デシメートル',
         metric_liter: 'リットル',
         metric_milliliter: 'ミリリットル',
-        imperial_gallon: 'ガロン',
-        imperial_quart: 'クォート',
-        imperial_pint: 'パイント',
-        imperial_fluid_ounce: '液量オンス',
+        imperial_gallon: 'ガロン（英）',
+        imperial_quart: 'クォート（英）',
+        imperial_pint: 'パイント（英）',
+        us_cup: 'カップ（米）',
+        imperial_fluid_ounce: '液量オンス（英）',
+        us_tablespoon: '大さじ（米）',
+        us_teaspoon: '小さじ（米）',
+        imperial_cubic_yard: '立方ヤード',
+        imperial_cubic_foot: '立方フィート',
         imperial_cubic_inch: '立方インチ',
-        imperial_cubic_foot: '立方フィート'
+        chinese_dan: '石（中国）',
+        chinese_dou: '斗（中国）',
+        chinese_sheng: '升（中国）',
+        japanese_koku: '石',
+        japanese_to: '斗',
+        japanese_sho: '升',
+        japanese_go: '合',
+        industrial_oil_barrel: '石油バレル',
+        industrial_beer_barrel: 'ビールバレル'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -168,14 +185,27 @@ const ja: Translation = {
       }
     },
     weight: {
-      title: '重量',
-      description: 'さまざまな重量の単位を変換',
+      title: '重さ',
+      description: '異なる重さの単位間で変換',
       units: {
         metric_kilogram: 'キログラム',
+        metric_tonne: 'トン',
         metric_gram: 'グラム',
         metric_milligram: 'ミリグラム',
+        metric_microgram: 'マイクログラム',
         imperial_pound: 'ポンド',
-        imperial_ounce: 'オンス'
+        imperial_ounce: 'オンス',
+        imperial_stone: 'ストーン',
+        imperial_long_ton: 'ロングトン',
+        us_short_ton: 'ショートトン',
+        jewelry_carat: 'カラット',
+        jewelry_grain: 'グレーン',
+        traditional_jin: '斤（中国）',
+        traditional_liang: '両（中国）',
+        traditional_qian: '銭（中国）',
+        medical_grain: 'グレーン（医療）',
+        medical_dram: 'ドラム（医療）',
+        medical_ounce: 'オンス（医療）'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -188,24 +218,35 @@ const ja: Translation = {
     },
     time: {
       title: '時間',
-      description: 'さまざまな時間の単位を変換',
+      description: '異なる時間の単位間で変換',
       units: {
-        second: '秒',
-        minute: '分',
-        hour: '時間',
-        day: '日',
-        week: '週',
-        month: '月',
-        year: '年'
+        metric_second: '秒',
+        metric_minute: '分',
+        metric_hour: '時間',
+        metric_day: '日',
+        metric_week: '週',
+        metric_month: '月',
+        metric_year: '年',
+        metric_decade: '十年',
+        metric_century: '世紀',
+        scientific_millisecond: 'ミリ秒',
+        scientific_microsecond: 'マイクロ秒',
+        scientific_nanosecond: 'ナノ秒'
       }
     },
     temperature: {
       title: '温度',
-      description: 'さまざまな温度の単位を変換',
+      description: '異なる温度の単位間で変換',
       units: {
-        celsius: '摂氏',
-        fahrenheit: '華氏',
-        kelvin: 'ケルビン'
+        scientific_kelvin: 'ケルビン（科学）',
+        metric_celsius: '摂氏（メートル法）',
+        us_fahrenheit: '華氏（米）',
+        scientific_rankine: 'ランキン（科学）',
+        historical_reaumur: 'レオミュール（歴史）',
+        meteorological_celsius: '摂氏（気象）',
+        meteorological_fahrenheit: '華氏（気象）',
+        industrial_celsius: '摂氏（工業）',
+        industrial_fahrenheit: '華氏（工業）'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -218,12 +259,16 @@ const ja: Translation = {
     },
     speed: {
       title: '速度',
-      description: 'さまざまな速度の単位を変換',
+      description: '異なる速度の単位間で変換',
       units: {
         meter_per_second: 'メートル毎秒',
         kilometer_per_hour: 'キロメートル毎時',
         mile_per_hour: 'マイル毎時',
-        knot: 'ノット'
+        foot_per_second: 'フィート毎秒',
+        knot: 'ノット',
+        mach: 'マッハ',
+        kilometer_per_second: 'キロメートル毎秒',
+        light_speed: '光速'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -236,10 +281,13 @@ const ja: Translation = {
     },
     angle: {
       title: '角度',
-      description: 'さまざまな角度の単位を変換',
+      description: '異なる角度の単位間で変換',
       units: {
         degree: '度',
-        radian: 'ラジアン'
+        radian: 'ラジアン',
+        gradian: 'グラジアン',
+        arcminute: '分（角）',
+        arcsecond: '秒（角）'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -252,11 +300,13 @@ const ja: Translation = {
     },
     pressure: {
       title: '圧力',
-      description: 'さまざまな圧力の単位を変換',
+      description: '異なる圧力の単位間で変換',
       units: {
         pascal: 'パスカル',
+        kilopascal: 'キロパスカル',
         bar: 'バール',
-        psi: 'ポンド毎平方インチ'
+        psi: 'PSI',
+        atmosphere: '気圧'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -269,7 +319,7 @@ const ja: Translation = {
     },
     power: {
       title: '電力',
-      description: 'さまざまな電力の単位を変換',
+      description: '異なる電力の単位間で変換',
       units: {
         watt: 'ワット',
         kilowatt: 'キロワット',
@@ -286,12 +336,14 @@ const ja: Translation = {
     },
     energy: {
       title: 'エネルギー',
-      description: 'さまざまなエネルギーの単位を変換',
+      description: '異なるエネルギーの単位間で変換',
       units: {
         joule: 'ジュール',
         kilojoule: 'キロジュール',
         calorie: 'カロリー',
-        kilocalorie: 'キロカロリー'
+        kilocalorie: 'キロカロリー',
+        watt_hour: 'ワット時',
+        kilowatt_hour: 'キロワット時'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -304,10 +356,12 @@ const ja: Translation = {
     },
     force: {
       title: '力',
-      description: 'さまざまな力の単位を変換',
+      description: '異なる力の単位間で変換',
       units: {
         newton: 'ニュートン',
-        kilonewton: 'キロニュートン'
+        kilonewton: 'キロニュートン',
+        dyne: 'ダイン',
+        pound_force: '重量ポンド'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -319,10 +373,16 @@ const ja: Translation = {
     },
     density: {
       title: '密度',
-      description: 'さまざまな密度の単位を変換',
+      description: '異なる密度の単位間で変換',
       units: {
         kilogram_per_cubic_meter: 'キログラム毎立方メートル',
-        gram_per_cubic_centimeter: 'グラム毎立方センチメートル'
+        gram_per_cubic_centimeter: 'グラム毎立方センチメートル',
+        pound_per_cubic_foot: 'ポンド毎立方フィート',
+        pound_per_cubic_inch: 'ポンド毎立方インチ',
+        kilogram_per_liter: 'キログラム毎リットル',
+        gram_per_milliliter: 'グラム毎ミリリットル',
+        pound_per_gallon: 'ポンド毎ガロン',
+        ounce_per_cubic_inch: 'オンス毎立方インチ'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -334,10 +394,11 @@ const ja: Translation = {
     },
     flow: {
       title: '流量',
-      description: 'さまざまな流量の単位を変換',
+      description: '異なる流量の単位間で変換',
       units: {
         cubic_meter_per_second: '立方メートル毎秒',
-        liter_per_minute: 'リットル毎分'
+        liter_per_minute: 'リットル毎分',
+        gallon_per_minute: 'ガロン毎分'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -349,10 +410,11 @@ const ja: Translation = {
     },
     torque: {
       title: 'トルク',
-      description: 'さまざまなトルクの単位を変換',
+      description: '異なるトルクの単位間で変換',
       units: {
         newton_meter: 'ニュートンメートル',
-        pound_foot: 'ポンドフィート'
+        pound_foot: 'フィートポンド',
+        kilogram_force_meter: 'キログラム力メートル'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -364,12 +426,30 @@ const ja: Translation = {
     },
     data: {
       title: 'データ',
-      description: 'さまざまなデータの単位を変換',
+      description: '異なるデータの単位間で変換',
       units: {
+        bit: 'ビット',
+        kilobit: 'キロビット',
+        megabit: 'メガビット',
+        gigabit: 'ギガビット',
+        terabit: 'テラビット',
+        petabit: 'ペタビット',
         byte: 'バイト',
         kilobyte: 'キロバイト',
         megabyte: 'メガバイト',
-        gigabyte: 'ギガバイト'
+        gigabyte: 'ギガバイト',
+        terabyte: 'テラバイト',
+        petabyte: 'ペタバイト',
+        kibibit: 'キビビット',
+        mebibit: 'メビビット',
+        gibibit: 'ギビビット',
+        tebibit: 'テビビット',
+        pebibit: 'ペビビット',
+        kibibyte: 'キビバイト',
+        mebibyte: 'メビバイト',
+        gibibyte: 'ギビバイト',
+        tebibyte: 'テビバイト',
+        pebibyte: 'ペビバイト'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -381,12 +461,27 @@ const ja: Translation = {
       }
     },
     data_rate: {
-      title: 'データレート',
-      description: 'さまざまなデータレートの単位を変換',
+      title: 'データ転送速度',
+      description: '異なるデータ転送速度の単位間で変換',
       units: {
-        bit_per_second: 'ビット毎秒',
-        kilobit_per_second: 'キロビット毎秒',
-        megabit_per_second: 'メガビット毎秒'
+        bits_per_second: 'ビット毎秒',
+        kilobits_per_second: 'キロビット毎秒',
+        megabits_per_second: 'メガビット毎秒',
+        gigabits_per_second: 'ギガビット毎秒',
+        terabits_per_second: 'テラビット毎秒',
+        bytes_per_second: 'バイト毎秒',
+        kilobytes_per_second: 'キロバイト毎秒',
+        megabytes_per_second: 'メガバイト毎秒',
+        gigabytes_per_second: 'ギガバイト毎秒',
+        terabytes_per_second: 'テラバイト毎秒',
+        kibibits_per_second: 'キビビット毎秒',
+        mebibits_per_second: 'メビビット毎秒',
+        gibibits_per_second: 'ギビビット毎秒',
+        tebibits_per_second: 'テビビット毎秒',
+        kibibytes_per_second: 'キビバイト毎秒',
+        mebibytes_per_second: 'メビバイト毎秒',
+        gibibytes_per_second: 'ギビバイト毎秒',
+        tebibytes_per_second: 'テビバイト毎秒'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -398,12 +493,15 @@ const ja: Translation = {
     },
     currency: {
       title: '通貨',
-      description: 'さまざまな通貨の単位を変換',
+      description: '異なる通貨間で変換',
       units: {
-        usd: '米ドル',
+        usd: 'アメリカドル',
         eur: 'ユーロ',
-        gbp: '英ポンド',
-        jpy: '日本円'
+        gbp: 'イギリスポンド',
+        jpy: '日本円',
+        cny: '中国元',
+        krw: '韓国ウォン',
+        inr: 'インドルピー'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -414,12 +512,22 @@ const ja: Translation = {
       }
     },
     cooking: {
-      title: '料理',
-      description: 'さまざまな料理の単位を変換',
+      title: '調理',
+      description: '異なる調理単位間で変換',
       units: {
-        teaspoon: '小さじ',
-        tablespoon: '大さじ',
-        cup: 'カップ'
+        us_fluid_ounce: '液量オンス（米）',
+        us_tablespoon: '大さじ（米）',
+        us_teaspoon: '小さじ（米）',
+        imperial_fluid_ounce: '液量オンス（英）',
+        imperial_tablespoon: '大さじ（英）',
+        imperial_teaspoon: '小さじ（英）',
+        chinese_bowl: '碗（中国）',
+        chinese_cup: 'カップ（中国）',
+        chinese_tablespoon: '大さじ（中国）',
+        chinese_teaspoon: '小さじ（中国）',
+        japanese_cup: '合',
+        japanese_tablespoon: '大さじ',
+        japanese_teaspoon: '小さじ'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -430,13 +538,13 @@ const ja: Translation = {
       }
     },
     numeral: {
-      title: '数値システム',
-      description: 'さまざまな数値システムを変換',
+      title: '進数',
+      description: '異なる進数間で変換',
       units: {
-        decimal: '十進法',
-        binary: '二進法',
-        octal: '八進法',
-        hexadecimal: '十六進法'
+        decimal: '10進数',
+        binary: '2進数',
+        octal: '8進数',
+        hexadecimal: '16進数'
       },
       knowledge: {
         title: '知っていましたか？',
@@ -448,11 +556,12 @@ const ja: Translation = {
     },
     frequency: {
       title: '周波数',
-      description: 'さまざまな周波数の単位を変換',
+      description: '異なる周波数の単位間で変換',
       units: {
         hertz: 'ヘルツ',
         kilohertz: 'キロヘルツ',
-        megahertz: 'メガヘルツ'
+        megahertz: 'メガヘルツ',
+        gigahertz: 'ギガヘルツ'
       },
       knowledge: {
         title: '知っていましたか？',

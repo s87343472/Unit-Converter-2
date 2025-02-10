@@ -97,12 +97,12 @@ const fr: Translation = {
         imperial_yard: 'Yard',
         imperial_mile: 'Mile',
         astronomical_light_year: 'Année-lumière',
-        astronomical_unit: 'Unité astronomique',
+        astronomical_unit: 'Unité Astronomique',
         metric_decimeter: 'Décimètre',
         metric_micrometer: 'Micromètre',
         metric_nanometer: 'Nanomètre',
         metric_picometer: 'Picomètre',
-        nautical_mile: 'Mille marin',
+        nautical_mile: 'Mille Marin',
         nautical_fathom: 'Brasse'
       },
       knowledge: {
@@ -116,20 +116,20 @@ const fr: Translation = {
       }
     },
     area: {
-      title: 'Aire',
-      description: 'Convertir entre différentes unités d\'aire',
+      title: 'Surface',
+      description: 'Convertir entre différentes unités de surface',
       units: {
-        metric_square_meter: 'Mètre carré',
-        metric_square_kilometer: 'Kilomètre carré',
-        metric_square_centimeter: 'Centimètre carré',
-        metric_square_millimeter: 'Millimètre carré',
-        imperial_square_inch: 'Pouce carré',
-        imperial_square_foot: 'Pied carré',
-        imperial_square_yard: 'Yard carré',
-        imperial_square_mile: 'Mile carré',
+        metric_square_meter: 'Mètre Carré',
+        metric_square_kilometer: 'Kilomètre Carré',
+        metric_square_centimeter: 'Centimètre Carré',
+        metric_square_millimeter: 'Millimètre Carré',
+        imperial_square_inch: 'Pouce Carré',
+        imperial_square_foot: 'Pied Carré',
+        imperial_square_yard: 'Yard Carré',
+        imperial_square_mile: 'Mile Carré',
         metric_hectare: 'Hectare',
         imperial_acre: 'Acre',
-        metric_square_decimeter: 'Décimètre carré',
+        metric_square_decimeter: 'Décimètre Carré',
         metric_are: 'Are',
         traditional_mu: 'Mu (Chinois)',
         traditional_qing: 'Qing (Chinois)'
@@ -148,15 +148,32 @@ const fr: Translation = {
       title: 'Volume',
       description: 'Convertir entre différentes unités de volume',
       units: {
-        metric_cubic_meter: 'Mètre cube',
+        metric_cubic_meter: 'Mètre Cube',
+        metric_cubic_kilometer: 'Kilomètre Cube',
+        metric_cubic_centimeter: 'Centimètre Cube',
+        metric_cubic_millimeter: 'Millimètre Cube',
+        metric_cubic_decimeter: 'Décimètre Cube',
         metric_liter: 'Litre',
         metric_milliliter: 'Millilitre',
-        imperial_gallon: 'Gallon',
-        imperial_quart: 'Quart',
-        imperial_pint: 'Pinte',
-        imperial_fluid_ounce: 'Once liquide',
-        imperial_cubic_inch: 'Pouce cube',
-        imperial_cubic_foot: 'Pied cube'
+        imperial_gallon: 'Gallon Impérial',
+        imperial_quart: 'Quart Impérial',
+        imperial_pint: 'Pinte Impériale',
+        us_cup: 'Tasse US',
+        imperial_fluid_ounce: 'Once Fluide Impériale',
+        us_tablespoon: 'Cuillère à Soupe US',
+        us_teaspoon: 'Cuillère à Café US',
+        imperial_cubic_yard: 'Yard Cube',
+        imperial_cubic_foot: 'Pied Cube',
+        imperial_cubic_inch: 'Pouce Cube',
+        chinese_dan: 'Dan (Chinois)',
+        chinese_dou: 'Dou (Chinois)',
+        chinese_sheng: 'Sheng (Chinois)',
+        japanese_koku: 'Koku (Japonais)',
+        japanese_to: 'To (Japonais)',
+        japanese_sho: 'Sho (Japonais)',
+        japanese_go: 'Go (Japonais)',
+        industrial_oil_barrel: 'Baril de Pétrole',
+        industrial_beer_barrel: 'Baril de Bière'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -172,10 +189,23 @@ const fr: Translation = {
       description: 'Convertir entre différentes unités de poids',
       units: {
         metric_kilogram: 'Kilogramme',
+        metric_tonne: 'Tonne',
         metric_gram: 'Gramme',
         metric_milligram: 'Milligramme',
+        metric_microgram: 'Microgramme',
         imperial_pound: 'Livre',
-        imperial_ounce: 'Once'
+        imperial_ounce: 'Once',
+        imperial_stone: 'Stone',
+        imperial_long_ton: 'Tonne Longue',
+        us_short_ton: 'Tonne Courte',
+        jewelry_carat: 'Carat',
+        jewelry_grain: 'Grain',
+        traditional_jin: 'Jin (Chinois)',
+        traditional_liang: 'Liang (Chinois)',
+        traditional_qian: 'Qian (Chinois)',
+        medical_grain: 'Grain Médical',
+        medical_dram: 'Drachme Médicale',
+        medical_ounce: 'Once Médicale'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -186,34 +216,19 @@ const fr: Translation = {
         ]
       }
     },
-    time: {
-      title: 'Temps',
-      description: 'Convertir entre différentes unités de temps',
-      units: {
-        second: 'Seconde',
-        minute: 'Minute',
-        hour: 'Heure',
-        day: 'Jour',
-        week: 'Semaine',
-        month: 'Mois',
-        year: 'Année'
-      },
-      knowledge: {
-        title: 'Le saviez-vous ?',
-        items: [
-          'Une minute est composée de 60 secondes.',
-          'Le mois n\'a pas un nombre constant de jours.',
-          'Une année bissextile compte 366 jours.'
-        ]
-      }
-    },
     temperature: {
       title: 'Température',
-      description: 'Convertir entre différentes unités de température',
+      description: 'Convertir entre différentes échelles de température',
       units: {
-        celsius: 'Celsius',
-        fahrenheit: 'Fahrenheit',
-        kelvin: 'Kelvin'
+        scientific_kelvin: 'Kelvin (Scientifique)',
+        metric_celsius: 'Celsius (Métrique)',
+        us_fahrenheit: 'Fahrenheit (US)',
+        scientific_rankine: 'Rankine (Scientifique)',
+        historical_reaumur: 'Réaumur (Historique)',
+        meteorological_celsius: 'Celsius (Météorologique)',
+        meteorological_fahrenheit: 'Fahrenheit (Météorologique)',
+        industrial_celsius: 'Celsius (Industriel)',
+        industrial_fahrenheit: 'Fahrenheit (Industriel)'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -224,14 +239,44 @@ const fr: Translation = {
         ]
       }
     },
+    time: {
+      title: 'Temps',
+      description: 'Convertir entre différentes unités de temps',
+      units: {
+        metric_second: 'Seconde',
+        metric_minute: 'Minute',
+        metric_hour: 'Heure',
+        metric_day: 'Jour',
+        metric_week: 'Semaine',
+        metric_month: 'Mois',
+        metric_year: 'Année',
+        metric_decade: 'Décennie',
+        metric_century: 'Siècle',
+        scientific_millisecond: 'Milliseconde',
+        scientific_microsecond: 'Microseconde',
+        scientific_nanosecond: 'Nanoseconde'
+      },
+      knowledge: {
+        title: 'Le saviez-vous ?',
+        items: [
+          'Une minute est composée de 60 secondes.',
+          'Le mois n\'a pas un nombre constant de jours.',
+          'Une année bissextile compte 366 jours.'
+        ]
+      }
+    },
     speed: {
       title: 'Vitesse',
       description: 'Convertir entre différentes unités de vitesse',
       units: {
-        meter_per_second: 'Mètre par seconde',
-        kilometer_per_hour: 'Kilomètre par heure',
-        mile_per_hour: 'Mile par heure',
-        knot: 'Nœud'
+        meter_per_second: 'Mètres par Seconde',
+        kilometer_per_hour: 'Kilomètres par Heure',
+        mile_per_hour: 'Miles par Heure',
+        foot_per_second: 'Pieds par Seconde',
+        knot: 'Nœuds',
+        mach: 'Mach',
+        kilometer_per_second: 'Kilomètres par Seconde',
+        light_speed: 'Vitesse de la Lumière'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -247,7 +292,10 @@ const fr: Translation = {
       description: 'Convertir entre différentes unités d\'angle',
       units: {
         degree: 'Degré',
-        radian: 'Radian'
+        radian: 'Radian',
+        gradian: 'Grade',
+        arcminute: 'Minute d\'Arc',
+        arcsecond: 'Seconde d\'Arc'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -263,8 +311,10 @@ const fr: Translation = {
       description: 'Convertir entre différentes unités de pression',
       units: {
         pascal: 'Pascal',
+        kilopascal: 'Kilopascal',
         bar: 'Bar',
-        psi: 'Livre par pouce carré'
+        psi: 'PSI',
+        atmosphere: 'Atmosphère'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -299,7 +349,9 @@ const fr: Translation = {
         joule: 'Joule',
         kilojoule: 'Kilojoule',
         calorie: 'Calorie',
-        kilocalorie: 'Kilocalorie'
+        kilocalorie: 'Kilocalorie',
+        watt_hour: 'Watt-heure',
+        kilowatt_hour: 'Kilowatt-heure'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -315,7 +367,9 @@ const fr: Translation = {
       description: 'Convertir entre différentes unités de force',
       units: {
         newton: 'Newton',
-        kilonewton: 'Kilonewton'
+        kilonewton: 'Kilonewton',
+        dyne: 'Dyne',
+        pound_force: 'Livre-force'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -330,8 +384,14 @@ const fr: Translation = {
       title: 'Densité',
       description: 'Convertir entre différentes unités de densité',
       units: {
-        kilogram_per_cubic_meter: 'Kilogramme par mètre cube',
-        gram_per_cubic_centimeter: 'Gramme par centimètre cube'
+        kilogram_per_cubic_meter: 'Kilogramme par Mètre Cube',
+        gram_per_cubic_centimeter: 'Gramme par Centimètre Cube',
+        pound_per_cubic_foot: 'Livre par Pied Cube',
+        pound_per_cubic_inch: 'Livre par Pouce Cube',
+        kilogram_per_liter: 'Kilogramme par Litre',
+        gram_per_milliliter: 'Gramme par Millilitre',
+        pound_per_gallon: 'Livre par Gallon',
+        ounce_per_cubic_inch: 'Once par Pouce Cube'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -346,8 +406,9 @@ const fr: Translation = {
       title: 'Débit',
       description: 'Convertir entre différentes unités de débit',
       units: {
-        cubic_meter_per_second: 'Mètre cube par seconde',
-        liter_per_minute: 'Litre par minute'
+        cubic_meter_per_second: 'Mètre Cube par Seconde',
+        liter_per_minute: 'Litre par Minute',
+        gallon_per_minute: 'Gallon par Minute'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -362,8 +423,9 @@ const fr: Translation = {
       title: 'Couple',
       description: 'Convertir entre différentes unités de couple',
       units: {
-        newton_meter: 'Newton mètre',
-        pound_foot: 'Livre pied'
+        newton_meter: 'Newton-mètre',
+        pound_foot: 'Pied-livre',
+        kilogram_force_meter: 'Kilogramme-force-mètre'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -376,12 +438,30 @@ const fr: Translation = {
     },
     data: {
       title: 'Données',
-      description: 'Convertir entre différentes unités de données',
+      description: 'Convertir entre différentes unités de données numériques',
       units: {
+        bit: 'Bit',
+        kilobit: 'Kilobit',
+        megabit: 'Mégabit',
+        gigabit: 'Gigabit',
+        terabit: 'Térabit',
+        petabit: 'Pétabit',
         byte: 'Octet',
-        kilobyte: 'Kilo-octet',
+        kilobyte: 'Kilooctet',
         megabyte: 'Mégaoctet',
-        gigabyte: 'Gigaoctet'
+        gigabyte: 'Gigaoctet',
+        terabyte: 'Téraoctet',
+        petabyte: 'Pétaoctet',
+        kibibit: 'Kibibit',
+        mebibit: 'Mébibit',
+        gibibit: 'Gibibit',
+        tebibit: 'Tébibit',
+        pebibit: 'Pébibit',
+        kibibyte: 'Kibioctet',
+        mebibyte: 'Mébioctet',
+        gibibyte: 'Gibioctet',
+        tebibyte: 'Tébioctet',
+        pebibyte: 'Pébioctet'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -393,12 +473,27 @@ const fr: Translation = {
       }
     },
     data_rate: {
-      title: 'Débit de données',
-      description: 'Convertir entre différents débits de données',
+      title: 'Débit de Données',
+      description: 'Convertir entre différentes unités de débit de données',
       units: {
-        bit_per_second: 'Bit par seconde',
-        kilobit_per_second: 'Kilobit par seconde',
-        megabit_per_second: 'Mégabit par seconde'
+        bits_per_second: 'Bits par Seconde',
+        kilobits_per_second: 'Kilobits par Seconde',
+        megabits_per_second: 'Mégabits par Seconde',
+        gigabits_per_second: 'Gigabits par Seconde',
+        terabits_per_second: 'Térabits par Seconde',
+        bytes_per_second: 'Octets par Seconde',
+        kilobytes_per_second: 'Kilooctets par Seconde',
+        megabytes_per_second: 'Mégaoctets par Seconde',
+        gigabytes_per_second: 'Gigaoctets par Seconde',
+        terabytes_per_second: 'Téraoctets par Seconde',
+        kibibits_per_second: 'Kibibits par Seconde',
+        mebibits_per_second: 'Mébibits par Seconde',
+        gibibits_per_second: 'Gibibits par Seconde',
+        tebibits_per_second: 'Tébibits par Seconde',
+        kibibytes_per_second: 'Kibioctets par Seconde',
+        mebibytes_per_second: 'Mébioctets par Seconde',
+        gibibytes_per_second: 'Gibioctets par Seconde',
+        tebibytes_per_second: 'Tébioctets par Seconde'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -410,13 +505,16 @@ const fr: Translation = {
       }
     },
     currency: {
-      title: 'Monnaie',
-      description: 'Convertir entre différentes unités de monnaie',
+      title: 'Devise',
+      description: 'Convertir entre différentes devises',
       units: {
-        usd: 'Dollar américain',
+        usd: 'Dollar Américain',
         eur: 'Euro',
-        gbp: 'Livre sterling',
-        jpy: 'Yen japonais'
+        gbp: 'Livre Sterling',
+        jpy: 'Yen Japonais',
+        cny: 'Yuan Chinois',
+        krw: 'Won Sud-coréen',
+        inr: 'Roupie Indienne'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -429,11 +527,21 @@ const fr: Translation = {
     },
     cooking: {
       title: 'Cuisine',
-      description: 'Convertir entre différentes unités de cuisine',
+      description: 'Convertir entre différentes mesures de cuisine',
       units: {
-        teaspoon: 'Cuillère à café',
-        tablespoon: 'Cuillère à soupe',
-        cup: 'Tasse'
+        us_fluid_ounce: 'Once Liquide US',
+        us_tablespoon: 'Cuillère à Soupe US',
+        us_teaspoon: 'Cuillère à Café US',
+        imperial_fluid_ounce: 'Once Liquide Impériale',
+        imperial_tablespoon: 'Cuillère à Soupe Impériale',
+        imperial_teaspoon: 'Cuillère à Café Impériale',
+        chinese_bowl: 'Bol Chinois',
+        chinese_cup: 'Tasse Chinoise',
+        chinese_tablespoon: 'Cuillère à Soupe Chinoise',
+        chinese_teaspoon: 'Cuillère à Café Chinoise',
+        japanese_cup: 'Tasse Japonaise',
+        japanese_tablespoon: 'Cuillère à Soupe Japonaise',
+        japanese_teaspoon: 'Cuillère à Café Japonaise'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
@@ -445,7 +553,7 @@ const fr: Translation = {
       }
     },
     numeral: {
-      title: 'Système numérique',
+      title: 'Système Numérique',
       description: 'Convertir entre différents systèmes numériques',
       units: {
         decimal: 'Décimal',
@@ -468,7 +576,8 @@ const fr: Translation = {
       units: {
         hertz: 'Hertz',
         kilohertz: 'Kilohertz',
-        megahertz: 'Mégahertz'
+        megahertz: 'Mégahertz',
+        gigahertz: 'Gigahertz'
       },
       knowledge: {
         title: 'Le saviez-vous ?',
