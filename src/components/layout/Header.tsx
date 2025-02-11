@@ -78,7 +78,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center mb-4">
           <Link className='' href={`/${language}`}>
-            <img src="/logo-txt.png" alt="logo" className='w-full h-12' />
+            <img src="/logo-txt.png" alt="logo" className='w-full h-12 object-contain' />
           </Link>
           <Link
             href={`/${language}`}
