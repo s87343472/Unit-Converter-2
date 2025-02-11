@@ -91,14 +91,16 @@ export default function Header() {
           </div>
         </div>
 
-        <div className='flex justify-between items-center mb-4 md:hidden'>
+        <div className='flex justify-between items-center gap-1 mb-4 md:hidden'>
           <Link
             href={`/${language}`}
-            className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+            className="w-1/2 text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <h1 >{selId} {t.common.title}</h1>
+            <h1 className='overflow-hidden whitespace-normal'>{selId} {t.common.title}</h1>
           </Link>
-          <LanguageSwitcher />
+          <div className='w-1/2'>
+            <LanguageSwitcher />
+          </div>
         </div>
 
 
