@@ -421,6 +421,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   // 计算 value 为 1 的转换结果
   const oneConversionResults = useMemo(() => calculateConversionForOne(), [fromUnit, units])
 
+  const [showAllResults, setShowAllResults] = useState(true)
   return (
     <div className="flex-1">
       {/* 错误提示 */}
@@ -431,57 +432,183 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
       )}
 
       {/* 转换区域 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* 左侧 - From */}
-        <div>
-          <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.from || 'From'}:</h2>
-          <input
-            type="text"
-            value={value}
-            onChange={handleInput}
-            className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder={type === 'numeral' ?
-              (t?.common?.enterValue?.replace('{unit}', units[fromUnit]) || `Enter ${units[fromUnit]} value`) :
-              (t?.common?.enterValue || 'Enter value')}
-          />
-          <div className="mt-4 rounded-md border border-gray-200 overflow-hidden">
-            {Object.entries(units).map(([unitId, unit]) => (
-              <button
-                key={unitId}
-                className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+      <div className='hidden md:block'>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 左侧 - From */}
+          <div>
+            <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.from || 'From'}:</h2>
+            <input
+              type="text"
+              value={value}
+              onChange={handleInput}
+              className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder={type === 'numeral' ?
+                (t?.common?.enterValue?.replace('{unit}', units[fromUnit]) || `Enter ${units[fromUnit]} value`) :
+                (t?.common?.enterValue || 'Enter value')}
+            />
+            <div className="mt-4 rounded-md border border-gray-200 overflow-hidden">
+              {Object.entries(units).map(([unitId, unit]) => (
+                <button
+                  key={unitId}
+                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
                   ${fromUnit === unitId
-                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
-                    : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
-                onClick={() => setFromUnit(unitId)}
-              >
-                <span className="flex-1">{unit}</span>
-              </button>
-            ))}
+                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
+                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                  onClick={() => setFromUnit(unitId)}
+                >
+                  <span className="flex-1">{unit}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 右侧 - To */}
+          <div>
+            <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.to || 'To'}:</h2>
+            <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
+              {conversionResults && toUnit ? conversionResults[toUnit] : '0'}
+            </div>
+            <div className="rounded-md border border-gray-200 overflow-hidden">
+              {Object.entries(units).map(([unitId, unit]) => (
+                <button
+                  key={unitId}
+                  className={`w-full flex items-center h-10 px-4 text-sm transition-colors
+                  ${toUnit === unitId
+                      ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
+                      : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                  onClick={() => setToUnit(unitId)}
+                >
+                  <span className="flex-1">{unit}</span>
+                  <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
+                    ({conversionResults ? conversionResults[unitId] : '0'})
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* 右侧 - To */}
-        <div>
-          <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.to || 'To'}:</h2>
-          <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
-            {conversionResults && toUnit ? conversionResults[toUnit] : '0'}
+      {/* {移动端} */}
+      <div className='block md:hidden'>
+        <div className="space-y-4 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+          {/* 输入框区域 */}
+          <div>
+            <div className="text-sm font-medium text-gray-700 mb-4">{t?.common?.enterValue || 'From'}:</div>
+            <input
+              type="text"
+              value={value}
+              onChange={handleInput}
+              className="block w-full h-12 rounded-md border border-gray-200 px-3 py-2 text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+
+            />
           </div>
-          <div className="rounded-md border border-gray-200 overflow-hidden">
-            {Object.entries(units).map(([unitId, unit]) => (
-              <button
-                key={unitId}
-                className={`w-full flex items-center h-10 px-4 text-sm transition-colors
-                  ${toUnit === unitId
-                    ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
-                    : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
-                onClick={() => setToUnit(unitId)}
+
+          {/* 单位选择区域 */}
+          <div className="flex items-center gap-2">
+            <div className="flex-1">
+              <div className="text-sm font-medium text-gray-700 mb-1">{t?.common?.from || 'From'}</div>
+              <select
+                value={fromUnit}
+                onChange={(e) => setFromUnit(e.target.value)}
+                className="w-full h-12 rounded-md border border-gray-200 px-3 py-2"
               >
-                <span className="flex-1">{unit}</span>
-                <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
-                  ({conversionResults ? conversionResults[unitId] : '0'})
-                </span>
+                {Object.entries(units).map(([unitId, unit]) => (
+                  <option key={unitId} value={unitId}>{unit}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* 交换按钮 */}
+            <button
+              onClick={() => {
+                const temp = fromUnit;
+                setFromUnit(toUnit);
+                setToUnit(temp);
+              }}
+              className="w-12 h-12 flex items-center justify-center rounded-md  mt-5"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="#5C5CE5" viewBox="0 0 24 24" >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </button>
+
+            <div className="flex-1">
+              <div className="text-sm font-medium text-gray-700 mb-1">{t?.common?.to || 'To'}</div>
+              <select
+                value={toUnit}
+                onChange={(e) => setToUnit(e.target.value)}
+                className="w-full h-12 rounded-md border border-gray-200 px-3 py-2"
+              >
+                {Object.entries(units).map(([unitId, unit]) => (
+                  <option key={unitId} value={unitId}>{unit}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* 转换结果列表 */}
+          <div className="mt-4 space-y-2">
+            {conversionResults && Object.entries(units)
+              .filter(([unitId]) => unitId !== fromUnit)
+              .sort(([unitIdA], [unitIdB]) => {
+                if (unitIdA === toUnit) return -1;
+                if (unitIdB === toUnit) return 1;
+                return 0;
+              })
+              .map(([unitId, unit], index) => {
+                const isSelected = unitId === toUnit;
+                const shouldShow = isSelected || showAllResults || index < 2; // Show first 2 results by default
+
+                return (
+                  <div
+                    key={unitId}
+                    className={`rounded-md ${!shouldShow ? 'hidden' : ''}`}
+                  >
+                    {/* 其他元素 */}
+                    <div hidden={isSelected} className='text-sm text-[#808080] border-b'>
+                      <div className='flex gap-2 items-center flex-wrap'>
+                        <div className="text-sm ">
+                          <span className='text-[#262626]'>{value}</span> {units[fromUnit]} =
+                        </div>
+                        <div className='font-medium text-lg'>
+                          <span className='text-[#262626]'>{conversionResults[unitId]}</span> {unit}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 选中元素 */}
+                    <div hidden={!isSelected} className='bg-[#f9f9fb] p-[16px] rounded-md'>
+                      <div className='flex gap-2 items-center flex-wrap text-2xl font-bold'>
+                        <div className=" ">
+                          {value} {units[fromUnit]} =
+                        </div>
+                        <div className=''>
+                          {conversionResults[unitId]} {unit}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+            {/* Show/Hide button */}
+            {Object.keys(units).length > 3 && (
+              <button
+                onClick={() => setShowAllResults(!showAllResults)}
+                className="w-full mt-2 py-2 text-blue-600 hover:text-blue-800 text-sm font-medium"
+              >
+                {showAllResults ? (
+                  <span className="flex items-center justify-center gap-1">
+                    Show Less <span className="text-xs">▲</span>
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center gap-1">
+                    Show More <span className="text-xs">▼</span>
+                  </span>
+                )}
               </button>
-            ))}
+            )}
           </div>
         </div>
       </div>

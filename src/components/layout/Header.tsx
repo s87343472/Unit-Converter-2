@@ -82,12 +82,25 @@ export default function Header() {
           </Link>
           <Link
             href={`/${language}`}
-            className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+            className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors hidden md:block"
           >
             <h1>{selId} {t.common.title}</h1>
           </Link>
+          <div className='hidden md:block'>
+            <LanguageSwitcher />
+          </div>
+        </div>
+
+        <div className='flex justify-between items-center mb-4 md:hidden'>
+          <Link
+            href={`/${language}`}
+            className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+          >
+            <h1 >{selId} {t.common.title}</h1>
+          </Link>
           <LanguageSwitcher />
         </div>
+
 
         <div className="relative">
           {/* 左滚动按钮 */}
