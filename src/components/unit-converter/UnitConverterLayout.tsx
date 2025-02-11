@@ -511,7 +511,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
               <select
                 value={fromUnit}
                 onChange={(e) => setFromUnit(e.target.value)}
-                className="w-full h-12 rounded-md border border-gray-200 px-3 py-2"
+                className="w-full h-auto rounded-md border border-gray-200 px-3 py-2 whitespace-normal"
               >
                 {Object.entries(units).map(([unitId, unit]) => (
                   <option key={unitId} value={unitId}>{unit}</option>
@@ -538,7 +538,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
               <select
                 value={toUnit}
                 onChange={(e) => setToUnit(e.target.value)}
-                className="w-full h-12 rounded-md border border-gray-200 px-3 py-2"
+                className="w-full h-auto rounded-md border border-gray-200 px-3 py-2 whitespace-normal"
               >
                 {Object.entries(units).map(([unitId, unit]) => (
                   <option key={unitId} value={unitId}>{unit}</option>
