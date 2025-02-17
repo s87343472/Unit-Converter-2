@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
           '/404',
           '/500',
           '/*.json$',
-          '/*?*',
+          // '/*?*',
         ],
       },
       {
