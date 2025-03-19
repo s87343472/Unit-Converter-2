@@ -11,7 +11,9 @@ export default function NotFound() {
   
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      <h1 className="text-9xl font-bold text-gray-200">404</h1>
+      <div className="text-center">
+        <h2 className="text-9xl font-bold text-gray-200">404</h2>
+      </div>
       <h2 className="mt-4 text-2xl font-semibold text-gray-800">
         {t.common.pageNotFound}
       </h2>

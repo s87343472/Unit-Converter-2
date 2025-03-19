@@ -96,7 +96,7 @@ export default function Header() {
             href={`/${language}`}
             className="w-1/2 text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <h1 className='overflow-hidden whitespace-normal'>{selId} {t.common.title}</h1>
+            <h2 className='overflow-hidden whitespace-normal'>{selId} {t.common.title}</h2>
           </Link>
           <div className='w-1/2'>
             <LanguageSwitcher />
