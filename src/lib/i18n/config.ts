@@ -10,7 +10,7 @@ export type ValidLocale = typeof locales[number]
 
 export const localeNames: Record<ValidLocale, string> = {
   'en': 'English',
-  'zh-CN': '中文（中国）',
+  'zh-CN': '中文（简体）',
   fr: "Français",
   de: "Deutsch",
   es: "Español",
