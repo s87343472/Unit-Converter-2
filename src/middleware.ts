@@ -44,8 +44,28 @@ export function middleware(request: NextRequest) {
   // 获取当前路径中的语言代码
   const language = getLanguage(request)
   
-  // 如果路径中没有语言代码，重定向到浏览器首选语言
-  if (!language) {
+  // 如果是根路径，使用默认语言（英语）但不重定向
+  if (pathname === '/') {
+    const response = NextResponse.next()
+    response.headers.set('Content-Language', defaultLocale)
+    
+    // 添加 Link 头，用于 hreflang
+    const alternateLinks = []
+    // 添加默认语言版本（根路径）
+    alternateLinks.push(`<${request.nextUrl.origin}/>;rel="alternate";hreflang="${defaultLocale}"`)
+    // 添加其他语言版本
+    for (const locale of locales) {
+      if (locale !== defaultLocale) {
+        alternateLinks.push(`<${request.nextUrl.origin}/${locale}>;rel="alternate";hreflang="${locale}"`)
+      }
+    }
+    response.headers.set('Link', alternateLinks.join(', '))
+    
+    return response
+  }
+
+  // 如果路径中没有语言代码（且不是根路径），重定向到浏览器首选语言
+  if (!language && pathname !== '/') {
     const browserLanguage = getBrowserLanguage(request)
     const redirectUrl = new URL(`/${browserLanguage}${pathname}`, request.url)
     return NextResponse.redirect(redirectUrl)
@@ -55,16 +75,17 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next()
   
   // 设置内容语言头
-  response.headers.set('Content-Language', language)
+  response.headers.set('Content-Language', language || defaultLocale)
   
   // 添加 Link 头，用于 hreflang
   const alternateLinks = []
   // 添加默认语言版本
-  alternateLinks.push(`<${request.nextUrl.origin}/${defaultLocale}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="${defaultLocale}"`)
+  const pathWithoutLanguage = language ? pathname.replace(`/${language}`, '') : pathname
+  alternateLinks.push(`<${request.nextUrl.origin}/${defaultLocale}${pathWithoutLanguage}>;rel="alternate";hreflang="${defaultLocale}"`)
   // 添加其他语言版本
   for (const locale of locales) {
     if (locale !== defaultLocale) {
-      alternateLinks.push(`<${request.nextUrl.origin}/${locale}${pathname.replace(`/${language}`, '')}>;rel="alternate";hreflang="${locale}"`)
+      alternateLinks.push(`<${request.nextUrl.origin}/${locale}${pathWithoutLanguage}>;rel="alternate";hreflang="${locale}"`)
     }
   }
   response.headers.set('Link', alternateLinks.join(', '))
