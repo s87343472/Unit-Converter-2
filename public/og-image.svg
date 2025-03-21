@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f9ff;stop-opacity:1" />
+    </linearGradient>
+    <!-- Drop shadow filter -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
+  
+  <!-- Header bar with subtle gradient -->
+  <rect width="1200" height="140" fill="#4285f4" />
+  
+  <!-- Site title with improved typography -->
+  <text x="600" y="90" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" text-anchor="middle" fill="white">Metric Converter</text>
+  
+  <!-- Main content area with conversion elements -->
+  <g transform="translate(600, 330)">
+    <!-- Left card - Metric -->
+    <g transform="translate(-200, 0)" filter="url(#cardShadow)">
+      <rect x="-100" y="-110" width="200" height="220" rx="8" fill="white" stroke="#4285f4" stroke-width="2" />
+      <rect x="-100" y="-110" width="200" height="40" rx="8" fill="#4285f4" />
+      <text x="0" y="-85" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">METRIC</text>
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#333">1 kg</text>
+      <text x="0" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="middle" fill="#666">1000 g</text>
+    </g>
+    
+    <!-- Right card - Imperial -->
+    <g transform="translate(200, 0)" filter="url(#cardShadow)">
+      <rect x="-100" y="-110" width="200" height="220" rx="8" fill="white" stroke="#4285f4" stroke-width="2" />
+      <rect x="-100" y="-110" width="200" height="40" rx="8" fill="#4285f4" />
+      <text x="0" y="-85" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">IMPERIAL</text>
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#333">2.205 lb</text>
+      <text x="0" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="middle" fill="#666">35.27 oz</text>
+    </g>
+    
+    <!-- Conversion arrows - simplified to just horizontal double-arrow -->
+    <g>
+      <!-- Horizontal arrow line -->
+      <line x1="-95" y1="0" x2="95" y2="0" stroke="#4285f4" stroke-width="3" />
+      
+      <!-- Arrow heads -->
+      <polygon points="85,-8 100,0 85,8" fill="#4285f4" />
+      <polygon points="-85,-8 -100,0 -85,8" fill="#4285f4" />
+    </g>
+  </g>
+  
+  <!-- Unit symbols with improved positioning and opacity -->
+  <g font-family="Arial, sans-serif" font-weight="bold" fill="#4285f4" opacity="0.2">
+    <text x="200" y="280" font-size="40">km</text>
+    <text x="300" y="400" font-size="40">g</text>
+    <text x="400" y="220" font-size="40">L</text>
+    <text x="300" y="500" font-size="40">°C</text>
+    <text x="250" y="350" font-size="40">cm</text>
+    
+    <text x="900" y="280" font-size="40">mi</text>
+    <text x="850" y="400" font-size="40">oz</text>
+    <text x="750" y="220" font-size="40">gal</text>
+    <text x="850" y="500" font-size="40">°F</text>
+    <text x="900" y="350" font-size="40">in</text>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="600" y="535" font-family="Arial, sans-serif" font-size="32" font-weight="500" text-anchor="middle" fill="#444">Fast, Accurate Unit Conversions Online</text>
+  
+  <!-- URL at bottom -->
+  <text x="600" y="585" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#666">www.metric-converter.com</text>
+</svg> 

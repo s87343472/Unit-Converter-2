@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/copy-changelog.js",
+    "prebuild": "node scripts/copy-changelog.js && npm run generate-og",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run --reporter=verbose",
     "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "generate-og": "node scripts/generate-og-image.js"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.10",
@@ -40,6 +41,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^26.0.0",
     "postcss": "^8.4.35",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
     "typescript": "^5.3.3",
