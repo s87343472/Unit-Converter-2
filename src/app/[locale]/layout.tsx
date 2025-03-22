@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import LanguageProvider from '@/components/shared/LanguageProvider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { LanguageSwitchPrompt } from '@/components/LanguageSwitchPrompt'
 import '../globals.css'
 import { isValidLocale, locales, i18n, searchEngineLocales, ValidLocale } from '@/lib/i18n/config'
 import { headers } from 'next/headers'
@@ -93,7 +92,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <LanguageSwitchPrompt currentLocale={params.locale as ValidLocale} />
       </div>
     </LanguageProvider>
   )

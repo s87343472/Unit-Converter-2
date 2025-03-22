@@ -6,6 +6,9 @@ import { translations } from '@/lib/i18n/translations'
 import type { Translation } from '@/lib/i18n/types'
 import { useRouter, usePathname } from 'next/navigation'
 
+// 添加存储键常量
+const LANGUAGE_HINT_STORAGE_KEY = 'language_hint_dismissed';
+
 interface LanguageContextType {
   language: ValidLocale
   setLanguage: (lang: ValidLocale) => void
@@ -66,6 +69,12 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
 
     // 检测浏览器语言
     const detectBrowserLanguage = () => {
+      // 先检查是否已经显示过提示或用户已关闭提示
+      const hintDismissed = localStorage.getItem(LANGUAGE_HINT_STORAGE_KEY)
+      if (hintDismissed === 'true') {
+        return; // 如果用户已经关闭过提示，不再显示
+      }
+
       const languages = navigator.languages || [navigator.language]
       for (const lang of languages) {
         // 处理完整的语言代码（如 zh-CN）
@@ -102,6 +111,12 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
     }
   }, [language])
 
+  // 关闭提示时保存状态到本地存储
+  const dismissLanguageHint = () => {
+    setShowLanguageHint(false);
+    localStorage.setItem(LANGUAGE_HINT_STORAGE_KEY, 'true');
+  }
+
   return (
     <LanguageContext.Provider value={{ language, setLanguage, browserLanguage, t: translation }}>
       {children}
@@ -114,7 +129,7 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
           </p>
           <div className="mt-3 flex justify-end space-x-3">
             <button
-              onClick={() => setShowLanguageHint(false)}
+              onClick={dismissLanguageHint}
               className="text-sm text-gray-500 hover:text-gray-700"
             >
               {language === 'zh-CN' ? '不用了' : 'No, thanks'}
@@ -122,7 +137,7 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
             <button
               onClick={() => {
                 setLanguage(browserLanguage)
-                setShowLanguageHint(false)
+                dismissLanguageHint()
               }}
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
