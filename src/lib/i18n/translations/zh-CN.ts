@@ -503,26 +503,6 @@ const zhCN: Translation = {
         ]
       }
     },
-    currency: {
-      title: '货币',
-      description: '在不同货币之间转换',
-      units: {
-        usd: '美元',
-        eur: '欧元',
-        gbp: '英镑',
-        jpy: '日元',
-        cny: '人民币',
-        krw: '韩元',
-        inr: '印度卢比'
-      },
-      knowledge: {
-        title: '你知道吗？',
-        items: [
-          '美元是世界上最常用的储备货币。',
-          '欧元是19个欧盟国家的官方货币。'
-        ]
-      }
-    },
     cooking: {
       title: '烹饪',
       description: '在不同烹饪测量单位之间转换',

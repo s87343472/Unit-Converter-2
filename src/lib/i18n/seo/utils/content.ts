@@ -23,7 +23,6 @@ const unitExamplesMap: UnitExamples = {
     flow: ['立方米/秒', '升/秒', '加仑/分钟'],
     torque: ['牛顿米', '磅英尺', '千克力米'],
     data_rate: ['比特/秒', '字节/秒', '千比特/秒', '兆比特/秒'],
-    currency: ['人民币', '美元', '欧元', '英镑', '日元'],
     cooking: ['杯', '汤匙', '茶匙', '毫升', '克'],
     numeral: ['二进制', '八进制', '十进制', '十六进制'],
     frequency: ['赫兹', '千赫兹', '兆赫兹', '吉赫兹']
@@ -46,7 +45,6 @@ const unitExamplesMap: UnitExamples = {
     flow: ['cubic meters per second', 'liters per second', 'gallons per minute'],
     torque: ['newton-meters', 'pound-feet', 'kilogram-force meters'],
     data_rate: ['bits per second', 'bytes per second', 'kilobits per second', 'megabits per second'],
-    currency: ['USD', 'EUR', 'GBP', 'JPY', 'CNY'],
     cooking: ['cups', 'tablespoons', 'teaspoons', 'milliliters', 'grams'],
     numeral: ['binary', 'octal', 'decimal', 'hexadecimal'],
     frequency: ['hertz', 'kilohertz', 'megahertz', 'gigahertz']
@@ -72,7 +70,6 @@ const usageCasesMap: UsageCases = {
     flow: ['水利工程', '工业控制', '环境监测', '科学实验', '医疗设备'],
     torque: ['机械设计', '工程计算', '工业控制', '运动训练', '科学实验'],
     data_rate: ['网络传输', '数据通信', '系统性能', '视频流', '科学计算'],
-    currency: ['国际贸易', '旅游兑换', '投资理财', '日常消费', '商业交易'],
     cooking: ['食谱制作', '食材计量', '烘焙制作', '餐饮服务', '家庭烹饪'],
     numeral: ['计算机编程', '电子工程', '数学计算', '科学实验', '数据编码'],
     frequency: ['无线电', '音频处理', '电子设备', '科学实验', '通信系统']
@@ -95,7 +92,6 @@ const usageCasesMap: UsageCases = {
     flow: ['hydraulic engineering', 'industrial control', 'environmental monitoring', 'scientific research', 'medical equipment'],
     torque: ['mechanical design', 'engineering', 'industrial control', 'sports training', 'scientific research'],
     data_rate: ['network transfer', 'data communication', 'system performance', 'video streaming', 'scientific computing'],
-    currency: ['international trade', 'travel exchange', 'investment', 'daily shopping', 'business transactions'],
     cooking: ['recipe making', 'ingredient measurement', 'baking', 'catering', 'home cooking'],
     numeral: ['computer programming', 'electronics', 'mathematics', 'scientific research', 'data encoding'],
     frequency: ['radio', 'audio processing', 'electronics', 'scientific research', 'communication systems']

@@ -25,7 +25,6 @@ const baseConfig: Record<UnitType, PageSEOConfig> = {
     torque: { title: '', description: '' },
     data: { title: '', description: '' },
     data_rate: { title: '', description: '' },
-    currency: { title: '', description: '' },
     cooking: { title: '', description: '' },
     numeral: { title: '', description: '' },
     frequency: { title: '', description: '' }
@@ -101,10 +100,6 @@ export const pageSeoConfig: Record<ValidLocale, Record<UnitType, PageSEOConfig>>
         data_rate: {
             title: '数据传输速率单位换算器 - bps、Kbps、Mbps转换',
             description: '数据传输速率单位换算工具。支持bps、Kbps、Mbps、Gbps等单位转换，网络和通信技术必备！'
-        },
-        currency: {
-            title: '货币汇率换算器 - 人民币、美元、欧元在线转换',
-            description: '在线货币汇率换算工具。支持世界各国主要货币实时汇率转换，提供准确的汇率计算结果！'
         },
         cooking: {
             title: '烹饪单位换算器 - 克、盎司、杯、勺在线转换',
@@ -188,10 +183,6 @@ export const pageSeoConfig: Record<ValidLocale, Record<UnitType, PageSEOConfig>>
         data_rate: {
             title: 'Data Rate Converter - bps, Kbps, Mbps, Gbps',
             description: 'Convert data transfer rate units online. Transform between bps, Kbps, Mbps, Gbps. Essential for networking and communications!'
-        },
-        currency: {
-            title: 'Currency Converter - Live Exchange Rates',
-            description: 'Convert between world currencies online. Get accurate and up-to-date exchange rates for all major currencies. Easy to use!'
         },
         cooking: {
             title: 'Cooking Unit Converter - Grams, Ounces, Cups, Spoons',

@@ -7,6 +7,44 @@
 - 最新的版本号在最上面
 - 本规则不能被删除。
 
+## [0.3.93] - 2024-05-26
+
+### 移除货币单位转换
+- 移除所有与货币相关的功能和代码
+  - 移除货币单位类型定义和转换逻辑
+  - 移除货币相关的翻译内容
+  - 移除货币相关的SEO配置
+  - 修复首页单位卡片显示问题
+- 优化首页展示
+  - 改进单位组合显示逻辑
+  - 优化卡片内容结构
+
+### 受影响的文件
+- `src/lib/conversion/types.ts`
+- `src/lib/conversion/currency.ts`（已删除）
+- `src/lib/conversion/index.ts`
+- `src/lib/conversion-types.ts`
+- `src/lib/i18n/translations/en.ts`
+- `src/lib/i18n/translations/zh-CN.ts`
+- `src/lib/i18n/units.ts`
+- `src/lib/i18n/page-seo.ts`
+- `src/lib/i18n/seo/templates.ts`
+- `src/lib/i18n/seo/utils/content.ts`
+- `src/components/conversion/TypeNav.tsx`
+- `src/app/[locale]/page.tsx`
+
+### 测试结果
+- 构建成功
+- 首页显示正常
+- 单位转换功能测试通过
+- 页面路由测试通过
+
+### 下一步计划
+- [ ] 监控移除货币单位后的用户反馈
+- [ ] 优化首页单位展示逻辑
+- [ ] 考虑添加更多实用单位类型
+- [ ] 更新测试用例
+
 ## [0.3.92] - 2024-03-22
 
 ### 语言支持优化

@@ -22,7 +22,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: '{type}单位换算器 - {units}流量转换',
       torque: '{type}单位换算器 - {units}扭矩转换',
       data_rate: '{type}单位换算器 - {units}数据速率转换',
-      currency: '{type}单位换算器 - {units}货币转换',
       cooking: '{type}单位换算器 - {units}烹饪转换',
       numeral: '{type}单位换算器 - {units}数字转换',
       frequency: '{type}单位换算器 - {units}频率转换'
@@ -45,7 +44,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: '在线{type}单位换算。支持{units}等单位互换，适用于{useCases}。精确的流量转换！',
       torque: '专业{type}单位换算工具。支持{units}等单位转换，适用于{useCases}。快速准确的扭矩转换！',
       data_rate: '在线{type}单位换算。支持{units}等单位互换，适用于{useCases}。精确的数据速率转换！',
-      currency: '专业{type}单位换算工具。支持{units}等单位转换，适用于{useCases}。快速准确的货币转换！',
       cooking: '在线{type}单位换算。支持{units}等单位互换，适用于{useCases}。精确的烹饪转换！',
       numeral: '专业{type}单位换算工具。支持{units}等单位转换，适用于{useCases}。快速准确的数字转换！',
       frequency: '在线{type}单位换算。支持{units}等单位互换，适用于{useCases}。精确的频率转换！'
@@ -68,7 +66,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: ['流量换算', '单位转换', '在线工具', '立方米/秒', '升/分钟'],
       torque: ['扭矩换算', '单位转换', '在线工具', '牛·米', '千克·米'],
       data_rate: ['数据速率换算', '单位转换', '在线工具', '比特/秒', '字节/秒'],
-      currency: ['货币换算', '单位转换', '在线工具', '人民币', '美元', '欧元'],
       cooking: ['烹饪换算', '单位转换', '在线工具', '杯', '勺', '毫升'],
       numeral: ['数字换算', '单位转换', '在线工具', '十进制', '二进制', '十六进制'],
       frequency: ['频率换算', '单位转换', '在线工具', '赫兹', '千赫', '兆赫']
@@ -93,7 +90,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: '{type} Converter - Convert {units} Units Online',
       torque: '{type} Unit Converter - Convert {units} Online',
       data_rate: '{type} Converter - Convert {units} Units Online',
-      currency: '{type} Unit Converter - Convert {units} Online',
       cooking: '{type} Converter - Convert {units} Units Online',
       numeral: '{type} Unit Converter - Convert {units} Online',
       frequency: '{type} Converter - Convert {units} Units Online'
@@ -116,7 +112,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: 'Online {type} converter. Convert between {units}. Perfect for {useCases}. Accurate flow conversions!',
       torque: 'Professional {type} converter. Transform between {units}. Ideal for {useCases}. Quick and precise torque conversions!',
       data_rate: 'Online {type} converter. Convert between {units}. Perfect for {useCases}. Accurate data rate conversions!',
-      currency: 'Professional {type} converter. Transform between {units}. Ideal for {useCases}. Quick and precise currency conversions!',
       cooking: 'Online {type} converter. Convert between {units}. Perfect for {useCases}. Accurate cooking conversions!',
       numeral: 'Professional {type} converter. Transform between {units}. Ideal for {useCases}. Quick and precise numeral conversions!',
       frequency: 'Online {type} converter. Convert between {units}. Perfect for {useCases}. Accurate frequency conversions!'
@@ -139,7 +134,6 @@ const templates: Record<ValidLocale, SEOTemplates> = {
       flow: ['flow converter', 'unit conversion', 'online tool', 'm³/s', 'l/min'],
       torque: ['torque converter', 'unit conversion', 'online tool', 'newton meters', 'kilogram meters'],
       data_rate: ['data rate converter', 'unit conversion', 'online tool', 'bits/s', 'bytes/s'],
-      currency: ['currency converter', 'unit conversion', 'online tool', 'USD', 'EUR', 'GBP'],
       cooking: ['cooking converter', 'unit conversion', 'online tool', 'cups', 'spoons', 'milliliters'],
       numeral: ['numeral converter', 'unit conversion', 'online tool', 'decimal', 'binary', 'hexadecimal'],
       frequency: ['frequency converter', 'unit conversion', 'online tool', 'hertz', 'kilohertz', 'megahertz']

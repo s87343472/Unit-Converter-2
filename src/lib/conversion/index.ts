@@ -17,7 +17,7 @@ import flow from './flow'
 import torque from './torque'
 import data from './data'
 import data_rate from './data_rate'
-import currency from './currency'
+// import currency from './currency' // 注销货币单位,变化太快
 import cooking from './cooking'
 import numeral from './numeral'
 import frequency from './frequency'
@@ -40,7 +40,7 @@ const conversions: Record<string, ConversionCategory> = {
   torque,
   data,
   data_rate: data_rate,
-  currency,
+  // currency, // 注销货币单位,变化太快
   cooking,
   numeral,
   frequency,

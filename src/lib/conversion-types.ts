@@ -43,7 +43,6 @@ export const conversionTypes: Array<{
   { id: 'torque', icon: ArrowPathIcon },
   { id: 'data', icon: ServerIcon },
   { id: 'data_rate', icon: SignalIcon },
-  { id: 'currency', icon: CurrencyDollarIcon },
   { id: 'cooking', icon: Square3Stack3DIcon },
   { id: 'numeral', icon: CommandLineIcon }
 ] 

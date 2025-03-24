@@ -34,7 +34,7 @@ const types: { id: ConversionType; icon: string }[] = [
   { id: 'data_rate', icon: '📶' },
   
   // 其他单位
-  { id: 'currency', icon: '💰' },
+  // { id: 'currency', icon: '💰' }, // 注销货币单位，变化太快
   { id: 'numeral', icon: '🔢' }
 ]
 

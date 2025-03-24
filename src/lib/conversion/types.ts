@@ -17,7 +17,7 @@ export type ConversionType =
   | 'frequency'
   | 'data'
   | 'data_rate'
-  | 'currency'
+  // | 'currency' // 注销货币单位,变化太快
   | 'cooking'
   | 'numeral'
 

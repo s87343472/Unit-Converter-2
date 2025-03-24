@@ -17,7 +17,7 @@ import flow from './flow'
 import frequency from './frequency'
 import data from './data'
 import data_rate from './data_rate'
-import currency from './currency'
+// import currency from './currency' // 注销货币单位,变化太快
 import cooking from './cooking'
 import numeral from './numeral'
 import torque from './torque'
@@ -41,8 +41,8 @@ const categories = {
   torque,
   frequency,
   data,
-  data_rate,
-  currency,
+  data_rate: data_rate,
+  // currency, // 注销货币单位,变化太快
   cooking,
   numeral,
 } as Record<ConversionType, ConversionCategory>
@@ -157,4 +157,14 @@ export function getBaseUnit(type: ConversionType): string {
 
 export function isValidUnit(type: ConversionType, unit: string): boolean {
   return unit in (categories[type]?.units || {})
+}
+
+// 获取指定单位类型和单位ID的单位符号
+export function getUnitSymbol(type: ConversionType, unitId: string): string | undefined {
+  try {
+    const unit = categories[type]?.units[unitId]
+    return unit?.symbol
+  } catch (error) {
+    return undefined
+  }
 } 

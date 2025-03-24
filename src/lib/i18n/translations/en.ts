@@ -460,26 +460,6 @@ const en: Translation = {
         ]
       }
     },
-    currency: {
-      title: 'Currency',
-      description: 'Convert between different currencies',
-      units: {
-        usd: 'US Dollar',
-        eur: 'Euro',
-        gbp: 'British Pound',
-        jpy: 'Japanese Yen',
-        cny: 'Chinese Yuan',
-        krw: 'Korean Won',
-        inr: 'Indian Rupee'
-      },
-      knowledge: {
-        title: 'Did you know?',
-        items: [
-          'The US Dollar is the most widely used reserve currency in the world.',
-          'The Euro is the official currency of 19 of the 27 European Union member states.'
-        ]
-      }
-    },
     cooking: {
       title: 'Cooking',
       description: 'Convert between different cooking measurements',

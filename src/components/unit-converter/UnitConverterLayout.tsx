@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useLanguage } from '@/components/shared/LanguageProvider'
 import type { ConversionType, ConversionResult, NumeralConversionResult } from '@/lib/conversion/types'
-import { convert, getUnits } from '@/lib/conversion/converter'
+import { convert, getUnits, getUnitSymbol } from '@/lib/conversion/converter'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 // 单位 ID 映射表
@@ -328,6 +328,20 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
     return fixed.replace(/\.?0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1')
   }
 
+  // 根据语言和单位ID获取带符号的单位名称
+  const getUnitNameWithSymbol = (unitId: string): string => {
+    // 数字进制不需要显示符号
+    if (type === 'numeral') return units[unitId] || unitId
+
+    // 中文环境下显示符号，英文环境直接显示名称
+    if (language === 'zh-CN') {
+      const symbol = getUnitSymbol(type, getActualUnitId(unitId))
+      return symbol ? `${units[unitId] || unitId}(${symbol})` : (units[unitId] || unitId)
+    } 
+    
+    return units[unitId] || unitId
+  }
+
   // 处理转换
   const handleConvert = (value: string, fromUnit: string, toUnitId: string): string => {
     try {
@@ -389,9 +403,16 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
   }
 
   // 处理复制
-  const handleCopy = async (text: string) => {
+  const handleCopy = async (text: string, unitId?: string) => {
     try {
-      await navigator.clipboard.writeText(text)
+      // 如果有单位ID，则复制带单位的结果
+      if (unitId) {
+        const unitSymbol = getUnitSymbol(type, getActualUnitId(unitId))
+        const textToCopy = `${text}${unitSymbol || ''}`
+        await navigator.clipboard.writeText(textToCopy)
+      } else {
+        await navigator.clipboard.writeText(text)
+      }
       setCopySuccess(true)
       setTimeout(() => setCopySuccess(false), 2000)
     } catch (error) {
@@ -456,7 +477,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                       : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                   onClick={() => setFromUnit(unitId)}
                 >
-                  <span className="flex-1">{unit}</span>
+                  <span className="flex-1">{getUnitNameWithSymbol(unitId)}</span>
                 </button>
               ))}
             </div>
@@ -465,8 +486,16 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
           {/* 右侧 - To */}
           <div>
             <h2 className="text-sm font-medium text-gray-700 mb-4">{t?.common?.to || 'To'}:</h2>
-            <div className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono">
-              {conversionResults && toUnit ? conversionResults[toUnit] : '0'}
+            <div 
+              className="h-12 mb-4 rounded-md border border-gray-200 px-3 py-2 text-sm bg-gray-50 font-mono cursor-pointer flex justify-between items-center" 
+              onClick={() => conversionResults && toUnit && handleCopy(conversionResults[toUnit], toUnit)}
+              title={t?.common?.copy || 'Click to copy'}
+            >
+              <span>{conversionResults && toUnit ? conversionResults[toUnit] : '0'}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+              </svg>
             </div>
             <div className="rounded-md border border-gray-200 overflow-hidden">
               {Object.entries(units).map(([unitId, unit]) => (
@@ -478,8 +507,15 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                       : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                   onClick={() => setToUnit(unitId)}
                 >
-                  <span className="flex-1">{unit}</span>
-                  <span className="text-gray-600 font-mono text-right w-[180px] tabular-nums">
+                  <span className="flex-1">{getUnitNameWithSymbol(unitId)}</span>
+                  <span 
+                    className="text-gray-600 font-mono text-right w-[180px] tabular-nums cursor-pointer hover:text-blue-600" 
+                    onClick={(e) => {
+                      e.stopPropagation(); 
+                      conversionResults && handleCopy(conversionResults[unitId], unitId);
+                    }}
+                    title={t?.common?.copy || 'Click to copy'}
+                  >
                     ({conversionResults ? conversionResults[unitId] : '0'})
                   </span>
                 </button>
@@ -514,7 +550,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                 className="w-full h-auto rounded-md border border-gray-200 px-3 py-2 whitespace-normal"
               >
                 {Object.entries(units).map(([unitId, unit]) => (
-                  <option key={unitId} value={unitId}>{unit}</option>
+                  <option key={unitId} value={unitId}>{getUnitNameWithSymbol(unitId)}</option>
                 ))}
               </select>
             </div>
@@ -541,7 +577,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                 className="w-full h-auto rounded-md border border-gray-200 px-3 py-2 whitespace-normal"
               >
                 {Object.entries(units).map(([unitId, unit]) => (
-                  <option key={unitId} value={unitId}>{unit}</option>
+                  <option key={unitId} value={unitId}>{getUnitNameWithSymbol(unitId)}</option>
                 ))}
               </select>
             </div>
@@ -569,10 +605,10 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                     <div hidden={isSelected} className='text-sm text-[#808080] border-b'>
                       <div className='flex gap-2 items-center flex-wrap'>
                         <div className="text-sm ">
-                          <span className='text-[#262626]'>{value}</span> {units[fromUnit]} =
+                          <span className='text-[#262626]'>{value}</span> {getUnitNameWithSymbol(fromUnit)} =
                         </div>
                         <div className='font-medium text-lg'>
-                          <span className='text-[#262626]'>{conversionResults[unitId]}</span> {unit}
+                          <span className='text-[#262626]'>{conversionResults[unitId]}</span> {getUnitNameWithSymbol(unitId)}
                         </div>
                       </div>
                     </div>
@@ -581,10 +617,20 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                     <div hidden={!isSelected} className='bg-[#f9f9fb] p-[16px] rounded-md'>
                       <div className='flex gap-2 items-center flex-wrap text-2xl font-bold'>
                         <div className=" ">
-                          {value} {units[fromUnit]} =
+                          {value} {getUnitNameWithSymbol(fromUnit)} =
                         </div>
-                        <div className=''>
-                          {conversionResults[unitId]} {unit}
+                        <div className='flex items-center'>
+                          <span>{conversionResults[unitId]} {getUnitNameWithSymbol(unitId)}</span>
+                          <button 
+                            className="ml-2 text-gray-400 hover:text-blue-600"
+                            onClick={() => handleCopy(conversionResults[unitId], unitId)}
+                            title={t?.common?.copy || 'Click to copy'}
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                              <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                            </svg>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -624,7 +670,7 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
                   href={`/${language}/${type}?from=${fromKey}&to=${toKey}`}
                   className="block text-blue-600 hover:text-blue-800 hover:underline"
                 >
-                  {fromValue} -- {toValue}
+                  {fromValue} {language === 'zh-CN' ? '→' : 'to'} {toValue}
                 </Link>
               ))
           )
@@ -635,10 +681,10 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
         {Object.entries(units).map(([unitId, unit]) => (
           <div key={unitId} className='flex gap-2 flex-wrap'>
             <div>
-              1 {Object.entries(units)[0][1]} =
+              1 {getUnitNameWithSymbol(Object.entries(units)[0][0])} =
             </div>
             <div>
-              {oneConversionResults ? oneConversionResults[unitId] : '0'} {unit}
+              {oneConversionResults ? oneConversionResults[unitId] : '0'} {getUnitNameWithSymbol(unitId)}
             </div>
           </div>
         ))}
