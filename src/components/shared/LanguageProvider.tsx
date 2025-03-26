@@ -7,7 +7,9 @@ import type { Translation } from '@/lib/i18n/types'
 import { useRouter, usePathname } from 'next/navigation'
 
 // 添加存储键常量
-const LANGUAGE_HINT_STORAGE_KEY = 'language_hint_dismissed';
+const LANGUAGE_HINT_STORAGE_KEY = 'language_hint_dismissed'
+const LAST_PROMPT_TIME_KEY = 'last_lang_prompt_time'
+const PREFERRED_LANGUAGE_KEY = 'preferred_language'
 
 interface LanguageContextType {
   language: ValidLocale
@@ -47,68 +49,47 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
     return trans
   })
 
-  // 更新语言并同时更新URL
+  // 更新语言并同时更新URL和Cookie
   const setLanguage = (newLanguage: ValidLocale) => {
     if (newLanguage === language) return
 
     const currentPathname = pathname || ''
     const pathWithoutLocale = currentPathname.replace(/^\/[^/]+/, '')
-    const newPath = `/${newLanguage}${pathWithoutLocale}`
+    const newPath = newLanguage === 'en' ? pathWithoutLocale : `/${newLanguage}${pathWithoutLocale}`
     
+    // 更新状态
     setLanguageState(newLanguage)
-    localStorage.setItem('preferred_language', newLanguage)
+    
+    // 保存到localStorage和cookie
+    localStorage.setItem(PREFERRED_LANGUAGE_KEY, newLanguage)
+    document.cookie = `preferred_language=${newLanguage}; path=/; max-age=${30 * 24 * 60 * 60}` // 30天过期
+    
+    // 更新URL
     router.push(newPath)
   }
 
   useEffect(() => {
-    // 从 localStorage 获取已保存的语言设置
-    const savedLanguage = localStorage.getItem('preferred_language')
+    // 从 localStorage 和 cookie 获取已保存的语言设置
+    const savedLanguage = localStorage.getItem(PREFERRED_LANGUAGE_KEY)
     if (savedLanguage && isValidLocale(savedLanguage) && savedLanguage !== language) {
       setLanguage(savedLanguage)
+      return
     }
 
     // 检测浏览器语言
     const detectBrowserLanguage = () => {
-      // 先检查是否已经显示过提示或用户已关闭提示
-      const hintDismissed = localStorage.getItem(LANGUAGE_HINT_STORAGE_KEY)
-      if (hintDismissed === 'true') {
-        return; // 如果用户已经关闭过提示，不再显示
-      }
-
-      const languages = navigator.languages || [navigator.language]
-      for (const lang of languages) {
-        // 处理完整的语言代码（如 zh-CN, zh-TW, ja-JP）
-        if (isValidLocale(lang)) {
-          if (lang !== language) {
-            setBrowserLanguage(lang)
-            setShowLanguageHint(true)
-          }
-          break
-        }
-        // 处理简短的语言代码（如 zh, ja）
-        const shortLang = lang.toLowerCase().split('-')[0]
-        if (shortLang === 'zh') {
-          // 根据地区设置选择简体或繁体中文
-          const region = lang.split('-')[1]?.toUpperCase()
-          if (region === 'TW' || region === 'HK') {
-            if ('zh-TW' !== language) {
-              setBrowserLanguage('zh-TW')
-              setShowLanguageHint(true)
-            }
-          } else {
-            if ('zh-CN' !== language) {
-              setBrowserLanguage('zh-CN')
-              setShowLanguageHint(true)
-            }
-          }
-          break
-        }
-        if (shortLang === 'ja') {
-          if ('ja' !== language) {
-            setBrowserLanguage('ja')
-            setShowLanguageHint(true)
-          }
-          break
+      // 检查是否需要显示语言提示
+      const showPrompt = document.cookie.includes('X-Show-Language-Prompt=true')
+      const detectedLang = document.cookie.match(/X-Detected-Language=([^;]+)/)?.[1]
+      
+      if (showPrompt && detectedLang && isValidLocale(detectedLang)) {
+        // 检查上次提示时间
+        const lastPromptTime = localStorage.getItem(LAST_PROMPT_TIME_KEY)
+        const now = new Date().getTime()
+        
+        if (!lastPromptTime || (now - parseInt(lastPromptTime)) > 24 * 60 * 60 * 1000) {
+          setBrowserLanguage(detectedLang as ValidLocale)
+          setShowLanguageHint(true)
         }
       }
     }
@@ -127,17 +108,19 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
     }
   }, [language])
 
-  // 关闭提示时保存状态到本地存储
+  // 关闭提示时保存状态
   const dismissLanguageHint = () => {
-    setShowLanguageHint(false);
-    localStorage.setItem(LANGUAGE_HINT_STORAGE_KEY, 'true');
+    setShowLanguageHint(false)
+    localStorage.setItem(LANGUAGE_HINT_STORAGE_KEY, 'true')
+    localStorage.setItem(LAST_PROMPT_TIME_KEY, new Date().getTime().toString())
+    document.cookie = `last_lang_prompt_time=${new Date().toISOString()}; path=/; max-age=${24 * 60 * 60}`
   }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, browserLanguage, t: translation }}>
       {children}
       {showLanguageHint && browserLanguage && browserLanguage !== language && (
-        <div className="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 max-w-sm border border-gray-200">
+        <div className="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 max-w-sm border border-gray-200 z-50">
           <p className="text-sm text-gray-600">
             {language === 'zh-CN'
               ? '您的浏览器语言设置为中文，是否切换到中文版？'
@@ -145,7 +128,13 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
               ? '您的瀏覽器語言設置為中文，是否切換到繁體中文版？'
               : language === 'ja'
               ? 'ブラウザの言語設定が日本語になっています。日本語版に切り替えますか？'
-              : 'Your browser language is set to Chinese. Would you like to switch to Chinese version?'}
+              : browserLanguage === 'zh-CN'
+              ? 'Your browser language is set to Simplified Chinese. Would you like to switch to Chinese version?'
+              : browserLanguage === 'zh-TW'
+              ? 'Your browser language is set to Traditional Chinese. Would you like to switch to Chinese version?'
+              : browserLanguage === 'ja'
+              ? 'Your browser language is set to Japanese. Would you like to switch to Japanese version?'
+              : 'Would you like to switch to your browser language?'}
           </p>
           <div className="mt-3 flex justify-end space-x-3">
             <button
