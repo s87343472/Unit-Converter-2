@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 主页 -->
+  <url>
+    <loc>https://www.metric-converter.com</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW"/>
+  </url>
+
+  <!-- 单位转换器页面 -->
+  <url>
+    <loc>https://www.metric-converter.com/length</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/length"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/length"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/length"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/length"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/length"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/area</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/area"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/area"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/area"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/area"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/area"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/volume</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/volume"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/volume"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/volume"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/volume"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/volume"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/weight</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/weight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/weight"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/weight"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/weight"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/weight"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/temperature</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/temperature"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/temperature"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/temperature"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/temperature"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/temperature"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/speed</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/speed"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/speed"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/speed"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/speed"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/speed"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/time</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/time"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/time"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/time"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/time"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/time"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/angle</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/angle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/angle"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/angle"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/angle"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/angle"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/pressure</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/pressure"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/pressure"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/pressure"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/pressure"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/pressure"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/power</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/power"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/power"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/power"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/power"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/power"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/energy</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/energy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/energy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/energy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/energy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/energy"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/force</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/force"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/force"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/force"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/force"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/force"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/density</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/density"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/density"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/density"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/density"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/density"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/flow</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/flow"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/flow"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/flow"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/flow"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/flow"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/torque</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/torque"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/torque"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/torque"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/torque"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/torque"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/data</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/data"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/data"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/data"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/data"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/data"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/data_rate</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/data_rate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/data_rate"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/data_rate"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/data_rate"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/data_rate"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/cooking</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/cooking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/cooking"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/cooking"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/cooking"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/cooking"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/numeral</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/numeral"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/numeral"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/numeral"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/numeral"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/numeral"/>
+  </url>
+
+  <!-- 其他页面 -->
+  <url>
+    <loc>https://www.metric-converter.com/about</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/about"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/privacy-policy</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/privacy-policy"/>
+  </url>
+
+  <url>
+    <loc>https://www.metric-converter.com/terms-of-service</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.metric-converter.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.metric-converter.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.metric-converter.com/zh-CN/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.metric-converter.com/ja/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.metric-converter.com/zh-TW/terms-of-service"/>
+  </url>
+</urlset> 
