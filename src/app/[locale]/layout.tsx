@@ -29,7 +29,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   }, {} as Record<ValidLocale, string>)
 
   // 添加x-default
-  languages['x-default' as ValidLocale] = `${baseUrl}/en${path}`
+  languages['x-default' as ValidLocale] = `${baseUrl}${path}`
 
   // 获取SEO配置，如果没有找到对应语言的配置，使用英文配置
   const seo = seoConfig[locale] || seoConfig['en']
@@ -63,24 +63,23 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
       description: seo.ogDescription,
       url: currentUrl,
       siteName: seo.ogSiteName,
-      locale: searchEngineLocales[locale],
-      alternateLocale: Object.values(searchEngineLocales).filter(l => l !== searchEngineLocales[locale]),
-      type: 'website',
       images: [
         {
           url: seo.ogImage,
           width: 1200,
           height: 630,
-          alt: seo.ogTitle
-        }
-      ]
+          alt: seo.ogTitle,
+        },
+      ],
+      locale: locale,
+      type: 'website',
     },
     twitter: {
-      card: 'summary_large_image',
+      card: seo.twitterCard as 'summary' | 'summary_large_image',
       site: seo.twitterSite,
       title: seo.twitterTitle,
       description: seo.twitterDescription,
-      images: seo.twitterImage
+      images: [seo.twitterImage],
     },
     other: {
       'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
