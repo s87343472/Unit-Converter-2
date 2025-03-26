@@ -13,40 +13,8 @@ const nextConfig = {
     // 自定义webpack配置
     return config
   },
-  // 添加sitemap.xml的配置
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/sitemap.xml',
-      },
-    ]
-  },
-  // 确保静态文件被正确处理
-  async headers() {
-    return [
-      {
-        source: '/sitemap.xml',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/xml',
-          },
-        ],
-      },
-    ]
-  },
-  // 添加输出配置
   output: 'standalone',
-  // 添加静态文件处理
   distDir: '.next',
-  // 确保public目录被复制
-  experimental: {
-    outputFileTracingRoot: undefined,
-    outputFileTracingIncludes: {
-      '/**/*': ['./public/**/*'],
-    },
-  }
 }
 
 module.exports = nextConfig 

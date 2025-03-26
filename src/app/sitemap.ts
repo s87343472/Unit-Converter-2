@@ -1,57 +1,38 @@
 import { MetadataRoute } from 'next'
-import { locales } from '@/lib/i18n/config'
-import { conversionTypes } from '@/lib/conversion-types'
-
-const baseUrl = 'https://www.metric-converter.com'
-const lastMod = '2024-02-06'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = []
+  const baseUrl = 'https://www.metric-converter.com'
+  const lastModified = new Date()
 
-  // 添加主页
-  entries.push({
-    url: baseUrl,
-    lastModified: lastMod,
-    changeFrequency: 'daily',
-    priority: 1,
-  })
-
-  // 为每种语言添加条目
-  locales.forEach(locale => {
-    // 语言主页
-    entries.push({
-      url: `${baseUrl}/${locale}`,
-      lastModified: lastMod,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    })
-
-    // 每种转换类型的页面
-    conversionTypes.forEach(({ id }) => {
-      entries.push({
-        url: `${baseUrl}/${locale}/${id}`,
-        lastModified: lastMod,
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      })
-    })
-  })
-
-  // 添加其他重要页面
-  const staticPages = [
-    { path: '/about', priority: 0.7 },
-    { path: '/privacy-policy', priority: 0.6 },
-    { path: '/terms-of-service', priority: 0.6 },
+  // 定义所有支持的语言
+  const languages = ['', 'zh-CN', 'zh-TW', 'ja']
+  
+  // 定义所有页面路径
+  const paths = [
+    '',
+    '/data',
+    '/data_rate',
+    '/cooking',
+    '/numeral',
+    '/about',
+    '/privacy-policy',
+    '/terms-of-service'
   ]
 
-  staticPages.forEach(({ path, priority }) => {
-    entries.push({
-      url: `${baseUrl}${path}`,
-      lastModified: lastMod,
-      changeFrequency: 'monthly',
-      priority,
-    })
-  })
+  const urls: MetadataRoute.Sitemap = []
 
-  return entries
+  // 为每种语言和路径组合生成URL
+  for (const lang of languages) {
+    for (const path of paths) {
+      const langPrefix = lang ? `/${lang}` : ''
+      urls.push({
+        url: `${baseUrl}${langPrefix}${path}`,
+        lastModified,
+        changeFrequency: path === '' ? 'daily' : 'weekly',
+        priority: path === '' ? 1 : 0.8,
+      })
+    }
+  }
+
+  return urls
 } 
