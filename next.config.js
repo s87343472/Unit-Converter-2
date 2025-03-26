@@ -35,6 +35,17 @@ const nextConfig = {
         ],
       },
     ]
+  },
+  // 添加输出配置
+  output: 'standalone',
+  // 添加静态文件处理
+  distDir: '.next',
+  // 确保public目录被复制
+  experimental: {
+    outputFileTracingRoot: undefined,
+    outputFileTracingIncludes: {
+      '/**/*': ['./public/**/*'],
+    },
   }
 }
 
