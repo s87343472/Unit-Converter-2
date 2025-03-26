@@ -7,6 +7,46 @@
 - 最新的版本号在最上面
 - 本规则不能被删除。
 
+## [0.3.94] - 2024-03-26
+
+### 单位符号标准化
+- 为所有单位添加国际单位符号
+  - 长度单位：m、km、cm、mm、in、ft、yd、mi、ly、AU等
+  - 面积单位：m²、km²、cm²、ha、ac等
+  - 体积单位：m³、L、mL、gal、fl oz等
+  - 重量单位：kg、g、mg、lb、oz等
+  - 时间单位：s、min、h、d、wk、mo、yr等
+  - 温度单位：°C、°F、K、°R
+  - 压力单位：Pa、kPa、bar、psi、mmHg等
+  - 功率单位：W、kW、MW、hp、BTU/h
+  - 能量单位：J、kJ、cal、kcal、Wh、kWh、eV、BTU
+  - 力的单位：N、kN、dyn、lbf、kgf
+  - 密度单位：kg/m³、g/cm³、lb/ft³、lb/in³
+  - 流量单位：m³/s、L/min、gal/min等
+  - 频率单位：Hz、kHz、MHz、GHz、rpm、rps
+  - 数据单位：bit、B、KB、MB、GB、TB、PB
+  - 数据传输率单位：bps、kbps、Mbps、Gbps、B/s等
+  - 烹饪单位：metric cup、US cup、tbsp、tsp、fl oz等
+  - 进制单位：dec、bin、oct、hex
+
+### 受影响的文件
+- `src/lib/i18n/translations/zh-TW.ts`
+- `src/lib/i18n/translations/zh-CN.ts`
+- `src/lib/i18n/translations/en.ts`
+- `src/lib/i18n/translations/ja.ts`
+
+### 测试结果
+- 单位符号显示测试通过
+- 多语言兼容性测试通过
+- 单位转换功能测试通过
+- 页面布局适配测试通过
+
+### 下一步计划
+- [ ] 监控用户对新单位符号的使用反馈
+- [ ] 收集用户对单位显示的建议
+- [ ] 考虑添加更多专业单位和符号
+- [ ] 优化单位符号的显示样式
+
 ## [0.3.93] - 2024-05-26
 
 ### 移除货币单位转换

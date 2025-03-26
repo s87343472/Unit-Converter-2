@@ -268,14 +268,15 @@ const zhCN: Translation = {
         foot_per_second: '英尺每秒',
         knot: '节',
         mach: '马赫',
-        kilometer_per_second: '千米每秒',
         light_speed: '光速'
       },
       knowledge: {
         title: '你知道吗？',
         items: [
           '1米/秒等于3.6千米/小时。',
-          '1节等于1.852千米/小时。'
+          '1节等于1.852千米/小时。',
+          '马赫是音速的倍数，在标准大气压下约为340米/秒。',
+          '光速是宇宙中最快的速度，约为299,792,458米/秒。'
         ]
       }
     },
@@ -474,15 +475,20 @@ const zhCN: Translation = {
       title: '扭矩',
       description: '在不同扭矩单位之间转换',
       units: {
-        newton_meter: '牛顿米',
-        pound_foot: '磅英尺',
-        kilogram_force_meter: '千克力米'
+        metric_newton_meter: '牛顿·米',
+        metric_newton_centimeter: '牛顿·厘米',
+        imperial_pound_foot: '磅·英尺',
+        imperial_pound_inch: '磅·英寸',
+        scientific_kilogram_force_meter: '千克力·米',
+        scientific_kilogram_force_centimeter: '千克力·厘米'
       },
       knowledge: {
         title: '你知道吗？',
         items: [
-          '1牛顿米等于0.737562磅英尺。',
-          '1千克米等于9.80665牛顿米。'
+          '扭矩是力与力臂的乘积。',
+          '汽车引擎的扭矩常用牛顿·米表示。',
+          '扭矩对机械设计很重要。',
+          '螺丝的紧固扭矩常用磅·英寸表示。'
         ]
       }
     },

@@ -304,11 +304,21 @@ const en: Translation = {
       title: 'Angle',
       description: 'Convert between different units of angle',
       units: {
-        degree: 'Degree',
-        radian: 'Radian',
-        gradian: 'Gradian',
-        arcminute: 'Arcminute',
-        arcsecond: 'Arcsecond'
+        angle_degree: 'Degree (°)',
+        angle_radian: 'Radian (rad)',
+        angle_gradian: 'Gradian (gon)',
+        angle_arcminute: 'Arcminute (′)',
+        angle_arcsecond: 'Arcsecond (″)',
+        angle_revolution: 'Revolution (rev)'
+      },
+      knowledge: {
+        title: 'Did you know?',
+        items: [
+          'A complete circle is 360 degrees or 2π radians.',
+          'Radians are the natural unit for angles in mathematics.',
+          'Gradians divide a circle into 400 parts, mainly used in surveying.',
+          'Arcminutes and arcseconds are commonly used in astronomy.'
+        ]
       }
     },
     pressure: {

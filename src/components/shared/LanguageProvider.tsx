@@ -77,7 +77,7 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
 
       const languages = navigator.languages || [navigator.language]
       for (const lang of languages) {
-        // 处理完整的语言代码（如 zh-CN）
+        // 处理完整的语言代码（如 zh-CN, zh-TW, ja-JP）
         if (isValidLocale(lang)) {
           if (lang !== language) {
             setBrowserLanguage(lang)
@@ -85,11 +85,27 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
           }
           break
         }
-        // 处理简短的语言代码（如 zh）
+        // 处理简短的语言代码（如 zh, ja）
         const shortLang = lang.toLowerCase().split('-')[0]
         if (shortLang === 'zh') {
-          if ('zh-CN' !== language) {
-            setBrowserLanguage('zh-CN')
+          // 根据地区设置选择简体或繁体中文
+          const region = lang.split('-')[1]?.toUpperCase()
+          if (region === 'TW' || region === 'HK') {
+            if ('zh-TW' !== language) {
+              setBrowserLanguage('zh-TW')
+              setShowLanguageHint(true)
+            }
+          } else {
+            if ('zh-CN' !== language) {
+              setBrowserLanguage('zh-CN')
+              setShowLanguageHint(true)
+            }
+          }
+          break
+        }
+        if (shortLang === 'ja') {
+          if ('ja' !== language) {
+            setBrowserLanguage('ja')
             setShowLanguageHint(true)
           }
           break
@@ -125,6 +141,10 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
           <p className="text-sm text-gray-600">
             {language === 'zh-CN'
               ? '您的浏览器语言设置为中文，是否切换到中文版？'
+              : language === 'zh-TW'
+              ? '您的瀏覽器語言設置為中文，是否切換到繁體中文版？'
+              : language === 'ja'
+              ? 'ブラウザの言語設定が日本語になっています。日本語版に切り替えますか？'
               : 'Your browser language is set to Chinese. Would you like to switch to Chinese version?'}
           </p>
           <div className="mt-3 flex justify-end space-x-3">
@@ -132,7 +152,13 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
               onClick={dismissLanguageHint}
               className="text-sm text-gray-500 hover:text-gray-700"
             >
-              {language === 'zh-CN' ? '不用了' : 'No, thanks'}
+              {language === 'zh-CN'
+                ? '不用了'
+                : language === 'zh-TW'
+                ? '不用了'
+                : language === 'ja'
+                ? 'いいえ'
+                : 'No, thanks'}
             </button>
             <button
               onClick={() => {
@@ -141,7 +167,13 @@ export default function LanguageProvider({ children, defaultLanguage = defaultLo
               }}
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
-              {language === 'zh-CN' ? '切换语言' : 'Switch language'}
+              {language === 'zh-CN'
+                ? '切换语言'
+                : language === 'zh-TW'
+                ? '切換語言'
+                : language === 'ja'
+                ? '言語を切り替える'
+                : 'Switch language'}
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import type { UnitType, UnitInfo } from '@/lib/i18n/units'
 
-export type ValidLocale = 'en' | 'zh-CN'
+export type ValidLocale = 'en' | 'zh-CN' | 'ja' | 'zh-TW'
 
 export interface CommonTranslation {
   title: string
