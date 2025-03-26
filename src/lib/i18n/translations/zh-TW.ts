@@ -80,7 +80,8 @@ const zhTW: Translation = {
     conversionHistory: '轉換歷史',
     clearHistory: '清除歷史',
     confirmClear: '確定要清除歷史嗎？',
-    delete: '刪除'
+    delete: '刪除',
+    links: '友情連結'
   },
   units: {
     length: {
@@ -623,6 +624,10 @@ const zhTW: Translation = {
         '1公升等於1000毫升'
       ]
     }
+  },
+  Links: {
+    title: '友情連結',
+    description: '探索我們的合作夥伴網站和資源',
   }
 }
 

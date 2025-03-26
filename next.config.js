@@ -1,3 +1,5 @@
+const withNextIntl = require('next-intl/plugin')()
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
@@ -17,4 +19,4 @@ const nextConfig = {
   distDir: '.next',
 }
 
-module.exports = nextConfig 
+module.exports = withNextIntl(nextConfig) 

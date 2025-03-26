@@ -80,7 +80,8 @@ const zhCN: Translation = {
     conversionHistory: '转换历史',
     clearHistory: '清除历史',
     confirmClear: '确定要清除所有历史记录吗？',
-    delete: '删除'
+    delete: '删除',
+    links: '友情链接'
   },
   units: {
     length: {
@@ -613,6 +614,10 @@ const zhCN: Translation = {
         '不同单位系统之间的转换需要特别注意精度'
       ]
     }
+  },
+  Links: {
+    title: '友情链接',
+    description: '探索我们的合作伙伴网站和资源',
   }
 }
 

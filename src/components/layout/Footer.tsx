@@ -4,7 +4,7 @@ import { useLanguage } from '@/components/shared/LanguageProvider'
 import Link from 'next/link'
 
 export default function Footer() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -25,12 +25,12 @@ export default function Footer() {
               <p className="text-sm text-gray-600">
                 © {currentYear} Metric Converter. All rights reserved.
               </p>
-              {/* <Link 
-                href="/changelog" 
-                className="text-sm text-indigo-600 hover:text-indigo-700"
+              <Link 
+                href={`/${language}/links`} 
+                className="text-sm text-indigo-600 hover:text-indigo-700 block"
               >
-                {t?.footer?.changelog || 'Changelog'}
-              </Link> */}
+                {t?.common?.links || 'Links'}
+              </Link>
             </div>
           </div>
         </div>

@@ -82,6 +82,7 @@ export interface CommonTranslation {
   clearHistory: string
   confirmClear: string
   delete: string
+  links: string
 }
 
 export interface UnitTranslation {
@@ -138,6 +139,10 @@ export interface Translation {
       title: string
       items: string[]
     }
+  }
+  Links: {
+    title: string
+    description: string
   }
 }
 

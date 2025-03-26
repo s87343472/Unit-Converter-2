@@ -80,7 +80,8 @@ const en: Translation = {
     conversionHistory: 'Conversion History',
     clearHistory: 'Clear History',
     confirmClear: 'Are you sure you want to clear all history?',
-    delete: 'Delete'
+    delete: 'Delete',
+    links: 'Links'
   },
   units: {
     length: {
@@ -589,6 +590,10 @@ const en: Translation = {
     email: 'support@metric-converter.com',
     legal: 'Legal',
     changelog: 'Changelog'
+  },
+  Links: {
+    title: 'Friendship Links',
+    description: 'Explore our partner websites and resources',
   }
 }
 

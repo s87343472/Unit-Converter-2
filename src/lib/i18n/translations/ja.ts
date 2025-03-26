@@ -80,7 +80,8 @@ const ja: Translation = {
     conversionHistory: '変換履歴',
     clearHistory: '履歴をクリア',
     confirmClear: '履歴をクリアしてもよろしいですか？',
-    delete: '削除'
+    delete: '削除',
+    links: 'リンク'
   },
   units: {
     length: {
@@ -524,7 +525,11 @@ const ja: Translation = {
         '1リットルは1000ミリリットルです'
       ]
     }
-  }
+  },
+  Links: {
+    title: 'リンク集',
+    description: 'パートナーサイトとリソースを探索',
+  },
 }
 
 export default ja 
