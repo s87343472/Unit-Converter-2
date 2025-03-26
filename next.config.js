@@ -12,6 +12,29 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     // 自定义webpack配置
     return config
+  },
+  // 添加sitemap.xml的配置
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/sitemap.xml',
+      },
+    ]
+  },
+  // 确保静态文件被正确处理
+  async headers() {
+    return [
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml',
+          },
+        ],
+      },
+    ]
   }
 }
 
