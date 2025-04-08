@@ -664,15 +664,30 @@ export default function UnitConverterLayout({ type }: UnitConverterLayoutProps) 
           Object.entries(units).flatMap(([fromKey, fromValue]) =>
             Object.entries(units)
               .filter(([toKey, toValue]) => fromValue !== toValue) // 过滤掉相同的值
-              .map(([toKey, toValue]) => (
-                <Link
-                  key={`${fromKey}-${toKey}`}
-                  href={`/${language}/${type}?from=${fromKey}&to=${toKey}`}
-                  className="block text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  {fromValue} {language === 'zh-CN' ? '→' : 'to'} {toValue}
-                </Link>
-              ))
+              .map(([toKey, toValue]) => {
+                // 使用新的SEO友好URL格式针对长度单位
+                const urlName = (unitId: string): string => {
+                  // 将单位ID反向映射到URL友好名称
+                  if (type === 'length') {
+                    for (const [key, value] of Object.entries(UNIT_ID_MAP.length)) {
+                      if (value === unitId) return key;
+                    }
+                  }
+                  return unitId;
+                };
+                
+                return (
+                  <Link
+                    key={`${fromKey}-${toKey}`}
+                    href={type === 'length' 
+                      ? `/${language}/${type}/${urlName(fromKey)}-to-${urlName(toKey)}`
+                      : `/${language}/${type}?from=${fromKey}&to=${toKey}`}
+                    className="block text-blue-600 hover:text-blue-800 hover:underline"
+                  >
+                    {fromValue} {language === 'zh-CN' ? '→' : 'to'} {toValue}
+                  </Link>
+                );
+              })
           )
         }
       </div>
