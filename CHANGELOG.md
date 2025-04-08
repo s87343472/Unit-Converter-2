@@ -7,6 +7,217 @@
 - 最新的版本号在最上面
 - 本规则不能被删除。
 
+## [0.3.99] - 2024-04-08
+
+### ISR缓存优化与配置改进
+
+- 修复Next.js配置文件中的警告
+  - 移除已弃用的`isrMemoryCacheSize`配置项
+  - 简化experimental配置项结构
+- 优化增量静态再生成(ISR)性能
+  - 增加缓存有效期从24小时到1年(31536000秒)
+  - 提升静态资源缓存效率
+  - 改进页面加载速度和服务器性能
+- 规划预热系统
+  - 设计缓存预热脚本框架
+  - 为生产环境部署做准备
+
+### 受影响的文件
+- 修改文件：
+  - `next.config.js`
+  - `src/lib/seo/config.ts`
+  - `CHANGELOG.md`
+
+### 实现情况
+- Next.js配置警告已修复
+- ISR缓存时间已优化
+- 预热系统设计已完成
+
+### 下一步计划
+- [ ] 部署上线后实现缓存预热脚本
+- [ ] 监控缓存性能及页面加载速度
+- [ ] 优化Vercel自由套餐下的资源使用
+- [ ] 考虑为重要页面实现完全静态预渲染
+
+## [0.3.98] - 2024-04-08
+
+### URL结构优化
+
+- 重构URL结构为SEO友好格式
+  - 将URL路径从`/[locale]/[type]/[fromUnit]/to/[toUnit]`修改为`/[locale]/[type]/[fromUnit]-to-[toUnit]`
+  - 整合为单参数路由结构`/[locale]/[type]/[combinedParam]`
+  - 优化URL解析逻辑，支持`[fromUnit]-to-[toUnit]`格式
+  - 增强中间件重定向功能
+- 更新静态页面生成系统
+  - 调整`generateStaticParams`函数适配新URL结构
+  - 优化热门组合页面生成
+  - 修改页面组件参数解析逻辑
+- 修复URL结构冲突问题
+  - 解决动态路由参数命名冲突
+  - 修复参数解析错误
+
+### 受影响的文件
+- 创建文件：
+  - `src/app/[locale]/[type]/[combinedParam]/page.tsx`
+  - `src/app/[locale]/[type]/[combinedParam]/layout.tsx`
+- 修改文件：
+  - `src/middleware.ts`
+  - `CHANGELOG.md`
+- 删除文件：
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/page.tsx`
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/layout.tsx`
+
+### 实现情况
+- SEO友好URL结构已完成
+- 页面参数解析逻辑已修复
+- 中间件重定向规则已更新
+- 静态页面生成功能已适配新结构
+
+### 下一步计划
+- [ ] 监控新URL结构的搜索引擎收录情况
+- [ ] 添加301重定向规则到网站服务器配置
+- [ ] 更新网站地图以反映新URL结构
+- [ ] 为新URL结构添加性能分析
+
+## [0.3.97] - 2024-04-08
+
+### SEO 优化与页面生成系统增强
+
+- 添加站点地图生成功能
+  - 实现动态sitemap.xml生成
+  - 为每个单位转换组合生成站点地图条目
+  - 添加不同优先级设置
+- 添加SEO配置系统
+  - 实现热门转换组合优先生成
+  - 添加增量静态再生成时间控制
+  - 添加单位类型显示名称本地化
+- 添加单元测试
+  - 为所有SEO组件添加基本测试
+  - 实现测试模拟数据
+- 优化静态生成性能
+  - 分离热门组合和一般组合
+  - 实现单位数量限制机制
+  - 添加生成时间统计
+
+### 受影响的文件
+- 创建文件：
+  - `src/lib/seo/config.ts`
+  - `src/app/sitemap.ts`
+  - `src/components/conversion/__tests__/ConversionComponents.test.tsx`
+- 修改文件：
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/page.tsx`
+  - `README.md`
+  - `CHANGELOG.md`
+
+### 实现情况
+- 所有SEO优化功能已完成
+- 静态生成系统已优化
+- 站点地图已实现
+- 基本单元测试已添加
+
+### 下一步计划
+- [ ] 添加更多单元测试覆盖
+- [ ] 实现自动化部署流程
+- [ ] 监控页面性能
+- [ ] 添加数据统计和分析
+
+## [0.3.96] - 2024-04-08
+
+### SEO 优化与页面生成系统实现
+- 完成单位转换专用页面系统
+  - 实现动态路由`/[locale]/[type]/[fromUnit]-to-[toUnit]`
+  - 添加静态页面生成功能（ISR）
+  - 实现单位URL映射系统
+  - 实现转换因子计算功能
+- 实现SEO内容组件
+  - 创建ConversionIntroduction组件（包含历史和应用场景）
+  - 创建ConversionFormula组件（显示转换公式）
+  - 创建ConversionTable组件（显示常见转换值表格）
+  - 创建RelatedConversions组件（显示相关转换链接）
+- 添加Schema.org结构化数据
+  - 实现SoftwareApplication类型标记
+  - 实现BreadcrumbList标记
+  - 添加多语言支持
+
+### 受影响的文件
+- 创建文件：
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/page.tsx`
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/layout.tsx`
+  - `src/components/conversion/SpecificUnitConverter.tsx`
+  - `src/components/conversion/ConversionFormula.tsx`
+  - `src/components/conversion/ConversionTable.tsx`
+  - `src/components/conversion/ConversionIntroduction.tsx`
+  - `src/components/conversion/RelatedConversions.tsx`
+  - `src/lib/seo/structured-data.ts`
+  - `src/lib/conversion/url-mapping.ts`
+- 修改文件：
+  - `src/lib/conversion/index.ts`
+  - `CHANGELOG.md`
+
+### 实现情况
+- 完成页面的基本SEO优化
+  - 优化页面元数据（title、description）
+  - 添加hreflang标签和规范链接
+  - 实现OpenGraph标签
+  - 添加结构化数据
+- 完成页面内容区块
+  - 简介部分 ✓
+  - 转换公式部分 ✓
+  - 常见转换值表格 ✓
+  - 实际应用场景 ✓
+  - 历史和背景知识 ✓
+  - 相关转换链接区域 ✓
+
+### 下一步计划
+- [ ] 处理TypeScript linter错误
+- [ ] 完善所有单位类型的URL映射
+- [ ] 添加单元测试
+- [ ] 增强页面内容的多语言支持
+- [ ] 优化静态生成性能
+- [ ] 监控SEO效果
+
+## [0.3.95] - 2024-04-08
+
+### SEO 优化与页面生成系统开发计划
+- 单位转换页面 SEO 优化设计
+  - 设计 URL 结构：`/[locale]/[类别]/[源单位]-to-[目标单位]` 路由结构
+  - 为每个单位转换组合创建专用页面
+  - 实现静态生成逻辑，支持所有单位组合
+  - 设计专用内容区块组件（简介、转换公式、常见值表格、应用场景、历史背景）
+- 多语言 SEO 策略设计
+  - 优化多语言元数据生成系统
+  - 完善 hreflang 标签实现
+  - 设计结构化数据注入系统
+  - 为每个语言创建本地化内容模板
+
+### 受影响的文件
+- 新增文件：
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/page.tsx`
+  - `src/app/[locale]/[type]/[fromUnit]-to-[toUnit]/layout.tsx`
+  - `src/components/conversion/SpecificUnitConverter.tsx`
+  - `src/components/conversion/ConversionTable.tsx`
+  - `src/components/conversion/RelatedConversions.tsx`
+  - `src/lib/seo/templates.ts`
+  - `src/lib/seo/structured-data.ts`
+- 修改文件：
+  - `src/middleware.ts`
+  - `src/lib/i18n/seo.ts`
+  - `src/lib/i18n/page-seo.ts`
+
+### 项目分析结果
+- 完成现有代码库结构分析
+  - 项目基于 Next.js 14 App Router 架构
+  - 已实现完整的单位转换功能逻辑（19种单位类型）
+  - 现有多语言支持（en, zh-CN, zh-TW, ja）
+  - 现有单位转换页面使用 `/[locale]/[type]` 路由
+
+### 下一步计划
+- [ ] 实现 `/[locale]/[type]/[fromUnit]-to-[toUnit]` 动态路由
+- [ ] 创建专用转换页面布局和组件
+- [ ] 实现多语言内容模板系统
+- [ ] 开发 SEO 元数据生成逻辑
+- [ ] 实现结构化数据注入
+
 ## [0.3.94] - 2024-03-26
 
 ### 单位符号标准化

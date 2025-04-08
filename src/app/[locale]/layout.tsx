@@ -17,10 +17,10 @@ type Props = {
 }
 
 export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
-  const headersList = headers()
-  const pathname = headersList.get('x-pathname') || ''
-  const path = pathname.replace(`/${locale}`, '') || '/'
+  // 不再使用headers()获取路径，而是使用固定的路径模式
+  // 静态路径无法获取当前路径，因此我们只使用locale参数
   const baseUrl = 'https://www.metric-converter.com'
+  const path = '/' // 简化处理，只用基本路径
 
   // 生成所有语言版本的URL
   const languages = i18n.locales.reduce((acc, loc) => {
